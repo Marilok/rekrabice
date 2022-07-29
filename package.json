@@ -16,6 +16,8 @@
     "@mantine/hooks": "^5.0.0",
     "@mantine/next": "^5.0.0",
     "@mantine/notifications": "^5.0.0",
+    "@supabase/auth-helpers-nextjs": "^0.2.5",
+    "@supabase/auth-helpers-react": "^0.2.3",
     "@supabase/supabase-js": "^1.35.4",
     "@tabler/icons": "^1.78.1",
     "autoprefixer": "^10.4.7",
