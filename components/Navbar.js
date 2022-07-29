@@ -1,7 +1,15 @@
-import { createStyles, Navbar, Group, Code, Button, Menu, Avatar, Text } from "@mantine/core";
+import {
+  createStyles,
+  Navbar,
+  Group,
+  Code,
+  Button,
+  Menu,
+  Avatar,
+  Text,
+} from "@mantine/core";
 import { UserButton } from "./UserButton/UserButton";
 import { useState, useEffect } from "react";
-import { supabase } from "../utils/supabaseClient";
 import Link from "next/link";
 
 import {
@@ -100,20 +108,16 @@ const useStyles = createStyles((theme, _params, getRef) => {
 });
 
 const data = [
-  { link: "/prijmout", label: "Přijmout krabici", icon: IconTransferIn },
-  { link: "/pouzit", label: "Použít krabici", icon: IconTransferOut },
-  { link: "/statistika", label: "Přehled", icon: IconChartArea },
+  { link: "/app/prijmout", label: "Přijmout krabici", icon: IconTransferIn },
+  { link: "/app/odeslat", label: "Použít krabici", icon: IconTransferOut },
+  { link: "/app/statistika", label: "Přehled", icon: IconChartArea },
 ];
 
-export default function CustomNavbar({ session }) {
+export default function CustomNavbar({ session, supabase }) {
   const [loading, setLoading] = useState(true);
   const [name, setName] = useState(null);
   const [email, setEmail] = useState(null);
   const [avatar, setAvatar] = useState(null);
-
-  useEffect(() => {
-    getProfile();
-  }, [session]);
 
   async function getProfile() {
     try {
@@ -123,7 +127,6 @@ export default function CustomNavbar({ session }) {
       let { data, error, status } = await supabase
         .from("profiles")
         .select(`name, email, avatar_url`)
-        .eq("id", user.id)
         .single();
 
       if (error && status !== 406) {
@@ -131,10 +134,10 @@ export default function CustomNavbar({ session }) {
       }
 
       if (data) {
+        console.log(data);
         setName(data.name);
         setEmail(data.email);
         setAvatar(data.avatar_url);
-        console.log("avatar:" + data.avatar_url);
       }
     } catch (error) {
       alert(error.message);
@@ -142,6 +145,9 @@ export default function CustomNavbar({ session }) {
       setLoading(false);
     }
   }
+  useEffect(() => {
+    getProfile();
+  }, [session]);
 
   const { classes, cx } = useStyles();
   const [active, setActive] = useState("Billing");
@@ -167,15 +173,14 @@ export default function CustomNavbar({ session }) {
     <Navbar height={"100vh"} width={{ sm: 300 }} p="md">
       <Navbar.Section grow>
         <Group className={classes.header} position="apart">
-                <Group spacing="xs">
-
-          <Avatar
-            radius="xl"
-            size="md"
-            src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fvignette.wikia.nocookie.net%2Fkirby%2Fimages%2F7%2F7d%2FKAR_GreenBox.png%2Frevision%2Flatest%3Fcb%3D20120130211244%26path-prefix%3Den&f=1&nofb=1"
-          />
-          <Text weight={600}>Zelená krabice</Text>
-</Group>
+          <Group spacing="xs">
+            <Avatar
+              radius="xl"
+              size="md"
+              src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fvignette.wikia.nocookie.net%2Fkirby%2Fimages%2F7%2F7d%2FKAR_GreenBox.png%2Frevision%2Flatest%3Fcb%3D20120130211244%26path-prefix%3Den&f=1&nofb=1"
+            />
+            <Text weight={600}>Zelená krabice</Text>
+          </Group>
           <Code sx={{ fontWeight: 700 }}>0.0.1</Code>
         </Group>
         {links}

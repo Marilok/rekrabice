@@ -1,9 +1,10 @@
 import { createStyles, Navbar, Group, Code, Button, Menu, AppShell} from "@mantine/core";
 import { UserButton } from "./UserButton/UserButton";
 import { useState, useEffect } from "react";
-import { supabase } from "../utils/supabaseClient";
+import {supabaseClient as supabase} from "@supabase/auth-helpers-nextjs";
 import Link from "next/link";
 import CustomNavbar from "./Navbar";
+import { withPageAuth, User } from "@supabase/auth-helpers-nextjs";
 import {
   IconBellRinging,
   IconFingerprint,
@@ -22,13 +23,13 @@ import {
 } from "@tabler/icons";
 
 
-export default function App({ children }) {
+export default function App({ children }:any) {
 
   return (
     <AppShell
       padding="md"
       navbar={
-        <CustomNavbar/>
+        <CustomNavbar supabase={supabase} session={supabase.auth.session()}/>
       }
       
       styles={(theme) => ({

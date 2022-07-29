@@ -1,7 +1,7 @@
 import { createStyles, Navbar, Group, Code, Button, Menu, Avatar, Text, Autocomplete, Paper, Container, Space } from "@mantine/core";
 import { UserButton } from "./UserButton/UserButton";
 import { useState, useEffect } from "react";
-import { supabase } from "../utils/supabaseClient";
+import supabaseClient from "@supabase/auth-helpers-nextjs";
 import Link from "next/link";
 
 import {
@@ -24,7 +24,7 @@ import { StatsGrid } from "./StatsGrid";
 import Forrest from "./Forrest";
 
 
-export default function Stats({ session }) {
+export default function Stats() {
     const [loading, setLoading] = useState(true);
     const [boxes, setBoxes] = useState([]);
 
@@ -59,10 +59,9 @@ export default function Stats({ session }) {
     // }
 
 
-    const dataStats = [{ title: 'Použitých krabic', icon: "package", value: '254', diff: 13 }, { title: 'Úspor', icon: "coin", value: '4444 Kč', diff: 20 }, { title: 'Ušetřeného CO2', icon: "cloud", value: '5 tun', diff: 1 }]
     return (
         <div>
-            <StatsGrid data={dataStats}/>
+            <StatsGrid data={[{ title: 'Použitých krabic', icon: "package", value: '254', diff: 13 }, { title: 'Úspor', icon: "coin", value: '4444 Kč', diff: 20 }, { title: 'Ušetřeného CO2', icon: "cloud", value: '5 tun', diff: 1 }]}/>
         <Forrest treesCount={66}/>
         </div>
         );
