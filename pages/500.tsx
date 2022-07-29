@@ -50,7 +50,7 @@ const FiveOhThree: NextPage = () => {
                 <div>
                     <Title className={classes.title}>Něco se pokazilo.</Title>
                     <Text color="dimmed" size="lg">
-                        Our servers could not handle your request. Don't worry, our development team was already notified. Try refreshing the page.
+                        Our servers could not handle your request.Don&apos;t worry, our development team was already notified. Try refreshing the page.
 
                     </Text>
                     <Button size="md" mt="xl" onClick={() => window.location.reload()} className={classes.control}>
