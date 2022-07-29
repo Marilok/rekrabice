@@ -20,4 +20,4 @@ const Prijmout: NextPage = () => {
   );
 };
 export default Prijmout;
-export const getServerSideProps = withPageAuth();
+// export const getServerSideProps = withPageAuth();

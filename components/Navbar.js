@@ -11,6 +11,7 @@ import {
 import { UserButton } from "./UserButton/UserButton";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { supabaseClient as supabase } from "@supabase/auth-helpers-nextjs";
 
 import {
   IconBellRinging,
@@ -113,7 +114,7 @@ const data = [
   { link: "/app/statistika", label: "Přehled", icon: IconChartArea },
 ];
 
-export default function CustomNavbar({ session, supabase }) {
+export default function CustomNavbar({ session }) {
   const [loading, setLoading] = useState(true);
   const [name, setName] = useState(null);
   const [email, setEmail] = useState(null);
@@ -122,8 +123,6 @@ export default function CustomNavbar({ session, supabase }) {
   async function getProfile() {
     try {
       setLoading(true);
-      const user = supabase.auth.user();
-
       let { data, error, status } = await supabase
         .from("profiles")
         .select(`name, email, avatar_url`)
@@ -140,6 +139,7 @@ export default function CustomNavbar({ session, supabase }) {
         setAvatar(data.avatar_url);
       }
     } catch (error) {
+      console.log(error);
       alert(error.message);
     } finally {
       setLoading(false);
@@ -147,6 +147,7 @@ export default function CustomNavbar({ session, supabase }) {
   }
   useEffect(() => {
     getProfile();
+    console.log(session);
   }, [session]);
 
   const { classes, cx } = useStyles();

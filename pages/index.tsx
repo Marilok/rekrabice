@@ -13,24 +13,34 @@ import {
 
 const Home: NextPage = () => {
   const [session, setSession] = useState(null);
-  const profileData = supabase.auth.user();
-  const { user, error } = useUser();
+  // const profileData = supabase.auth.user();
+  // const { user, error } = useUser();
+
+  // useEffect(() => {
+  //   setSession(supabase.auth.session());
+
+  //   supabase.auth.onAuthStateChange((_event, session: any) => {
+  //     setSession(session);
+  //     // supabase.auth.setAuth(accessToken)
+  //     supabase.auth.setAuth(session?.access_token);
+  //   });
+  // }, []);
 
   useEffect(() => {
-    const temp: any = supabase.auth.session();
-    setSession(temp);
+    setSession(supabase.auth.session());
 
-    supabase.auth.onAuthStateChange((_event, tempSession: any) => {
-      setSession(tempSession);
-      // supabase.auth.setAuth(accessToken)
-      supabase.auth.setAuth(tempSession?.access_token);
+    supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session);
     });
   }, []);
-  console.log("ses:", session);
-  console.log("user:", user);
-  console.log("prof:", profileData);
 
-  return <>{!session ? <Auth supabase={supabase} /> : <App />}</>;
+  console.log("ses:", session);
+  // console.log("user:", user);
+  // console.log("prof:", profileData);
+
+  return (
+    <>{!session ? <Auth supabase={supabase} /> : <App session={session} />}</>
+  );
 };
 
 export default Home;

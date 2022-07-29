@@ -59,6 +59,7 @@ export default function Receive({ session }: any) {
     getBoxes();
   }, [session]);
 
+  console.log(supabase);
   async function getBoxes() {
     try {
       setLoading(true);
@@ -66,14 +67,14 @@ export default function Receive({ session }: any) {
       let { data, error } = await supabase.rpc("get_returnable_boxes");
 
       if (error && status !== "406") {
+        console.log("Not found");
         throw error;
       }
       if (error && status == "406") {
         console.log("Not found");
       }
       if (data) {
-        console.log(data);
-
+        console.log(await supabase.from("boxes").select("*"));
         setBoxes(data);
         const tempNames: any = data.map((box) => {
           return box.name;
