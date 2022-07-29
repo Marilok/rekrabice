@@ -59,7 +59,7 @@ const FourOhFour: NextPage = () => {
                     </Button>
                     </Link>
                 </div>
-                <Image radius="md" src={image.src} width={450} height={300} className={classes.desktopImage} />
+                <Image radius="md" alt='Confused gif' src={image.src} width={450} height={300} className={classes.desktopImage} />
             </SimpleGrid>
         </Container>
     )

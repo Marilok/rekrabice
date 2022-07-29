@@ -57,7 +57,7 @@ const FiveOhThree: NextPage = () => {
                         Zkusit znovu načíst stránku
                     </Button>
                 </div>
-                <Image radius="md" src={image.src} width={450} height={300} className={classes.desktopImage} />
+                <Image radius="md" alt='Smashing computer' src={image.src} width={450} height={300} className={classes.desktopImage} />
             </SimpleGrid>
         </Container>
     )
