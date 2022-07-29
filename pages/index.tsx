@@ -12,7 +12,8 @@ import {
 } from "@supabase/auth-helpers-nextjs";
 
 const Home: NextPage = () => {
-  const [session, setSession] = useState(null);
+  const [session, setSession] = useState<any | null>(null);
+
   // const profileData = supabase.auth.user();
   // const { user, error } = useUser();
 
@@ -29,7 +30,7 @@ const Home: NextPage = () => {
   useEffect(() => {
     setSession(supabase.auth.session());
 
-    supabase.auth.onAuthStateChange((_event, session) => {
+    supabase.auth.onAuthStateChange((_event, session: any) => {
       setSession(session);
     });
   }, []);
