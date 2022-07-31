@@ -16,7 +16,7 @@ interface Props {
 }
 
 const SettingsModal = ({ opened, setOpened }: Props) => {
-  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
+  const { colorScheme, toggleColorScheme }: any = useMantineColorScheme();
 
   return (
     <>
