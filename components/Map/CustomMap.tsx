@@ -49,7 +49,8 @@ const CustomMap = () => {
       />
 
       <Marker icon={myIcon} position={[49.1918183, 16.6122742]}>
-        <Popup style={{ backgroundColor: theme.colors.gray[7] }}>
+        <Popup>
+          {/* style={{ backgroundColor: theme.colors.gray[7] }} */}
           <Paper className="w-80 h-full" shadow="xl" p="sm">
             <Group>
               <Title order={1}>Aktin - Letmo</Title>
