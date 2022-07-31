@@ -38,6 +38,7 @@ import Forrest from "./Forrest";
 import { supabaseClient as supabase } from "@supabase/auth-helpers-nextjs";
 
 interface Props {
+  data: any;
   stats_boxes_used?: number;
   stats_saved_co2?: number;
   stats_saved_trees?: number;
