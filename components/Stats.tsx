@@ -65,7 +65,7 @@ export default function Stats({ data }: Props) {
           },
         ]}
       /> */}
-      <Forrest treesCount={props.data.stats_saved_trees} />
+      <Forrest treesCount={66} />
     </div>
   );
 }
