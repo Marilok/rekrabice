@@ -59,7 +59,6 @@ export default function Receive({ session }: any) {
     getBoxes();
   }, [session]);
 
-  console.log(supabase);
   async function getBoxes() {
     try {
       setLoading(true);
@@ -74,7 +73,6 @@ export default function Receive({ session }: any) {
         console.log("Not found");
       }
       if (data) {
-        console.log(await supabase.from("boxes").select("*"));
         setBoxes(data);
         const tempNames: any = data.map((box) => {
           return box.name;
@@ -117,7 +115,7 @@ export default function Receive({ session }: any) {
           autoClose: 10000,
           loading: false,
         });
-        console.log(data);
+        // console.log(data);
       }
     } catch (error: any) {
       updateNotification({

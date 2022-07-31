@@ -35,7 +35,7 @@ const Home: NextPage = () => {
     });
   }, []);
 
-  console.log("ses:", session);
+  // console.log("ses:", session);
   // console.log("user:", user);
   // console.log("prof:", profileData);
 

@@ -7,11 +7,13 @@ import {
   Menu,
   Avatar,
   Text,
+  Modal,
 } from "@mantine/core";
 import { UserButton } from "./UserButton/UserButton";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { supabaseClient as supabase } from "@supabase/auth-helpers-nextjs";
+import SettingsModal from "./SettingsModal";
 
 import {
   IconBellRinging,
@@ -66,6 +68,7 @@ const useStyles = createStyles((theme, _params, getRef) => {
       padding: `${theme.spacing.xs}px ${theme.spacing.sm}px`,
       borderRadius: theme.radius.sm,
       fontWeight: 500,
+      cursor: "pointer",
 
       "&:hover": {
         backgroundColor:
@@ -115,6 +118,8 @@ const data = [
 ];
 
 export default function CustomNavbar({ session }) {
+  const [opened, setOpened] = useState(false);
+
   const [loading, setLoading] = useState(true);
   const [name, setName] = useState(null);
   const [email, setEmail] = useState(null);
@@ -147,7 +152,6 @@ export default function CustomNavbar({ session }) {
   }
   useEffect(() => {
     getProfile();
-    console.log(session);
   }, [session]);
 
   const { classes, cx } = useStyles();
@@ -193,14 +197,20 @@ export default function CustomNavbar({ session }) {
             <span>Nápověda</span>
           </a>
         </Link>
-        <Link href="/nastaveni" passHref>
-          <a className={classes.link}>
-            <IconSettings className={classes.linkIcon} stroke={1.5} />
-            <span>Nastavení</span>
-          </a>
-        </Link>
-        <a
-          href="#"
+        {/* <Link href="/app/nastaveni" passHref> */}
+        <div
+          className={classes.link}
+          onClick={(event) => {
+            event.preventDefault();
+            setOpened(true);
+          }}
+        >
+          <IconSettings className={classes.linkIcon} stroke={1.5} />
+          <span>Nastavení</span>
+        </div>
+        <SettingsModal opened={opened} setOpened={setOpened} />
+        {/* </Link> */}
+        <div
           className={classes.link}
           onClick={(event) => {
             event.preventDefault();
@@ -209,7 +219,7 @@ export default function CustomNavbar({ session }) {
         >
           <IconLogout className={classes.linkIcon} stroke={1.5} />
           <span>Odhlásit se</span>
-        </a>
+        </div>
       </Navbar.Section>
 
       <Navbar.Section className={classes.footer}>
