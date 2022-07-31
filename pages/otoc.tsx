@@ -6,7 +6,6 @@ import { useState } from "react";
 import { Stepper, Button, Group, Title, Text, Modal } from "@mantine/core";
 import { useHotkeys, useViewportSize } from "@mantine/hooks";
 import { IconArrowDown, IconArrowUp, IconMapPin } from "@tabler/icons";
-import Confetti from "react-confetti";
 import CustomMap from "../components/Map/CustomMap";
 import dynamic from "next/dynamic";
 
@@ -31,6 +30,11 @@ const Otoc: NextPage = () => {
   ]);
   const Map = dynamic(() => import("../components/Map/CustomMap"), {
     loading: () => <p>A map is loading</p>,
+    ssr: false, // This line is important. It's what prevents server-side render
+  });
+
+  const Confetti = dynamic(() => import("react-confetti"), {
+    loading: () => <></>,
     ssr: false, // This line is important. It's what prevents server-side render
   });
 
