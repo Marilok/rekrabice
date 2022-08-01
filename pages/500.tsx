@@ -9,7 +9,6 @@ import {
   Button,
   SimpleGrid,
 } from "@mantine/core";
-import image from "../public/smash-computer.gif";
 
 const useStyles = createStyles((theme) => ({
   root: {
@@ -76,7 +75,7 @@ const FiveOhThree: NextPage = () => {
         <Image
           radius="md"
           alt="Smashing computer"
-          src={image.src}
+          src="/smash-computer.gif"
           width={450}
           height={300}
           className={classes.desktopImage}

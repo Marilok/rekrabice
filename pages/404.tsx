@@ -9,7 +9,6 @@ import {
   Button,
   SimpleGrid,
 } from "@mantine/core";
-import image from "../public/confused.gif";
 
 const useStyles = createStyles((theme) => ({
   root: {
@@ -82,7 +81,7 @@ const FourOhFour: NextPage = () => {
         <Image
           radius="md"
           alt="Confused gif"
-          src={image.src}
+          src="/confused.gif"
           width={450}
           height={300}
           className={classes.desktopImage}

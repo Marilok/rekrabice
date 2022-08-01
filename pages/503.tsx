@@ -9,7 +9,6 @@ import {
   Button,
   SimpleGrid,
 } from "@mantine/core";
-import image from "../public/disaster-girl.jpg";
 
 const useStyles = createStyles((theme) => ({
   root: {
@@ -81,7 +80,7 @@ const FiveOhThree: NextPage = () => {
         <Image
           radius="md"
           alt="Disaster girl"
-          src={image.src}
+          src="/disaster-girl.jpg"
           width={450}
           height={300}
           className={classes.desktopImage}

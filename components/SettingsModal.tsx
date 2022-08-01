@@ -10,6 +10,7 @@ import {
   useMantineColorScheme,
 } from "@mantine/core";
 import { IconMoonStars, IconSun, IconSettings, IconTool } from "@tabler/icons";
+import LanguagePicker from "./LanguagePicker/LanguagePicker";
 interface Props {
   opened: boolean;
   setOpened: Function;
@@ -63,6 +64,8 @@ const SettingsModal = ({ opened, setOpened }: Props) => {
             },
           ]}
         />
+        <Title order={2}>Jazyk</Title>
+        <LanguagePicker />
       </Modal>
     </>
   );

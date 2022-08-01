@@ -19,23 +19,6 @@ import {
   updateNotification,
 } from "@mantine/notifications";
 
-import {
-  IconBellRinging,
-  IconFingerprint,
-  IconKey,
-  IconSettings,
-  Icon2fa,
-  IconDatabaseImport,
-  IconReceipt2,
-  IconSwitchHorizontal,
-  IconLogout,
-  IconArrowBackUp,
-  IconHelp,
-  IconTransferIn,
-  IconTransferOut,
-  IconChartArea,
-} from "@tabler/icons";
-
 export default function Receive({ session }: any) {
   const [loading, setLoading] = useState(false);
   const [boxes, setBoxes] = useState([{ name: "", id: 0 }]);
@@ -74,7 +57,7 @@ export default function Receive({ session }: any) {
       }
       if (data) {
         setBoxes(data);
-        const tempNames: any = data.map((box) => {
+        const tempNames: any = data.map((box: any) => {
           return box.name;
         });
         setBoxesNames(tempNames);
@@ -134,7 +117,7 @@ export default function Receive({ session }: any) {
   }
 
   return (
-    <Container className="bg-red-500" size="xs">
+    <Container size="xs">
       <form
         onSubmit={form.onSubmit((values?: any) => {
           const selectedBox: any = boxes?.find(
