@@ -159,13 +159,13 @@ export default function ContactUs() {
 
   const form = useForm({
     initialValues: {
-      email: "",
+      mail: "",
       name: "",
       msg: "",
     },
 
     validate: {
-      email: (value) => (/^\S+@\S+$/.test(value) ? null : "Chybička v emailu"),
+      mail: (value) => (/^\S+@\S+$/.test(value) ? null : "Chybička v emailu"),
     },
   });
 
@@ -209,7 +209,7 @@ export default function ContactUs() {
                 placeholder="tatka@smoulifirma.cz"
                 required
                 classNames={{ input: classes.input, label: classes.inputLabel }}
-                {...form.getInputProps("email")}
+                {...form.getInputProps("mail")}
               />
               <TextInput
                 label="Jméno či název firmy"
