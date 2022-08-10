@@ -3,12 +3,8 @@ import Link from "next/link";
 import Contact from "../components/Contact/Contact";
 import LandingPageWrapper from "../components/Layouts/LandingPage/LandingPageWrapper";
 
-const Kontakt: NextPage = () => {
-  return (
-    <LandingPageWrapper>
-      <Contact />
-    </LandingPageWrapper>
-  );
+const Gdpr: NextPage = () => {
+  return <LandingPageWrapper>Na tomto pracujeme.</LandingPageWrapper>;
 };
 
-export default Kontakt;
+export default Gdpr;

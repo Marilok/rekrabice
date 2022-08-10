@@ -75,7 +75,7 @@ const FiveOhThree: NextPage = () => {
         <Image
           radius="md"
           alt="Smashing computer"
-          src="/smash-computer.gif"
+          src="/gifs/smash-computer.gif"
           width={450}
           height={300}
           className={classes.desktopImage}

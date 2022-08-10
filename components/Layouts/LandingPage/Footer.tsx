@@ -128,11 +128,7 @@ export default function Footer({ data }: FooterLinksProps) {
   const groups = data.map((group) => {
     const links = group.links.map((link, index) => (
       <Link href={link.link} key={index} passHref>
-        <Text<"a">
-          className={classes.link}
-          component="a"
-          onClick={(event) => event.preventDefault()}
-        >
+        <Text className={classes.link} component="a">
           {link.label}
         </Text>
       </Link>

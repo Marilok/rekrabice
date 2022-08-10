@@ -81,7 +81,7 @@ const FourOhFour: NextPage = () => {
         <Image
           radius="md"
           alt="Confused gif"
-          src="/confused.gif"
+          src="/gifs/confused.gif"
           width={450}
           height={300}
           className={classes.desktopImage}

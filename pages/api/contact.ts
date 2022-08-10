@@ -1,9 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
 type Data = {
-  type: "confirmation_mail" | "message_mail";
-  success: boolean;
-  error?: string;
+  type?: "confirmation_mail" | "message_mail";
+  success?: boolean;
+  error?: any;
 };
 
 export default async function handler(
@@ -58,46 +58,47 @@ export default async function handler(
     ],
   };
 
+  // try {
+  //   let confirmation_mail = await transporter.sendMail(confirmationData);
+  //   res.status(200).send({
+  //     type: "confirmation_mail",
+  //     success: true,
+  //   });
+
+  //   console.log("Confirmation mail info:", confirmation_mail);
+  // } catch (error) {
+  //   res.status(500).send({
+  //     type: "confirmation_mail",
+  //     success: false,
+  //     error: "failed to fetch data",
+  //   });
+  //   console.log("Confirmation mail error: ", error);
+  // }
+
+  // try {
+  //   let message_mail = await transporter.sendMail(mailData);
+  //   res.status(200).send({
+  //     type: "message_mail",
+  //     success: true,
+  //   });
+  //   console.log("Message mail info: ", message_mail);
+  // } catch (error) {
+  //   res.status(500).send({
+  //     type: "message_mail",
+  //     success: false,
+  //     error: "failed to fetch data",
+  //   });
+  //   console.log("Message mail error: ", error);
+  // }
   try {
+    let message_mail = await transporter.sendMail(mailData);
     let confirmation_mail = await transporter.sendMail(confirmationData);
-    res.status(200).send({
-      type: "confirmation_mail",
-      success: true,
-    });
 
-    console.log("Confirmation mail info:", confirmation_mail);
-  } catch (error) {
-    res.status(500).send({
-      type: "confirmation_mail",
-      success: false,
-      error: "failed to fetch data",
-    });
-    console.log("Confirmation mail error: ", error);
-  }
-
-  try {
-    let message_mail = transporter.sendMail(mailData);
-    res.status(200).send({
-      type: "message_mail",
-      success: true,
-    });
+    res.status(200).send({});
     console.log("Message mail info: ", message_mail);
+    console.log("Confirmation mail info: ", confirmation_mail);
   } catch (error) {
-    res.status(500).send({
-      type: "confirmation_mail",
-      success: false,
-      error: "failed to fetch data",
-    });
-    console.log("Message mail error: ", error);
+    res.status(500).send({ error: error });
+    console.log(error);
   }
-
-  // transporter.sendMail(confirmationData, function (err: any, info: any) {
-  //   if (err) {console.log("Confirmation mail error: ", err); }
-  //   else console.log("Confirmation mail info:", info);
-  // });
-
-  // transporter.sendMail(mailData, function (err: any, info: any) {
-  //   if (err) console.log("Message mail error: ", err);
-  //   else console.log("Message mail info: ", info);
-  // });
 }

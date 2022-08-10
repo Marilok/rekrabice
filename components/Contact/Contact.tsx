@@ -17,7 +17,6 @@ import {
 import { useForm } from "@mantine/form";
 import {
   IconBrandTwitter,
-  IconBrandYoutube,
   IconBrandInstagram,
   IconSectionSign,
   IconSun,
@@ -32,7 +31,12 @@ import {
 import { useState } from "react";
 
 import { ContactIconsList } from "./ContactIcons";
-
+import { IconX, IconCheck } from "@tabler/icons";
+import {
+  showNotification,
+  hideNotification,
+  updateNotification,
+} from "@mantine/notifications";
 const useStyles = createStyles((theme) => ({
   wrapper: {
     minHeight: 400,
@@ -47,7 +51,7 @@ const useStyles = createStyles((theme) => ({
       padding: theme.spacing.xl * 1.5,
     },
     [`@media (min-width: ${theme.breakpoints.sm}px)`]: {
-      marginTop: theme.spacing.xl * 6,
+      marginTop: theme.spacing.xl * 3,
     },
   },
   wrapper2: {
@@ -132,7 +136,15 @@ export default function ContactUs() {
   async function sendMsg(values: any) {
     try {
       setLoading(true);
-
+      showNotification({
+        id: "notification-message",
+        loading: true,
+        // title: "Odesílání",
+        message: "Odesílání",
+        autoClose: false,
+        radius: "xs",
+        disallowClose: true,
+      });
       await fetch("/api/contact", {
         method: "POST",
         headers: {
@@ -140,18 +152,35 @@ export default function ContactUs() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(values),
-      })
-        .then((res) => {
-          console.log("Response received");
-          if (res.status === 200) {
-            console.log("Response succeeded!");
-          }
-        })
-        .catch((res) => {
-          console.log("error", res);
-        });
+      }).then((res) => {
+        if (res.status === 200) {
+          updateNotification({
+            id: "notification-message",
+            color: "teal",
+            title: "Hurá, zpráva odeslána. 🥳",
+            message: "Do pošty jsme Vám poslali potvzení o odeslání.",
+            icon: <IconCheck size={16} />,
+            autoClose: 10000,
+            loading: false,
+          });
+        } else {
+          console.log(res);
+        }
+      });
+      // .catch((res) => {
+      //   console.log(res);
+      // });
     } catch (error: any) {
-      console.log(error);
+      updateNotification({
+        id: "notification-message",
+        autoClose: 20000,
+        title: "Něco se pokazilo. 😥",
+        message: error,
+        color: "red",
+        icon: <IconX />,
+        radius: "xs",
+        loading: false,
+      });
     } finally {
       setLoading(false);
     }
@@ -227,15 +256,16 @@ export default function ContactUs() {
                 classNames={{ input: classes.input, label: classes.inputLabel }}
                 {...form.getInputProps("msg")}
               />
-
               <Button
                 fullWidth
                 mt="md"
                 className={classes.control}
                 rightIcon={<IconSend size={14} />}
                 type="submit"
+                loading={loading}
+                loaderPosition="right"
               >
-                Odeslat zprávu
+                {loading ? "Kontrolování" : "Odeslat zprávu"}
               </Button>
             </form>
           </SimpleGrid>
@@ -282,6 +312,7 @@ const contactData = [
   },
   { title: "Pracovní doba", description: "8:00 - 12:00", icon: IconSun },
 ];
+
 const legalData = [
   {
     title: "Sídlo",

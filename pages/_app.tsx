@@ -69,7 +69,29 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
         <MantineProvider
           withGlobalStyles
           withNormalizeCSS
-          theme={{ colorScheme }}
+          theme={{
+            // colors: {
+            //   brand: [
+            //     "#8DAF87",
+            //     "#79A971",
+            //     "#64A759",
+            //     "#54A148",
+            //     "#459D37",
+            //     "#369A27",
+            //     "#289916",
+            //     "#2D7E20",
+            //     "#2E6925",
+            //     "#2E5827",
+            //     "#2D4B28",
+            //     "#2A4027",
+            //     ,
+            //     "#283825",
+            //   ],
+            // },
+            // primaryColor: "brand",
+
+            colorScheme,
+          }}
         >
           <NotificationsProvider>
             <Component {...pageProps} />

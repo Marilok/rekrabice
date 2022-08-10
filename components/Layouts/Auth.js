@@ -16,6 +16,7 @@ import {
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { IconSend, IconCheck } from "@tabler/icons";
+import { EmailButtons } from "../SocialButtons/EmailButtons";
 
 const useStyles = createStyles((theme) => ({
   title: {
@@ -124,6 +125,7 @@ export default function Auth({ supabase }) {
           )}
         </form>
       </Paper>
+      {success && <EmailButtons />}
     </Container>
   );
 }
