@@ -7,10 +7,10 @@ import {
   Text,
   Button,
   SimpleGrid,
-  // Image,
+  Image,
 } from "@mantine/core";
 //TODO2 image from next instead of mantine and other pages
-import Image from "next/image";
+// import Image from "next/image";
 const useStyles = createStyles((theme) => ({
   root: {
     paddingTop: 80,
