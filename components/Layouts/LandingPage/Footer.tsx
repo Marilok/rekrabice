@@ -15,7 +15,7 @@ import Link from "next/link";
 
 const useStyles = createStyles((theme) => ({
   footer: {
-    marginTop: 120,
+    marginTop: theme.spacing.xl,
     paddingTop: theme.spacing.xl * 2,
     paddingBottom: theme.spacing.xl * 2,
     backgroundColor:
@@ -148,7 +148,7 @@ export default function Footer({ data }: FooterLinksProps) {
         <div className={classes.logo}>
           <Avatar src="/favicon.svg" size={30} />
           <Text size="xs" color="dimmed" className={classes.description}>
-            Build fully functional accessible web applications faster than ever
+            Být bez odpadu je cool.
           </Text>
         </div>
         <div className={classes.groups}>{groups}</div>
@@ -157,6 +157,9 @@ export default function Footer({ data }: FooterLinksProps) {
         <Text color="dimmed" size="sm">
           &copy; <span>{new Date().getFullYear()}</span> Zelená společnost
           s.r.o.
+        </Text>
+        <Text color="dimmed" size="sm">
+          Vytvořeno s 🌳❤️ v Brně.
         </Text>
 
         <Group spacing={0} className={classes.social} position="right" noWrap>

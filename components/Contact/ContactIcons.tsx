@@ -66,13 +66,15 @@ interface ContactIconProps
   extends Omit<React.ComponentPropsWithoutRef<"div">, "title"> {
   icon: React.FC<any>;
   title: React.ReactNode;
+  type?: "mail" | "phone" | "place";
   description: React.ReactNode;
   variant?: ContactIconVariant;
 }
-
+//TODO: make hrefs to contact info (mail, phone, place)
 function ContactIcon({
   icon: Icon,
   title,
+  type,
   description,
   variant = "gradient",
   className,

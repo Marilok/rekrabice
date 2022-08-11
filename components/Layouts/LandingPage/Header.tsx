@@ -12,6 +12,9 @@ import {
 import { useDisclosure } from "@mantine/hooks";
 import { IconChevronDown } from "@tabler/icons";
 import Link from "next/link";
+import { IconArrowDown, IconArrowUp, IconMapPin } from "@tabler/icons";
+import { NextLink } from "@mantine/next";
+import Image from "next/image";
 
 const HEADER_HEIGHT = 60;
 
@@ -74,21 +77,21 @@ export default function HeaderAction({ links }: HeaderActionProps) {
   const [opened, { toggle }] = useDisclosure(false);
   const items = links.map((link) => {
     const menuItems = link.links?.map((item) => (
-      <Menu.Item key={item.link}>{item.label}</Menu.Item>
+      <Menu.Item key={item.link} component={NextLink} href={item.link}>
+        {item.label}
+      </Menu.Item>
     ));
 
     if (menuItems) {
       return (
         <Menu key={link.label} trigger="hover" exitTransitionDuration={0}>
           <Menu.Target>
-            <Link href={link.link} passHref>
-              <a className={classes.link}>
-                <Center>
-                  <span className={classes.linkLabel}>{link.label}</span>
-                  <IconChevronDown size={12} stroke={1.5} />
-                </Center>
-              </a>
-            </Link>
+            <Center>
+              <NextLink className={classes.link} href={link.link}>
+                <span className={classes.linkLabel}>{link.label}</span>
+                <IconChevronDown size={12} stroke={1.5} />
+              </NextLink>
+            </Center>
           </Menu.Target>
           <Menu.Dropdown>{menuItems}</Menu.Dropdown>
         </Menu>
@@ -96,15 +99,15 @@ export default function HeaderAction({ links }: HeaderActionProps) {
     }
 
     return (
-      <Link key={link.label} passHref href={link.link}>
+      <Link key={link.label} href={link.link} passHref>
         <a className={classes.link}>{link.label}</a>
       </Link>
     );
   });
 
   return (
-    <Header height={HEADER_HEIGHT} sx={{ borderBottom: 0 }} mb={120}>
-      <Container className={classes.inner} fluid>
+    <Header height={HEADER_HEIGHT} mb={120}>
+      <Container size={"xl"} className={classes.inner}>
         <Group>
           <Burger
             opened={opened}
@@ -114,15 +117,30 @@ export default function HeaderAction({ links }: HeaderActionProps) {
           />
           {/* <Avatar src="/favicon.svg" size={28} /> */}
           <Link href="/">
-            <img src="/logo_text.svg" height={28} />
+            <Image
+              src="/logo_text.svg"
+              width={120}
+              height={28}
+              className="cursor-pointer"
+              alt={`Logo`}
+            />
           </Link>
         </Group>
         <Group spacing={5} className={classes.links}>
           {items}
         </Group>
-        <Button radius="sm" sx={{ height: 30 }}>
-          Mapa vratných míst
-        </Button>
+        <Link passHref href={"/mapa"}>
+          <Button
+            size="sm"
+            variant="light"
+            color="green"
+            component="a"
+            //TODO1: change to brand color
+            leftIcon={<IconMapPin size={14} />}
+          >
+            Vratná místa
+          </Button>
+        </Link>
       </Container>
     </Header>
   );

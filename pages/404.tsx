@@ -2,14 +2,15 @@ import type { NextPage } from "next";
 import Link from "next/link";
 import {
   createStyles,
-  Image,
   Container,
   Title,
   Text,
   Button,
   SimpleGrid,
+  // Image,
 } from "@mantine/core";
-
+//TODO2 image from next instead of mantine and other pages
+import Image from "next/image";
 const useStyles = createStyles((theme) => ({
   root: {
     paddingTop: 80,
@@ -62,9 +63,9 @@ const FourOhFour: NextPage = () => {
             Narazili jste na neexistující stránku...
           </Title>
           <Text color="dimmed" size="lg">
-            Page you are trying to open does not exist. You may have mistyped
-            the address, or the page has been moved to another URL. If you think
-            this is an error contact support.
+            Našli jste prázdnou krabici. (Page you are trying to open does not
+            exist. You may have mistyped the address, or the page has been moved
+            to another URL. If you think this is an error contact support.)
           </Text>
           <Link href="/" passHref>
             <Button

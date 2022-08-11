@@ -19,7 +19,7 @@ export default function App({ children, session, supabase }: any) {
       //   },
       // })}
     >
-      <main>{children}</main>
+      {children}
     </AppShell>
   );
 }

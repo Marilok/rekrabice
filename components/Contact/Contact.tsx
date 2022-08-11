@@ -48,7 +48,7 @@ const useStyles = createStyles((theme) => ({
     padding: theme.spacing.xl * 2.5,
 
     [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
-      padding: theme.spacing.xl * 1.5,
+      padding: theme.spacing.xl,
     },
     [`@media (min-width: ${theme.breakpoints.sm}px)`]: {
       marginTop: theme.spacing.xl * 3,
@@ -69,7 +69,7 @@ const useStyles = createStyles((theme) => ({
     }`,
 
     [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
-      padding: theme.spacing.xl * 1.5,
+      padding: theme.spacing.xl,
     },
   },
 
@@ -211,7 +211,7 @@ export default function ContactUs() {
 
   return (
     <>
-      <Container size={"md"}>
+      <Container size={"md"} p={0}>
         <div className={classes.wrapper}>
           <SimpleGrid
             cols={2}
@@ -271,7 +271,7 @@ export default function ContactUs() {
           </SimpleGrid>
         </div>
       </Container>
-      <Container mt={"xl"} size={"md"}>
+      <Container p={0} mt={"xl"} size={"md"}>
         <div className={classes.wrapper2}>
           <Box
             sx={(theme) => ({
@@ -303,12 +303,23 @@ export default function ContactUs() {
   );
 }
 const contactData = [
-  { title: "Email", description: "kontakt@zelenakrabice.cz", icon: IconAt },
-  { title: "Telefon", description: "(+420) 777 777 777", icon: IconPhone },
+  {
+    title: "Email",
+    description: "kontakt@zelenakrabice.cz",
+    icon: IconAt,
+    // type: "mail",
+  },
+  {
+    title: "Telefon",
+    description: "(+420) 777 777 777",
+    icon: IconPhone,
+    // type: "phone",
+  },
   {
     title: "Sídlo",
     description: "Nové sady 988/2, Brno",
     icon: IconMapPin,
+    // type: "place",
   },
   { title: "Pracovní doba", description: "8:00 - 12:00", icon: IconSun },
 ];
@@ -318,6 +329,7 @@ const legalData = [
     title: "Sídlo",
     description: "Nové sady 988/2, Brno, 602 00",
     icon: IconMapPin,
+    // type: "place",
   },
   { title: "IČO", description: "87654321", icon: IconSectionSign },
   {
