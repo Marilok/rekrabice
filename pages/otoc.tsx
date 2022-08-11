@@ -51,8 +51,6 @@ const Otoc: NextPage = () => {
   //   referer: string | undefined;
   //   name: string | undefined;
   // }
-  console.log(query);
-
   //?referrer=aktin.cz&name=Aktin
 
   const Map = dynamic(() => import("../components/Map/CustomMap"), {
