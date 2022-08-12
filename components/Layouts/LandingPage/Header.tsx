@@ -9,7 +9,6 @@ import {
   Burger,
   Avatar,
 } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
 import { IconChevronDown } from "@tabler/icons";
 import Link from "next/link";
 import { IconArrowDown, IconArrowUp, IconMapPin } from "@tabler/icons";
@@ -70,11 +69,16 @@ interface HeaderActionProps {
     label: string;
     links?: { link: string; label: string }[];
   }[];
+  isOpen: boolean;
+  toggle: () => void;
 }
 
-export default function HeaderAction({ links }: HeaderActionProps) {
+export default function HeaderAction({
+  links,
+  isOpen,
+  toggle,
+}: HeaderActionProps) {
   const { classes } = useStyles();
-  const [opened, { toggle }] = useDisclosure(false);
   const items = links.map((link) => {
     const menuItems = link.links?.map((item) => (
       <Menu.Item key={item.link} component={NextLink} href={item.link}>
@@ -110,7 +114,7 @@ export default function HeaderAction({ links }: HeaderActionProps) {
       <Container size={"xl"} className={classes.inner}>
         <Group>
           <Burger
-            opened={opened}
+            opened={isOpen}
             onClick={toggle}
             className={classes.burger}
             size="sm"

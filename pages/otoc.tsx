@@ -70,6 +70,7 @@ const Otoc: NextPage = () => {
   });
 
   //TODO: clean up confetti on unmount
+  //TODO: move to canvas confetti
   return (
     <>
       <Portal>

@@ -1,16 +1,25 @@
-import { AppShell } from "@mantine/core";
+import { useState } from "react";
+import { AppShell, Navbar, MediaQuery } from "@mantine/core";
 import { supabaseClient as supabase } from "@supabase/auth-helpers-nextjs";
+import CustomNavbar from "./Navbar";
 import Footer from "./Footer";
 import Header from "./Header";
+import { useDisclosure } from "@mantine/hooks";
 
 export default function App({ children, session, supabase }: any) {
+  const [isOpen, { toggle }] = useDisclosure(false);
+
   return (
     <>
       <AppShell
-        padding="md"
-        //   navbar={<CustomNavbar session={session} />}
-        header={<Header links={HEADER_DATA} />}
+        // padding="md"
+        navbar={
+          <CustomNavbar links={HEADER_DATA} isOpen={isOpen} toggle={toggle} />
+        }
+        header={<Header links={HEADER_DATA} isOpen={isOpen} toggle={toggle} />}
         footer={<Footer data={FOOTER_DATA} />}
+        navbarOffsetBreakpoint={5000}
+
         // styles={(theme) => ({
         //   main: {
         //     backgroundColor:
