@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import {
   MapContainer,
   TileLayer,
@@ -13,12 +14,31 @@ import L from "leaflet";
 import { myIcon } from "./Marker";
 import { heartData } from "./heartData";
 import { boatData } from "./boatData";
-
+import { supabaseClient as supabase } from "@supabase/auth-helpers-nextjs";
 import CustomPopup from "./CustomPopup";
+
 //TODO1: Add GeoJSON data to the map
 //@ts-ignore
 //TODO3: change marker icon
-const CustomMap = () => {
+export default function CustomMap() {
+  const [locations, setLocations]: any = useState(null);
+  useEffect(() => {
+    getShopsLocations();
+  }, []);
+  async function getShopsLocations() {
+    try {
+      const { data, error } = await supabase.rpc("get_shops_locations");
+
+      if (data) {
+        setLocations(data);
+        console.log(data);
+      }
+    } catch (error: any) {
+      console.log(error);
+      alert(error.message);
+    } finally {
+    }
+  }
   return (
     <MapContainer
       id="map"
@@ -32,15 +52,20 @@ const CustomMap = () => {
         //TODO: fix subdomail to support 1,2,3,4
         //m{s}.mapserver.mapy.cz/base-m/{z}-{x}-{y}
       />
-      {places.map((place) => (
-        <Marker
-          icon={myIcon}
-          key={place.subsidiary}
-          position={[place.x, place.y]}
-        >
-          <CustomPopup title={place.title} subsidiary={place.subsidiary} />
-        </Marker>
-      ))}
+      {locations &&
+        locations.map((place: any) => (
+          <Marker
+            icon={myIcon}
+            key={place.subsidiary}
+            position={[place.lat, place.lng]}
+          >
+            <CustomPopup
+              title={place.name}
+              logo={place.favicon}
+              subsidiary={place.subsidiary}
+            />
+          </Marker>
+        ))}
       {shapes.map((shape, index) => (
         <Polygon
           key={index}
@@ -51,9 +76,8 @@ const CustomMap = () => {
       ))}
     </MapContainer>
   );
-};
+}
 const shapes = [heartData];
-export default CustomMap;
 
 const places = [
   {
@@ -63,3 +87,12 @@ const places = [
     subsidiary: "Letmo",
   },
 ];
+// export async function getServerSideProps() {
+//   console.log(supabase);
+//   const { data, error } = await supabase.rpc("get_shops_locations");
+//   if (error) console.error(error);
+//   else console.log(supabase);
+
+//   // Pass data to the page via props
+//   return { props: { data } };
+// }

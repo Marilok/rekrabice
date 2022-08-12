@@ -27,13 +27,13 @@ export default function CustomPopup({
   return (
     <Popup>
       {/* style={{ backgroundColor: theme.colors.gray[7] }} */}
-      <Paper className="w-80 h-full" shadow="xl" p="sm">
+      <Paper className="w-full h-full" shadow="xl" p="sm">
         <Group>
-          <Title order={1}>
+          <Avatar src={logo} radius="xl" size="md" />
+          <Title order={2}>
             {title}
             {subsidiary ? `- ${subsidiary}` : ""}
           </Title>
-          <Avatar src={logo} radius="xl" size="lg" />
         </Group>
         {/* <Text>Po-Pá: 8-18h</Text> */}
         <Button

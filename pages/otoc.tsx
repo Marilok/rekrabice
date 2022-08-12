@@ -26,6 +26,7 @@ import {
 import dynamic from "next/dynamic";
 import LandingPageWrapper from "../components/Layouts/LandingPage/LandingPageWrapper";
 import { useRouter } from "next/router";
+import Image from "next/image";
 const Otoc: NextPage = () => {
   const [active, setActive] = useState(0);
   const { height, width } = useViewportSize();
@@ -84,7 +85,7 @@ const Otoc: NextPage = () => {
         />
       </Portal>
       <LandingPageWrapper>
-        <Container>
+        <Container className="h-96">
           <div className="flex flex-col h-full">
             <Stepper
               active={active}
@@ -101,20 +102,40 @@ const Otoc: NextPage = () => {
                   Tato možnost stojí 50 Kč, ale nenech se odradit, je to totiž
                   vratná záloha. 😉
                 </Text>
+                <div className="m-auto flex justify-center my-5">
+                  <Image
+                    src={"/otoc_button.png"}
+                    height={300}
+                    width={540}
+                    alt="Vybrat balení do vratné krabice z eshopu"
+                    className="m-auto rounded shadow"
+                  />
+                </div>
               </Stepper.Step>
 
               <Stepper.Step label="Rozbal balíček">
-                <Title order={1}>
+                <Title order={1} mt={"xl"}>
                   Rozbal svůj balíček a raduj se ze svého nákupu.
                 </Title>
-                <Text>
+                <Text mt={"md"}>
                   Při tomto kroku ti jen popřejeme, aby jsi byl spokojen se svým
                   nákupem. 😅
                 </Text>
+                <div className="m-auto flex justify-center my-5">
+                  <Image
+                    src={"/gifs/open.gif"}
+                    height={240}
+                    width={420}
+                    alt="Box opening gif"
+                    className="m-auto rounded shadow"
+                  />
+                </div>
               </Stepper.Step>
               <Stepper.Step label="Přines krabici">
-                <Title order={1}>Přines krabici do vratného místa</Title>
-                <Text>
+                <Title order={1} mt={"xl"}>
+                  Přines krabici do vratného místa
+                </Title>
+                <Text mt={"md"}>
                   Prázdnou krabici přines do jednoho z 23 vratných míst. Vratnou
                   zálohu ti automaticky připíšeme na účet.
                 </Text>
@@ -138,8 +159,10 @@ const Otoc: NextPage = () => {
                 </Link>
               </Stepper.Step>
               <Stepper.Completed>
-                <Title order={1}>Wohoooo! 🥳</Title>
-                <Text>
+                <Title order={1} mt={"xl"}>
+                  Wohoooo! 🥳
+                </Title>
+                <Text mt={"md"}>
                   Právě jsi otočil krabici a zachránil 1/156 stromu jen díky
                   tomu, že si využil Zelenou krabici. 🌳
                 </Text>
@@ -150,7 +173,7 @@ const Otoc: NextPage = () => {
                 )}
               </Stepper.Completed>
             </Stepper>
-            <Button.Group className=" mt-20 mx-auto">
+            <Button.Group className=" mt-auto mx-auto">
               {active !== 0 && (
                 <Button
                   size="xl"
