@@ -32,3 +32,6 @@ a {
     background: black;
   }
 }
+.markercluster-map {
+  height: 90vh;
+}

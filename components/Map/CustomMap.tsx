@@ -8,15 +8,13 @@ import {
   Polygon,
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css";
-import "leaflet-defaulticon-compatibility";
+// import "react-leaflet-markercluster/dist/styles.min.css";
+import MarkerClusterGroup from "./MarkerClusterGroup";
 import L from "leaflet";
 import { myIcon } from "./Marker";
 import { heartData } from "./heartData";
-import { boatData } from "./boatData";
 import { supabaseClient as supabase } from "@supabase/auth-helpers-nextjs";
 import CustomPopup from "./CustomPopup";
-
 //TODO1: Add GeoJSON data to the map
 //@ts-ignore
 //TODO3: change marker icon
@@ -31,18 +29,49 @@ export default function CustomMap() {
 
       if (data) {
         setLocations(data);
-        console.log(data);
+        // console.log(data);
       }
     } catch (error: any) {
-      console.log(error);
+      // console.log(error);
       alert(error.message);
     } finally {
     }
   }
+  const createClusterCustomIcon = (cluster: any) => {
+    const count = cluster.getChildCount();
+    let size = "LargeXL";
+
+    if (count < 10) {
+      size = "Small";
+    } else if (count >= 10 && count < 100) {
+      size = "Medium";
+    } else if (count >= 100 && count < 500) {
+      size = "Large";
+    }
+    const options = {
+      cluster: `markerCluster${size}`,
+    };
+
+    // return L.divIcon({
+    //   html: `<div>
+    //     <span class="markerClusterLabel">${count}</span>
+    //   </div>`,
+    //   className: `${options.cluster}`,
+    // });
+    return L.divIcon({
+      html: `
+        <span class="font-bold text-lg text-center">${count}</span>
+      `,
+      className:
+        "bg-primary text-white p-2 rounded-full !flex items-center justify-center",
+      iconSize: L.point(44, 44),
+    });
+  };
+
   return (
     <MapContainer
       id="map"
-      className={"w-full h-[1000px]	"}
+      className={"w-full h-screen	"}
       center={[49.1918183, 16.6122742]}
       zoom={13}
     >
@@ -52,20 +81,23 @@ export default function CustomMap() {
         //TODO: fix subdomail to support 1,2,3,4
         //m{s}.mapserver.mapy.cz/base-m/{z}-{x}-{y}
       />
-      {locations &&
-        locations.map((place: any) => (
-          <Marker
-            icon={myIcon}
-            key={place.subsidiary}
-            position={[place.lat, place.lng]}
-          >
-            <CustomPopup
-              title={place.name}
-              logo={place.favicon}
-              subsidiary={place.subsidiary}
-            />
-          </Marker>
-        ))}
+      <MarkerClusterGroup iconCreateFunction={createClusterCustomIcon}>
+        {locations &&
+          locations.map((place: any) => (
+            <Marker
+              icon={myIcon}
+              key={place.subsidiary}
+              position={[place.lat, place.lng]}
+            >
+              <CustomPopup
+                title={place.name}
+                logo={place.favicon}
+                subsidiary={place.subsidiary}
+              />
+            </Marker>
+          ))}
+      </MarkerClusterGroup>
+
       {shapes.map((shape, index) => (
         <Polygon
           key={index}
@@ -79,14 +111,6 @@ export default function CustomMap() {
 }
 const shapes = [heartData];
 
-const places = [
-  {
-    x: 49.1918183,
-    y: 16.6122742,
-    title: "Aktin",
-    subsidiary: "Letmo",
-  },
-];
 // export async function getServerSideProps() {
 //   console.log(supabase);
 //   const { data, error } = await supabase.rpc("get_shops_locations");

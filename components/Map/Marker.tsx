@@ -7,8 +7,6 @@ import {
   Polygon,
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css";
-import "leaflet-defaulticon-compatibility";
 
 //@ts-ignore
 export const myIcon = new L.divIcon({
