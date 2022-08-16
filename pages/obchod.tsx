@@ -157,17 +157,10 @@ const Otoc: NextPage = () => {
                 <Text mt={"md"}>
                   Při tomto kroku to necháme na Vás, to umíte Vy nejlépe. 😅
                 </Text>
-                <div className="m-auto flex justify-center my-5">
-                  <Image
-                    src={"https://giphy.com/embed/h75KJfo1UkZR1OGtwv"}
-                    height={240}
-                    width={420}
-                    alt="Box opening gif"
-                    className="m-auto rounded shadow"
-                  />
-                </div>
+
                 
               </Stepper.Step>
+              
               <Stepper.Step label="Vrácení">
                 <Title order={1} mt={"xl"}>
                   Dovolte zákazníkům vrátit odeslané krabice na Vašich výdejních místech.
