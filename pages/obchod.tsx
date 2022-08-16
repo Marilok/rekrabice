@@ -23,6 +23,7 @@ import {
   IconArrowRight,
   IconArrowUp,
   IconMapPin,
+  IconPhone,
 } from "@tabler/icons";
 import dynamic from "next/dynamic";
 import LandingPageWrapper from "../components/Layouts/LandingPage/LandingPageWrapper";
@@ -201,6 +202,17 @@ const Otoc: NextPage = () => {
                   Právě jsme spolu otočili krabici a zachránil 1/156 stromu jen díky
                   tomu, že jste využil Zelenou krabici. 🌳
                 </Text>
+                 <Link passHref href="/kontakt">
+                  <Button
+                    size="xl"
+                    mt={"md"}
+                    color="green"
+                    component="a"
+                    leftIcon={<IconPhone size={14} />}
+                  >
+                    Pojďme se domluvit na spolupráci
+                  </Button>
+                </Link>
                 {query.referrer && (
                   <Button component="a" href={`https://${query.referrer}`}>
                     Vrátit se do super obchodu {query.name}
