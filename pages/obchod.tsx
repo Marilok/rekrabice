@@ -132,30 +132,14 @@ const Otoc: NextPage = () => {
                   />
                 </div>
               </Stepper.Step>
-              <Stepper.Step label="Otoč krabici">
+
+
+              <Stepper.Step label="Odeslání">
                 <Title order={1} mt={"xl"}>
                   Přidejte zákazníkům možnost přidání balného s vratnou zálohou.
                 </Title>
                 <Text mt={"md"}>
-                  Tato možnost stojí Vaše zákazníky 50 Kč, ale je to jen vratná záloha. 😉
-                </Text>
-                <div className="m-auto flex justify-center my-5">
-                  <Image
-                    src={"/otoc_button.png"}
-                    height={300}
-                    width={540}
-                    alt="Vybrat balení do vratné krabice z eshopu"
-                    className="m-auto rounded shadow"
-                  />
-                </div>
-              </Stepper.Step>
-
-              <Stepper.Step label="Odeslání">
-                <Title order={1} mt={"xl"}>
-                  Zabalte krabici do zelené krabice a odešlete ji.
-                </Title>
-                <Text mt={"md"}>
-                  Při tomto kroku to necháme na Vás, to umíte Vy nejlépe. 😅
+                  Tato možnost stojí Vaše zákazníky 50 Kč, ale je to jen vratná záloha. 😉 Pak už jen zabalte nákup do zelené krabice a odešlete ji.
                 </Text>
               </Stepper.Step>
               
