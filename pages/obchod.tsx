@@ -78,7 +78,7 @@ const Otoc: NextPage = () => {
           width={width}
           height={height}
           recycle={false}
-          run={active === 5}
+          run={active === 4}
           numberOfPieces={777}
           onConfettiComplete={(confetti) => {
             confetti?.reset();
