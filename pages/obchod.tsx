@@ -157,8 +157,6 @@ const Otoc: NextPage = () => {
                 <Text mt={"md"}>
                   Při tomto kroku to necháme na Vás, to umíte Vy nejlépe. 😅
                 </Text>
-
-                
               </Stepper.Step>
               
               <Stepper.Step label="Vrácení">
@@ -175,9 +173,6 @@ const Otoc: NextPage = () => {
                   <Button
                     size="md"
                     mt={"md"}
-                    onClick={() => {
-                      setOpened(true);
-                    }}
                     variant="light"
                     color="green"
                     component="a"
