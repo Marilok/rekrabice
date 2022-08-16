@@ -105,7 +105,7 @@ const Otoc: NextPage = () => {
                 </Text>
                 <div className="m-auto flex justify-center my-5">
                   <Image
-                    src={"https://miro.medium.com/max/1200/1*KR7l3KcOvAp50OAilLMNUQ.jpeg"}
+                    src={"/1_KR7l3KcOvAp50OAilLMNUQ.jpeg"}
                     height={300}
                     width={540}
                     alt="Vybrat balení do vratné krabice z eshopu"
