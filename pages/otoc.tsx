@@ -33,7 +33,7 @@ const Otoc: NextPage = () => {
   const [opened, setOpened] = useState(false);
 
   const nextStep = () =>
-    setActive((current) => (current < 3 ? current + 1 : current));
+    setActive((current) => (current < 5 ? current + 1 : current));
   const prevStep = () =>
     setActive((current) => (current > 0 ? current - 1 : current));
   useHotkeys([
