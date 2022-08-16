@@ -137,7 +137,7 @@ const Otoc: NextPage = () => {
                   Přidejte zákazníkům možnost přidání balného s vratnou zálohou.
                 </Title>
                 <Text mt={"md"}>
-                  Tato možnost stojí Vaše zákazníky 50 Kč, ale je to jen vratná záloha. 😉 Pak už jen zabalte nákup do zelené krabice a odešlete ji.
+                  Tato možnost stojí Vaše zákazníky 50 Kč, ale je to jen vratná záloha. Po potvrzení objednávky, stačí už jen zabalit nákup do zelené krabice a odeslat ji zákazníkovi.
                 </Text>
 <div className="m-auto flex justify-center my-5">
                   <Image
@@ -240,7 +240,7 @@ className="mb-2"
                     Předchozí krok
                   </Button>
                 )}
-                {active !== 3 && (
+                {active !== 4 && (
                   <Button
                     size="xl"
                     color="green"
