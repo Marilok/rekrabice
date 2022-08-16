@@ -189,6 +189,7 @@ const Otoc: NextPage = () => {
                     color="green"
                     component="a"
                     leftIcon={<IconPhone size={14} />}
+className="mb-2"
                   >
                     Pojďme se domluvit na spolupráci
                   </Button>
@@ -213,7 +214,7 @@ const Otoc: NextPage = () => {
                   Předchozí krok
                 </Button>
               )}
-              {active !== 5 && (
+              {active !== 4 && (
                 <Button
                   size="xl"
                   color="green"
