@@ -71,8 +71,6 @@ const Otoc: NextPage = () => {
     ssr: false, // This line is important. It's what prevents server-side render
   });
 
-  //TODO: clean up confetti on unmount
-  //TODO: move to canvas confetti
   return (
     <>
       <Portal>
@@ -141,6 +139,15 @@ const Otoc: NextPage = () => {
                 <Text mt={"md"}>
                   Tato možnost stojí Vaše zákazníky 50 Kč, ale je to jen vratná záloha. 😉 Pak už jen zabalte nákup do zelené krabice a odešlete ji.
                 </Text>
+<div className="m-auto flex justify-center my-5">
+                  <Image
+                    src={"/otoc_button.png"}
+                    height={300}
+                    width={540}
+                    alt="Vybrat balení do vratné krabice z eshopu"
+                    className="m-auto rounded shadow"
+                  />
+                </div>
               </Stepper.Step>
               
               <Stepper.Step label="Vrácení">
@@ -166,6 +173,7 @@ const Otoc: NextPage = () => {
                   </Button>
                 </Link>
               </Stepper.Step>
+
               <Stepper.Completed>
                 <Title order={1} mt={"xl"}>
                   Wohoooo! 🥳
