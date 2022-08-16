@@ -79,7 +79,7 @@ const Otoc: NextPage = () => {
           width={width}
           height={height}
           recycle={false}
-          run={active === 4}
+          run={active === 5}
           numberOfPieces={777}
           onConfettiComplete={(confetti) => {
             confetti?.reset();
@@ -96,12 +96,30 @@ const Otoc: NextPage = () => {
               color="green"
               mt={"xl"}
             >
-               <Stepper.Step label="Rozhodnutí">
+               <Stepper.Step label="Problém">
                 <Title order={1} mt={"xl"}>
-                  Pojd´me spolu šetřit české lesy a naši planetu! 🌳🌎
+                  Už toho bylo dost? 🤔⁉️
                 </Title>
                 <Text mt={"md"}>
-                  Jak? Jednoduše, začnete otáčet zelené krabice. Stojí to Váš podnik i naši planetu méně. 
+                  Už Vaše zákazníky nebaví pořád do kola vyhazovat krabice? Chtěli by něco udržitelnějšího? Nebo jste zkoušeli najít ekologičtější variantu, ale našli jste jen samý greenwashing?
+                  A nebo Vám přijde balné moc drahé? Máme pro Vás řešení! 
+                </Text>
+                <div className="m-auto flex justify-center my-5">
+                  <Image
+                    src={"/logo_text.svg"}
+                    height={300}
+                    width={540}
+                    alt="Vybrat balení do vratné krabice z eshopu"
+                    className="m-auto rounded shadow"
+                  />
+                </div>
+              </Stepper.Step>
+               <Stepper.Step label="Řešení">
+                <Title order={1} mt={"xl"}>
+                  Pojd´me spolu otáčet krabice. 🌳🌎
+                </Title>
+                <Text mt={"md"}>
+                  Počkat co? Princip otáčení zelených krabic je jednoduchý a stojí to Váš podnik i naši planetu méně. 
                 </Text>
                 <div className="m-auto flex justify-center my-5">
                   <Image
@@ -203,7 +221,7 @@ const Otoc: NextPage = () => {
                   Předchozí krok
                 </Button>
               )}
-              {active !== 4 && (
+              {active !== 5 && (
                 <Button
                   size="xl"
                   color="green"
