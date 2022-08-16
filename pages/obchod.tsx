@@ -95,13 +95,29 @@ const Otoc: NextPage = () => {
               color="green"
               mt={"xl"}
             >
-              <Stepper.Step label="Zvol Zelenou krabici">
+               <Stepper.Step label="Rozhodnutí">
                 <Title order={1} mt={"xl"}>
-                  Nech si nákup zabalit do Zelené krabice.
+                  Poj´dme spolu šetřit české lesy a naši planetu! 🌳🌎🇨🇿
                 </Title>
                 <Text mt={"md"}>
-                  Tato možnost stojí 50 Kč, ale nenech se odradit, je to totiž
-                  vratná záloha. 😉
+                  Jak? Jednoduše, začnete otáčet zelené krabice. Stojí vás i naši planetu méně. 
+                </Text>
+                <div className="m-auto flex justify-center my-5">
+                  <Image
+                    src={"/logo_text.svg"}
+                    height={300}
+                    width={540}
+                    alt="Vybrat balení do vratné krabice z eshopu"
+                    className="m-auto rounded shadow"
+                  />
+                </div>
+              </Stepper.Step>
+              <Stepper.Step label="Otoč krabici">
+                <Title order={1} mt={"xl"}>
+                  Přidejte zákazníkům možnost přidání balného s vratnou zálohou.
+                </Title>
+                <Text mt={"md"}>
+                  Tato možnost stojí Vaše zákazníky 50 Kč, ale je to jen vratná záloha. 😉
                 </Text>
                 <div className="m-auto flex justify-center my-5">
                   <Image
@@ -114,31 +130,20 @@ const Otoc: NextPage = () => {
                 </div>
               </Stepper.Step>
 
-              <Stepper.Step label="Rozbal balíček">
+              <Stepper.Step label="Odeslání">
                 <Title order={1} mt={"xl"}>
-                  Rozbal svůj balíček a raduj se ze svého nákupu.
+                  Zabalte krabici do zelené krabice a odešlete ji.
                 </Title>
                 <Text mt={"md"}>
-                  Při tomto kroku ti jen popřejeme, aby jsi byl spokojen se svým
-                  nákupem. 😅
+                  Při tomto kroku to necháme na Vás, to umíte Vy nejlépe. 😅
                 </Text>
-                <div className="m-auto flex justify-center my-5">
-                  <Image
-                    src={"/gifs/open.gif"}
-                    height={240}
-                    width={420}
-                    alt="Box opening gif"
-                    className="m-auto rounded shadow"
-                  />
-                </div>
               </Stepper.Step>
-              <Stepper.Step label="Přines krabici">
+              <Stepper.Step label="Vrácení">
                 <Title order={1} mt={"xl"}>
-                  Přines krabici do vratného místa
+                  Dovolte zákazníkům vrátit odeslané krabice na Vašich výdejních místech.
                 </Title>
                 <Text mt={"md"}>
-                  Prázdnou krabici přines do jednoho z 23 vratných míst. Vratnou
-                  zálohu ti automaticky připíšeme na účet.
+                  Prázdnou krabici Vaši zákaznici mohou přinést přímo k Vám nebo do jednoho z dalších 23 vratných míst. Vratnou zálohu prosím vra´tte zákazníkovi v hotovosti.
                 </Text>
                 <Card radius="sm" className="h-80" shadow="sm" p={0}>
                   <Map />
@@ -164,8 +169,8 @@ const Otoc: NextPage = () => {
                   Wohoooo! 🥳
                 </Title>
                 <Text mt={"md"}>
-                  Právě jsi otočil krabici a zachránil 1/156 stromu jen díky
-                  tomu, že si využil Zelenou krabici. 🌳
+                  Právě jsme spolu otočili krabici a zachránil 1/156 stromu jen díky
+                  tomu, že jste využil Zelenou krabici. 🌳
                 </Text>
                 {query.referrer && (
                   <Button component="a" href={`https://${query.referrer}`}>
