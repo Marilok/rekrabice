@@ -73,7 +73,7 @@ export default function CustomMap() {
     <MapContainer
       id="map"
       className={"w-full h-screen	"}
-      center={[49.1918183, 16.6122742]}
+      center={[49.1930642, 16.6099019]}
       zoom={13}
     >
       <TileLayer
