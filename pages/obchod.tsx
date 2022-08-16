@@ -79,7 +79,7 @@ const Otoc: NextPage = () => {
           width={width}
           height={height}
           recycle={false}
-          run={active === 3}
+          run={active === 4}
           numberOfPieces={777}
           onConfettiComplete={(confetti) => {
             confetti?.reset();
@@ -98,10 +98,10 @@ const Otoc: NextPage = () => {
             >
                <Stepper.Step label="Rozhodnutí">
                 <Title order={1} mt={"xl"}>
-                  Poj´dme spolu šetřit české lesy a naši planetu! 🌳🌎🇨🇿
+                  Pojd´me spolu šetřit české lesy a naši planetu! 🌳🌎
                 </Title>
                 <Text mt={"md"}>
-                  Jak? Jednoduše, začnete otáčet zelené krabice. Stojí vás i naši planetu méně. 
+                  Jak? Jednoduše, začnete otáčet zelené krabice. Stojí to Váš podnik i naši planetu méně. 
                 </Text>
                 <div className="m-auto flex justify-center my-5">
                   <Image
@@ -138,13 +138,23 @@ const Otoc: NextPage = () => {
                 <Text mt={"md"}>
                   Při tomto kroku to necháme na Vás, to umíte Vy nejlépe. 😅
                 </Text>
+                <div className="m-auto flex justify-center my-5">
+                  <Image
+                    src={"https://giphy.com/embed/h75KJfo1UkZR1OGtwv"}
+                    height={240}
+                    width={420}
+                    alt="Box opening gif"
+                    className="m-auto rounded shadow"
+                  />
+                </div>
+                
               </Stepper.Step>
               <Stepper.Step label="Vrácení">
                 <Title order={1} mt={"xl"}>
                   Dovolte zákazníkům vrátit odeslané krabice na Vašich výdejních místech.
                 </Title>
                 <Text mt={"md"}>
-                  Prázdnou krabici Vaši zákaznici mohou přinést přímo k Vám nebo do jednoho z dalších 23 vratných míst. Vratnou zálohu prosím vra´tte zákazníkovi v hotovosti.
+                  Prázdnou krabici Vaši zákaznici mohou přinést přímo k Vám nebo do jednoho z dalších 23 vratných míst. Vratnou zálohu prosím vrat´te zákazníkovi v hotovosti.
                 </Text>
                 <Card radius="sm" className="h-80" shadow="sm" p={0}>
                   <Map />
@@ -193,7 +203,7 @@ const Otoc: NextPage = () => {
                   Předchozí krok
                 </Button>
               )}
-              {active !== 3 && (
+              {active !== 4 && (
                 <Button
                   size="xl"
                   color="green"
