@@ -1,4 +1,4 @@
-//ts-nocheck
+//@ts-nocheck
 import type { NextPage } from "next";
 import Link from "next/link";
 
