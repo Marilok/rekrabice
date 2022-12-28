@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { AppShell, Navbar, MediaQuery } from "@mantine/core";
-import { supabaseClient as supabase } from "@supabase/auth-helpers-nextjs";
 import Script from "next/script";
 
 import CustomNavbar from "./Navbar";

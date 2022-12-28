@@ -6,7 +6,7 @@ import App from "../../components/App";
 import Stats from "../../components/Stats";
 import { Center } from "@mantine/core";
 import { withPageAuth } from "@supabase/auth-helpers-nextjs";
-import { supabaseClient as supabase } from "@supabase/auth-helpers-nextjs";
+// import { supabaseClient as supabase } from "@supabase/auth-helpers-nextjs";
 
 const Statistika: NextPage = () => {
   const [data, setData] = useState<any>();

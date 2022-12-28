@@ -1,8 +1,8 @@
 import { AppProps } from "next/app";
 import Head from "next/head";
 import { NotificationsProvider } from "@mantine/notifications";
-import { UserProvider } from "@supabase/auth-helpers-react";
-import { supabaseClient as supabase } from "@supabase/auth-helpers-nextjs";
+// import { UserProvider } from "@supabase/auth-helpers-react";
+// import { supabaseClient as supabase } from "@supabase/auth-helpers-nextjs";
 import { GetServerSidePropsContext } from "next";
 import { getCookie, setCookie, deleteCookie } from "cookies-next";
 import {
