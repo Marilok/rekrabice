@@ -67,17 +67,16 @@ const FourOhFour: NextPage = () => {
             exist. You may have mistyped the address, or the page has been moved
             to another URL. If you think this is an error contact support.)
           </Text>
-          <Link href="/" passHref>
-            <Button
-              component="a"
-              variant="outline"
-              size="md"
-              mt="xl"
-              className={classes.control}
-            >
-              Vrátit se na hlavní stránku
-            </Button>
-          </Link>
+          <Button
+            component={Link}
+            href="/"
+            variant="outline"
+            size="md"
+            mt="xl"
+            className={classes.control}
+          >
+            Vrátit se na hlavní stránku
+          </Button>
         </div>
         <Image
           radius="md"

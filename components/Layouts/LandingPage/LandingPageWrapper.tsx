@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { AppShell, Navbar, MediaQuery } from "@mantine/core";
 import { supabaseClient as supabase } from "@supabase/auth-helpers-nextjs";
+import Script from "next/script";
+
 import CustomNavbar from "./Navbar";
 import Footer from "./Footer";
 import Header from "./Header";
@@ -31,6 +33,7 @@ export default function App({ children, session, supabase }: any) {
       >
         {children}
       </AppShell>
+      <Script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" />
     </>
   );
 }

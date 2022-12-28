@@ -158,19 +158,19 @@ export default function CustomNavbar({ session }) {
   const [active, setActive] = useState("Billing");
 
   const links = data.map((item) => (
-    <Link href={item.link} key={item.label} passHref>
-      <a
-        className={cx(classes.link, {
-          [classes.linkActive]: item.label === active,
-        })}
-        onClick={(event) => {
-          // event.preventDefault();
-          setActive(item.label);
-        }}
-      >
-        <item.icon className={classes.linkIcon} stroke={1.5} />
-        <span>{item.label}</span>
-      </a>
+    <Link
+      href={item.link}
+      key={item.label}
+      className={cx(classes.link, {
+        [classes.linkActive]: item.label === active,
+      })}
+      onClick={(event) => {
+        // event.preventDefault();
+        setActive(item.label);
+      }}
+    >
+      <item.icon className={classes.linkIcon} stroke={1.5} />
+      <span>{item.label}</span>
     </Link>
   ));
 
@@ -187,13 +187,11 @@ export default function CustomNavbar({ session }) {
         {links}
       </Navbar.Section>
       <Navbar.Section grow className={classes.footer}>
-        <Link href="/napoveda" passHref>
-          <a className={classes.link}>
-            <IconHelp className={classes.linkIcon} stroke={1.5} />
-            <span>Nápověda</span>
-          </a>
+        <Link href="/napoveda" className={classes.link}>
+          <IconHelp className={classes.linkIcon} stroke={1.5} />
+          <span>Nápověda</span>
         </Link>
-        {/* <Link href="/app/nastaveni" passHref> */}
+        {/* <Link legacyBehavior href="/app/nastaveni" passHref> */}
         <div
           className={classes.link}
           onClick={(event) => {

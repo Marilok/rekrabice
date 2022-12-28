@@ -127,11 +127,15 @@ export default function Footer({ data }: FooterLinksProps) {
 
   const groups = data.map((group) => {
     const links = group.links.map((link, index) => (
-      <Link href={link.link} key={index} passHref>
-        <Text className={classes.link} component="a">
-          {link.label}
-        </Text>
-      </Link>
+      <Text
+        className={classes.link}
+        component={Link}
+        href={link.link}
+        key={index}
+        passHref
+      >
+        {link.label}
+      </Text>
     ));
 
     return (
@@ -148,7 +152,7 @@ export default function Footer({ data }: FooterLinksProps) {
         <div className={classes.logo}>
           <Avatar src="/favicon.svg" size={30} />
           <Text size="xs" color="dimmed" className={classes.description}>
-            Být bez odpadu je cool.
+            Přestaňme si posílat odpad.
           </Text>
         </div>
         <div className={classes.groups}>{groups}</div>

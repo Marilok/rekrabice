@@ -95,9 +95,9 @@ const Otoc: NextPage = () => {
               color="green"
               mt={"xl"}
             >
-              <Stepper.Step label="Zvol Zelenou krabici">
+              <Stepper.Step label="Zvol ReKrabici">
                 <Title order={1} mt={"xl"}>
-                  Nech si nákup zabalit do Zelené krabice.
+                  Nech si nákup zabalit do ReKrabice.
                 </Title>
                 <Text mt={"md"}>
                   Tato možnost stojí 50 Kč, ale nenech se odradit, je to totiž
@@ -143,21 +143,20 @@ const Otoc: NextPage = () => {
                 <Card radius="sm" className="h-80" shadow="sm" p={0}>
                   <Map />
                 </Card>
-                <Link passHref href="/mapa">
-                  <Button
-                    size="md"
-                    mt={"md"}
-                    onClick={() => {
-                      setOpened(true);
-                    }}
-                    variant="light"
-                    color="green"
-                    component="a"
-                    leftIcon={<IconMapPin size={14} />}
-                  >
-                    Podrobná mapa vratných míst
-                  </Button>
-                </Link>
+                <Button
+                  size="md"
+                  mt={"md"}
+                  onClick={() => {
+                    setOpened(true);
+                  }}
+                  variant="light"
+                  color="green"
+                  component={Link}
+                  href="/mapa"
+                  leftIcon={<IconMapPin size={14} />}
+                >
+                  Podrobná mapa vratných míst
+                </Button>
               </Stepper.Step>
               <Stepper.Completed>
                 <Title order={1} mt={"xl"}>
@@ -165,13 +164,13 @@ const Otoc: NextPage = () => {
                 </Title>
                 <Text mt={"md"}>
                   Právě jsi otočil krabici a zachránil 1/156 stromu jen díky
-                  tomu, že si využil Zelenou krabici. 🌳
+                  tomu, že si využil ReKrabici. 🌳
                 </Text>
-                {query.referrer && (
+                {/* {query.referrer && (
                   <Button component="a" href={`https://${query.referrer}`}>
                     Vrátit se do super obchodu {query.name}
                   </Button>
-                )}
+                )} */}
               </Stepper.Completed>
             </Stepper>
             <Button.Group className=" mt-auto mx-auto">

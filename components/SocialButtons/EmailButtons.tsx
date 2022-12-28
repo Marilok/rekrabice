@@ -28,58 +28,54 @@ export function GoogleButton(props: ButtonProps) {
 }
 export function GmailButton(props: ButtonProps) {
   return (
-    <Link href="https://mail.google.com/" passHref>
-      <Button
-        leftIcon={<GmailIcon />}
-        variant="default"
-        color="gray"
-        component="a"
-        target={"_blank"}
-        {...props}
-      />
-    </Link>
+    <Button
+      leftIcon={<GmailIcon />}
+      variant="default"
+      color="gray"
+      component={Link}
+      href="https://mail.google.com/"
+      target={"_blank"}
+      {...props}
+    />
   );
 }
 export function SeznamEmailButton(props: ButtonProps) {
   return (
-    <Link href="https://email.seznam.cz/" passHref>
-      <Button
-        leftIcon={<SeznamEmailIcon />}
-        variant="default"
-        color="gray"
-        component="a"
-        target={"_blank"}
-        {...props}
-      />
-    </Link>
+    <Button
+      leftIcon={<SeznamEmailIcon />}
+      variant="default"
+      color="gray"
+      component={Link}
+      href="https://email.seznam.cz/"
+      target={"_blank"}
+      {...props}
+    />
   );
 }
 export function ProtonmailButton(props: ButtonProps) {
   return (
-    <Link href="https://mail.proton.me/" passHref>
-      <Button
-        leftIcon={<ProtonmailIcon />}
-        variant="default"
-        color="gray"
-        component="a"
-        target={"_blank"}
-        {...props}
-      />
-    </Link>
+    <Button
+      leftIcon={<ProtonmailIcon />}
+      variant="default"
+      color="gray"
+      component={Link}
+      href="https://mail.proton.me/"
+      target={"_blank"}
+      {...props}
+    />
   );
 }
 export function TutanotaButton(props: ButtonProps) {
   return (
-    <Link href="https://mail.tutanota.com/" passHref>
-      <Button
-        leftIcon={<TutanotaIcon />}
-        variant="default"
-        color="gray"
-        component="a"
-        target={"_blank"}
-        {...props}
-      />
-    </Link>
+    <Button
+      leftIcon={<TutanotaIcon />}
+      variant="default"
+      color="gray"
+      component={Link}
+      href="https://mail.tutanota.com/"
+      target={"_blank"}
+      {...props}
+    />
   );
 }
 

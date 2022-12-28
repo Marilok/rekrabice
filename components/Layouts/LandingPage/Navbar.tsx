@@ -3,7 +3,6 @@ import { Navbar, MediaQuery, Button, Accordion, Stack } from "@mantine/core";
 import Link from "next/link";
 import Image from "next/image";
 import { IconMapPin } from "@tabler/icons";
-import { NextLink } from "@mantine/next";
 export default function CustomNavbar({
   links,
   isOpen,
@@ -19,7 +18,7 @@ export default function CustomNavbar({
   const items = links.map((link) => {
     const menuItems = link.links?.map((item) => (
       <Link key={item.link} href={item.link}>
-        <a>{item.label}</a>
+        {item.label}
       </Link>
     ));
     if (menuItems) {
@@ -30,7 +29,7 @@ export default function CustomNavbar({
             <Accordion.Panel>
               <Stack ml={"md"}>
                 <Link key={link.link} href={link.link}>
-                  <a>{link.label}</a>
+                  {link.label}
                 </Link>
                 {menuItems}
               </Stack>
@@ -40,8 +39,12 @@ export default function CustomNavbar({
       );
     }
     return (
-      <Link key={link.label} href={link.link} passHref>
-        <a className=" p-4 inline-block w-full">{link.label}</a>
+      <Link
+        key={link.label}
+        href={link.link}
+        className=" p-4 inline-block w-full"
+      >
+        {link.label}
       </Link>
     );
   });
@@ -61,7 +64,7 @@ export default function CustomNavbar({
             variant="light"
             color="green"
             fullWidth
-            component="a"
+            // component="a"
             //TODO1: change to brand color
             leftIcon={<IconMapPin size={14} />}
           >

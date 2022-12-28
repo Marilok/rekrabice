@@ -1,10 +1,13 @@
 import type { NextPage } from "next";
-import Link from "next/link";
-import Contact from "../components/Contact/Contact";
 import LandingPageWrapper from "../components/Layouts/LandingPage/LandingPageWrapper";
+import HeroBullets from "../components/Layouts/LandingPage/LandingPageEmail";
 
 const LandingPage: NextPage = () => {
-  return <LandingPageWrapper></LandingPageWrapper>;
+  return (
+    <LandingPageWrapper>
+      <HeroBullets />
+    </LandingPageWrapper>
+  );
 };
 
 export default LandingPage;

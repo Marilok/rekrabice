@@ -6,16 +6,23 @@ export default function Team() {
     <>
       <Group grow={true} position={"apart"}>
         <TeamMember
-          avatar="https://media-exp1.licdn.com/dms/image/C4E03AQFt4z7lGk1xgg/profile-displayphoto-shrink_800_800/0/1653076676851?e=1665619200&v=beta&t=mjW6isK_99j9wl44KaZ3FCxaTGsDbLh9ZWt9ttY4psQ"
-          title="CEO & CTO"
+          avatar="https://media.licdn.com/dms/image/C4E03AQFt4z7lGk1xgg/profile-displayphoto-shrink_800_800/0/1653076676851?e=1677715200&v=beta&t=CmAK6ItBgh1OLLIckkQcoQ-gG1cbSkpL-LEX3Hdk3_A"
+          title="Exekutiva a technologie"
           name="Marek Svitek"
           email="marek.svitek@zelenakrabice.cz"
         />
         <TeamMember
+          avatar="https://media.licdn.com/dms/image/C4D03AQEby_O8aw_AfQ/profile-displayphoto-shrink_800_800/0/1650707794438?e=2147483647&v=beta&t=t8ecASceJ_kZL4WkfWxe_PjT52hlYrC49ZofrORGHmc"
+          title="Marketing a sales"
+          name="Tadeáš Bíbr"
+          email="tadeas.bibr@zelenakrabice.cz"
+        />
+        <TeamMember
           avatar=""
-          title="CMO/CFO/COO"
+          title="CFO/COO..."
           name="Ty? 🤔😎"
           email="Zajímá tě víc? Ozvi se nám a něco spolu vymyslíme!"
+          disabled={true}
         />
       </Group>
     </>

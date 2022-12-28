@@ -1,5 +1,6 @@
 import { createStyles, Avatar, Text, Group } from "@mantine/core";
 import { IconPhoneCall, IconAt } from "@tabler/icons";
+import Link from "next/link";
 
 const useStyles = createStyles((theme) => ({
   icon: {
@@ -28,6 +29,7 @@ export default function TeamMember({
   title,
   // phone,
   email,
+  disabled,
 }: TeamMemberProps) {
   const { classes } = useStyles();
   return (
@@ -50,9 +52,11 @@ export default function TeamMember({
 
           <Group noWrap spacing={10} mt={3}>
             <IconAt stroke={1.5} size={16} className={classes.icon} />
-            <Text size="xs" color="dimmed">
-              {email}
-            </Text>
+            <Link href={disabled ? "" : `mailto:${email}`}>
+              <Text size="xs" color="dimmed">
+                {email}
+              </Text>
+            </Link>
           </Group>
 
           {/* <Group noWrap spacing={10} mt={5}>

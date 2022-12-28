@@ -250,7 +250,7 @@ export default function ContactUs() {
               <Textarea
                 required
                 label="Zpráva"
-                placeholder="Chtěl bych začít využívat využívat Zelené krabice a začít šetřit lesy! :)"
+                placeholder="Chtěl bych začít využívat využívat ReKrabice a začít šetřit lesy! :)"
                 minRows={4}
                 mt="md"
                 classNames={{ input: classes.input, label: classes.inputLabel }}

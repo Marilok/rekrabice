@@ -8,11 +8,11 @@ import {
   Button,
   Burger,
   Avatar,
+  ActionIcon,
+  useMantineColorScheme,
 } from "@mantine/core";
-import { IconChevronDown } from "@tabler/icons";
+import { IconChevronDown, IconSun, IconMoonStars } from "@tabler/icons";
 import Link from "next/link";
-import { IconArrowDown, IconArrowUp, IconMapPin } from "@tabler/icons";
-import { NextLink } from "@mantine/next";
 import Image from "next/image";
 
 const HEADER_HEIGHT = 60;
@@ -78,10 +78,11 @@ export default function HeaderAction({
   isOpen,
   toggle,
 }: HeaderActionProps) {
+  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const { classes } = useStyles();
   const items = links.map((link) => {
     const menuItems = link.links?.map((item) => (
-      <Menu.Item key={item.link} component={NextLink} href={item.link}>
+      <Menu.Item key={item.link} component={Link} href={item.link}>
         {item.label}
       </Menu.Item>
     ));
@@ -91,10 +92,10 @@ export default function HeaderAction({
         <Menu key={link.label} trigger="hover" exitTransitionDuration={0}>
           <Menu.Target>
             <Center>
-              <NextLink className={classes.link} href={link.link}>
+              <Link className={classes.link} href={link.link}>
                 <span className={classes.linkLabel}>{link.label}</span>
                 <IconChevronDown size={12} stroke={1.5} />
-              </NextLink>
+              </Link>
             </Center>
           </Menu.Target>
           <Menu.Dropdown>{menuItems}</Menu.Dropdown>
@@ -103,8 +104,8 @@ export default function HeaderAction({
     }
 
     return (
-      <Link key={link.label} href={link.link} passHref>
-        <a className={classes.link}>{link.label}</a>
+      <Link key={link.label} href={link.link} className={classes.link}>
+        {link.label}
       </Link>
     );
   });
@@ -133,18 +134,39 @@ export default function HeaderAction({
         <Group spacing={5} className={classes.links}>
           {items}
         </Group>
-        <Link passHref href={"/mapa"}>
-          <Button
-            size="sm"
-            variant="light"
-            color="green"
-            component="a"
-            //TODO1: change to brand color
-            leftIcon={<IconMapPin size={14} />}
+        <Group position="center" my="xl">
+          <ActionIcon
+            onClick={() => toggleColorScheme()}
+            size="lg"
+            sx={(theme) => ({
+              backgroundColor:
+                theme.colorScheme === "dark"
+                  ? theme.colors.dark[6]
+                  : theme.colors.gray[0],
+              color:
+                theme.colorScheme === "dark"
+                  ? theme.colors.yellow[4]
+                  : theme.colors.blue[6],
+            })}
           >
-            Vratná místa
-          </Button>
-        </Link>
+            {colorScheme === "dark" ? (
+              <IconSun size={18} />
+            ) : (
+              <IconMoonStars size={18} />
+            )}
+          </ActionIcon>
+        </Group>
+        {/* <Button
+          size="sm"
+          variant="light"
+          color="green"
+          component={Link}
+          href={"/mapa"}
+          //TODO1: change to brand color
+          leftIcon={<IconMapPin size={14} />}
+        >
+          Vratná místa
+        </Button> */}
       </Container>
     </Header>
   );

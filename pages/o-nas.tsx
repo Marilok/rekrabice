@@ -1,6 +1,12 @@
 import type { NextPage } from "next";
 import { Table, Title, Text, List, Container } from "@mantine/core";
-import { IconArrowBarToDown, IconRecycle, IconBox } from "@tabler/icons";
+import {
+  IconArrowBarToDown,
+  IconRecycle,
+  IconBox,
+  IconTree,
+  IconBulb,
+} from "@tabler/icons";
 import Link from "next/link";
 import Contact from "../components/Contact/Contact";
 import Footer from "../components/Layouts/LandingPage/Footer";
@@ -15,15 +21,23 @@ const About: NextPage = () => {
       <Container size="lg" p={"lg"}>
         <TypographyStylesProvider>
           <Title order={1}>O projektu</Title>
-          <Title order={2}>Příběh</Title>
+          {/* <Title order={2}>Příběh</Title>
           <Text>
-            Byl jednou jeden středoškolák z Brna, kterému se nelíbilo neustálé
+            Byli jednou jeden středoškolák z Brna a druhý z Vysočinu. Oboum , kterému se nelíbilo neustálé
             vyhazování krabic od zásilek z e-shopu. ...
-          </Text>
+          </Text> */}
           <Title order={2}>Vize</Title>
           <Text>
-            Naší vizí je, aby se už žádná krabice nikdy nemusela vyhodit.
-            Jednoduše, dosáhnout stavu &quot;zero-waste&quot;.
+            Naší vizí je, aby se už žásná krabice nemusela nikdy vyhodit. Chceme
+            udělat změnu, aby se zákazníkům už neposílal objednávky ve zbytečném
+            odpadě. Jednoduše řečeno, chceme dosáhnout stavu
+            &quot;zero-waste&quot; a cirkuklární ekonomiky u nás v České
+            republice.
+          </Text>
+          <Title order={2}>Mise</Title>
+          <Text>
+            Docílit naší vize chceme skrze poskytování znovupoužitelných balení
+            pro e-shopy.
           </Text>
           <Title order={2}>Hodnoty</Title>
           <FeaturesAsymmetrical data={values} />
@@ -41,20 +55,21 @@ const About: NextPage = () => {
 export default About;
 const values = [
   {
+    icon: IconTree,
+    title: "Redukce odpadu",
+    description:
+      "Rozhodujeme se na základě dlouhodobé udžitelnosti vůči naší planetě. Snažíme se redukovat množství odpadu a dosáhnout stavu zero-waste.",
+  },
+  {
     icon: IconArrowBarToDown,
     title: "Smysl a dopad",
     description:
       "Všechny věci co děláme musí mít smysl, tak aby měli pozitivní dopad na svět.",
   },
   {
-    icon: IconRecycle,
-    title: "Udržitelnost",
+    icon: IconBulb,
+    title: "Inovace",
     description:
-      "Rozhodujeme se na základě dlouhodobé udžitelnosti vůči naší planetě, ale nepodporujeme ekoterorismus.",
-  },
-  {
-    icon: IconBox,
-    title: "Minimalismus",
-    description: "Věci nekomplikujeme a děláme je jednoduché.",
+      "Věci děláme inovativně a vždycky se snažíme najít lepší způsob jak to dělat efektivněji.",
   },
 ];
