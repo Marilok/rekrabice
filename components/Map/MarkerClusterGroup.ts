@@ -1,3 +1,4 @@
+//@ts-nocheck
 import "leaflet.markercluster";
 import { createPathComponent } from "@react-leaflet/core";
 import L from "leaflet";
