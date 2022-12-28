@@ -51,6 +51,7 @@ const useStyles = createStyles((theme) => ({
 
   image: {
     flex: 1,
+    maxWidth: 400,
 
     [theme.fn.smallerThan("md")]: {
       display: "none",
@@ -133,7 +134,7 @@ export default function HeroBullets() {
           </div>
           <Image
             src={boox}
-            // className={classes.image}
+            className={classes.image}
             alt="me"
             // width={"2000"}
             // height="64"
