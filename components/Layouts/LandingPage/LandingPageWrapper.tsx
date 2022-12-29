@@ -41,10 +41,10 @@ const FOOTER_DATA = [
   {
     title: "Pro zákazníky",
     links: [
-      {
-        label: "Kde ji vrátit?",
-        link: "/mapa",
-      },
+      // {
+      //   label: "Kde ji vrátit?",
+      //   link: "/mapa",
+      // },
       {
         label: "Jak to funguje?",
         link: "/otoc",
@@ -60,16 +60,20 @@ const FOOTER_DATA = [
     links: [
       {
         label: "Jak to funguje?",
-        link: "#",
-      },
-      {
-        label: "Ceník",
-        link: "#",
+        link: "/otoc",
       },
       {
         label: "Kontakty",
         link: "/kontakt",
       },
+      //     {
+      //       label: "Ceník",
+      //       link: "#",
+      //     },
+      //     {
+      //       label: "Kontakty",
+      //       link: "/kontakt",
+      //     },
     ],
   },
   {
@@ -79,10 +83,10 @@ const FOOTER_DATA = [
         label: "O projektu",
         link: "o-nas",
       },
-      {
-        label: "GDPR",
-        link: "/gdpr",
-      },
+      // {
+      //   label: "GDPR",
+      //   link: "/gdpr",
+      // },
       {
         label: "Kontakty",
         link: "/kontakt",
@@ -96,32 +100,32 @@ const HEADER_DATA = [
     link: "/otoc",
     label: "Jak to funguje?",
   },
-  {
-    link: "/obchod",
-    label: "Pro obchody",
-    links: [
-      {
-        link: "/otoc-obchod",
-        label: "Jak to funguje?",
-      },
-      {
-        link: "/krabice",
-        label: "Krabice",
-      },
-      {
-        link: "/cenik",
-        label: "Ceník",
-      },
-      {
-        link: "/kontakt",
-        label: "Kontakt",
-      },
-    ],
-  },
-  {
-    link: "/statistika",
-    label: "Statistika",
-  },
+  // {
+  //   link: "/obchod",
+  //   label: "Pro obchody",
+  //   links: [
+  //     {
+  //       link: "/otoc",
+  //       label: "Jak to funguje?",
+  //     },
+  //     // {
+  //     //   link: "/krabice",
+  //     //   label: "Krabice",
+  //     // },
+  //     // {
+  //     //   link: "/cenik",
+  //     //   label: "Ceník",
+  //     // },
+  //     {
+  //       link: "/kontakt",
+  //       label: "Kontakt",
+  //     },
+  //   ],
+  // },
+  // {
+  //   link: "/statistika",
+  //   label: "Statistika",
+  // },
   {
     link: "/o-nas",
     label: "O nás",
@@ -130,10 +134,10 @@ const HEADER_DATA = [
         link: "/o-nas",
         label: "O projektu",
       },
-      {
-        link: "/faq",
-        label: "FAQ",
-      },
+      // {
+      //   link: "/faq",
+      //   label: "FAQ",
+      // },
       {
         link: "/kontakt",
         label: "Kontakt",
