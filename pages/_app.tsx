@@ -70,6 +70,7 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
           withGlobalStyles
           withNormalizeCSS
           theme={{
+            primaryColor: "green",
             // colors: {
             //   brand: [
             //     "#8DAF87",
