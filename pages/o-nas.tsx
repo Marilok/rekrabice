@@ -28,18 +28,22 @@ const About: NextPage = () => {
           </Text> */}
           <Title order={2}>Vize</Title>
           <Text>
-            Naší vizí je, aby se už žásná krabice nemusela nikdy vyhodit. Chceme
-            udělat změnu, aby se zákazníkům už neposílal objednávky ve zbytečném
-            odpadě. Jednoduše řečeno, chceme dosáhnout stavu
-            &quot;zero-waste&quot; a cirkuklární ekonomiky u nás v České
-            republice.
+            Představte si svět, kde už nevzniká žádný odpad při objednání
+            online. Svět, kde už zbytečně nemusíte vyhazovat tu kartonou
+            krabici, ve které vám přišly vaše nové boty či nová sluchátka.
+            Opravdu to by to tak nešlo dělat i teď? Určitě šlo a od toho jsme tu
+            my. Mladý tým, který se snaží zavést cirkularní ekonomiku u nás v
+            Česku. Věříme, že zero-waste není jen hezká představa, o které
+            můžeme jen snít, ale že ho dokážeme implementovat i u nás doma.
           </Text>
           <Title order={2}>Mise</Title>
           <Text>
-            Docílit naší vize chceme skrze poskytování znovupoužitelných balení
-            pro e-shopy.
+            Docílit naší bezodpadové vize chceme skrze poskytování
+            znovupoužitelných balení pro e-shopy a starání se o jejich
+            bezproblémové vracení.
           </Text>
           <Title order={2}>Hodnoty</Title>
+          <Text>Mezi naše hodnoty, kterými se řídíme a rozhodujeme patří:</Text>
           <FeaturesAsymmetrical data={values} />
 
           <Title mb={"sm"} order={1}>
@@ -58,18 +62,18 @@ const values = [
     icon: IconTree,
     title: "Redukce odpadu",
     description:
-      "Rozhodujeme se na základě dlouhodobé udžitelnosti vůči naší planetě. Snažíme se redukovat množství odpadu a dosáhnout stavu zero-waste.",
+      "Primárně se rozhodujeme podle toho, kolik odpadu jsme schopni celkově ušetřit, kolik zbytečného odpadu neskončí v našich lesích a vodách. Míříme ke stavu zero-waste.",
   },
   {
     icon: IconArrowBarToDown,
     title: "Smysl a dopad",
     description:
-      "Všechny věci co děláme musí mít smysl, tak aby měli pozitivní dopad na svět.",
+      "Všechny věci co děláme musí mít smysl, tak aby měli pozitivní dopad na svět. Neděláme věci jen proto, že to je trendy.",
   },
   {
     icon: IconBulb,
     title: "Inovace",
     description:
-      "Věci děláme inovativně a vždycky se snažíme najít lepší způsob jak to dělat efektivněji.",
+      "Snažíme se bořit stávající přesvědčení, děláme věci inovativně a přicházíme se způsoby, jak to dělat efektivněji.",
   },
 ];

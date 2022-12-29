@@ -36,7 +36,7 @@ export default function TeamMember({
   return (
     <div>
       <Group noWrap>
-        <Avatar src={avatar} size={94} radius="md" />
+        <Avatar src={avatar} size={94} radius="md" alt="team member" />
         <div>
           <Text
             size="xs"
