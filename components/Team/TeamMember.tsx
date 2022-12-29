@@ -21,6 +21,7 @@ interface TeamMemberProps {
   title: string;
   // phone: string;
   email: string;
+  disabled?: boolean;
 }
 
 export default function TeamMember({

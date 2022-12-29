@@ -61,7 +61,14 @@ export default function LanguagePicker() {
   const [selected, setSelected] = useState(data[0]);
   const items = data.map((item) => (
     <Menu.Item
-      icon={<Image src={item.image} width="18" height="auto" />}
+      icon={
+        <Image
+          src={item.image}
+          alt={"language icon"}
+          width="18"
+          height="auto"
+        />
+      }
       onClick={() => setSelected(item)}
       key={item.label}
     >
@@ -79,7 +86,12 @@ export default function LanguagePicker() {
       <Menu.Target>
         <UnstyledButton className={classes.control}>
           <Group spacing="xs">
-            <Image src={selected.image} width={22} height={"auto"} />
+            <Image
+              src={selected.image}
+              alt={"selected language icon"}
+              width={22}
+              height={"auto"}
+            />
             <span className={classes.label}>{selected.label}</span>
           </Group>
           <IconChevronDown size={16} className={classes.icon} stroke={1.5} />

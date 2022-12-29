@@ -6,10 +6,13 @@ import App from "../../components/App";
 import Stats from "../../components/Stats";
 import { Center } from "@mantine/core";
 import { withPageAuth } from "@supabase/auth-helpers-nextjs";
-// import { supabaseClient as supabase } from "@supabase/auth-helpers-nextjs";
+//@ts-ignore
+import { Database } from "../database.types";
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
 
 const Statistika: NextPage = () => {
   const [data, setData] = useState<any>();
+  const supabaseClient = useSupabaseClient<Database>();
 
   useEffect(() => {
     getStatsData();
@@ -17,7 +20,7 @@ const Statistika: NextPage = () => {
 
   async function getStatsData() {
     try {
-      let { data, error, status } = await supabase
+      let { data, error, status } = await supabaseClient
         .from("profiles")
         .select("stats_saved_trees, stats_saved_co2, stats_boxes_used")
         .single();
