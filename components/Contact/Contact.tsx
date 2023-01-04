@@ -271,7 +271,7 @@ export default function ContactUs() {
           </SimpleGrid>
         </div>
       </Container>
-      <Container p={0} mt={"xl"} size={"md"}>
+      {/* <Container p={0} mt={"xl"} size={"md"}>
         <div className={classes.wrapper2}>
           <Box
             sx={(theme) => ({
@@ -298,7 +298,7 @@ export default function ContactUs() {
             <ContactIconsList data={legalData} variant="legal" />
           </Box>
         </div>
-      </Container>
+      </Container> */}
     </>
   );
 }
