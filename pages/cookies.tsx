@@ -12,7 +12,7 @@ import Link from "next/link";
 import Contact from "../components/Contact/Contact";
 import LandingPageWrapper from "../components/Layouts/LandingPage/LandingPageWrapper";
 
-const Cookies: NextPage = () => {
+export default function Cookies() {
   const rowsEssential = ESSENTIAL.map((element) => (
     <tr key={element.name}>
       <td>{element.name}</td>
@@ -152,8 +152,6 @@ const Cookies: NextPage = () => {
     </LandingPageWrapper>
   );
 };
-
-export default Cookies;
 
 const ESSENTIAL = [
   { name: "mantine-color-scheme", purpose: "Pro ukládání barevného režimu." },
