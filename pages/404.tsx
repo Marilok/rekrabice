@@ -11,41 +11,6 @@ import {
 } from "@mantine/core";
 //TODO2 image from next instead of mantine and other pages
 // import Image from "next/image";
-const useStyles = createStyles((theme) => ({
-  root: {
-    paddingTop: 80,
-    paddingBottom: 80,
-  },
-
-  title: {
-    fontWeight: 900,
-    fontSize: 34,
-    marginBottom: theme.spacing.md,
-    fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-
-    [theme.fn.smallerThan("sm")]: {
-      fontSize: 32,
-    },
-  },
-
-  control: {
-    [theme.fn.smallerThan("sm")]: {
-      width: "100%",
-    },
-  },
-
-  mobileImage: {
-    [theme.fn.largerThan("sm")]: {
-      display: "none",
-    },
-  },
-
-  desktopImage: {
-    [theme.fn.smallerThan("sm")]: {
-      display: "none",
-    },
-  },
-}));
 
 const FourOhFour: NextPage = () => {
   const { classes } = useStyles();
@@ -92,3 +57,39 @@ const FourOhFour: NextPage = () => {
 };
 
 export default FourOhFour;
+
+const useStyles = createStyles((theme) => ({
+  root: {
+    paddingTop: 80,
+    paddingBottom: 80,
+  },
+
+  title: {
+    fontWeight: 900,
+    fontSize: 34,
+    marginBottom: theme.spacing.md,
+    fontFamily: `Greycliff CF, ${theme.fontFamily}`,
+
+    [theme.fn.smallerThan("sm")]: {
+      fontSize: 32,
+    },
+  },
+
+  control: {
+    [theme.fn.smallerThan("sm")]: {
+      width: "100%",
+    },
+  },
+
+  mobileImage: {
+    [theme.fn.largerThan("sm")]: {
+      display: "none",
+    },
+  },
+
+  desktopImage: {
+    [theme.fn.smallerThan("sm")]: {
+      display: "none",
+    },
+  },
+}));
