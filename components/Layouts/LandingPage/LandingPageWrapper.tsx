@@ -53,6 +53,10 @@ const FOOTER_DATA = [
         label: "Kontakty",
         link: "/kontakt",
       },
+      {
+        label: "/baleni",
+        link: "/baleni",
+      },
     ],
   },
   {
@@ -65,6 +69,10 @@ const FOOTER_DATA = [
       {
         label: "Kontakty",
         link: "/kontakt",
+      },
+      {
+        label: "/baleni",
+        link: "/baleni",
       },
       //     {
       //       label: "Ceník",
