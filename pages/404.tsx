@@ -9,13 +9,13 @@ import {
   SimpleGrid,
   Image,
 } from "@mantine/core";
-//TODO2 image from next instead of mantine and other pages
-// import Image from "next/image";
+import LandingPageWrapper from "../components/Layouts/LandingPage/LandingPageWrapper";
 
 const FourOhFour: NextPage = () => {
   const { classes } = useStyles();
 
   return (
+    <LandingPageWrapper>
     <Container className={classes.root}>
       <SimpleGrid
         spacing={80}
@@ -53,6 +53,7 @@ const FourOhFour: NextPage = () => {
         />
       </SimpleGrid>
     </Container>
+    </LandingPageWrapper>
   );
 };
 

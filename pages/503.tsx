@@ -9,6 +9,7 @@ import {
   Button,
   SimpleGrid,
 } from "@mantine/core";
+import LandingPageWrapper from "../components/Layouts/LandingPage/LandingPageWrapper";
 
 const useStyles = createStyles((theme) => ({
   root: {
@@ -50,6 +51,7 @@ const FiveOhThree: NextPage = () => {
   const { classes } = useStyles();
 
   return (
+    <LandingPageWrapper>
     <Container className={classes.root}>
       <SimpleGrid
         spacing={80}
@@ -87,6 +89,7 @@ const FiveOhThree: NextPage = () => {
         />
       </SimpleGrid>
     </Container>
+    </LandingPageWrapper>
   );
 };
 
