@@ -1,6 +1,5 @@
-
 import Link from "next/link";
-import Image from 'next/image'
+import Image from 'next/image';
 import { useState } from "react";
 import {
     Stepper,
@@ -27,20 +26,20 @@ export default function StepperComponent() {
     const { height, width } = useViewportSize();
     const [opened, setOpened] = useState(false);
 
-    const nextStep = () =>
-        setActive((current) => (current < 3 ? current + 1 : current));
+    const nextStep = () => setActive((current) => (current < 3 ? current + 1 : current));
     const prevStep = () =>
         setActive((current) => (current > 0 ? current - 1 : current));
-    useHotkeys([
-        ["ArrowDown", nextStep],
-        ["ArrowUp", prevStep],
+        useHotkeys([
+            ["ArrowDown", nextStep],
+            ["ArrowUp", prevStep],
 
-        ["Enter", nextStep],
-        ["Shift+Enter", prevStep],
+            ["Enter", nextStep],
+            ["Shift+Enter", prevStep],
 
-        ["space", nextStep],
-        ["Shift+space", prevStep],
-    ]);
+            ["space", nextStep],
+            ["Shift+space", prevStep],
+        ]);;
+
     const router = useRouter();
     const query: any = router.query;
     // {
@@ -65,7 +64,7 @@ export default function StepperComponent() {
     });
 
     return (
-  <>
+        <>
             <Portal>
                 <Confetti
                     width={width}
@@ -78,129 +77,129 @@ export default function StepperComponent() {
                     }}
                 />
             </Portal>
-                <Container>
-                    <div className="flex flex-col h-full">
-                        <Stepper
-                            active={active}
-                            onStepClick={setActive}
-                            // breakpoint="md"
-                            color="green"
-                            mt={"xl"}
-                        >
-                            <Stepper.Step label="Zvol ReKrabici">
-                                <Title order={1} mt={"xl"}>
-                                    Nech si nákup zabalit do ReKrabice.
-                                </Title>
-                                <Text mt={"md"}>
-                                    Tato možnost stojí 50 Kč, ale nenech se odradit, je to totiž
-                                    vratná záloha. 😉
-                                </Text>
-                                <div className="m-auto flex justify-center mt-5">
-                                    <Image
-                                        src={"/otoc_button.png"}
-                                        height={300}
-                                        width={540}
-                                        alt="Vybrat balení do vratné krabice z eshopu"
-                                        className="m-auto rounded shadow"
-                                    />
-                                </div>
-                            </Stepper.Step>
+            <Container>
+                <div className="flex flex-col h-full">
+                    <Stepper
+                        active={active}
+                        onStepClick={setActive}
+                        // breakpoint="md"
+                        color="green"
+                        mt={"xl"}
+                    >
+                        <Stepper.Step label="Zvol ReKrabici">
+                            <Title order={1} mt={"xl"}>
+                                Nech si nákup zabalit do ReKrabice.
+                            </Title>
+                            <Text mt={"md"}>
+                                Tato možnost stojí 50 Kč, ale nenech se odradit, je to totiž
+                                vratná záloha. 😉
+                            </Text>
+                            <div className="m-auto flex justify-center mt-5">
+                                <Image
+                                    src={"/otoc_button.png"}
+                                    height={300}
+                                    width={540}
+                                    alt="Vybrat balení do vratné krabice z eshopu"
+                                    className="m-auto rounded shadow"
+                                />
+                            </div>
+                        </Stepper.Step>
 
-                            <Stepper.Step label="Rozbal balíček">
-                                <Title order={1} mt={"xl"}>
-                                    Rozbal svůj balíček a raduj se ze svého nákupu.
-                                </Title>
-                                <Text mt={"md"}>
-                                    Při tomto kroku ti jen popřejeme, aby jsi byl spokojen se svým
-                                    nákupem. 😅
-                                </Text>
-                                <div className="m-auto flex justify-center mt-5">
-                                    <Image
-                                        src={"/gifs/open.gif"}
-                                        height={240}
-                                        width={420}
-                                        alt="Box opening gif"
-                                        className="m-auto rounded shadow"
-                                    />
-                                </div>
-                            </Stepper.Step>
-                            <Stepper.Step label="Přines krabici">
-                                <Title order={1} mt={"xl"}>
-                                    Přines krabici do vratného místa
-                                </Title>
-                                <Text mt={"md"}>
-                                    Prázdnou krabici přines do jednoho z 23 vratných míst. Vratnou
-                                    zálohu ti automaticky připíšeme na účet.
-                                </Text>
-                                <Card radius="sm" className="h-80" shadow="sm" p={0}>
-                                    <Map />
-                                </Card>
-                                <Button
-                                    size="md"
-                                    mt={"md"}
-                                    onClick={() => {
-                                        setOpened(true);
-                                    }}
-                                    variant="light"
-                                    color="green"
-                                    component={Link}
-                                    href="/mapa"
-                                    leftIcon={<IconMapPin size={14} />}
-                                >
-                                    Podrobná mapa vratných míst
-                                </Button>
-                            </Stepper.Step>
-                            <Stepper.Completed>
-                                <Title order={1} mt={"xl"}>
-                                    Wohoooo! 🥳
-                                </Title>
-                                <Text mt={"md"}>
-                                    Právě jsi otočil krabici a zachránil 1/156 stromu jen díky
-                                    tomu, že si využil ReKrabici. 🌳
-                                </Text>
-                                <div className="m-auto flex justify-center mt-5">
-                                    <Image
-                                        src={"/images/tree.jpg"}
-                                        height={240}
-                                        width={420}
-                                        alt="A tree in misty cloud"
-                                        className="m-auto rounded shadow"
-                                    />
-                                </div>
-                                {/* {query.referrer && (
+                        <Stepper.Step label="Rozbal balíček">
+                            <Title order={1} mt={"xl"}>
+                                Rozbal svůj balíček a raduj se ze svého nákupu.
+                            </Title>
+                            <Text mt={"md"}>
+                                Při tomto kroku ti jen popřejeme, aby jsi byl spokojen se svým
+                                nákupem. 😅
+                            </Text>
+                            <div className="m-auto flex justify-center mt-5">
+                                <Image
+                                    src={"/gifs/open.gif"}
+                                    height={240}
+                                    width={420}
+                                    alt="Box opening gif"
+                                    className="m-auto rounded shadow"
+                                />
+                            </div>
+                        </Stepper.Step>
+                        <Stepper.Step label="Přines krabici">
+                            <Title order={1} mt={"xl"}>
+                                Přines krabici do vratného místa
+                            </Title>
+                            <Text mt={"md"}>
+                                Prázdnou krabici přines do jednoho z 23 vratných míst. Vratnou
+                                zálohu ti automaticky připíšeme na účet.
+                            </Text>
+                            <Card radius="sm" className="h-80" shadow="sm" p={0}>
+                                <Map />
+                            </Card>
+                            <Button
+                                size="md"
+                                mt={"md"}
+                                onClick={() => {
+                                    setOpened(true);
+                                }}
+                                variant="light"
+                                color="green"
+                                component={Link}
+                                href="/mapa"
+                                leftIcon={<IconMapPin size={14} />}
+                            >
+                                Podrobná mapa vratných míst
+                            </Button>
+                        </Stepper.Step>
+                        <Stepper.Completed>
+                            <Title order={1} mt={"xl"}>
+                                Wohoooo! 🥳
+                            </Title>
+                            <Text mt={"md"}>
+                                Právě jsi otočil krabici a zachránil 1/156 stromu jen díky
+                                tomu, že si využil ReKrabici. 🌳
+                            </Text>
+                            <div className="m-auto flex justify-center mt-5">
+                                <Image
+                                    src={"/images/tree.jpg"}
+                                    height={240}
+                                    width={420}
+                                    alt="A tree in misty cloud"
+                                    className="m-auto rounded shadow"
+                                />
+                            </div>
+                            {/* {query.referrer && (
                 <Button component="a" href={`https://${query.referrer}`}>
                   Vrátit se do super obchodu {query.name}
                 </Button>
               )} */}
-                            </Stepper.Completed>
-                        </Stepper>
-                        <Button.Group mt="md" className="mx-auto">
-                            {active !== 0 && (
-                                <Button
-                                    size="xl"
-                                    onClick={prevStep}
-                                    variant="outline"
-                                    className="w-60"
-                                    color="green"
-                                    leftIcon={<IconArrowLeft size={14} />}
-                                >
-                                    Předchozí krok
-                                </Button>
-                            )}
-                            {active !== 3 && (
-                                <Button
-                                    size="xl"
-                                    color="green"
-                                    onClick={nextStep}
-                                    className={`w-60 ${active == 0 ? "w-96 !rounded" : ""}`}
-                                    rightIcon={<IconArrowRight size={14} />}
-                                >
-                                    Další krok
-                                </Button>
-                            )}
-                        </Button.Group>
+                        </Stepper.Completed>
+                    </Stepper>
+                    <Button.Group mt="md" className="mx-auto">
+                        {active !== 0 && (
+                            <Button
+                                size="xl"
+                                onClick={prevStep}
+                                variant="outline"
+                                className="w-60"
+                                color="green"
+                                leftIcon={<IconArrowLeft size={14} />}
+                            >
+                                Předchozí krok
+                            </Button>
+                        )}
+                        {active !== 3 && (
+                            <Button
+                                size="xl"
+                                color="green"
+                                onClick={nextStep}
+                                className={`w-60 ${active == 0 ? "w-96 !rounded" : ""}`}
+                                rightIcon={<IconArrowRight size={14} />}
+                            >
+                                Další krok
+                            </Button>
+                        )}
+                    </Button.Group>
 
-                        {/* <Group position="center" mt="xl">
+                    {/* <Group position="center" mt="xl">
             <Button.Group orientation="vertical">
               {active !== 0 && (
                 <Button
@@ -233,8 +232,6 @@ export default function StepperComponent() {
               )}
             </Button.Group>
           </Group> */}
-                    </div>
-                </Container></>);
-      
-      
-      }
+                </div>
+            </Container></>);
+};
