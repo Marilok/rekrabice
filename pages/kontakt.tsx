@@ -3,7 +3,7 @@ import LandingPageWrapper from "../components/Layouts/LandingPage/LandingPageWra
 
 export default function Kontakt ()  {
   return (
-    <LandingPageWrapper>
+    <LandingPageWrapper title="Kontakt">
       <Contact />
     </LandingPageWrapper>
   );

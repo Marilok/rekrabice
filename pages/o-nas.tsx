@@ -13,24 +13,19 @@ import LandingPageWrapper from "../components/Layouts/LandingPage/LandingPageWra
 
 export default function About() {
   return (
-    <LandingPageWrapper>
+    <LandingPageWrapper title="O nás">
       <Container size="lg" p={"lg"}>
         <TypographyStylesProvider>
-          <Title order={1}>O projektu</Title>
-          {/* <Title order={2}>Příběh</Title>
+          <Title order={1}>O nás</Title>
+          <Title order={2}>Příběh</Title>
           <Text>
-            Byli jednou jeden středoškolák z Brna a druhý z Vysočinu. Oboum , kterému se nelíbilo neustálé
-            vyhazování krabic od zásilek z e-shopu. ...
-          </Text> */}
+            Byl jednou jeden středoškolák z Brna a druhý z Velkého Meziříčí. Oba štvalo neustálé vyhazování kartónových krabic, které jim zbyly po nákupu online. Řekli si, že zkusí spolu něco vymyslet. A tak vznikl projekt ReKrabice. Projekt, který se snaží přinést cirkulární ekonomiku k nám do Česka, aby už žádný odpad nekončil v našich lesech a vodách.
+          </Text>
           <Title order={2}>Vize</Title>
           <Text>
-            Představte si svět, kde už nevzniká žádný odpad při objednání
+            Představte si svět, kde už nevzniká žádný odpad při nakupování
             online. Svět, kde už zbytečně nemusíte vyhazovat tu kartonou
-            krabici, ve které vám přišly vaše nové boty či nová sluchátka.
-            Opravdu to by to tak nešlo dělat i teď? Určitě šlo a od toho jsme tu
-            my. Mladý tým, který se snaží zavést cirkularní ekonomiku u nás v
-            Česku. Věříme, že zero-waste není jen hezká představa, o které
-            můžeme jen snít, ale že ho dokážeme implementovat i u nás doma.
+            krabici a nebo se nemusíte starat o tu zbytečnou výplň.
           </Text>
           <Title order={2}>Mise</Title>
           <Text>
@@ -41,8 +36,7 @@ export default function About() {
           <Title order={2}>Hodnoty</Title>
           <Text>Mezi naše hodnoty, kterými se řídíme a rozhodujeme patří:</Text>
           <FeaturesAsymmetrical data={values} />
-
-          <Title mb={"sm"} order={1}>
+          <Title mb={"sm"} order={2}>
             Tým
           </Title>
           <Team />
@@ -57,13 +51,13 @@ const values = [
     icon: IconTree,
     title: "Redukce odpadu",
     description:
-      "Primárně se rozhodujeme podle toho, kolik odpadu jsme schopni celkově ušetřit, kolik zbytečného odpadu neskončí v našich lesích a vodách. Míříme ke stavu zero-waste.",
+      "Primárně se rozhodujeme podle toho, kolik odpadu jsme schopni celkově ušetřit. Motivuje nás, že jsme schopni ušetřit odpad, který neskončí v naší přírodě nebo ve spalovně. Dlouhodobě míříme ke stavu zero-waste.",
   },
   {
     icon: IconArrowBarToDown,
     title: "Smysl a dopad",
     description:
-      "Všechny věci co děláme musí mít smysl, tak aby měli pozitivní dopad na svět. Neděláme věci jen proto, že to je trendy.",
+      "Všechny věci co děláme musí mít určitý smysl. Každá naše aktivita by měla mít pozitivní dopad na svět okolo nás. Neděláme věci jen proto, že jsou trendy.",
   },
   {
     icon: IconBulb,

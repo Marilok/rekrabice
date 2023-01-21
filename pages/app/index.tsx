@@ -1,9 +1,7 @@
-import Head from "next/head";
 import { useState, useEffect } from "react";
 // import supabaseClient from '@supabase/auth-helpers-nextjs'
 import Auth from "../../components/Layouts/Auth";
 import App from "../../components/App";
-import { useUser } from "@supabase/auth-helpers-react";
 //@ts-ignore
 import { Database } from "../database.types";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";

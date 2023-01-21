@@ -1,17 +1,19 @@
-import { useState } from "react";
-import { AppShell, Navbar, MediaQuery } from "@mantine/core";
+import { AppShell } from "@mantine/core";
 import Script from "next/script";
-
 import CustomNavbar from "./Navbar";
 import Footer from "./Footer";
 import Header from "./Header";
 import { useDisclosure } from "@mantine/hooks";
+import Head from "next/head";
 
-export default function App({ children, session, supabase }: any) {
+export default function App({ children, title }: {children?:any, title?:string}) {
   const [isOpen, { toggle }] = useDisclosure(false);
 
   return (
     <>
+    <Head>
+      <title>{title? `title | ReKrabice` : "ReKrabice"}</title>
+    </Head>
       <AppShell
         // padding="md"
         navbar={
@@ -74,14 +76,6 @@ const FOOTER_DATA = [
         label: "/baleni",
         link: "/baleni",
       },
-      //     {
-      //       label: "Ceník",
-      //       link: "#",
-      //     },
-      //     {
-      //       label: "Kontakty",
-      //       link: "/kontakt",
-      //     },
     ],
   },
   {
@@ -91,10 +85,6 @@ const FOOTER_DATA = [
         label: "O projektu",
         link: "o-nas",
       },
-      // {
-      //   label: "GDPR",
-      //   link: "/gdpr",
-      // },
       {
         label: "Kontakty",
         link: "/kontakt",
