@@ -1,11 +1,8 @@
-import type { NextPage } from "next";
-import Link from "next/link";
-import Contact from "../components/Contact/Contact";
 import LandingPageWrapper from "../components/Layouts/LandingPage/LandingPageWrapper";
 import dynamic from "next/dynamic";
-import { Box, Card, Center, Loader, Text } from "@mantine/core";
+import { Card, Center, Loader, Text } from "@mantine/core";
 
-const Mapa: NextPage = () => {
+export default function Mapa() {
   const Map = dynamic(() => import("../components/Map/CustomMap"), {
     loading: () => (
       <Center className="h-full relative">
@@ -24,4 +21,3 @@ const Mapa: NextPage = () => {
   );
 };
 
-export default Mapa;

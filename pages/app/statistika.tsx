@@ -1,16 +1,13 @@
-import type { NextPage } from "next";
-import Head from "next/head";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import App from "../../components/App";
 import Stats from "../../components/Stats";
 import { Center } from "@mantine/core";
-import { withPageAuth } from "@supabase/auth-helpers-nextjs";
 //@ts-ignore
 import { Database } from "../database.types";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 
-const Statistika: NextPage = () => {
+export default function Statistika() {
   const [data, setData] = useState<any>();
   const supabaseClient = useSupabaseClient<Database>();
 
@@ -50,5 +47,3 @@ const Statistika: NextPage = () => {
   );
 };
 // export const getServerSideProps = withPageAuth();
-
-export default Statistika;

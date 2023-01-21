@@ -137,19 +137,10 @@ const HEADER_DATA = [
   {
     link: "/o-nas",
     label: "O nás",
-    links: [
-      {
-        link: "/o-nas",
-        label: "O projektu",
-      },
-      // {
-      //   link: "/faq",
-      //   label: "FAQ",
-      // },
-      {
-        link: "/kontakt",
-        label: "Kontakt",
-      },
-    ],
+    
+  },
+  {
+    link: "/kontakt",
+    label: "Kontakt",
   },
 ];

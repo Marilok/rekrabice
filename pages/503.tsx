@@ -1,5 +1,3 @@
-import type { NextPage } from "next";
-import Link from "next/link";
 import {
   createStyles,
   Image,
@@ -47,7 +45,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-const FiveOhThree: NextPage = () => {
+export default function FiveOhThree() {
   const { classes } = useStyles();
 
   return (
@@ -64,9 +62,7 @@ const FiveOhThree: NextPage = () => {
             Všechny naše servery jsou přetíženy.
           </Title>
           <Text color="dimmed" size="lg">
-            We cannot handle your request right now, please wait for a couple of
-            minutes and refresh the page. Our team is already working on this
-            issue.
+            Aktuálně nemůžeme vyřešit Váš požadavek, vraťte se prosím za pár minut a zkuste obnovit stránku. Náš tým pracuje na vyřešení problému.
           </Text>
           <Button
             variant="gradient"
@@ -76,7 +72,7 @@ const FiveOhThree: NextPage = () => {
             onClick={() => window.location.reload()}
             className={classes.control}
           >
-            Zkusit znovu načíst stránku
+            Obnovit stránku
           </Button>
         </div>
         <Image
@@ -92,5 +88,3 @@ const FiveOhThree: NextPage = () => {
     </LandingPageWrapper>
   );
 };
-
-export default FiveOhThree;

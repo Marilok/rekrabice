@@ -1,4 +1,3 @@
-import type { NextPage } from "next";
 import Link from "next/link";
 import {
   createStyles,
@@ -8,6 +7,7 @@ import {
   Text,
   Button,
   SimpleGrid,
+  Anchor,
 } from "@mantine/core";
 import LandingPageWrapper from "../components/Layouts/LandingPage/LandingPageWrapper";
 
@@ -47,7 +47,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-const FiveOhThree: NextPage = () => {
+export default function FiveOhThree() {
   const { classes } = useStyles();
 
   return (
@@ -60,10 +60,9 @@ const FiveOhThree: NextPage = () => {
       >
         {/* <Image radius="md" src={image} className={classes.mobileImage} /> */}
         <div>
-          <Title className={classes.title}>Něco se pokazilo.</Title>
+          <Title className={classes.title}>Ach ty technologie...</Title>
           <Text color="dimmed" size="lg">
-            Our servers could not handle your request.Don&apos;t worry, our
-            development team was already notified. Try refreshing the page.
+          Něco se pokazilo a nejsme si jisti, co konkrétně. Zkuste prosím obnovit stránku. Pokud potřebujete pomoc, můžete nás zkusit <Link href="/kontakt" legacyBehavior><Anchor>kontaktovat</Anchor></Link>.
           </Text>
           <Button
             size="md"
@@ -71,7 +70,7 @@ const FiveOhThree: NextPage = () => {
             onClick={() => window.location.reload()}
             className={classes.control}
           >
-            Zkusit znovu načíst stránku
+            Obnovit stránku
           </Button>
         </div>
         <Image
@@ -87,5 +86,3 @@ const FiveOhThree: NextPage = () => {
     </LandingPageWrapper>
   );
 };
-
-export default FiveOhThree;

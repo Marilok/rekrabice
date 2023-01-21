@@ -12,6 +12,7 @@ import {
   IconBrandInstagram,
 } from "@tabler/icons";
 import Link from "next/link";
+import { social } from "../../../helperData/socials";
 
 const useStyles = createStyles((theme) => ({
   footer: {
@@ -159,7 +160,7 @@ export default function Footer({ data }: FooterLinksProps) {
       </Container>
       <Container className={classes.afterFooter}>
         <Text color="dimmed" size="sm">
-          &copy; <span>{new Date().getFullYear()}</span> Zelená společnost
+          &copy; <span>{new Date().getFullYear()}</span> TBA
           s.r.o.
         </Text>
         <Text color="dimmed" size="sm">
@@ -167,15 +168,19 @@ export default function Footer({ data }: FooterLinksProps) {
         </Text>
 
         <Group spacing={0} className={classes.social} position="right" noWrap>
-          <ActionIcon size="lg">
-            <IconBrandTwitter size={18} stroke={1.5} />
-          </ActionIcon>
-          <ActionIcon size="lg">
-            <IconBrandYoutube size={18} stroke={1.5} />
-          </ActionIcon>
-          <ActionIcon size="lg">
-            <IconBrandInstagram size={18} stroke={1.5} />
-          </ActionIcon>
+          {social.map((item, index) => (
+    <ActionIcon
+      size={"lg"}
+      className={classes.social}
+      
+      component="a"
+      key={index}
+      href={item.url}
+      target={"_blank"}  
+    >
+      <item.icon size={22} stroke={1.5} />
+    </ActionIcon>
+  ))}
         </Group>
       </Container>
     </footer>

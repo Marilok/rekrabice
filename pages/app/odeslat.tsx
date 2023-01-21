@@ -1,12 +1,10 @@
-import type { NextPage } from "next";
-
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import App from "../../components/App";
 import Receive from "../../components/Receive";
 import { Center } from "@mantine/core";
 import { withPageAuth } from "@supabase/auth-helpers-nextjs";
 
-const Odeslat: NextPage = () => {
+export default function Odeslat() {
   const [session, setSession] = useState(null);
 
   return (
@@ -19,5 +17,4 @@ const Odeslat: NextPage = () => {
     </>
   );
 };
-export default Odeslat;
 // export const getServerSideProps = withPageAuth();

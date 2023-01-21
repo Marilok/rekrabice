@@ -1,5 +1,4 @@
 //@ts-nocheck
-import type { NextPage } from "next";
 import Link from "next/link";
 
 import { useState } from "react";
@@ -29,7 +28,8 @@ import dynamic from "next/dynamic";
 import LandingPageWrapper from "../components/Layouts/LandingPage/LandingPageWrapper";
 import { useRouter } from "next/router";
 import Image from "next/image";
-const Otoc: NextPage = () => {
+
+export default function Otoc() {
   const [active, setActive] = useState(0);
   const { height, width } = useViewportSize();
   const [opened, setOpened] = useState(false);
@@ -48,6 +48,7 @@ const Otoc: NextPage = () => {
     ["space", nextStep],
     ["Shift+space", prevStep],
   ]);
+  
   const router = useRouter();
   const query: any = router.query;
   // {
@@ -266,5 +267,3 @@ className="mb-2"
     </>
   );
 };
-
-export default Otoc;

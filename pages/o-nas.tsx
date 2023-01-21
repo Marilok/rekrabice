@@ -1,4 +1,3 @@
-import type { NextPage } from "next";
 import { Table, Title, Text, List, Container } from "@mantine/core";
 import {
   IconArrowBarToDown,
@@ -7,15 +6,12 @@ import {
   IconTree,
   IconBulb,
 } from "@tabler/icons";
-import Link from "next/link";
-import Contact from "../components/Contact/Contact";
-import Footer from "../components/Layouts/LandingPage/Footer";
 import Team from "../components/Team/Team";
 import { FeaturesAsymmetrical } from "../components/About/FeaturesAsymmetrical";
 import { TypographyStylesProvider } from "@mantine/core";
 import LandingPageWrapper from "../components/Layouts/LandingPage/LandingPageWrapper";
 
-const About: NextPage = () => {
+export default function About() {
   return (
     <LandingPageWrapper>
       <Container size="lg" p={"lg"}>
@@ -56,7 +52,6 @@ const About: NextPage = () => {
   );
 };
 
-export default About;
 const values = [
   {
     icon: IconTree,

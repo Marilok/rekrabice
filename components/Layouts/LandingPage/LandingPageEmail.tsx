@@ -77,7 +77,7 @@ export default function HeroBullets() {
         <div className={classes.inner}>
           <div className={classes.content}>
             <Title className={classes.title}>
-              Znovupoužitelná a{" "}
+              Zálohovaná a{" "}
               <span className={classes.highlight}>vratná</span> krabice pro
               eshopové zásilky.
             </Title>
@@ -97,16 +97,15 @@ export default function HeroBullets() {
               }
             >
               <List.Item>
-                <b>Úspory 70 % CO2</b> – už to není žádný greenwashing, ale
-                skutečná změna
+                <b>Ekologická</b> – už to není žádný greenwashing, ale
+                skutečná změna. Za život krabice celkově ušetří 70 % CO2 oproti těm kartónovým
               </List.Item>
               <List.Item>
-                <b>Recykolvatelné materály</b> – po skončení životnosti krabice
-                se dají recyklovat a vytvořit tak nové
+                <b>Recyklovatelná</b> – po skončení životnosti krabice (okolo 100 cest)
+                se dají recyklovat a vytvořit z nich tak nové
               </List.Item>
               <List.Item>
-                <b>Žádné nové náklady</b> – naše řešení Vás bude stát stejně, ba
-                dokonce může být i levnější
+                <b>Žádné nové náklady</b> – vratné krabice Vás budou stát stejně, v některých případech i méně než ty kartónové
               </List.Item>
             </List>
 

@@ -1,4 +1,3 @@
-import type { NextPage } from "next";
 import {
   Table,
   Title,
@@ -8,8 +7,6 @@ import {
   TypographyStylesProvider,
 } from "@mantine/core";
 
-import Link from "next/link";
-import Contact from "../components/Contact/Contact";
 import LandingPageWrapper from "../components/Layouts/LandingPage/LandingPageWrapper";
 
 export default function Cookies() {

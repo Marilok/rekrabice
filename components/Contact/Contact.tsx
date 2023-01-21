@@ -13,23 +13,20 @@ import {
   Container,
   Space,
   Avatar,
+  Anchor,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import {
-  IconBrandTwitter,
-  IconBrandInstagram,
   IconSectionSign,
   IconSun,
   IconPhone,
   IconMapPin,
   IconAt,
   IconGavel,
-  IconBrandTiktok,
-  IconBrandFacebook,
   IconSend,
 } from "@tabler/icons";
 import { useState } from "react";
-
+import { social } from "../../helperData/socials";
 import { ContactIconsList } from "./ContactIcons";
 import { IconX, IconCheck } from "@tabler/icons";
 import {
@@ -121,12 +118,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-const social = [
-  IconBrandTwitter,
-  IconBrandInstagram,
-  IconBrandFacebook,
-  IconBrandTiktok,
-];
+
 
 export default function ContactUs() {
   const { classes } = useStyles();
@@ -198,14 +190,17 @@ export default function ContactUs() {
     },
   });
 
-  const icons = social.map((Icon, index) => (
+  const icons = social.map((item, index) => (
     <ActionIcon
-      key={index}
-      size={28}
+      size={"lg"}
       className={classes.social}
       variant="transparent"
+      component="a"
+      key={index}
+      href={item.url}
+      target={"_blank"}  
     >
-      <Icon size={22} stroke={1.5} />
+      <item.icon stroke={1.5} />
     </ActionIcon>
   ));
 
@@ -305,23 +300,23 @@ export default function ContactUs() {
 const contactData = [
   {
     title: "Email",
-    description: "kontakt@zelenakrabice.cz",
+    description: "marek.svitek@rekrabice.cz",
     icon: IconAt,
     // type: "mail",
   },
-  {
-    title: "Telefon",
-    description: "(+420) 777 777 777",
-    icon: IconPhone,
-    // type: "phone",
-  },
+  // {
+  //   title: "Telefon",
+  //   description: "(+420) 777 777 777",
+  //   icon: IconPhone,
+  //   // type: "phone",
+  // },
   {
     title: "Sídlo",
-    description: "Nové sady 988/2, Brno",
+    description: "TBA, Brno",
     icon: IconMapPin,
     // type: "place",
   },
-  { title: "Pracovní doba", description: "8:00 - 12:00", icon: IconSun },
+  // { title: "Pracovní doba", description: "8:00 - 12:00", icon: IconSun },
 ];
 
 const legalData = [

@@ -1,4 +1,3 @@
-import type { NextPage } from "next";
 import Head from "next/head";
 import { useState, useEffect } from "react";
 // import supabaseClient from '@supabase/auth-helpers-nextjs'
@@ -9,7 +8,7 @@ import { useUser } from "@supabase/auth-helpers-react";
 import { Database } from "../database.types";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 
-const Home: NextPage = () => {
+export default function Home () {
   const [session, setSession] = useState<any | null>(null);
   const supabaseClient = useSupabaseClient<Database>();
 
@@ -32,5 +31,3 @@ const Home: NextPage = () => {
     </>
   );
 };
-
-export default Home;

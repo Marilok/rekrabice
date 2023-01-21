@@ -1,4 +1,3 @@
-import type { NextPage } from "next";
 
 import { useState, useEffect } from "react";
 import App from "../../components/App";
@@ -6,7 +5,7 @@ import Receive from "../../components/Receive";
 import { Center } from "@mantine/core";
 import { withPageAuth } from "@supabase/auth-helpers-nextjs";
 
-const Prijmout: NextPage = () => {
+export default function Prijmout() {
   const [session, setSession] = useState(null);
 
   return (
@@ -19,5 +18,4 @@ const Prijmout: NextPage = () => {
     </>
   );
 };
-export default Prijmout;
 // export const getServerSideProps = withPageAuth();

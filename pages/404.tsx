@@ -1,4 +1,3 @@
-import type { NextPage } from "next";
 import Link from "next/link";
 import {
   createStyles,
@@ -11,7 +10,7 @@ import {
 } from "@mantine/core";
 import LandingPageWrapper from "../components/Layouts/LandingPage/LandingPageWrapper";
 
-const FourOhFour: NextPage = () => {
+export default function FourOhFour() {
   const { classes } = useStyles();
 
   return (
@@ -25,12 +24,10 @@ const FourOhFour: NextPage = () => {
         {/* <Image radius="md" src={image} className={classes.mobileImage} /> */}
         <div>
           <Title className={classes.title}>
-            Narazili jste na neexistující stránku...
+            Otevřeli jste prázdnou stránku
           </Title>
           <Text color="dimmed" size="lg">
-            Našli jste prázdnou krabici. (Page you are trying to open does not
-            exist. You may have mistyped the address, or the page has been moved
-            to another URL. If you think this is an error contact support.)
+            Možná jste špatně zadali adresu nebo byla stránka přesunuta na jinou URL adresu.
           </Text>
           <Button
             component={Link}
@@ -56,8 +53,6 @@ const FourOhFour: NextPage = () => {
     </LandingPageWrapper>
   );
 };
-
-export default FourOhFour;
 
 const useStyles = createStyles((theme) => ({
   root: {
