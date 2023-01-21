@@ -12,7 +12,7 @@ export default function App({ children, title }: {children?:any, title?:string})
   return (
     <>
     <Head>
-      <title>{title? `title | ReKrabice` : "ReKrabice"}</title>
+      <title>{title? `${title} | ReKrabice` : "ReKrabice"}</title>
     </Head>
       <AppShell
         // padding="md"
