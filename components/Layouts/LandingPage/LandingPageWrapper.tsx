@@ -41,7 +41,7 @@ export default function App({ children, title }: {children?:any, title?:string})
 
 const FOOTER_DATA = [
   {
-    title: "Pro zákazníky",
+    title: "Pro lidi",
     links: [
       // {
       //   label: "Kde ji vrátit?",
@@ -49,7 +49,7 @@ const FOOTER_DATA = [
       // },
       {
         label: "Jak to funguje?",
-        link: "/otoc",
+        link: "/clovek",
       },
       {
         label: "Kontakty",
@@ -62,11 +62,11 @@ const FOOTER_DATA = [
     ],
   },
   {
-    title: "Pro obchodníky",
+    title: "Pro eshopy",
     links: [
       {
-        label: "Jak to funguje?",
-        link: "/otoc",
+        label: "Co to je?",
+        link: "/firma",
       },
       {
         label: "Kontakty",
@@ -95,9 +95,14 @@ const FOOTER_DATA = [
 
 const HEADER_DATA = [
   {
-    link: "/otoc",
-    label: "Jak to funguje?",
+    link: "/clovek",
+    label: "Jsem člověk",
   },
+  {
+    link: "/firma",
+    label: "Jsem firma",
+  },
+
   // {
   //   link: "/obchod",
   //   label: "Pro obchody",

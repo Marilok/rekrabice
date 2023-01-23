@@ -87,10 +87,10 @@ export default function StepperComponent() {
                         mt={"xl"}
                     >
                         <Stepper.Step label="Zvol ReKrabici">
-                            <Title order={1} mt={"xl"}>
+                            <Title order={2} mt={"xl"}>
                                 Nech si nákup zabalit do ReKrabice.
                             </Title>
-                            <Text mt={"md"}>
+                            <Text mt={"sm"}>
                                 Tato možnost stojí 50 Kč, ale nenech se odradit, je to totiž
                                 vratná záloha. 😉
                             </Text>
@@ -106,10 +106,10 @@ export default function StepperComponent() {
                         </Stepper.Step>
 
                         <Stepper.Step label="Rozbal balíček">
-                            <Title order={1} mt={"xl"}>
+                            <Title order={2} mt={"xl"}>
                                 Rozbal svůj balíček a raduj se ze svého nákupu.
                             </Title>
-                            <Text mt={"md"}>
+                            <Text mt={"sm"}>
                                 Při tomto kroku ti jen popřejeme, aby jsi byl spokojen se svým
                                 nákupem. 😅
                             </Text>
@@ -124,10 +124,10 @@ export default function StepperComponent() {
                             </div>
                         </Stepper.Step>
                         <Stepper.Step label="Přines krabici">
-                            <Title order={1} mt={"xl"}>
+                            <Title order={2} mt={"xl"}>
                                 Přines krabici do vratného místa
                             </Title>
-                            <Text mt={"md"}>
+                            <Text mt={"sm"}>
                                 Prázdnou krabici přines do jednoho z 23 vratných míst. Vratnou
                                 zálohu ti automaticky připíšeme na účet.
                             </Text>
@@ -150,10 +150,10 @@ export default function StepperComponent() {
                             </Button>
                         </Stepper.Step>
                         <Stepper.Completed>
-                            <Title order={1} mt={"xl"}>
+                            <Title order={2} mt={"xl"}>
                                 Wohoooo! 🥳
                             </Title>
-                            <Text mt={"md"}>
+                            <Text mt={"sm"}>
                                 Právě jsi otočil krabici a zachránil 1/156 stromu jen díky
                                 tomu, že si využil ReKrabici. 🌳
                             </Text>

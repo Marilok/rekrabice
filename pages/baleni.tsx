@@ -11,7 +11,7 @@ export default function SlashPackaging() {
   return (
     <LandingPageWrapper>
       <TypographyStylesProvider>
-      <Container size="xl">
+      <Container size="md">
         <div>
           <Title order={2}>Co je podstránka <Code color="green">/baleni</Code>?</Title>
           <Text>
