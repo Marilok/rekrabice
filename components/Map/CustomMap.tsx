@@ -1,4 +1,4 @@
-//@ts-nocheck
+// @ts-nocheck
 import { useState, useEffect } from "react";
 import {
   MapContainer,
@@ -10,15 +10,15 @@ import {
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 // import "react-leaflet-markercluster/dist/styles.min.css";
-import MarkerClusterGroup from "./MarkerClusterGroup";
 import L from "leaflet";
+import { supabase } from "../../lib/supabaseClient";
+import MarkerClusterGroup from "./MarkerClusterGroup";
 import { myIcon } from "./Marker";
 import { heartData } from "./heartData";
-import { supabaseClient as supabase } from "@supabase/auth-helpers-nextjs";
 import CustomPopup from "./CustomPopup";
-//TODO1: Add GeoJSON data to the map
-//@ts-ignore
-//TODO3: change marker icon
+// TODO1: Add GeoJSON data to the map
+// @ts-ignore
+// TODO3: change marker icon
 export default function CustomMap() {
   const [locations, setLocations]: any = useState(null);
   useEffect(() => {
@@ -72,15 +72,15 @@ export default function CustomMap() {
   return (
     <MapContainer
       id="map"
-      className={"w-full h-screen	"}
+      className="w-full h-screen	"
       center={[49.1930642, 16.6099019]}
       zoom={13}
     >
       <TileLayer
         attribution='&copy; <a href="https://www.seznam.cz/">Seznam.cz</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         url="https://m1.mapserver.mapy.cz/base-m/{z}-{x}-{y}"
-        //TODO: fix subdomail to support 1,2,3,4
-        //m{s}.mapserver.mapy.cz/base-m/{z}-{x}-{y}
+        // TODO: fix subdomail to support 1,2,3,4
+        // m{s}.mapserver.mapy.cz/base-m/{z}-{x}-{y}
       />
       <MarkerClusterGroup iconCreateFunction={createClusterCustomIcon}>
         {locations &&
@@ -103,7 +103,7 @@ export default function CustomMap() {
         <Polygon
           key={index}
           pathOptions={{ color: "green" }}
-          //@ts-ignore
+          // @ts-ignore
           positions={shape}
         />
       ))}

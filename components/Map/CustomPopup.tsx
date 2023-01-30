@@ -1,5 +1,5 @@
-import { Popup } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
+import { Popup } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
 import {
   Popover,
   Text,
@@ -10,13 +10,13 @@ import {
   useMantineTheme,
   MantineTheme,
   Group,
-} from "@mantine/core";
-import { IconExternalLink } from "@tabler/icons";
+} from '@mantine/core';
+import { IconExternalLink } from '@tabler/icons';
 
 export default function CustomPopup({
   title,
   subsidiary,
-  logo = "/favicon.svg",
+  logo = '/favicon.svg',
 }: {
   title: string;
   subsidiary?: string;
@@ -30,7 +30,7 @@ export default function CustomPopup({
           <Avatar src={logo} radius="xl" size="md" />
           <Title order={2}>
             {title}
-            {subsidiary ? `- ${subsidiary}` : ""}
+            {subsidiary ? `- ${subsidiary}` : ''}
           </Title>
         </Group>
         {/* <Text>Po-Pá: 8-18h</Text> */}
@@ -38,9 +38,9 @@ export default function CustomPopup({
           component="a"
           href="https://mapy.cz/zakladni?x=16.6122742&y=49.1918183&z=17&source=firm&id=13078566"
           variant="outline"
-          target={"_blank"}
+          target="_blank"
           rightIcon={<IconExternalLink size={14} />}
-          mt={"sm"}
+          mt="sm"
         >
           Detail pobočky
         </Button>

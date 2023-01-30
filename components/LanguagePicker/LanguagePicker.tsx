@@ -1,44 +1,44 @@
-import { useState } from "react";
+import { useState } from 'react';
 import {
   createStyles,
   UnstyledButton,
   Menu,
   Group,
   Image,
-} from "@mantine/core";
-import { IconChevronDown } from "@tabler/icons";
+} from '@mantine/core';
+import { IconChevronDown } from '@tabler/icons';
 
 // TODO: replace this with next image
 // import Image from "next/image";
 
 const data = [
-  { label: "Česky", image: "/icons/flags/cz.svg" },
-  { label: "Slovensky", image: "/icons/flags/sk.svg" },
-  { label: "English", image: "/icons/flags/gb.svg" },
+  { label: 'Česky', image: '/icons/flags/cz.svg' },
+  { label: 'Slovensky', image: '/icons/flags/sk.svg' },
+  { label: 'English', image: '/icons/flags/gb.svg' },
 ];
 
 const useStyles = createStyles((theme, { opened }: { opened: boolean }) => ({
   control: {
     width: 200,
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: "10px 15px",
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: '10px 15px',
     borderRadius: theme.radius.md,
     border: `1px solid ${
-      theme.colorScheme === "dark" ? theme.colors.dark[6] : theme.colors.gray[2]
+      theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[2]
     }`,
-    transition: "background-color 150ms ease",
+    transition: 'background-color 150ms ease',
     backgroundColor:
-      theme.colorScheme === "dark"
+      theme.colorScheme === 'dark'
         ? theme.colors.dark[opened ? 5 : 6]
         : opened
-        ? theme.colors.gray[0]
-        : theme.white,
+          ? theme.colors.gray[0]
+          : theme.white,
 
-    "&:hover": {
+    '&:hover': {
       backgroundColor:
-        theme.colorScheme === "dark"
+        theme.colorScheme === 'dark'
           ? theme.colors.dark[5]
           : theme.colors.gray[0],
     },
@@ -50,8 +50,8 @@ const useStyles = createStyles((theme, { opened }: { opened: boolean }) => ({
   },
 
   icon: {
-    transition: "transform 150ms ease",
-    transform: opened ? "rotate(180deg)" : "rotate(0deg)",
+    transition: 'transform 150ms ease',
+    transform: opened ? 'rotate(180deg)' : 'rotate(0deg)',
   },
 }));
 
@@ -61,14 +61,14 @@ export default function LanguagePicker() {
   const [selected, setSelected] = useState(data[0]);
   const items = data.map((item) => (
     <Menu.Item
-      icon={
+      icon={(
         <Image
           src={item.image}
-          alt={"language icon"}
+          alt="language icon"
           width="18"
           height="auto"
         />
-      }
+      )}
       onClick={() => setSelected(item)}
       key={item.label}
     >
@@ -88,9 +88,9 @@ export default function LanguagePicker() {
           <Group spacing="xs">
             <Image
               src={selected.image}
-              alt={"selected language icon"}
+              alt="selected language icon"
               width={22}
-              height={"auto"}
+              height="auto"
             />
             <span className={classes.label}>{selected.label}</span>
           </Group>

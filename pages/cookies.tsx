@@ -5,9 +5,9 @@ import {
   List,
   Container,
   TypographyStylesProvider,
-} from "@mantine/core";
+} from '@mantine/core';
 
-import LandingPageWrapper from "../components/Layouts/LandingPage/LandingPageWrapper";
+import LandingPageWrapper from '../components/Layouts/LandingPage/LandingPageWrapper';
 
 export default function Cookies() {
   const rowsEssential = ESSENTIAL.map((element) => (
@@ -25,7 +25,7 @@ export default function Cookies() {
 
   return (
     <LandingPageWrapper>
-      <Container size="lg" p={"lg"}>
+      <Container size="lg" p="lg">
         <TypographyStylesProvider>
           <Title order={1}>Zásady používání souborů cookie 🍪</Title>
           <Text>
@@ -41,7 +41,8 @@ export default function Cookies() {
           <List withPadding>
             <List.Item>
               <Text weight={700} component="span">
-                Esenciální{" "}
+                Esenciální
+                {' '}
               </Text>
               - Jde o technická a funkční cookies, která umožňují správné
               fungování našich stránek a pokročilých funkcí. Umožňují vám
@@ -50,7 +51,8 @@ export default function Cookies() {
             </List.Item>
             <List.Item>
               <Text weight={700} component="span">
-                Analytické a Marketingové{" "}
+                Analytické a Marketingové
+                {' '}
               </Text>
               - Jde o anonymizovaná cookies, která nám slouží ke statistickým
               účelům, díky kterým můžeme vylepšovat naše stránky a dělat je pro
@@ -90,7 +92,7 @@ export default function Cookies() {
             <tbody>{rowsOptional}</tbody>
           </Table>
           <Title order={2}>Možnosti omezení cookies</Title>
-          <Text component={"p"}>
+          <Text component="p">
             Pokud byste měli zájem omezit využívání těchto souborů, můžete
             zvolit anonymní režim, který nabízí všechny běžné webové prohlížeče
             (Google Chrome, Firefox, Internet Explorer, Android nativní
@@ -102,7 +104,8 @@ export default function Cookies() {
             Druhá možnost je cookies v prohlížeči kompletně vypnout. Tímto však
             omezíte fungování našich stránek a je potřeba počítat s tím, že
             nebudete mít možnost využívat všech našich funkcí včetně přihlášení.
-            Návody pro běžné prohlížeče:{" "}
+            Návody pro běžné prohlížeče:
+            {' '}
             <Text
               variant="link"
               component="a"
@@ -148,9 +151,9 @@ export default function Cookies() {
       </Container>
     </LandingPageWrapper>
   );
-};
+}
 
 const ESSENTIAL = [
-  { name: "mantine-color-scheme", purpose: "Pro ukládání barevného režimu." },
+  { name: 'mantine-color-scheme', purpose: 'Pro ukládání barevného režimu.' },
 ];
-const OPTIONAL = [{ name: "Zatím žádné", purpose: "" }];
+const OPTIONAL = [{ name: 'Zatím žádné', purpose: '' }];

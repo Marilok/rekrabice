@@ -1,5 +1,5 @@
-import LandingPageWrapper from "../components/Layouts/LandingPage/LandingPageWrapper";
-import HeroBullets from "../components/Layouts/LandingPage/LandingPageEmail";
+import LandingPageWrapper from '../components/Layouts/LandingPage/LandingPageWrapper';
+import HeroBullets from '../components/Layouts/LandingPage/LandingPageEmail';
 
 export default function LandingPage() {
   return (
@@ -7,4 +7,4 @@ export default function LandingPage() {
       <HeroBullets />
     </LandingPageWrapper>
   );
-};
+}

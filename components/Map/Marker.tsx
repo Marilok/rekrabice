@@ -5,10 +5,10 @@ import {
   Popup,
   Marker,
   Polygon,
-} from "react-leaflet";
-import "leaflet/dist/leaflet.css";
+} from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
 
-//@ts-ignore
+// @ts-ignore
 export const myIcon = new L.divIcon({
   html: `
 <svg
@@ -32,5 +32,5 @@ export const myIcon = new L.divIcon({
 `,
   popupAnchor: [0, -10],
   iconSize: [32, 32],
-  className: "transparent border-none",
+  className: 'transparent border-none',
 });

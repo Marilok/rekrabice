@@ -1,7 +1,7 @@
-//@ts-nocheck
-import Link from "next/link";
+// @ts-nocheck
+import Link from 'next/link';
 
-import { useState } from "react";
+import { useState } from 'react';
 import {
   Stepper,
   Button,
@@ -14,8 +14,8 @@ import {
   Card,
   Center,
   Loader,
-} from "@mantine/core";
-import { useHotkeys, useViewportSize } from "@mantine/hooks";
+} from '@mantine/core';
+import { useHotkeys, useViewportSize } from '@mantine/hooks';
 import {
   IconArrowDown,
   IconArrowLeft,
@@ -23,51 +23,49 @@ import {
   IconArrowUp,
   IconMapPin,
   IconPhone,
-} from "@tabler/icons";
-import dynamic from "next/dynamic";
-import LandingPageWrapper from "../components/Layouts/LandingPage/LandingPageWrapper";
-import { useRouter } from "next/router";
-import Image from "next/image";
+} from '@tabler/icons';
+import dynamic from 'next/dynamic';
+import { useRouter } from 'next/router';
+import Image from 'next/image';
+import LandingPageWrapper from '../components/Layouts/LandingPage/LandingPageWrapper';
 
 export default function Otoc() {
   const [active, setActive] = useState(0);
   const { height, width } = useViewportSize();
   const [opened, setOpened] = useState(false);
 
-  const nextStep = () =>
-    setActive((current) => (current < 5 ? current + 1 : current));
-  const prevStep = () =>
-    setActive((current) => (current > 0 ? current - 1 : current));
+  const nextStep = () => setActive((current) => (current < 5 ? current + 1 : current));
+  const prevStep = () => setActive((current) => (current > 0 ? current - 1 : current));
   useHotkeys([
-    ["ArrowDown", nextStep],
-    ["ArrowUp", prevStep],
+    ['ArrowDown', nextStep],
+    ['ArrowUp', prevStep],
 
-    ["Enter", nextStep],
-    ["Shift+Enter", prevStep],
+    ['Enter', nextStep],
+    ['Shift+Enter', prevStep],
 
-    ["space", nextStep],
-    ["Shift+space", prevStep],
+    ['space', nextStep],
+    ['Shift+space', prevStep],
   ]);
-  
+
   const router = useRouter();
-  const query: any = router.query;
+  const { query } = router;
   // {
   //   referer: string | undefined;
   //   name: string | undefined;
   // }
-  //?referrer=aktin.cz&name=Aktin
+  // ?referrer=aktin.cz&name=Aktin
 
-  const Map = dynamic(() => import("../components/Map/CustomMap"), {
+  const Map = dynamic(() => import('../components/Map/CustomMap'), {
     loading: () => (
       <Center className="h-full relative">
-        <Loader size={"xl"} />
-        <Text ml={"md"}>Načítání mapy</Text>
+        <Loader size="xl" />
+        <Text ml="md">Načítání mapy</Text>
       </Center>
     ),
     ssr: false, // This line is important. It's what prevents server-side render
   });
 
-  const Confetti = dynamic(() => import("react-confetti"), {
+  const Confetti = dynamic(() => import('react-confetti'), {
     loading: () => <></>,
     ssr: false, // This line is important. It's what prevents server-side render
   });
@@ -94,19 +92,19 @@ export default function Otoc() {
               onStepClick={setActive}
               // breakpoint="md"
               color="green"
-              mt={"xl"}
+              mt="xl"
             >
-               <Stepper.Step label="Problém">
-                <Title order={1} mt={"xl"}>
+              <Stepper.Step label="Problém">
+                <Title order={1} mt="xl">
                   Už toho bylo dost? 🤔⁉️
                 </Title>
-                <Text mt={"md"}>
+                <Text mt="md">
                   Už Vaše zákazníky nebaví pořád do kola vyhazovat krabice? Chtěli by něco udržitelnějšího? Nebo jste zkoušeli najít ekologičtější variantu, ale našli jste jen samý greenwashing?
-                  A nebo Vám přijde balné moc drahé? Máme pro Vás řešení! 
+                  A nebo Vám přijde balné moc drahé? Máme pro Vás řešení!
                 </Text>
                 <div className="m-auto flex justify-center my-5">
                   <Image
-                    src={"/1_KR7l3KcOvAp50OAilLMNUQ.jpeg"}
+                    src="/1_KR7l3KcOvAp50OAilLMNUQ.jpeg"
                     height={300}
                     width={540}
                     alt="Vybrat balení do vratné krabice z eshopu"
@@ -114,16 +112,16 @@ export default function Otoc() {
                   />
                 </div>
               </Stepper.Step>
-               <Stepper.Step label="Řešení">
-                <Title order={1} mt={"xl"}>
+              <Stepper.Step label="Řešení">
+                <Title order={1} mt="xl">
                   Pojd´me spolu otáčet krabice. 🌳🌎
                 </Title>
-                <Text mt={"md"}>
-                  Počkat co? Princip otáčení zelených krabic je jednoduchý a stojí to Váš podnik i naši planetu méně. 
+                <Text mt="md">
+                  Počkat co? Princip otáčení zelených krabic je jednoduchý a stojí to Váš podnik i naši planetu méně.
                 </Text>
                 <div className="m-auto flex justify-center my-5">
                   <Image
-                    src={"/logo_text.svg"}
+                    src="/logo_text.svg"
                     height={300}
                     width={540}
                     alt="Vybrat balení do vratné krabice z eshopu"
@@ -131,18 +129,17 @@ export default function Otoc() {
                   />
                 </div>
               </Stepper.Step>
-
 
               <Stepper.Step label="Odeslání">
-                <Title order={1} mt={"xl"}>
+                <Title order={1} mt="xl">
                   Přidejte zákazníkům možnost přidání balného s vratnou zálohou.
                 </Title>
-                <Text mt={"md"}>
+                <Text mt="md">
                   Tato možnost stojí Vaše zákazníky 50 Kč, ale je to jen vratná záloha. Po potvrzení objednávky, stačí už jen zabalit nákup do zelené krabice a odeslat ji zákazníkovi.
                 </Text>
-<div className="m-auto flex justify-center my-5">
+                <div className="m-auto flex justify-center my-5">
                   <Image
-                    src={"/otoc_button.png"}
+                    src="/otoc_button.png"
                     height={300}
                     width={540}
                     alt="Vybrat balení do vratné krabice z eshopu"
@@ -150,12 +147,12 @@ export default function Otoc() {
                   />
                 </div>
               </Stepper.Step>
-              
+
               <Stepper.Step label="Vrácení">
-                <Title order={1} mt={"xl"}>
+                <Title order={1} mt="xl">
                   Dovolte zákazníkům vrátit odeslané krabice na Vašich výdejních místech.
                 </Title>
-                <Text mt={"md"}>
+                <Text mt="md">
                   Prázdnou krabici Vaši zákaznici mohou přinést přímo k Vám nebo do jednoho z dalších 23 vratných míst. Vratnou zálohu prosím vrat´te zákazníkovi v hotovosti.
                 </Text>
                 <Card radius="sm" className="h-80" shadow="sm" p={0}>
@@ -164,7 +161,7 @@ export default function Otoc() {
                 <Link passHref href="/mapa">
                   <Button
                     size="md"
-                    mt={"md"}
+                    mt="md"
                     variant="light"
                     color="green"
                     component="a"
@@ -176,28 +173,30 @@ export default function Otoc() {
               </Stepper.Step>
 
               <Stepper.Completed>
-                <Title order={1} mt={"xl"}>
+                <Title order={1} mt="xl">
                   Wohoooo! 🥳
                 </Title>
-                <Text mt={"md"}>
+                <Text mt="md">
                   Právě jsme spolu otočili krabici a zachránil 1/156 stromu jen díky
                   tomu, že jste využil Zelenou krabici. 🌳
                 </Text>
-                 <Link passHref href="/kontakt">
+                <Link passHref href="/kontakt">
                   <Button
                     size="xl"
-                    mt={"md"}
+                    mt="md"
                     color="green"
                     component="a"
                     leftIcon={<IconPhone size={14} />}
-className="mb-2"
+                    className="mb-2"
                   >
                     Pojďme se domluvit na spolupráci
                   </Button>
                 </Link>
                 {query.referrer && (
                   <Button component="a" href={`https://${query.referrer}`}>
-                    Vrátit se do super obchodu {query.name}
+                    Vrátit se do super obchodu
+                    {' '}
+                    {query.name}
                   </Button>
                 )}
               </Stepper.Completed>
@@ -220,14 +219,14 @@ className="mb-2"
                   size="xl"
                   color="green"
                   onClick={nextStep}
-                  className={`w-60 ${active == 0 ? "w-96 !rounded" : ""}`}
+                  className={`w-60 ${active == 0 ? 'w-96 !rounded' : ''}`}
                   rightIcon={<IconArrowRight size={14} />}
                 >
                   Další krok
                 </Button>
               )}
             </Button.Group>
-            <Group></Group>
+            <Group />
             {/* <Group position="center" mt="xl">
               <Button.Group orientation="vertical">
                 {active !== 0 && (
@@ -266,4 +265,4 @@ className="mb-2"
       </LandingPageWrapper>
     </>
   );
-};
+}

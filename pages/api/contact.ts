@@ -1,16 +1,16 @@
-import type { NextApiRequest, NextApiResponse } from "next";
+import type { NextApiRequest, NextApiResponse } from 'next';
 
 type Data = {
-  type?: "confirmation_mail" | "message_mail";
+  type?: 'confirmation_mail' | 'message_mail';
   success?: boolean;
   error?: any;
 };
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse<Data>,
 ) {
-  const nodemailer = require("nodemailer");
+  const nodemailer = require('nodemailer');
   const transporter = nodemailer.createTransport({
     port: 465,
     host: process.env.EMAIL_HOST,
@@ -27,9 +27,9 @@ export default async function handler(
     replyTo: req.body.mail
       ? `${req.body.name} <${req.body.mail}>`
       : req.body.mail,
-    priority: "high",
+    priority: 'high',
     subject: `Zpráva ${
-      req.body.name ? "od " + req.body.name : ""
+      req.body.name ? `od ${req.body.name}` : ''
     } z kontaktního formuláře`,
 
     text: req.body.msg,
@@ -39,20 +39,20 @@ export default async function handler(
   const confirmationData = {
     from: `Zelený robot <${process.env.EMAIL_USERNAME}>`,
     to: req.body.mail,
-    priority: "high",
-    subject: `Potvrzení o odeslání zprávy z kontaktního formuláře`,
-    html: `<p>Hurá! Váše zpráva z kontaktního formuláře na webu Zelenakrabice.cz byla úspěšně odeslána! Na zprávu Vám odpovíme do 24 hodin. <br/><br/> PS: V mezičase se můžete rozjímat nad pěknými štěnátky, které na Vás koukají v příloze. ;) </p>`,
+    priority: 'high',
+    subject: 'Potvrzení o odeslání zprávy z kontaktního formuláře',
+    html: '<p>Hurá! Váše zpráva z kontaktního formuláře na webu Zelenakrabice.cz byla úspěšně odeslána! Na zprávu Vám odpovíme do 24 hodin. <br/><br/> PS: V mezičase se můžete rozjímat nad pěknými štěnátky, které na Vás koukají v příloze. ;) </p>',
     attachments: [
       {
-        filename: "První štěnátko.jpg",
+        filename: 'První štěnátko.jpg',
         path: `${process.env.URL}/mail_images/puppy_1.jpg`,
       },
       {
-        filename: "Druhé štěnátko.jpg",
+        filename: 'Druhé štěnátko.jpg',
         path: `${process.env.URL}/mail_images/puppy_2.jpg`,
       },
       {
-        filename: "Třetí štěnátko.jpg",
+        filename: 'Třetí štěnátko.jpg',
         path: `${process.env.URL}/mail_images/puppy_3.jpg`,
       },
     ],
@@ -91,14 +91,14 @@ export default async function handler(
   //   console.log("Message mail error: ", error);
   // }
   try {
-    let message_mail = await transporter.sendMail(mailData);
-    let confirmation_mail = await transporter.sendMail(confirmationData);
+    const message_mail = await transporter.sendMail(mailData);
+    const confirmation_mail = await transporter.sendMail(confirmationData);
 
     res.status(200).send({});
-    console.log("Message mail info: ", message_mail);
-    console.log("Confirmation mail info: ", confirmation_mail);
+    console.log('Message mail info: ', message_mail);
+    console.log('Confirmation mail info: ', confirmation_mail);
   } catch (error) {
-    res.status(500).send({ error: error });
+    res.status(500).send({ error });
     console.log(error);
   }
 }

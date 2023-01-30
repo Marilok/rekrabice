@@ -10,49 +10,49 @@ import {
   Avatar,
   ActionIcon,
   useMantineColorScheme,
-} from "@mantine/core";
-import { IconChevronDown, IconSun, IconMoonStars } from "@tabler/icons";
-import Link from "next/link";
-import Image from "next/image";
+} from '@mantine/core';
+import { IconChevronDown, IconSun, IconMoonStars } from '@tabler/icons';
+import Link from 'next/link';
+import Image from 'next/image';
 
 const HEADER_HEIGHT = 60;
 
 const useStyles = createStyles((theme) => ({
   inner: {
     height: HEADER_HEIGHT,
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
 
   links: {
-    [theme.fn.smallerThan("sm")]: {
-      display: "none",
+    [theme.fn.smallerThan('sm')]: {
+      display: 'none',
     },
   },
 
   burger: {
-    [theme.fn.largerThan("sm")]: {
-      display: "none",
+    [theme.fn.largerThan('sm')]: {
+      display: 'none',
     },
   },
 
   link: {
-    display: "block",
+    display: 'block',
     lineHeight: 1,
-    padding: "8px 12px",
+    padding: '8px 12px',
     borderRadius: theme.radius.sm,
-    textDecoration: "none",
+    textDecoration: 'none',
     color:
-      theme.colorScheme === "dark"
+      theme.colorScheme === 'dark'
         ? theme.colors.dark[0]
         : theme.colors.gray[7],
     fontSize: theme.fontSizes.sm,
     fontWeight: 500,
 
-    "&:hover": {
+    '&:hover': {
       backgroundColor:
-        theme.colorScheme === "dark"
+        theme.colorScheme === 'dark'
           ? theme.colors.dark[6]
           : theme.colors.gray[0],
     },
@@ -112,7 +112,7 @@ export default function HeaderAction({
 
   return (
     <Header height={HEADER_HEIGHT} mb={120}>
-      <Container size={"xl"} className={classes.inner}>
+      <Container size="xl" className={classes.inner}>
         <Group>
           <Burger
             opened={isOpen}
@@ -127,7 +127,7 @@ export default function HeaderAction({
               width={120}
               height={28}
               className="cursor-pointer"
-              alt={`Logo`}
+              alt="Logo"
             />
           </Link>
         </Group>
@@ -140,16 +140,16 @@ export default function HeaderAction({
             size="lg"
             sx={(theme) => ({
               backgroundColor:
-                theme.colorScheme === "dark"
+                theme.colorScheme === 'dark'
                   ? theme.colors.dark[6]
                   : theme.colors.gray[0],
               color:
-                theme.colorScheme === "dark"
+                theme.colorScheme === 'dark'
                   ? theme.colors.yellow[4]
                   : theme.colors.blue[6],
             })}
           >
-            {colorScheme === "dark" ? (
+            {colorScheme === 'dark' ? (
               <IconSun size={18} />
             ) : (
               <IconMoonStars size={18} />

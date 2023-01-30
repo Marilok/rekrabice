@@ -1,8 +1,11 @@
-import { useState } from "react";
-import { Navbar, MediaQuery, Button, Accordion, Stack } from "@mantine/core";
-import Link from "next/link";
-import Image from "next/image";
-import { IconMapPin } from "@tabler/icons";
+import { useState } from 'react';
+import {
+  Navbar, MediaQuery, Button, Accordion, Stack,
+} from '@mantine/core';
+import Link from 'next/link';
+import Image from 'next/image';
+import { IconMapPin } from '@tabler/icons';
+
 export default function CustomNavbar({
   links,
   isOpen,
@@ -27,7 +30,7 @@ export default function CustomNavbar({
           <Accordion.Item value={link.label}>
             <Accordion.Control>{link.label}</Accordion.Control>
             <Accordion.Panel>
-              <Stack ml={"md"}>
+              <Stack ml="md">
                 <Link key={link.link} href={link.link}>
                   {link.label}
                 </Link>
@@ -50,12 +53,12 @@ export default function CustomNavbar({
   });
 
   return (
-    <MediaQuery largerThan="sm" styles={{ display: "none", width: 0 }}>
+    <MediaQuery largerThan="sm" styles={{ display: 'none', width: 0 }}>
       <Navbar
         width={{ base: 300 }}
         p="xs"
         hidden={!isOpen}
-        hiddenBreakpoint={"sm"}
+        hiddenBreakpoint="sm"
       >
         <Navbar.Section grow>{items}</Navbar.Section>
         <Navbar.Section>
@@ -65,7 +68,7 @@ export default function CustomNavbar({
             color="green"
             fullWidth
             // component="a"
-            //TODO1: change to brand color
+            // TODO1: change to brand color
             leftIcon={<IconMapPin size={14} />}
           >
             Vratná místa

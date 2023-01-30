@@ -1,11 +1,11 @@
-import Image from "next/image";
-import { useState, useEffect } from "react";
-import App from "../../components/App";
-import Stats from "../../components/Stats";
-import { Center } from "@mantine/core";
-//@ts-ignore
-import { Database } from "../database.types";
-import { useSupabaseClient } from "@supabase/auth-helpers-react";
+import Image from 'next/image';
+import { useState, useEffect } from 'react';
+import { Center } from '@mantine/core';
+import { useSupabaseClient } from '@supabase/auth-helpers-react';
+import App from '../../components/App';
+import Stats from '../../components/Stats';
+// @ts-ignore
+import { Database } from '../database.types';
 
 export default function Statistika() {
   const [data, setData] = useState<any>();
@@ -17,9 +17,9 @@ export default function Statistika() {
 
   async function getStatsData() {
     try {
-      let { data, error, status } = await supabaseClient
-        .from("profiles")
-        .select("stats_saved_trees, stats_saved_co2, stats_boxes_used")
+      const { data, error, status } = await supabaseClient
+        .from('profiles')
+        .select('stats_saved_trees, stats_saved_co2, stats_boxes_used')
         .single();
 
       if (error && status !== 406) {
@@ -37,13 +37,11 @@ export default function Statistika() {
     }
   }
   return (
-    <>
-      <App>
-        <Center style={{ width: "100%", height: "100%" }}>
-          <Stats data={data} />
-        </Center>
-      </App>
-    </>
+    <App>
+      <Center style={{ width: '100%', height: '100%' }}>
+        <Stats data={data} />
+      </Center>
+    </App>
   );
-};
+}
 // export const getServerSideProps = withPageAuth();

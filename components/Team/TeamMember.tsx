@@ -1,11 +1,13 @@
-import { createStyles, Avatar, Text, Group } from "@mantine/core";
-import { IconPhoneCall, IconAt } from "@tabler/icons";
-import Link from "next/link";
+import {
+  createStyles, Avatar, Text, Group,
+} from '@mantine/core';
+import { IconPhoneCall, IconAt } from '@tabler/icons';
+import Link from 'next/link';
 
 const useStyles = createStyles((theme) => ({
   icon: {
     color:
-      theme.colorScheme === "dark"
+      theme.colorScheme === 'dark'
         ? theme.colors.dark[3]
         : theme.colors.gray[5],
   },
@@ -40,7 +42,7 @@ export default function TeamMember({
         <div>
           <Text
             size="xs"
-            sx={{ textTransform: "uppercase" }}
+            sx={{ textTransform: 'uppercase' }}
             weight={700}
             color="dimmed"
           >
@@ -53,7 +55,7 @@ export default function TeamMember({
 
           <Group noWrap spacing={10} mt={3}>
             <IconAt stroke={1.5} size={16} className={classes.icon} />
-            <Link href={disabled ? "" : `mailto:${email}`}>
+            <Link href={disabled ? '' : `mailto:${email}`}>
               <Text size="xs" color="dimmed">
                 {email}
               </Text>

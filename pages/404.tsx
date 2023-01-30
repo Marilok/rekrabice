@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link';
 import {
   createStyles,
   Container,
@@ -7,52 +7,52 @@ import {
   Button,
   SimpleGrid,
   Image,
-} from "@mantine/core";
-import LandingPageWrapper from "../components/Layouts/LandingPage/LandingPageWrapper";
+} from '@mantine/core';
+import LandingPageWrapper from '../components/Layouts/LandingPage/LandingPageWrapper';
 
 export default function FourOhFour() {
   const { classes } = useStyles();
 
   return (
     <LandingPageWrapper>
-    <Container className={classes.root}>
-      <SimpleGrid
-        spacing={80}
-        cols={2}
-        breakpoints={[{ maxWidth: "sm", cols: 1, spacing: 40 }]}
-      >
-        {/* <Image radius="md" src={image} className={classes.mobileImage} /> */}
-        <div>
-          <Title className={classes.title}>
-            Otevřeli jste prázdnou stránku
-          </Title>
-          <Text color="dimmed" size="lg">
-            Možná jste špatně zadali adresu nebo byla stránka přesunuta na jinou URL adresu.
-          </Text>
-          <Button
-            component={Link}
-            href="/"
-            variant="outline"
-            size="md"
-            mt="xl"
-            className={classes.control}
-          >
-            Vrátit se na hlavní stránku
-          </Button>
-        </div>
-        <Image
-          radius="md"
-          alt="Confused gif"
-          src="/gifs/confused.gif"
-          width={450}
-          height={300}
-          className={classes.desktopImage}
-        />
-      </SimpleGrid>
-    </Container>
+      <Container className={classes.root}>
+        <SimpleGrid
+          spacing={80}
+          cols={2}
+          breakpoints={[{ maxWidth: 'sm', cols: 1, spacing: 40 }]}
+        >
+          {/* <Image radius="md" src={image} className={classes.mobileImage} /> */}
+          <div>
+            <Title className={classes.title}>
+              Otevřeli jste prázdnou stránku
+            </Title>
+            <Text color="dimmed" size="lg">
+              Možná jste špatně zadali adresu nebo byla stránka přesunuta na jinou URL adresu.
+            </Text>
+            <Button
+              component={Link}
+              href="/"
+              variant="outline"
+              size="md"
+              mt="xl"
+              className={classes.control}
+            >
+              Vrátit se na hlavní stránku
+            </Button>
+          </div>
+          <Image
+            radius="md"
+            alt="Confused gif"
+            src="/gifs/confused.gif"
+            width={450}
+            height={300}
+            className={classes.desktopImage}
+          />
+        </SimpleGrid>
+      </Container>
     </LandingPageWrapper>
   );
-};
+}
 
 const useStyles = createStyles((theme) => ({
   root: {
@@ -66,26 +66,26 @@ const useStyles = createStyles((theme) => ({
     marginBottom: theme.spacing.md,
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
 
-    [theme.fn.smallerThan("sm")]: {
+    [theme.fn.smallerThan('sm')]: {
       fontSize: 32,
     },
   },
 
   control: {
-    [theme.fn.smallerThan("sm")]: {
-      width: "100%",
+    [theme.fn.smallerThan('sm')]: {
+      width: '100%',
     },
   },
 
   mobileImage: {
-    [theme.fn.largerThan("sm")]: {
-      display: "none",
+    [theme.fn.largerThan('sm')]: {
+      display: 'none',
     },
   },
 
   desktopImage: {
-    [theme.fn.smallerThan("sm")]: {
-      display: "none",
+    [theme.fn.smallerThan('sm')]: {
+      display: 'none',
     },
   },
 }));

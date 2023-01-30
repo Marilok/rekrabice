@@ -5,16 +5,15 @@ import {
   SimpleGrid,
   Stack,
   Text,
-} from "@mantine/core";
-import { GoogleIcon } from "./GoogleIcon";
+} from '@mantine/core';
+import Link from 'next/link';
+import { GoogleIcon } from './GoogleIcon';
 import {
   ProtonmailIcon,
   GmailIcon,
   TutanotaIcon,
   SeznamEmailIcon,
-} from "./EmailIcons";
-
-import Link from "next/link";
+} from './EmailIcons';
 
 export function GoogleButton(props: ButtonProps) {
   return (
@@ -34,7 +33,7 @@ export function GmailButton(props: ButtonProps) {
       color="gray"
       component={Link}
       href="https://mail.google.com/"
-      target={"_blank"}
+      target="_blank"
       {...props}
     />
   );
@@ -47,7 +46,7 @@ export function SeznamEmailButton(props: ButtonProps) {
       color="gray"
       component={Link}
       href="https://email.seznam.cz/"
-      target={"_blank"}
+      target="_blank"
       {...props}
     />
   );
@@ -60,7 +59,7 @@ export function ProtonmailButton(props: ButtonProps) {
       color="gray"
       component={Link}
       href="https://mail.proton.me/"
-      target={"_blank"}
+      target="_blank"
       {...props}
     />
   );
@@ -73,7 +72,7 @@ export function TutanotaButton(props: ButtonProps) {
       color="gray"
       component={Link}
       href="https://mail.tutanota.com/"
-      target={"_blank"}
+      target="_blank"
       {...props}
     />
   );
@@ -82,7 +81,7 @@ export function TutanotaButton(props: ButtonProps) {
 export function EmailButtons() {
   return (
     <Stack>
-      <Text align="center" mt={"lg"}>
+      <Text align="center" mt="lg">
         Rychlé odkazy na populární emailové klienty:
       </Text>
       <SimpleGrid cols={2}>

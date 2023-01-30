@@ -12,7 +12,6 @@ import {
   Container,
   Space,
 } from "@mantine/core";
-import { UserButton } from "./UserButton/UserButton";
 import { useState, useEffect } from "react";
 import supabaseClient from "@supabase/auth-helpers-nextjs";
 import Link from "next/link";
@@ -33,6 +32,7 @@ import {
   IconTransferOut,
   IconChartArea,
 } from "@tabler/icons";
+import { UserButton } from "./UserButton/UserButton";
 import { StatsGrid } from "./StatsGrid";
 import Forrest from "./Forrest";
 

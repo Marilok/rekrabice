@@ -1,7 +1,7 @@
-//@ts-nocheck
-import "leaflet.markercluster";
-import { createPathComponent } from "@react-leaflet/core";
-import L from "leaflet";
+// @ts-nocheck
+import 'leaflet.markercluster';
+import { createPathComponent } from '@react-leaflet/core';
+import L from 'leaflet';
 
 const MarkerClusterGroup = createPathComponent(
   ({ children: _c, ...props }, ctx) => {
@@ -9,11 +9,9 @@ const MarkerClusterGroup = createPathComponent(
     const clusterEvents: Record<string, any> = {};
 
     // Splitting props and events to different objects
-    Object.entries(props).forEach(([propName, prop]) =>
-      propName.startsWith("on")
-        ? (clusterEvents[propName] = prop)
-        : (clusterProps[propName] = prop)
-    );
+    Object.entries(props).forEach(([propName, prop]) => (propName.startsWith('on')
+      ? (clusterEvents[propName] = prop)
+      : (clusterProps[propName] = prop)));
 
     // Creating markerClusterGroup Leaflet element
     const markerClusterGroup = L.markerClusterGroup(clusterProps);
@@ -28,7 +26,7 @@ const MarkerClusterGroup = createPathComponent(
       instance: markerClusterGroup,
       context: { ...ctx, layerContainer: markerClusterGroup },
     };
-  }
+  },
 );
 
 export default MarkerClusterGroup;
