@@ -1,19 +1,12 @@
+import { Button, ButtonProps, SimpleGrid, Stack, Text } from "@mantine/core";
+import Link from "next/link";
 import {
-  Button,
-  ButtonProps,
-  Group,
-  SimpleGrid,
-  Stack,
-  Text,
-} from '@mantine/core';
-import Link from 'next/link';
-import { GoogleIcon } from './GoogleIcon';
-import {
-  ProtonmailIcon,
   GmailIcon,
-  TutanotaIcon,
+  ProtonmailIcon,
   SeznamEmailIcon,
-} from './EmailIcons';
+  TutanotaIcon,
+} from "./EmailIcons";
+import { GoogleIcon } from "./GoogleIcon";
 
 export function GoogleButton(props: ButtonProps) {
   return (

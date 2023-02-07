@@ -1,13 +1,24 @@
 import {
-  Anchor, Container, List, Text, Title, TypographyStylesProvider, Code, Mark, Table,
-} from '@mantine/core';
-import LandingPageWrapper from '../components/Layouts/LandingPage/LandingPageWrapper';
+  Anchor,
+  Code,
+  Container,
+  List,
+  Table,
+  Text,
+  Title,
+  TypographyStylesProvider,
+} from "@mantine/core";
+import LandingPageWrapper from "../components/Layouts/LandingPage/LandingPageWrapper";
 
 export default function SlashPackaging() {
   const rows = elements.map((element) => (
     <tr key={element.name}>
       <td>{element.name}</td>
-      <td><Anchor href={element.url} target="_blank">{element.url}</Anchor></td>
+      <td>
+        <Anchor href={element.url} target="_blank">
+          {element.url}
+        </Anchor>
+      </td>
     </tr>
   ));
   return (
@@ -17,56 +28,41 @@ export default function SlashPackaging() {
           <div>
             <Title order={2}>
               Co je podstránka
-              <Code color="green">/baleni</Code>
-              ?
+              <Code color="green">/baleni</Code>?
             </Title>
             <Text>
-              Na většině webových stránek naleznete
-              {' '}
-              <Code>/o-nas</Code>
-              {' '}
-              nebo
-              {' '}
-              <Code>/kontakt</Code>
-              {' '}
-              stránku, kde
-              návštěvníci najdou informace o dané osobě nebo firmě a nebo kontaktní informace. Na stránce
-              <Code color="green">/baleni</Code>
-              {' '}
-              se návštěvníci dozvědí, jak vaše společnost přemýšlí o
-              obalech a co by měli s vašimi obaly dělat.
+              Na většině webových stránek naleznete <Code>/o-nas</Code> nebo{" "}
+              <Code>/kontakt</Code> stránku, kde návštěvníci najdou informace o
+              dané osobě nebo firmě a nebo kontaktní informace. Na stránce
+              <Code color="green">/baleni</Code> se návštěvníci dozvědí, jak
+              vaše společnost přemýšlí o obalech a co by měli s vašimi obaly
+              dělat.
             </Text>
           </div>
           <div>
-            <Title order={2}>K čemu je to dobré a proč bychom ji měli mít?</Title>
+            <Title order={2}>
+              K čemu je to dobré a proč bychom ji měli mít?
+            </Title>
             <Text>
-              Zodpovědný přístup k obalovému odpadu je důležitým tématem pro stále
-              větší počet lidí.
-              {' '}
-              <br />
+              Zodpovědný přístup k obalovému odpadu je důležitým tématem pro
+              stále větší počet lidí. <br />
               Jen v USA se každoročně skládkují desítky milionů tun obalů.
               Neobnovitelné zdroje se těží nebývalou rychlostí a znečišťují naše
               nejkrásnější přírodní stanoviště od pláží až po vrcholky našich
-              nejvyšších hor.
-              {' '}
-              <br />
+              nejvyšších hor. <br />
               Spotřebitelé chtějí podporovat společnosti, pro které jsou
-              udržitelné obaly prioritou. Stránka
-              {' '}
-              <Code color="green">doména.cz/baleni</Code>
-              {' '}
-              pomáhá lidem poznat, že
-              vám na tom záleží.
+              udržitelné obaly prioritou. Stránka{" "}
+              <Code color="green">doména.cz/baleni</Code> pomáhá lidem poznat,
+              že vám na tom záleží.
             </Text>
           </div>
           <div>
             <Title order={2}>Jak se můžeme přidat?</Title>
             <Text>
-              Jednoduše! Přidejte podstránku na váš web podstránku
-              {' '}
+              Jednoduše! Přidejte podstránku na váš web podstránku{" "}
               <Code color="green">doména.cz/baleni</Code>
-              . Tuto adresu URL můžete také přesměrovat na
-              existující stránku na vašem webu.
+              . Tuto adresu URL můžete také přesměrovat na existující stránku na
+              vašem webu.
               <br />
               Až bude adresa URL připravena, odešlete stránku sem.
             </Text>
@@ -75,8 +71,8 @@ export default function SlashPackaging() {
             <Title order={2}>Co by vaše podstránka měla obsahovat?</Title>
             <Text>
               Slash Packaging je o pokroku, ne o dokonalosti. Je lepší mít něco
-              než nic. Zpočátku se držte jednoduchosti, časem můžete stránku vždy
-              vylepšit. Zvažte zahrnutí některé nebo všech následujících
+              než nic. Zpočátku se držte jednoduchosti, časem můžete stránku
+              vždy vylepšit. Zvažte zahrnutí některé nebo všech následujících
               informací:
             </Text>
             <List>
@@ -92,7 +88,8 @@ export default function SlashPackaging() {
                 FSC/SFI, kompostovatelnost atd.
               </List.Item>
               <List.Item>
-                Filozofie vaší společnosti a pokrok v oblasti udržitelnosti obalů.
+                Filozofie vaší společnosti a pokrok v oblasti udržitelnosti
+                obalů.
               </List.Item>
             </List>
           </div>
@@ -107,8 +104,7 @@ export default function SlashPackaging() {
           <div>
             <Title order={2}>Kdo za tím stojí?</Title>
             <Text>
-              Tuto myšlenku založil
-              {' '}
+              Tuto myšlenku založil{" "}
               <Anchor href="https://www.slashpackaging.org/" target="_blank">
                 Stephan Ango
               </Anchor>
@@ -133,8 +129,8 @@ export default function SlashPackaging() {
 }
 
 const elements = [
-  { name: 'Tierra Verde', url: 'tierraverde.cz/vraceni-obalu' },
-  { name: 'Nákup na Dobro', url: 'nakupnadobro.cz/eko-logistika' },
-  { name: 'Amazon', url: 'amazon.com/packaging' },
-  { name: 'Vaše firma', url: 'kouzelnafirma.cz/baleni' },
+  { name: "Tierra Verde", url: "tierraverde.cz/vraceni-obalu" },
+  { name: "Nákup na Dobro", url: "nakupnadobro.cz/eko-logistika" },
+  { name: "Amazon", url: "amazon.com/packaging" },
+  { name: "Vaše firma", url: "kouzelnafirma.cz/baleni" },
 ];

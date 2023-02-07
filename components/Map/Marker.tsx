@@ -1,12 +1,4 @@
-import {
-  MapContainer,
-  TileLayer,
-  useMap,
-  Popup,
-  Marker,
-  Polygon,
-} from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
+import "leaflet/dist/leaflet.css";
 
 // @ts-ignore
 export const myIcon = new L.divIcon({
@@ -32,5 +24,5 @@ export const myIcon = new L.divIcon({
 `,
   popupAnchor: [0, -10],
   iconSize: [32, 32],
-  className: 'transparent border-none',
+  className: "transparent border-none",
 });

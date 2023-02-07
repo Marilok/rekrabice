@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from "react";
 // import supabaseClient from '@supabase/auth-helpers-nextjs'
-import { useSupabaseClient } from '@supabase/auth-helpers-react';
-import Auth from '../../components/Layouts/Auth';
-import App from '../../components/App';
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
+import App from "../../components/App";
+import Auth from "../../components/Layouts/Auth";
 // @ts-ignore
-import { Database } from '../database.types';
+import { Database } from "../database.types";
 
 export default function Home() {
   const [session, setSession] = useState<any | null>(null);

@@ -1,37 +1,36 @@
 // @ts-nocheck
-import {
-  Button, Autocomplete, Container, Space,
-} from '@mantine/core';
-import { useState, useEffect } from 'react';
-import { useSupabaseClient } from '@supabase/auth-helpers-react';
+import { Autocomplete, Button, Container, Space } from "@mantine/core";
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
+import { useEffect, useState } from "react";
 // @ts-ignore
-import { useForm } from '@mantine/form';
+import { useForm } from "@mantine/form";
 
-import { IconX, IconCheck } from '@tabler/icons';
 import {
   showNotification,
   // hideNotification,
   updateNotification,
-} from '@mantine/notifications';
-import { Database } from '../database.types';
+} from "@mantine/notifications";
+import { IconCheck, IconX } from "@tabler/icons";
+import { Database } from "../database.types";
 // import { UserButton } from "./UserButton/UserButton";
 
 export default function Receive({ session }: any) {
   const [loading, setLoading] = useState(false);
-  const [boxes, setBoxes] = useState([{ name: '', id: 0 }]);
+  const [boxes, setBoxes] = useState([{ name: "", id: 0 }]);
   const [boxesNames, setBoxesNames] = useState([]);
   const supabaseClient = useSupabaseClient<Database>();
 
   const form: any = useForm({
     initialValues: {
-      boxName: '',
+      boxName: "",
       // boxId: 44,
     },
 
     validate: {
-      boxName: (value) => (!boxes.find((box) => box.name == value)
-        ? 'Tato krabice neexistuje.'
-        : null),
+      boxName: (value) =>
+        !boxes.find((box) => box.name == value)
+          ? "Tato krabice neexistuje."
+          : null,
     },
   });
 
@@ -43,14 +42,14 @@ export default function Receive({ session }: any) {
     try {
       setLoading(true);
 
-      const { data, error } = await supabaseClient.rpc('get_returnable_boxes');
+      const { data, error } = await supabaseClient.rpc("get_returnable_boxes");
 
-      if (error && status !== '406') {
-        console.log('Not found');
+      if (error && status !== "406") {
+        console.log("Not found");
         throw error;
       }
-      if (error && status == '406') {
-        console.log('Not found');
+      if (error && status == "406") {
+        console.log("Not found");
       }
       if (data) {
         setBoxes(data);
@@ -68,15 +67,15 @@ export default function Receive({ session }: any) {
     try {
       setLoading(true);
       showNotification({
-        id: 'notification-return-box',
+        id: "notification-return-box",
         loading: true,
-        title: 'Kontrolování',
-        message: 'Kontrolujeme jméno krabice s naší databází...',
+        title: "Kontrolování",
+        message: "Kontrolujeme jméno krabice s naší databází...",
         autoClose: false,
-        radius: 'xs',
+        radius: "xs",
         disallowClose: true,
       });
-      const { data, error } = await supabaseClient.rpc('return_box', {
+      const { data, error } = await supabaseClient.rpc("return_box", {
         box_id: selectedBox,
       });
 
@@ -84,11 +83,11 @@ export default function Receive({ session }: any) {
         throw error;
       } else {
         updateNotification({
-          id: 'notification-return-box',
-          color: 'teal',
-          title: 'Hurá, krabice vrácená. 🤩',
+          id: "notification-return-box",
+          color: "teal",
+          title: "Hurá, krabice vrácená. 🤩",
           message:
-            'Děkujeme, že používáte Zelenou krabici a šetříte tím naši planetu.',
+            "Děkujeme, že používáte Zelenou krabici a šetříte tím naši planetu.",
           icon: <IconCheck size={16} />,
           autoClose: 10000,
           loading: false,
@@ -97,13 +96,13 @@ export default function Receive({ session }: any) {
       }
     } catch (error: any) {
       updateNotification({
-        id: 'notification-return-box',
+        id: "notification-return-box",
         autoClose: 20000,
-        title: 'Něco se pokazilo. 😥',
+        title: "Něco se pokazilo. 😥",
         message: error.message,
-        color: 'red',
+        color: "red",
         icon: <IconX />,
-        radius: 'xs',
+        radius: "xs",
         loading: false,
       });
     } finally {
@@ -116,7 +115,7 @@ export default function Receive({ session }: any) {
       <form
         onSubmit={form.onSubmit((values?: any) => {
           const selectedBox: any = boxes?.find(
-            (box: any) => box.name == values.boxName,
+            (box: any) => box.name == values.boxName
           );
           returnBox(selectedBox.id);
           getBoxes();
@@ -129,7 +128,7 @@ export default function Receive({ session }: any) {
           disabled={loading}
           // onChange={(e) => { }
           // onChange={(e) => { form.setFieldValue('boxId', 4) }}
-          {...form.getInputProps('boxName')}
+          {...form.getInputProps("boxName")}
           required
         />
         <Space h="xs" />
@@ -151,7 +150,7 @@ export default function Receive({ session }: any) {
           loading={loading}
           loaderPosition="right"
         >
-          {loading ? 'Kontrolování' : 'Přijmout krabici'}
+          {loading ? "Kontrolování" : "Přijmout krabici"}
         </Button>
       </form>
     </Container>

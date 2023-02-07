@@ -1,11 +1,9 @@
-import dynamic from 'next/dynamic';
-import {
-  Card, Center, Loader, Text,
-} from '@mantine/core';
-import LandingPageWrapper from '../components/Layouts/LandingPage/LandingPageWrapper';
+import { Card, Center, Loader, Text } from "@mantine/core";
+import dynamic from "next/dynamic";
+import LandingPageWrapper from "../components/Layouts/LandingPage/LandingPageWrapper";
 
 export default function Mapa() {
-  const Map = dynamic(() => import('../components/Map/CustomMap'), {
+  const Map = dynamic(() => import("../components/Map/CustomMap"), {
     loading: () => (
       <Center className="h-full relative">
         <Loader size="xl" />

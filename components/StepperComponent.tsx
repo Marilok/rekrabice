@@ -1,39 +1,40 @@
 // @ts-nocheck
-import Link from 'next/link';
-import Image from 'next/image';
-import { useState } from 'react';
 import {
-  Stepper,
   Button,
-  Title,
-  Text,
-  Portal,
-  Container,
   Card,
   Center,
+  Container,
   Loader,
-} from '@mantine/core';
-import { useHotkeys, useViewportSize } from '@mantine/hooks';
-import { IconArrowLeft, IconArrowRight, IconMapPin } from '@tabler/icons';
-import dynamic from 'next/dynamic';
-import { useRouter } from 'next/router';
+  Portal,
+  Stepper,
+  Text,
+  Title,
+} from "@mantine/core";
+import { useHotkeys, useViewportSize } from "@mantine/hooks";
+import { IconArrowLeft, IconArrowRight } from "@tabler/icons";
+import dynamic from "next/dynamic";
+import Image from "next/image";
+import { useRouter } from "next/router";
+import { useState } from "react";
 
 export default function StepperComponent() {
   const [active, setActive] = useState(0);
   const { height, width } = useViewportSize();
   const [opened, setOpened] = useState(false);
 
-  const nextStep = () => setActive((current) => (current < 3 ? current + 1 : current));
-  const prevStep = () => setActive((current) => (current > 0 ? current - 1 : current));
+  const nextStep = () =>
+    setActive((current) => (current < 3 ? current + 1 : current));
+  const prevStep = () =>
+    setActive((current) => (current > 0 ? current - 1 : current));
   useHotkeys([
-    ['ArrowDown', nextStep],
-    ['ArrowUp', prevStep],
+    ["ArrowDown", nextStep],
+    ["ArrowUp", prevStep],
 
-    ['Enter', nextStep],
-    ['Shift+Enter', prevStep],
+    ["Enter", nextStep],
+    ["Shift+Enter", prevStep],
 
-    ['space', nextStep],
-    ['Shift+space', prevStep],
+    ["space", nextStep],
+    ["Shift+space", prevStep],
   ]);
 
   const router = useRouter();
@@ -44,7 +45,7 @@ export default function StepperComponent() {
   // }
   // ?referrer=aktin.cz&name=Aktin
 
-  const Map = dynamic(() => import('./Map/CustomMap'), {
+  const Map = dynamic(() => import("./Map/CustomMap"), {
     loading: () => (
       <Center className="h-full relative">
         <Loader size="xl" />
@@ -54,7 +55,7 @@ export default function StepperComponent() {
     ssr: false, // This line is important. It's what prevents server-side render
   });
 
-  const Confetti = dynamic(() => import('react-confetti'), {
+  const Confetti = dynamic(() => import("react-confetti"), {
     loading: () => <></>,
     ssr: false, // This line is important. It's what prevents server-side render
   });
@@ -187,7 +188,7 @@ export default function StepperComponent() {
                 size="xl"
                 color="green"
                 onClick={nextStep}
-                className={`w-60 ${active == 0 ? 'w-96 !rounded' : ''}`}
+                className={`w-60 ${active == 0 ? "w-96 !rounded" : ""}`}
                 rightIcon={<IconArrowRight size={14} />}
               >
                 Další krok

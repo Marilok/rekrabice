@@ -1,10 +1,6 @@
-import { useState } from 'react';
-import {
-  Navbar, MediaQuery, Button, Accordion, Stack,
-} from '@mantine/core';
-import Link from 'next/link';
-import Image from 'next/image';
-import { IconMapPin } from '@tabler/icons';
+import { Accordion, Button, MediaQuery, Navbar, Stack } from "@mantine/core";
+import { IconMapPin } from "@tabler/icons";
+import Link from "next/link";
 
 export default function CustomNavbar({
   links,
@@ -53,7 +49,7 @@ export default function CustomNavbar({
   });
 
   return (
-    <MediaQuery largerThan="sm" styles={{ display: 'none', width: 0 }}>
+    <MediaQuery largerThan="sm" styles={{ display: "none", width: 0 }}>
       <Navbar
         width={{ base: 300 }}
         p="xs"

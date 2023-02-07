@@ -1,44 +1,34 @@
 import {
-  createStyles,
-  Text,
-  Title,
-  SimpleGrid,
-  TextInput,
-  Textarea,
-  Button,
-  Group,
   ActionIcon,
-  Box,
-  Paper,
+  Button,
   Container,
-  Space,
-  Avatar,
-  Anchor,
-} from '@mantine/core';
-import { useForm } from '@mantine/form';
+  createStyles,
+  Group,
+  SimpleGrid,
+  Text,
+  Textarea,
+  TextInput,
+  Title,
+} from "@mantine/core";
+import { useForm } from "@mantine/form";
+import { showNotification, updateNotification } from "@mantine/notifications";
 import {
-  IconSectionSign,
-  IconSun,
-  IconPhone,
-  IconMapPin,
   IconAt,
+  IconCheck,
   IconGavel,
+  IconMapPin,
+  IconSectionSign,
   IconSend,
-  IconX, IconCheck,
-} from '@tabler/icons';
-import { useState } from 'react';
-import {
-  showNotification,
-  hideNotification,
-  updateNotification,
-} from '@mantine/notifications';
-import { social } from '../../helperData/socials';
-import { ContactIconsList } from './ContactIcons';
+  IconX,
+} from "@tabler/icons";
+import { useState } from "react";
+import { social } from "../../helperData/socials";
+import { ContactIconsList } from "./ContactIcons";
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
     minHeight: 400,
-    boxSizing: 'border-box',
+    boxSizing: "border-box",
     backgroundImage: `linear-gradient(-60deg, ${
       theme.colors[theme.primaryColor][4]
     } 0%, ${theme.colors[theme.primaryColor][7]} 100%)`,
@@ -54,16 +44,16 @@ const useStyles = createStyles((theme) => ({
   },
   wrapper2: {
     minHeight: 400,
-    boxSizing: 'border-box',
+    boxSizing: "border-box",
     borderRadius: theme.radius.md,
     paddingLeft: theme.spacing.xl * 2.5,
     paddingRight: theme.spacing.xl * 2.5,
     paddingTop: theme.spacing.xl * 1,
     paddingBottom: theme.spacing.xl * 1,
     backgroundColor:
-      theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.white,
+      theme.colorScheme === "dark" ? theme.colors.dark[8] : theme.white,
     border: `1px solid ${
-      theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[2]
+      theme.colorScheme === "dark" ? theme.colors.dark[8] : theme.colors.gray[2]
     }`,
 
     [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
@@ -81,7 +71,7 @@ const useStyles = createStyles((theme) => ({
     maxWidth: 300,
 
     [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
-      maxWidth: '100%',
+      maxWidth: "100%",
     },
   },
 
@@ -95,7 +85,7 @@ const useStyles = createStyles((theme) => ({
   social: {
     color: theme.white,
 
-    '&:hover': {
+    "&:hover": {
       color: theme.colors[theme.primaryColor][1],
     },
   },
@@ -105,7 +95,7 @@ const useStyles = createStyles((theme) => ({
     borderColor: theme.colors.gray[4],
     color: theme.black,
 
-    '&::placeholder': {
+    "&::placeholder": {
       color: theme.colors.gray[5],
     },
   },
@@ -128,28 +118,28 @@ export default function ContactUs() {
     try {
       setLoading(true);
       showNotification({
-        id: 'notification-message',
+        id: "notification-message",
         loading: true,
         // title: "Odesílání",
-        message: 'Odesílání',
+        message: "Odesílání",
         autoClose: false,
-        radius: 'xs',
+        radius: "xs",
         disallowClose: true,
       });
-      await fetch('/api/contact', {
-        method: 'POST',
+      await fetch("/api/contact", {
+        method: "POST",
         headers: {
-          Accept: 'application/json, text/plain, */*',
-          'Content-Type': 'application/json',
+          Accept: "application/json, text/plain, */*",
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(values),
       }).then((res) => {
         if (res.status === 200) {
           updateNotification({
-            id: 'notification-message',
-            color: 'teal',
-            title: 'Hurá, zpráva odeslána. 🥳',
-            message: 'Do pošty jsme Vám poslali potvzení o odeslání.',
+            id: "notification-message",
+            color: "teal",
+            title: "Hurá, zpráva odeslána. 🥳",
+            message: "Do pošty jsme Vám poslali potvzení o odeslání.",
             icon: <IconCheck size={16} />,
             autoClose: 10000,
             loading: false,
@@ -163,13 +153,13 @@ export default function ContactUs() {
       // });
     } catch (error: any) {
       updateNotification({
-        id: 'notification-message',
+        id: "notification-message",
         autoClose: 20000,
-        title: 'Něco se pokazilo. 😥',
+        title: "Něco se pokazilo. 😥",
         message: error,
-        color: 'red',
+        color: "red",
         icon: <IconX />,
-        radius: 'xs',
+        radius: "xs",
         loading: false,
       });
     } finally {
@@ -179,13 +169,13 @@ export default function ContactUs() {
 
   const form = useForm({
     initialValues: {
-      mail: '',
-      name: '',
-      msg: '',
+      mail: "",
+      name: "",
+      msg: "",
     },
 
     validate: {
-      mail: (value) => (/^\S+@\S+$/.test(value) ? null : 'Chybička v emailu'),
+      mail: (value) => (/^\S+@\S+$/.test(value) ? null : "Chybička v emailu"),
     },
   });
 
@@ -210,7 +200,7 @@ export default function ContactUs() {
           <SimpleGrid
             cols={2}
             spacing={50}
-            breakpoints={[{ maxWidth: 'sm', cols: 1 }]}
+            breakpoints={[{ maxWidth: "sm", cols: 1 }]}
           >
             <div>
               <Title className={classes.title}>Kontaktujte nás</Title>
@@ -232,14 +222,14 @@ export default function ContactUs() {
                 placeholder="tatka@smoulifirma.cz"
                 required
                 classNames={{ input: classes.input, label: classes.inputLabel }}
-                {...form.getInputProps('mail')}
+                {...form.getInputProps("mail")}
               />
               <TextInput
                 label="Jméno či název firmy"
                 placeholder="Taťka Šmoula nebo Šmoulí firma"
                 mt="md"
                 classNames={{ input: classes.input, label: classes.inputLabel }}
-                {...form.getInputProps('name')}
+                {...form.getInputProps("name")}
               />
               <Textarea
                 required
@@ -248,7 +238,7 @@ export default function ContactUs() {
                 minRows={4}
                 mt="md"
                 classNames={{ input: classes.input, label: classes.inputLabel }}
-                {...form.getInputProps('msg')}
+                {...form.getInputProps("msg")}
               />
               <Button
                 fullWidth
@@ -259,7 +249,7 @@ export default function ContactUs() {
                 loading={loading}
                 loaderPosition="right"
               >
-                {loading ? 'Kontrolování' : 'Odeslat zprávu'}
+                {loading ? "Kontrolování" : "Odeslat zprávu"}
               </Button>
             </form>
           </SimpleGrid>
@@ -298,8 +288,8 @@ export default function ContactUs() {
 }
 const contactData = [
   {
-    title: 'Email',
-    description: 'marek.svitek@rekrabice.cz',
+    title: "Email",
+    description: "marek.svitek@rekrabice.cz",
     icon: IconAt,
     // type: "mail",
   },
@@ -310,8 +300,8 @@ const contactData = [
   //   // type: "phone",
   // },
   {
-    title: 'Sídlo',
-    description: 'TBA, Brno',
+    title: "Sídlo",
+    description: "TBA, Brno",
     icon: IconMapPin,
     // type: "place",
   },
@@ -320,15 +310,16 @@ const contactData = [
 
 const legalData = [
   {
-    title: 'Sídlo',
-    description: 'Nové sady 988/2, Brno, 602 00',
+    title: "Sídlo",
+    description: "Nové sady 988/2, Brno, 602 00",
     icon: IconMapPin,
     // type: "place",
   },
-  { title: 'IČO', description: '87654321', icon: IconSectionSign },
+  { title: "IČO", description: "87654321", icon: IconSectionSign },
   {
-    title: 'Zápis do OR',
-    description: 'Společnost Zelená firma s.r.o. je zapsána v OR vedeném Krajským soudem v Brně, oddíl A, vložka 00000.',
+    title: "Zápis do OR",
+    description:
+      "Společnost Zelená firma s.r.o. je zapsána v OR vedeném Krajským soudem v Brně, oddíl A, vložka 00000.",
     icon: IconGavel,
   },
 ];

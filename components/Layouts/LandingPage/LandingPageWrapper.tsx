@@ -1,18 +1,24 @@
-import { AppShell } from '@mantine/core';
-import Script from 'next/script';
-import { useDisclosure } from '@mantine/hooks';
-import Head from 'next/head';
-import CustomNavbar from './Navbar';
-import Footer from './Footer';
-import Header from './Header';
+import { AppShell } from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
+import Head from "next/head";
+import Script from "next/script";
+import Footer from "./Footer";
+import Header from "./Header";
+import CustomNavbar from "./Navbar";
 
-export default function App({ children, title }: {children?:any, title?:string}) {
+export default function App({
+  children,
+  title,
+}: {
+  children?: any;
+  title?: string;
+}) {
   const [isOpen, { toggle }] = useDisclosure(false);
 
   return (
     <>
       <Head>
-        <title>{title ? `${title} | ReKrabice` : 'ReKrabice'}</title>
+        <title>{title ? `${title} | ReKrabice` : "ReKrabice"}</title>
       </Head>
       <AppShell
         // padding="md"
@@ -41,53 +47,53 @@ export default function App({ children, title }: {children?:any, title?:string})
 
 const FOOTER_DATA = [
   {
-    title: 'Pro lidi',
+    title: "Pro lidi",
     links: [
       // {
       //   label: "Kde ji vrátit?",
       //   link: "/mapa",
       // },
       {
-        label: 'Jak to funguje?',
-        link: '/clovek',
+        label: "Jak to funguje?",
+        link: "/clovek",
       },
       {
-        label: 'Kontakty',
-        link: '/kontakt',
+        label: "Kontakty",
+        link: "/kontakt",
       },
       {
-        label: '/baleni',
-        link: '/baleni',
-      },
-    ],
-  },
-  {
-    title: 'Pro eshopy',
-    links: [
-      {
-        label: 'Co to je?',
-        link: '/firma',
-      },
-      {
-        label: 'Kontakty',
-        link: '/kontakt',
-      },
-      {
-        label: '/baleni',
-        link: '/baleni',
+        label: "/baleni",
+        link: "/baleni",
       },
     ],
   },
   {
-    title: 'O nás',
+    title: "Pro eshopy",
     links: [
       {
-        label: 'O projektu',
-        link: 'o-nas',
+        label: "Co to je?",
+        link: "/firma",
       },
       {
-        label: 'Kontakty',
-        link: '/kontakt',
+        label: "Kontakty",
+        link: "/kontakt",
+      },
+      {
+        label: "/baleni",
+        link: "/baleni",
+      },
+    ],
+  },
+  {
+    title: "O nás",
+    links: [
+      {
+        label: "O projektu",
+        link: "o-nas",
+      },
+      {
+        label: "Kontakty",
+        link: "/kontakt",
       },
     ],
   },
@@ -95,12 +101,12 @@ const FOOTER_DATA = [
 
 const HEADER_DATA = [
   {
-    link: '/clovek',
-    label: 'Jsem člověk',
+    link: "/clovek",
+    label: "Jsem člověk",
   },
   {
-    link: '/firma',
-    label: 'Jsem firma',
+    link: "/firma",
+    label: "Jsem firma",
   },
 
   // {
@@ -130,12 +136,11 @@ const HEADER_DATA = [
   //   label: "Statistika",
   // },
   {
-    link: '/o-nas',
-    label: 'O nás',
-
+    link: "/o-nas",
+    label: "O nás",
   },
   {
-    link: '/kontakt',
-    label: 'Kontakt',
+    link: "/kontakt",
+    label: "Kontakt",
   },
 ];

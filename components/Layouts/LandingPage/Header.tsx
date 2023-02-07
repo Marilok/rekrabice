@@ -1,19 +1,9 @@
 import {
-  createStyles,
-  Menu,
-  Center,
-  Header,
-  Container,
-  Group,
-  Button,
-  Burger,
-  Avatar,
-  ActionIcon,
-  useMantineColorScheme,
+  ActionIcon, Burger, Center, Container, createStyles, Group, Header, Menu, useMantineColorScheme
 } from '@mantine/core';
-import { IconChevronDown, IconSun, IconMoonStars } from '@tabler/icons';
-import Link from 'next/link';
+import { IconChevronDown, IconMoonStars, IconSun } from '@tabler/icons';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const HEADER_HEIGHT = 60;
 

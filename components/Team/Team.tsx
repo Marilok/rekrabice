@@ -1,5 +1,5 @@
-import { Group, Stack } from '@mantine/core';
-import TeamMember from './TeamMember';
+import { Group } from "@mantine/core";
+import TeamMember from "./TeamMember";
 
 export default function Team() {
   return (

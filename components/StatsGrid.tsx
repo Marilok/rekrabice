@@ -1,15 +1,14 @@
+import { createStyles, Group, Paper, SimpleGrid, Text } from "@mantine/core";
 import {
-  createStyles, Group, Paper, SimpleGrid, Text,
-} from '@mantine/core';
-import {
-  IconUserPlus,
-  IconDiscount2,
-  IconReceipt2,
-  IconCoin,
-  IconArrowUpRight,
   IconArrowDownRight,
-  IconCloud, IconPackage,
-} from '@tabler/icons';
+  IconArrowUpRight,
+  IconCloud,
+  IconCoin,
+  IconDiscount2,
+  IconPackage,
+  IconReceipt2,
+  IconUserPlus,
+} from "@tabler/icons";
 
 const useStyles = createStyles((theme) => ({
   root: {
@@ -24,17 +23,20 @@ const useStyles = createStyles((theme) => ({
 
   diff: {
     lineHeight: 1,
-    display: 'flex',
-    alignItems: 'center',
+    display: "flex",
+    alignItems: "center",
   },
 
   icon: {
-    color: theme.colorScheme === 'dark' ? theme.colors.dark[3] : theme.colors.gray[4],
+    color:
+      theme.colorScheme === "dark"
+        ? theme.colors.dark[3]
+        : theme.colors.gray[4],
   },
 
   title: {
     fontWeight: 700,
-    textTransform: 'uppercase',
+    textTransform: "uppercase",
   },
 }));
 
@@ -48,7 +50,12 @@ const icons = {
 };
 
 interface StatsGridProps {
-    data: { title: string; icon: keyof typeof icons; value: string; diff: number }[];
+  data: {
+    title: string;
+    icon: keyof typeof icons;
+    value: string;
+    diff: number;
+  }[];
 }
 
 export function StatsGrid({ data }: StatsGridProps) {
@@ -69,15 +76,12 @@ export function StatsGrid({ data }: StatsGridProps) {
         <Group align="flex-end" spacing="xs" mt={25}>
           <Text className={classes.value}>{stat.value}</Text>
           <Text
-            color={stat.diff > 0 ? 'teal' : 'red'}
+            color={stat.diff > 0 ? "teal" : "red"}
             size="sm"
             weight={500}
             className={classes.diff}
           >
-            <span>
-              {stat.diff}
-              %
-            </span>
+            <span>{stat.diff}%</span>
             <DiffIcon size={16} stroke={1.5} />
           </Text>
         </Group>
@@ -93,8 +97,8 @@ export function StatsGrid({ data }: StatsGridProps) {
       <SimpleGrid
         cols={4}
         breakpoints={[
-          { maxWidth: 'md', cols: 2 },
-          { maxWidth: 'xs', cols: 1 },
+          { maxWidth: "md", cols: 2 },
+          { maxWidth: "xs", cols: 1 },
         ]}
       >
         {stats}

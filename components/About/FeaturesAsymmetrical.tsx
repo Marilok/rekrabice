@@ -1,49 +1,47 @@
+import { Container, createStyles, SimpleGrid, Text } from "@mantine/core";
 import {
-  createStyles, Text, SimpleGrid, Container,
-} from '@mantine/core';
-import {
-  IconTruck,
   IconCertificate,
   IconCoin,
+  IconTruck,
   TablerIcon,
-} from '@tabler/icons';
+} from "@tabler/icons";
 
 const useStyles = createStyles((theme) => ({
   feature: {
-    position: 'relative',
+    position: "relative",
     paddingTop: theme.spacing.xl,
     paddingLeft: theme.spacing.xl,
   },
 
   overlay: {
-    position: 'absolute',
+    position: "absolute",
     height: 100,
     width: 160,
     top: 0,
     left: 0,
     backgroundColor: theme.fn.variant({
-      variant: 'light',
+      variant: "light",
       color: theme.primaryColor,
     }).background,
     zIndex: 1,
   },
 
   content: {
-    position: 'relative',
+    position: "relative",
     zIndex: 2,
   },
 
   icon: {
-    color: theme.fn.variant({ variant: 'light', color: theme.primaryColor })
+    color: theme.fn.variant({ variant: "light", color: theme.primaryColor })
       .color,
   },
 
   title: {
-    color: theme.colorScheme === 'dark' ? theme.white : theme.black,
+    color: theme.colorScheme === "dark" ? theme.white : theme.black,
   },
 }));
 
-interface FeatureProps extends React.ComponentPropsWithoutRef<'div'> {
+interface FeatureProps extends React.ComponentPropsWithoutRef<"div"> {
   icon: TablerIcon;
   title: string;
   description: string;
@@ -78,21 +76,21 @@ function Feature({
 const mockdata = [
   {
     icon: IconTruck,
-    title: 'Free Worldwide shipping',
+    title: "Free Worldwide shipping",
     description:
-      'As electricity builds up inside its body, it becomes more aggressive. One theory is that the electricity.',
+      "As electricity builds up inside its body, it becomes more aggressive. One theory is that the electricity.",
   },
   {
     icon: IconCertificate,
-    title: 'Best Quality Product',
+    title: "Best Quality Product",
     description:
-      'Slakoth’s heart beats just once a minute. Whatever happens, it is content to loaf around motionless.',
+      "Slakoth’s heart beats just once a minute. Whatever happens, it is content to loaf around motionless.",
   },
   {
     icon: IconCoin,
-    title: 'Very Affordable Pricing',
+    title: "Very Affordable Pricing",
     description:
-      'Thought to have gone extinct, Relicanth was given a name that is a variation of the name of the person who discovered.',
+      "Thought to have gone extinct, Relicanth was given a name that is a variation of the name of the person who discovered.",
   },
 ];
 
@@ -103,7 +101,7 @@ export function FeaturesAsymmetrical({ data = mockdata }) {
     <Container mt={30} mb={30} size="lg">
       <SimpleGrid
         cols={3}
-        breakpoints={[{ maxWidth: 'sm', cols: 1 }]}
+        breakpoints={[{ maxWidth: "sm", cols: 1 }]}
         spacing={50}
       >
         {items}
