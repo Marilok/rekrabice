@@ -10,22 +10,24 @@ import {
   Text,
   Autocomplete,
   Loader,
-} from "@mantine/core";
-import { useState, useRef } from "react";
-import { useForm } from "@mantine/form";
-import { IconSend, IconCheck, IconX, IconMail } from "@tabler/icons";
+} from '@mantine/core';
+import { useState, useRef } from 'react';
+import { useForm } from '@mantine/form';
+import {
+  IconSend, IconCheck, IconX, IconMail,
+} from '@tabler/icons';
 import {
   showNotification,
   hideNotification,
   updateNotification,
-} from "@mantine/notifications";
+} from '@mantine/notifications';
 // import Image from 'next/image'
 // import logoEconeaSrc from "../public/images/logos/econea.svg";
 // import logoTierraVerdeSrc from "../public/images/logos/tierra-verde.png";
 
-import Link from "next/link";
-import StepperComponent from "../components/StepperComponent";
-import LandingPageWrapper from "../components/Layouts/LandingPage/LandingPageWrapper";
+import Link from 'next/link';
+import StepperComponent from '../components/StepperComponent';
+import LandingPageWrapper from '../components/Layouts/LandingPage/LandingPageWrapper';
 
 export default function LandingPage() {
   const { classes } = useStyles();
@@ -90,7 +92,7 @@ const useStyles = createStyles((theme) => ({
   item: {
     borderRadius: theme.radius.md,
     border: `1px solid ${
-      theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.gray[3]
+      theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[3]
     }`,
   },
 }));
@@ -102,28 +104,28 @@ function EmailInput() {
     try {
       setLoading(true);
       showNotification({
-        id: "notification-message",
+        id: 'notification-message',
         loading: true,
-        title: "Zpracovávání...",
-        message: "Tvůj email se snažíme zapsat k nám do systému",
+        title: 'Zpracovávání...',
+        message: 'Tvůj email se snažíme zapsat k nám do systému',
         autoClose: false,
         disallowClose: true,
       });
 
-      await fetch("/api/giveMail", {
-        method: "POST",
+      await fetch('/api/giveMail', {
+        method: 'POST',
         headers: {
-          Accept: "application/json, text/plain, */*",
-          "Content-Type": "application/json",
+          Accept: 'application/json, text/plain, */*',
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(values),
       }).then((res) => {
         if (res.status === 200) {
           updateNotification({
-            id: "notification-message",
-            color: "teal",
-            title: "Hurá, povedlo se to! 🥳",
-            message: "Do pošty jsme ti poslali potvzení o projevení zájmu.",
+            id: 'notification-message',
+            color: 'teal',
+            title: 'Hurá, povedlo se to! 🥳',
+            message: 'Do pošty jsme ti poslali potvzení o projevení zájmu.',
             icon: <IconCheck size={16} />,
             autoClose: 10000,
             loading: false,
@@ -134,11 +136,11 @@ function EmailInput() {
       });
     } catch (error: any) {
       updateNotification({
-        id: "notification-message",
+        id: 'notification-message',
         autoClose: 20000,
-        title: "Něco se pokazilo. 😥",
+        title: 'Něco se pokazilo. 😥',
         message: error,
-        color: "red",
+        color: 'red',
         icon: <IconX />,
         loading: false,
       });
@@ -148,40 +150,39 @@ function EmailInput() {
   }
 
   const form = useForm({
-    initialValues: { email: "" },
+    initialValues: { email: '' },
 
     // functions will be used to validate values at corresponding key
     validate: {
-      email: (value) => (/^\S+@\S+$/.test(value) ? null : "Překlep v mailu"),
+      email: (value) => (/^\S+@\S+$/.test(value) ? null : 'Překlep v mailu'),
     },
   });
 
-  const data =
-    form.values.email.trim().length > 0 && !form.values.email.includes("@")
-      ? ["gmail.com", "seznam.cz", "email.cz", "centrum.cz"].map(
-          (provider) => `${form.values.email}@${provider}`
-        )
-      : [];
+  const data = form.values.email.trim().length > 0 && !form.values.email.includes('@')
+    ? ['gmail.com', 'seznam.cz', 'email.cz', 'centrum.cz'].map(
+      (provider) => `${form.values.email}@${provider}`,
+    )
+    : [];
   return (
     <form onSubmit={form.onSubmit((values) => sendMsg(values))}>
       <Autocomplete
         data={data}
-        rightSection={
+        rightSection={(
           <Button
             type="submit"
             variant="gradient"
-            gradient={{ from: "green", to: "lime" }}
+            gradient={{ from: 'green', to: 'lime' }}
             rightIcon={<IconSend size={16} />}
           >
             Chci být testerem
           </Button>
-        }
+        )}
         rightSectionWidth="auto"
         label="Tvůj email"
         placeholder="petr@seznam.cz"
         width="xl"
         pt="md"
-        {...form.getInputProps("email")}
+        {...form.getInputProps('email')}
       />
     </form>
   );
@@ -200,7 +201,9 @@ function Faq() {
         <Accordion.Item className={classes.item} value="first">
           <Accordion.Control>Kolik mě to bude stát?</Accordion.Control>
           <Accordion.Panel>
-            <strong>0 Kč.</strong> Služba je pro tebe zdarma, ale musíš zaplatit
+            <strong>0 Kč.</strong>
+            {' '}
+            Služba je pro tebe zdarma, ale musíš zaplatit
             vratnou zálohu, která činí 50 Kč. Tu dostaneš zpátky po vrácení
             krabice.
           </Accordion.Panel>

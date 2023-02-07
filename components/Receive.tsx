@@ -1,25 +1,20 @@
+// @ts-nocheck
 import {
-  Button,
-  Autocomplete,
-  Paper,
-  Container,
-  Space,
-  Input,
+  Button, Autocomplete, Container, Space,
 } from '@mantine/core';
 import { useState, useEffect } from 'react';
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
 // @ts-ignore
-import Link from 'next/link';
 import { useForm } from '@mantine/form';
 
 import { IconX, IconCheck } from '@tabler/icons';
 import {
   showNotification,
-  hideNotification,
+  // hideNotification,
   updateNotification,
 } from '@mantine/notifications';
 import { Database } from '../database.types';
-import { UserButton } from './UserButton/UserButton';
+// import { UserButton } from "./UserButton/UserButton";
 
 export default function Receive({ session }: any) {
   const [loading, setLoading] = useState(false);

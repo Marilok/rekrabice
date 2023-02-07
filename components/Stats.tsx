@@ -11,10 +11,10 @@ import {
   Paper,
   Container,
   Space,
-} from "@mantine/core";
-import { useState, useEffect } from "react";
-import supabaseClient from "@supabase/auth-helpers-nextjs";
-import Link from "next/link";
+} from '@mantine/core';
+import { useState, useEffect } from 'react';
+import supabaseClient from '@supabase/auth-helpers-nextjs';
+import Link from 'next/link';
 
 import {
   IconBellRinging,
@@ -31,10 +31,10 @@ import {
   IconTransferIn,
   IconTransferOut,
   IconChartArea,
-} from "@tabler/icons";
-import { UserButton } from "./UserButton/UserButton";
-import { StatsGrid } from "./StatsGrid";
-import Forrest from "./Forrest";
+} from '@tabler/icons';
+import { UserButton } from './UserButton/UserButton';
+import { StatsGrid } from './StatsGrid';
+import Forrest from './Forrest';
 
 interface Props {
   data: any;

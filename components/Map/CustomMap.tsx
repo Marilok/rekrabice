@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 import {
   MapContainer,
   TileLayer,
@@ -7,15 +7,15 @@ import {
   Popup,
   Marker,
   Polygon,
-} from "react-leaflet";
-import "leaflet/dist/leaflet.css";
+} from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
 // import "react-leaflet-markercluster/dist/styles.min.css";
-import L from "leaflet";
-import { supabase } from "../../lib/supabaseClient";
-import MarkerClusterGroup from "./MarkerClusterGroup";
-import { myIcon } from "./Marker";
-import { heartData } from "./heartData";
-import CustomPopup from "./CustomPopup";
+import L from 'leaflet';
+import { supabase } from '../../lib/supabaseClient';
+import MarkerClusterGroup from './MarkerClusterGroup';
+import { myIcon } from './Marker';
+import { heartData } from './heartData';
+import CustomPopup from './CustomPopup';
 // TODO1: Add GeoJSON data to the map
 // @ts-ignore
 // TODO3: change marker icon
@@ -26,7 +26,7 @@ export default function CustomMap() {
   }, []);
   async function getShopsLocations() {
     try {
-      const { data, error } = await supabase.rpc("get_shops_locations");
+      const { data, error } = await supabase.rpc('get_shops_locations');
 
       if (data) {
         setLocations(data);
@@ -40,14 +40,14 @@ export default function CustomMap() {
   }
   const createClusterCustomIcon = (cluster: any) => {
     const count = cluster.getChildCount();
-    let size = "LargeXL";
+    let size = 'LargeXL';
 
     if (count < 10) {
-      size = "Small";
+      size = 'Small';
     } else if (count >= 10 && count < 100) {
-      size = "Medium";
+      size = 'Medium';
     } else if (count >= 100 && count < 500) {
-      size = "Large";
+      size = 'Large';
     }
     const options = {
       cluster: `markerCluster${size}`,
@@ -64,7 +64,7 @@ export default function CustomMap() {
         <span class="font-bold text-lg text-center">${count}</span>
       `,
       className:
-        "bg-primary text-white p-2 rounded-full !flex items-center justify-center",
+        'bg-primary text-white p-2 rounded-full !flex items-center justify-center',
       iconSize: L.point(44, 44),
     });
   };
@@ -83,8 +83,8 @@ export default function CustomMap() {
         // m{s}.mapserver.mapy.cz/base-m/{z}-{x}-{y}
       />
       <MarkerClusterGroup iconCreateFunction={createClusterCustomIcon}>
-        {locations &&
-          locations.map((place: any) => (
+        {locations
+          && locations.map((place: any) => (
             <Marker
               icon={myIcon}
               key={place.subsidiary}
@@ -102,7 +102,7 @@ export default function CustomMap() {
       {shapes.map((shape, index) => (
         <Polygon
           key={index}
-          pathOptions={{ color: "green" }}
+          pathOptions={{ color: 'green' }}
           // @ts-ignore
           positions={shape}
         />
