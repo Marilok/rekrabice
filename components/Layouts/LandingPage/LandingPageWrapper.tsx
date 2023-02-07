@@ -28,6 +28,7 @@ export default function App({
         header={<Header links={HEADER_DATA} isOpen={isOpen} toggle={toggle} />}
         footer={<Footer data={FOOTER_DATA} />}
         navbarOffsetBreakpoint={5000}
+        style={{ paddingLeft: 0, paddingRight: 0 }}
 
         // styles={(theme) => ({
         //   main: {
@@ -55,41 +56,29 @@ const FOOTER_DATA = [
       // },
       {
         label: "Jak to funguje?",
-        link: "/clovek",
-      },
-      {
-        label: "Kontakty",
-        link: "/kontakt",
-      },
-      {
-        label: "/baleni",
-        link: "/baleni",
+        link: "/",
       },
     ],
   },
   {
-    title: "Pro eshopy",
+    title: "Pro firmy",
     links: [
       {
         label: "Co to je?",
-        link: "/firma",
-      },
-      {
-        label: "Kontakty",
-        link: "/kontakt",
-      },
-      {
-        label: "/baleni",
-        link: "/baleni",
+        link: "/pro-firmy",
       },
     ],
   },
   {
-    title: "O nás",
+    title: "Pro všechny",
     links: [
       {
         label: "O projektu",
         link: "o-nas",
+      },
+      {
+        label: "/baleni",
+        link: "/baleni",
       },
       {
         label: "Kontakty",
@@ -101,12 +90,12 @@ const FOOTER_DATA = [
 
 const HEADER_DATA = [
   {
-    link: "/clovek",
-    label: "Jsem člověk",
+    link: "/",
+    label: "Rekra co?",
   },
   {
-    link: "/firma",
-    label: "Jsem firma",
+    link: "/pro-firmy",
+    label: "Pro firmy",
   },
 
   // {
