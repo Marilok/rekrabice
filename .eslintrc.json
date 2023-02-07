@@ -1,7 +1,7 @@
 {
     "extends": [
-        "next/core-web-vitals",
-        "airbnb"
+        "next/core-web-vitals"
+        // "airbnb"
     ],
     "parser": "@typescript-eslint/parser",
     "overrides": [
