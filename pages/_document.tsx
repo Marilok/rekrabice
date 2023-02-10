@@ -11,6 +11,15 @@ export default class _Document extends Document {
       <Html>
         <Head />
         <body>
+          <noscript>
+            <iframe
+              src="https://www.googletagmanager.com/ns.html?id=GTM-NXPWLNM"
+              height="0"
+              width="0"
+              //@ts-ignore
+              style="display:none;visibility:hidden"
+            ></iframe>
+          </noscript>
           <Main />
           <NextScript />
         </body>

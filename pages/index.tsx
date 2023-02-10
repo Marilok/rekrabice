@@ -97,32 +97,34 @@ function ComponentUno() {
     <>
       <Container mt="xl">
         <StepperComponent />
-        <Title order={2} align="center" className={classes.wrapper}>
-          Zapojené eshopy
-        </Title>
-        <Flex justify="space-around" align="center" my="xl">
-          <MantineImage
-            src="/images/logos/econea.svg"
-            height="80px"
-            width="auto"
-            alt="Econea logo"
-            className=" opacity-80 hover:scale-110	 hover:opacity-100 transition-opacity"
-          />
-          <MantineImage
-            src="/images/logos/tierra-verde.png"
-            height="80px"
-            width="auto"
-            alt="Tierra Verde logo"
-            className="max-w-full opacity-80 hover:scale-110 hover:opacity-100 transition-opacity"
-          />
-          <MantineImage
-            src="/images/logos/aktin.svg"
-            height="60px"
-            width="auto"
-            alt="Aktin logo"
-            className="max-w-full opacity-80 hover:scale-110 hover:opacity-100 transition-opacity"
-          />
-        </Flex>
+        <Container py={"xl"}>
+          <Title order={2} align="center" className={classes.wrapper}>
+            Zapojené eshopy
+          </Title>
+          <Flex justify="space-around" align="center" my="xl" wrap="wrap">
+            <MantineImage
+              src="/images/logos/econea.svg"
+              height="80px"
+              width="auto"
+              alt="Econea logo"
+              className=" opacity-80 hover:scale-110	 hover:opacity-100 transition-opacity"
+            />
+            <MantineImage
+              src="/images/logos/tierra-verde.png"
+              height="80px"
+              width="auto"
+              alt="Tierra Verde logo"
+              className="max-w-full opacity-80 hover:scale-110 hover:opacity-100 transition-opacity"
+            />
+            <MantineImage
+              src="/images/logos/aktin.svg"
+              height="60px"
+              width="auto"
+              alt="Aktin logo"
+              className="max-w-full opacity-80 hover:scale-110 hover:opacity-100 transition-opacity"
+            />
+          </Flex>
+        </Container>
       </Container>
       <Faq />
       <Container>
@@ -302,7 +304,7 @@ function Faq() {
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
-    paddingTop: theme.spacing.xl * 2,
+    // paddingTop: theme.spacing.xl * 2,
     // paddingBottom: theme.spacing.xl * 2,
   },
 
