@@ -47,7 +47,7 @@ export default function LandingPage() {
         Buď mezi prvními, kteří se dozví o nových partnerech a budou moci začít
         testovat ReKrabice. Ukážeš tím, že je o ReKrabice zájem a má smysl
         šetřit naše lesy. 🌲
-        <EmailInput />
+        <EmailInput id="signup_hero_submit" />
       </Modal>
       <div className={classes.root}>
         <Container size="lg">
@@ -79,6 +79,7 @@ export default function LandingPage() {
                 className={classes.control + " " + ""}
                 mt={40}
                 onClick={() => setOpened(true)}
+                id="signup_hero_open"
               >
                 Začít používat ReKrabice
               </Button>
@@ -135,14 +136,14 @@ function ComponentUno() {
             Buď mezi prvními, kteří se dozví o nových partnerech a budou moci
             začít testovat ReKrabice. Ukážeš tím, že je o ReKrabice zájem.
           </Text>
-          <EmailInput />
+          <EmailInput id="signup_bottom_submit" />
         </Card>
       </Container>
     </>
   );
 }
 
-function EmailInput() {
+function EmailInput({ id }: { id: string }) {
   const [loading, setLoading] = useState(false);
 
   async function sendMsg(values: any) {
@@ -219,6 +220,7 @@ function EmailInput() {
             variant="gradient"
             gradient={{ from: "green", to: "lime" }}
             rightIcon={<IconSend size={16} />}
+            id={id}
           >
             Začít používat ReKrabice
           </Button>
