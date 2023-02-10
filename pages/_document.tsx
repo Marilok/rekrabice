@@ -16,8 +16,7 @@ export default class _Document extends Document {
               src="https://www.googletagmanager.com/ns.html?id=GTM-NXPWLNM"
               height="0"
               width="0"
-              //@ts-ignore
-              style="display:none;visibility:hidden"
+              style={{ display: "none", visibility: "hidden" }}
             ></iframe>
           </noscript>
           <Main />
