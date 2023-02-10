@@ -14,7 +14,6 @@ export default class _Document extends Document {
           <Main />
           <NextScript />
         </body>
-        w
       </Html>
     );
   }
