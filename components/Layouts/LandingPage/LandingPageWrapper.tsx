@@ -60,15 +60,15 @@ const FOOTER_DATA = [
       },
     ],
   },
-  {
-    title: "Pro firmy",
-    links: [
-      {
-        label: "Co to je?",
-        link: "/pro-firmy",
-      },
-    ],
-  },
+  // {
+  //   title: "Pro firmy",
+  //   links: [
+  //     {
+  //       label: "Co to je?",
+  //       link: "/pro-firmy",
+  //     },
+  //   ],
+  // },
   {
     title: "Pro všechny",
     links: [
@@ -93,10 +93,10 @@ const HEADER_DATA = [
     link: "/",
     label: "Rekra co?",
   },
-  {
-    link: "/pro-firmy",
-    label: "Pro firmy",
-  },
+  // {
+  //   link: "/pro-firmy",
+  //   label: "Pro firmy",
+  // },
 
   // {
   //   link: "/obchod",

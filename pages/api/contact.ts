@@ -22,7 +22,7 @@ export default async function handler(
   });
 
   const mailData = {
-    from: `Zelený robot <${process.env.EMAIL_USERNAME}>`,
+    from: `Robot z ReKrabice <${process.env.EMAIL_USERNAME}>`,
     to: process.env.EMAIL_TESTER_USERNAME,
     replyTo: req.body.mail
       ? `${req.body.name} <${req.body.mail}>`
@@ -41,7 +41,7 @@ export default async function handler(
     to: req.body.mail,
     priority: "high",
     subject: "Potvrzení o odeslání zprávy z kontaktního formuláře",
-    html: "<p>Hurá! Váše zpráva z kontaktního formuláře na webu ReKrabice.cz byla úspěšně odeslána! Na zprávu Vám odpovíme do 24 hodin. <br/><br/> PS: V mezičase se můžete rozjímat nad pěknými štěnátky, které na Vás koukají v příloze. ;) </p>",
+    html: "<p>Hurá! Tvoje zpráva, kterou si nám (týmu za ReKrabicí) poslal skrze kontaktní formuláč na našem webu (ReKrabice.cz) nám dorazila do schránky! Na zprávu ti odpovíme do 24 hodin. <br/><br/> PS: V mezičase se můžeš rozjímat nad pěknými štěnátky, které na tebe koukají v příloze. ;) </p>",
     attachments: [
       {
         filename: "První štěnátko.jpg",

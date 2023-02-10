@@ -21,7 +21,7 @@ import Link from "next/link";
 import { useState } from "react";
 import LandingPageWrapper from "../components/Layouts/LandingPage/LandingPageWrapper";
 import StepperComponent from "../components/StepperComponent";
-import boox from "../public/boox.png";
+import prototypeImg from "../public/prototype.png";
 
 // import Image from 'next/image'
 // import logoEconeaSrc from "../public/images/logos/econea.svg";
@@ -42,7 +42,7 @@ export default function LandingPage() {
         size={"lg"}
       >
         <Center>
-          <Image src={boox} alt="Fyzická krabice" height={300} />
+          <Image src={prototypeImg} alt="Fyzická krabice" height={300} />
         </Center>
         Buď mezi prvními, kteří se dozví o nových partnerech a budou moci začít
         testovat ReKrabice. Ukážeš tím, že je o ReKrabice zájem a má smysl

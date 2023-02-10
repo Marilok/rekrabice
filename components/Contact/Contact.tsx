@@ -138,8 +138,8 @@ export default function ContactUs() {
           updateNotification({
             id: "notification-message",
             color: "teal",
-            title: "Hurá, zpráva odeslána. 🥳",
-            message: "Do pošty jsme Vám poslali potvzení o odeslání.",
+            title: "Hurá, zpráva dorazila. 🥳",
+            message: "Do pošty jsme ti poslali potvzení o odeslání.",
             icon: <IconCheck size={16} />,
             autoClose: 10000,
             loading: false,
@@ -205,8 +205,9 @@ export default function ContactUs() {
             <div>
               <Title className={classes.title}>Kontaktujte nás</Title>
               <Text className={classes.description} mt="sm" mb={30}>
-                Pojďme spojit síly! 😎Zanechte nám svůj mail a ozveme se Vám do
-                24 hodin. 😉
+                Pojďme spojit síly! 😎 Ať už ve formě firemní spolupráce nebo
+                jako parťáka do týmu. Zanech nám svůj mail a ozveme se ti do 24
+                hodin. 😉
               </Text>
 
               <ContactIconsList data={contactData} variant="white" />
@@ -225,7 +226,7 @@ export default function ContactUs() {
                 {...form.getInputProps("mail")}
               />
               <TextInput
-                label="Jméno či název firmy"
+                label="Tvoje jméno či název firmy, za kterou píšeš"
                 placeholder="Taťka Šmoula nebo Šmoulí firma"
                 mt="md"
                 classNames={{ input: classes.input, label: classes.inputLabel }}
@@ -234,7 +235,7 @@ export default function ContactUs() {
               <Textarea
                 required
                 label="Zpráva"
-                placeholder="Chtěl bych začít využívat využívat ReKrabice a začít šetřit lesy! :)"
+                placeholder="Chtěl bych začít využívat využívat ReKrabice a tím ulevit našim lesům! :)"
                 minRows={4}
                 mt="md"
                 classNames={{ input: classes.input, label: classes.inputLabel }}
@@ -301,7 +302,7 @@ const contactData = [
   // },
   {
     title: "Sídlo",
-    description: "TBA, Brno",
+    description: "Zatím hledáme (v Brně)",
     icon: IconMapPin,
     // type: "place",
   },

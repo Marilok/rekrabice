@@ -155,7 +155,8 @@ export default function Footer({ data }: FooterLinksProps) {
       </Container>
       <Container className={classes.afterFooter}>
         <Text color="dimmed" size="sm">
-          &copy; <span>{new Date().getFullYear()}</span> TBA s.r.o.
+          &copy; <span>{new Date().getFullYear()}</span> Zatím hledáme jméno
+          s.r.o.
         </Text>
         <Text color="dimmed" size="sm">
           Vytvořeno s ❤️ ke 🌳 v Brně.
