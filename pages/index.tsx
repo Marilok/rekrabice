@@ -71,8 +71,8 @@ export default function LandingPage() {
                 Už nemusíš zbytečně plnit svůj domov kartónovými krabicemi.
                 Všechny ReKrabice můžeš vrátit a ušetřit tím kus lesa. 🌲
               </Text>
-
               <Button
+                component="button"
                 variant="gradient"
                 gradient={{ from: "green", to: "teal" }}
                 size="xl"
@@ -81,7 +81,7 @@ export default function LandingPage() {
                 onClick={() => setOpened(true)}
                 id="signup_hero_open"
               >
-                Začít používat ReKrabice
+                <span id="signup_hero_open">Začít používat ReKrabice</span>
               </Button>
             </div>
           </div>
