@@ -222,7 +222,7 @@ function EmailInput({ id }: { id: string }) {
             rightIcon={<IconSend size={16} />}
             id={id}
           >
-            Začít používat ReKrabice
+            <span id={id}>Začít používat ReKrabice</span>
           </Button>
         }
         rightSectionWidth="auto"
