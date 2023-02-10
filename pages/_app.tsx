@@ -76,7 +76,7 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
       </ColorSchemeProvider>
       <Script
         async
-        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.G_TAG}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=G-7G3GVM43NK`}
         id="gtag1"
       ></Script>
       <Script id="gtag2">
@@ -84,7 +84,7 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', '${process.env.G_TAG}');`}
+  gtag('config', 'G-7G3GVM43NK');`}
       </Script>
     </>
   );
