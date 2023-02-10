@@ -110,7 +110,7 @@ interface ContactIconsListProps {
 }
 
 const MOCKDATA = [
-  { title: "Email", description: "kontakt@zelenakrabice.cz", icon: IconAt },
+  { title: "Email", description: "kontakt@rekrabice.cz", icon: IconAt },
   { title: "Telefon", description: "(+420) 777 777 777", icon: IconPhone },
   { title: "Sídlo", description: "844 Morris Park avenue", icon: IconMapPin },
   { title: "Pracovní doba", description: "8:00 – 12!00", icon: IconSun },

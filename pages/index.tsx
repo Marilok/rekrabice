@@ -102,7 +102,14 @@ function ComponentUno() {
           <Title order={2} align="center" className={classes.wrapper}>
             Zapojené eshopy
           </Title>
-          <Flex justify="space-around" align="center" my="xl" wrap="wrap">
+          <Flex
+            justify="space-around"
+            // direction={{ base: "column", md: "row" }}
+            align="center"
+            my="xl"
+            gap={20}
+            wrap="wrap"
+          >
             <MantineImage
               src="/images/logos/econea.svg"
               height="80px"

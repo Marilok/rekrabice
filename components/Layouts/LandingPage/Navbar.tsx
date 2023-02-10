@@ -1,5 +1,4 @@
-import { Accordion, Button, MediaQuery, Navbar, Stack } from "@mantine/core";
-import { IconMapPin } from "@tabler/icons";
+import { Accordion, MediaQuery, Navbar, Stack } from "@mantine/core";
 import Link from "next/link";
 
 export default function CustomNavbar({
@@ -57,19 +56,18 @@ export default function CustomNavbar({
         hiddenBreakpoint="sm"
       >
         <Navbar.Section grow>{items}</Navbar.Section>
-        <Navbar.Section>
+        {/* <Navbar.Section>
           <Button
             size="sm"
             variant="light"
             color="green"
             fullWidth
             // component="a"
-            // TODO1: change to brand color
             leftIcon={<IconMapPin size={14} />}
           >
             Vratná místa
           </Button>
-        </Navbar.Section>
+        </Navbar.Section> */}
       </Navbar>
     </MediaQuery>
   );
