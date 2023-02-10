@@ -7,9 +7,11 @@ import {
   Center,
   Container,
   createStyles,
+  Divider,
   Flex,
   Image as MantineImage,
   Modal,
+  Space,
   Text,
   Title,
 } from "@mantine/core";
@@ -96,52 +98,55 @@ function ComponentUno() {
   const { classes } = useStyles();
   return (
     <>
-      <Container mt="xl">
-        <StepperComponent />
-        <Container py={"xl"}>
-          <Title order={2} align="center" className={classes.wrapper}>
-            Zapojené eshopy
-          </Title>
-          <Flex
-            justify="space-around"
-            // direction={{ base: "column", md: "row" }}
-            align="center"
-            my="xl"
-            gap={20}
-            wrap="wrap"
-          >
-            <MantineImage
-              src="/images/logos/econea.svg"
-              height="80px"
-              width="auto"
-              alt="Econea logo"
-              className=" opacity-80 hover:scale-110	 hover:opacity-100 transition-opacity"
-            />
-            <MantineImage
-              src="/images/logos/tierra-verde.png"
-              height="80px"
-              width="auto"
-              alt="Tierra Verde logo"
-              className="max-w-full opacity-80 hover:scale-110 hover:opacity-100 transition-opacity"
-            />
-            <MantineImage
-              src="/images/logos/aktin.svg"
-              height="60px"
-              width="auto"
-              alt="Aktin logo"
-              className="max-w-full opacity-80 hover:scale-110 hover:opacity-100 transition-opacity"
-            />
-          </Flex>
-        </Container>
+      <Space h="xl" />
+      <StepperComponent />
+      <Divider my={40} />
+      <Container>
+        <Title order={2} align="center" className={classes.wrapper}>
+          Zapojené eshopy
+        </Title>
+        <Flex
+          justify="space-around"
+          // direction={{ base: "column", md: "row" }}
+          align="center"
+          my="xl"
+          gap={20}
+          wrap="wrap"
+        >
+          <MantineImage
+            src="/images/logos/econea.svg"
+            height="80px"
+            width="auto"
+            alt="Econea logo"
+            className=" opacity-80 hover:scale-110	 hover:opacity-100 transition-opacity"
+          />
+          <MantineImage
+            src="/images/logos/tierra-verde.png"
+            height="80px"
+            width="auto"
+            alt="Tierra Verde logo"
+            className="max-w-full opacity-80 hover:scale-110 hover:opacity-100 transition-opacity"
+          />
+          <MantineImage
+            src="/images/logos/aktin.svg"
+            height="60px"
+            width="auto"
+            alt="Aktin logo"
+            className="max-w-full opacity-80 hover:scale-110 hover:opacity-100 transition-opacity"
+          />
+        </Flex>
       </Container>
+      <Divider my={40} />
       <Faq />
       <Container>
         <Flex justify="space-around" my="xl" />
         <Card p="xl" withBorder shadow="md">
           <Title order={2}>Hurá ReKrabice?</Title>
           <Text mt="sm">
-            Buď mezi prvními, kteří se dozví o nových partnerech a budou moci
-            začít testovat ReKrabice. Ukážeš tím, že je o ReKrabice zájem.
+            Aktuálně se snažíme zjistit, jak velký je v Česku zájem o vratné
+            krabice. Aby se tento projekt stal realitou, potřebujeme (my,
+            zapojené eshopy a dopravci) vědět, že to má smysl. Dej nám prosím
+            svůj mail a my ti povíme víc o tom jak se tento projekt hýbe. 🌲
           </Text>
           <EmailInput id="signup_bottom_submit" />
         </Card>
@@ -221,6 +226,7 @@ function EmailInput({ id }: { id: string }) {
     <form onSubmit={form.onSubmit((values) => sendMsg(values))}>
       <Autocomplete
         data={data}
+        label="Tvůj email"
         rightSection={
           <Button
             type="submit"
@@ -228,12 +234,13 @@ function EmailInput({ id }: { id: string }) {
             gradient={{ from: "green", to: "lime" }}
             rightIcon={<IconSend size={16} />}
             id={id}
+            loading={loading}
+            loaderPosition="right"
           >
-            <span id={id}>Začít používat ReKrabice</span>
+            <span id={id}>Dejte mi vědět</span>
           </Button>
         }
-        rightSectionWidth="auto"
-        label="Tvůj email"
+        rightSectionWidth={"auto"}
         placeholder="petr@seznam.cz"
         width="xl"
         pt="md"
@@ -257,15 +264,16 @@ function Faq() {
           <Accordion.Control>Kolik mě to bude stát?</Accordion.Control>
           <Accordion.Panel>
             <strong>0 Kč.</strong> Služba je pro tebe zdarma, ale musíš zaplatit
-            vratnou zálohu, která činí 50 Kč. Tu dostaneš zpátky po vrácení
-            krabice.
+            motivační vratnou zálohu 50 Kč. Těchto 50 Kč pak dostaneš zpátky po
+            vrácení krabice.
           </Accordion.Panel>
         </Accordion.Item>
         <Accordion.Item className={classes.item} value="second">
           <Accordion.Control>Jak ji mohu vrátit?</Accordion.Control>
           <Accordion.Panel>
             Stačí když ji přineseš na jakkoukoliv pobočku Zásilkovny (zatím
-            kromě Z-Boxů) nebo ji tam můžeš vrátit rovnou po vybalení balíčku.
+            kromě Z-Boxů). Také můžeš balíček vybalit rovnou na výdejně a vrátit
+            ji. A nebo ji můžeš využít pro své účely.
           </Accordion.Panel>
         </Accordion.Item>
         <Accordion.Item className={classes.item} value="third">
@@ -273,28 +281,36 @@ function Faq() {
             Jak dostanu zpět vratnou zálohu?
           </Accordion.Control>
           <Accordion.Panel>
-            Až krabice doputuje ze sběrného místa k nám do skladu připíšeme ti
-            danou částku na účet.
+            Až krabice doputuje z vratného místa k nám na sklad, připíšeme ti
+            danou částku na bankovní účet.
           </Accordion.Panel>
         </Accordion.Item>
         <Accordion.Item className={classes.item} value="fourth">
           <Accordion.Control>Z čeho je vyrobena?</Accordion.Control>
           <Accordion.Panel>
-            Krabice je vyrobena z recyklovatelného plastu, ale neděs se plast
+            Krabice je vyrobena z recyklovatelného plastu, ale neděs se, plast
             není ve všech případech neekologický. Tento materiál je lehký a
-            pevný, proto je krabice schopna vydržet až 150 přeprav. Kartónová by
-            vydržela jen 3-4 cesty. Celkový dopad ReKrabice (a 150 cest k nám na
-            sklad) má o 70 % menší dopad na životní prostředí než 150
-            kartónových krabic.
+            pevný, proto je krabice schopna vydržet až 150 cest. Kartónová by
+            vydržela pouze 3-4 cesty. Celkový dopad ReKrabice (a 150 cest k nám
+            na sklad) má o 70 % menší dopad na životní prostředí než používání
+            jednorázových kartónových krabic.
           </Accordion.Panel>
         </Accordion.Item>
-        <Accordion.Item className={classes.item} value="fifth">
+        <Accordion.Item className={classes.item} value="companies">
+          <Accordion.Control>Proč tu nejsou další eshopy?</Accordion.Control>
+          <Accordion.Panel>
+            Zatím projevili o tento inovatiní způsob balení zájem pouze tyto
+            eshopy, ale pokud by si tu rád viděl i tvůj oblíbený eshop, napiš
+            nám to prosím a my to zkusíme zařídit. Díky!
+          </Accordion.Panel>
+        </Accordion.Item>
+        <Accordion.Item className={classes.item} value="start">
           <Accordion.Control>
             Kdy to budu moct začít používat?
           </Accordion.Control>
           <Accordion.Panel>
-            Plánované spuštění je na druhou polovinu 2023. Pokud ale chceš o tom
-            slyšet dřív přihlas se k
+            Plánované spuštění je na druhou polovinu 2023. Můžeš to ale urychlit
+            tím, že projevíš svůj zájem na konci stránky.
           </Accordion.Panel>
         </Accordion.Item>
         <Accordion.Item className={classes.item} value="last">

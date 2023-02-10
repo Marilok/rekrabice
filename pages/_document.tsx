@@ -10,19 +10,25 @@ export default class _Document extends Document {
     return (
       <Html>
         <Head />
-        <body>
-          <noscript>
-            <iframe
-              src="https://www.googletagmanager.com/ns.html?id=GTM-NXPWLNM"
-              height="0"
-              width="0"
-              style={{ display: "none", visibility: "hidden" }}
-            ></iframe>
-          </noscript>
+        <body style={{ overflowX: "hidden" }}>
+          <GoogleTagsNoScript />
           <Main />
           <NextScript />
         </body>
       </Html>
     );
   }
+}
+
+function GoogleTagsNoScript() {
+  return (
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-NXPWLNM"
+        height="0"
+        width="0"
+        style={{ display: "none", visibility: "hidden" }}
+      ></iframe>
+    </noscript>
+  );
 }

@@ -74,25 +74,7 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
           </NotificationsProvider>
         </MantineProvider>
       </ColorSchemeProvider>
-      <Script id="gtag3">
-        {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-NXPWLNM');`}
-      </Script>
-      <Script
-        async
-        src={`https://www.googletagmanager.com/gtag/js?id=G-7G3GVM43NK`}
-        id="gtag1"
-      ></Script>
-      <Script id="gtag2">
-        {`window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-7G3GVM43NK');`}
-      </Script>
+      <GoogleScripts />
     </>
   );
 }
@@ -100,3 +82,46 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 App.getInitialProps = ({ ctx }: { ctx: GetServerSidePropsContext }) => ({
   colorScheme: getCookie("mantine-color-scheme", ctx),
 });
+
+function GoogleScripts() {
+  return (
+    <>
+      <GoogleTagsScript />
+      <GoogleAnalyticsFist />
+      <GoogleAnalyticsSecond />
+    </>
+  );
+}
+
+function GoogleTagsScript() {
+  return (
+    <Script id="gtag3">
+      {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NXPWLNM');`}
+    </Script>
+  );
+}
+
+function GoogleAnalyticsFist() {
+  return (
+    <Script
+      async
+      src={`https://www.googletagmanager.com/gtag/js?id=G-7G3GVM43NK`}
+      id="gtag1"
+    ></Script>
+  );
+}
+function GoogleAnalyticsSecond() {
+  return (
+    <Script id="gtag2">
+      {`window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7G3GVM43NK');`}
+    </Script>
+  );
+}
