@@ -37,7 +37,7 @@ export default async function handler(
   };
 
   const confirmationData = {
-    from: `Zelený robot <${process.env.EMAIL_USERNAME}>`,
+    from: `Robot z ReKrabice <${process.env.EMAIL_USERNAME}>`,
     to: req.body.mail,
     priority: "high",
     subject: "Potvrzení o odeslání zprávy z kontaktního formuláře",
