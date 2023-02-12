@@ -41,7 +41,7 @@ export default async function handler(
     to: req.body.mail,
     priority: "high",
     subject: "Potvrzení o odeslání zprávy z kontaktního formuláře",
-    html: "<p>Hurá! Tvoje zpráva, kterou si nám (týmu za ReKrabicí) poslal skrze kontaktní formuláč na našem webu (ReKrabice.cz) nám dorazila do schránky! Na zprávu ti odpovíme do 24 hodin. <br/><br/> PS: V mezičase se můžeš rozjímat nad pěknými štěnátky, které na tebe koukají v příloze. ;) </p>",
+    html: "<p>Hurá! Tvoje zpráva, kterou si nám (týmu za ReKrabicí) poslal skrze kontaktní formulář na našem webu (ReKrabice.cz) nám dorazila do schránky! Na zprávu ti odpovíme do 24 hodin. <br/><br/> PS: V mezičase se můžeš rozjímat nad pěknými štěnátky, které na tebe koukají v příloze. ;) </p>",
     attachments: [
       {
         filename: "První štěnátko.jpg",
