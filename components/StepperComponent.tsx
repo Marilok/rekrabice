@@ -81,9 +81,15 @@ export default function StepperComponent() {
           <Stepper
             active={active}
             onStepClick={setActive}
-            // breakpoint="md"
             color="green"
             mt="xl"
+            styles={(theme) => ({
+              stepBody: {
+                [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
+                  display: "none",
+                },
+              },
+            })}
           >
             <Stepper.Step label="Jak to funguje?">
               <Title order={2} mt="xl">
@@ -148,9 +154,8 @@ export default function StepperComponent() {
               </Title>
               <Text mt="sm">
                 Prázdnou krabici můžeš vrátit rovnou na výdejně nebo ji můžeě
-                přinést do jednoho z 23 zapojených vratných míst. Jednoduše ji
-                přines a až nám doputuje na sklad, pošleme ti vratnou zálohu na
-                účet.
+                přinést do jednoho z našich vratných míst. Jakmile se krabice
+                doputuje k nám na sklad, pošleme ti vratnou zálohu na účet.
               </Text>
               <Card
                 radius="sm"
