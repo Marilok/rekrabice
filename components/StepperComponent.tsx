@@ -1,7 +1,6 @@
 // @ts-nocheck
 import {
   Button,
-  Card,
   Center,
   Container,
   Loader,
@@ -82,7 +81,7 @@ export default function StepperComponent() {
             active={active}
             onStepClick={setActive}
             color="green"
-            mt="xl"
+            mt="lg"
             styles={(theme) => ({
               stepBody: {
                 [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
@@ -99,13 +98,12 @@ export default function StepperComponent() {
                 <br></br>
                 <br></br>
               </Text>
-              <div className="m-auto flex justify-center mt-5">
+              <div className="m-auto flex justify-center mt-5 w-full h-72 relative">
                 <Image
                   src="/prototype.png"
-                  height={300}
-                  width={500}
+                  fill
                   alt="Jak to funguje"
-                  className="m-auto rounded shadow"
+                  className="m-auto rounded shadow object-contain"
                 />
               </div>
             </Stepper.Step>
@@ -118,13 +116,12 @@ export default function StepperComponent() {
                 zboží zabalit do vratné krabice. Tato možnost stojí 50 Kč, ale
                 neboj, je to vratná záloha, kterou dostaneš zpět. 😉
               </Text>
-              <div className="m-auto flex justify-center mt-5">
+              <div className="m-auto flex justify-center relative mt-5 w-full h-72">
                 <Image
                   src="/otoc_button.png"
-                  height={300}
-                  width={540}
+                  fill
                   alt="Vybrat balení do vratné krabice z eshopu"
-                  className="m-auto rounded shadow"
+                  className="m-auto rounded shadow object-contain"
                 />
               </div>
             </Stepper.Step>
@@ -138,13 +135,12 @@ export default function StepperComponent() {
                 rozbal jako normálně. Při tomto kroku ti jen popřejeme, aby jsi
                 byl spokojen se svým nákupem. 😅
               </Text>
-              <div className="m-auto flex justify-center mt-5">
+              <div className="m-auto flex justify-center relative mt-5 w-full h-72">
                 <Image
                   src="/gifs/open.gif"
-                  height={300}
-                  width={525}
+                  fill
                   alt="Box opening gif"
-                  className="m-auto rounded shadow"
+                  className="m-auto rounded shadow object-contain"
                 />
               </div>
             </Stepper.Step>
@@ -157,6 +153,15 @@ export default function StepperComponent() {
                 přinést do jednoho z našich vratných míst. Jakmile se krabice
                 doputuje k nám na sklad, pošleme ti vratnou zálohu na účet.
               </Text>
+              <div className="m-auto flex justify-center relative mt-5 w-full h-72">
+                <Image
+                  src="/gifs/open.gif"
+                  fill
+                  alt="Box opening gif"
+                  className="m-auto rounded shadow object-contain"
+                />
+              </div>
+              {/*               
               <Card
                 radius="sm"
                 className="w-[525px] h-[300px] mx-auto"
@@ -164,7 +169,7 @@ export default function StepperComponent() {
                 p={0}
               >
                 <Map />
-              </Card>
+              </Card> */}
               {/* <Button
                 size="md"
                 mt="md"
@@ -190,28 +195,28 @@ export default function StepperComponent() {
                 aby si vyhodil tu kartonovou, tak nemuselo být pokáceno 0,6 %
                 stromu. Děkujeme ti za tvou pomoc šetřit naše lesy. 😎🌳
               </Text>
-              <div className="m-auto flex justify-center mt-5">
+              <div className="m-auto flex justify-center relative mt-5 w-full h-72">
                 <Image
                   src="/images/tree.jpg"
-                  height={300}
-                  width={525}
+                  fill
                   alt="A tree in misty cloud"
-                  className="m-auto rounded shadow"
+                  className="m-auto rounded shadow object-contain"
                 />
               </div>
             </Stepper.Completed>
           </Stepper>
-          <Button.Group mt="md" className="mx-auto">
+          <Button.Group mt="md" className="mx-auto w-full">
             {active !== 0 && (
               <Button
                 size="xl"
                 onClick={prevStep}
                 variant="outline"
-                className="w-60"
+                fullWidth
+                className={`max-w-80 ${active == 0 ? "max-w-96 !rounded" : ""}`}
                 color="green"
                 leftIcon={<IconArrowLeft size={14} />}
               >
-                Předchozí krok
+                Zpátky
               </Button>
             )}
             {active !== numberOfSteps && (
@@ -219,47 +224,14 @@ export default function StepperComponent() {
                 size="xl"
                 color="green"
                 onClick={nextStep}
-                className={`w-60 ${active == 0 ? "w-96 !rounded" : ""}`}
+                fullWidth
+                className={`max-w-80 ${active == 0 ? "max-w-96 !rounded" : ""}`}
                 rightIcon={<IconArrowRight size={14} />}
               >
                 Další krok
               </Button>
             )}
           </Button.Group>
-
-          {/* <Group position="center" mt="xl">
-            <Button.Group orientation="vertical">
-              {active !== 0 && (
-                <Button
-                  size="xl"
-                  onClick={prevStep}
-                  variant="outline"
-                  color="green"
-                  leftIcon={<IconArrowUp size={14} />}
-                >
-                  Předchozí krok
-                </Button>
-              )}
-              {active !== 3 && (
-                <Button
-                  size="xl"
-                  color="green"
-                  onClick={nextStep}
-                  style={
-                    active == 0
-                      ? {
-                          height: "120px",
-                          borderRadius: "4px",
-                        }
-                      : {}
-                  }
-                  leftIcon={<IconArrowDown size={14} />}
-                >
-                  Další krok
-                </Button>
-              )}
-            </Button.Group>
-          </Group> */}
         </div>
       </Container>
     </>

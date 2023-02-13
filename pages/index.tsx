@@ -300,9 +300,9 @@ function Faq() {
         <Accordion.Item className={classes.item} value="second">
           <Accordion.Control>Jak ji mohu vrátit?</Accordion.Control>
           <Accordion.Panel>
-            Stačí když ji přineseš na jakkoukoliv pobočku Zásilkovny (zatím
-            kromě Z-Boxů). Také můžeš balíček vybalit rovnou na výdejně a vrátit
-            ji. A nebo ji můžeš využít pro své účely.
+            Stačí když ji přineseš na jakkoukoliv pobočku Zásilkovny či
+            Balíkovny. Také můžeš balíček vybalit rovnou na výdejně a vrátit ji.
+            A nebo ji můžeš využít pro své účely.
           </Accordion.Panel>
         </Accordion.Item>
         <Accordion.Item className={classes.item} value="third">
