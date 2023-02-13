@@ -91,7 +91,7 @@ const FOOTER_DATA = [
 const HEADER_DATA = [
   {
     link: "/",
-    label: "Rekra co?",
+    label: "Jak to funguje?",
   },
   // {
   //   link: "/pro-firmy",
