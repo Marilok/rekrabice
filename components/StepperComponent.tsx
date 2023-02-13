@@ -9,10 +9,11 @@ import {
   Text,
   Title,
 } from "@mantine/core";
-import { useHotkeys, useViewportSize } from "@mantine/hooks";
+import { useHotkeys, useScrollIntoView, useViewportSize } from "@mantine/hooks";
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons";
 import dynamic from "next/dynamic";
 import Image from "next/image";
+
 import { useState } from "react";
 
 export default function StepperComponent() {
@@ -36,6 +37,7 @@ export default function StepperComponent() {
     ["space", nextStep],
     ["Shift+space", prevStep],
   ]);
+
   const Map = dynamic(() => import("./Map/CustomMap"), {
     loading: () => (
       <Center className="h-full relative">
@@ -49,6 +51,9 @@ export default function StepperComponent() {
   const Confetti = dynamic(() => import("react-confetti"), {
     loading: () => <></>,
     ssr: false, // This line is important. It's what prevents server-side render
+  });
+  const { scrollIntoView, targetRef } = useScrollIntoView<HTMLDivElement>({
+    offset: 60,
   });
 
   return (
@@ -78,6 +83,7 @@ export default function StepperComponent() {
             onStepClick={setActive}
             color="green"
             mt="lg"
+            onClick={() => scrollIntoView({ alignment: "center" })}
             styles={(theme) => ({
               stepBody: {
                 [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
@@ -85,6 +91,7 @@ export default function StepperComponent() {
                 },
               },
             })}
+            ref={targetRef}
             id="top"
           >
             <Stepper.Step label="Jak to funguje?" id="stepper_0">
