@@ -10,6 +10,7 @@ import {
   Divider,
   Flex,
   Image as MantineImage,
+  MediaQuery,
   Modal,
   Space,
   Text,
@@ -143,10 +144,10 @@ function ComponentUno() {
         <Card p="xl" withBorder shadow="md">
           <Title order={2}>Hurá ReKrabice?</Title>
           <Text mt="sm">
-            Aktuálně se snažíme zjistit, jak velký je v Česku zájem o vratné
-            krabice. Aby se tento projekt stal realitou, potřebujeme (my,
-            zapojené eshopy a dopravci) vědět, že to má smysl. Dej nám prosím
-            svůj mail a my ti povíme víc o tom jak se tento projekt hýbe. 🌲
+            Aby se tento projekt stal realitou, potřebujeme pro eshopy a
+            dopravce ověřit, zda o vratné krabice je mezi lidmi vůbez zájem.
+            Svůj zájem můžeš projevit tím, že nám zapíšeš svůj mail. V budoucnu
+            ti dáme vědět, jak se tento projekt hýbe. 🌲
           </Text>
           <EmailInput id="signup_bottom_submit" />
         </Card>
@@ -227,6 +228,13 @@ function EmailInput({ id }: { id: string }) {
       <Autocomplete
         data={data}
         label="Tvůj email"
+        styles={(theme) => ({
+          rightSection: {
+            [`@media (max-width: ${theme.breakpoints.md}px)`]: {
+              display: "none",
+            },
+          },
+        })}
         rightSection={
           <Button
             type="submit"
@@ -246,6 +254,21 @@ function EmailInput({ id }: { id: string }) {
         pt="md"
         {...form.getInputProps("mail")}
       />
+      <MediaQuery largerThan={"md"} styles={{ display: "none" }}>
+        <Button
+          type="submit"
+          variant="gradient"
+          gradient={{ from: "green", to: "lime" }}
+          rightIcon={<IconSend size={16} />}
+          id={id}
+          mt="xs"
+          fullWidth
+          loading={loading}
+          loaderPosition="right"
+        >
+          <span id={id}>Dejte mi vědět</span>
+        </Button>
+      </MediaQuery>
     </form>
   );
 }
