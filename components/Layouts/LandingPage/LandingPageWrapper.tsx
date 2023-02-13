@@ -9,9 +9,11 @@ import CustomNavbar from "./Navbar";
 export default function App({
   children,
   title,
+  styles,
 }: {
   children?: any;
   title?: string;
+  styles?: any;
 }) {
   const [isOpen, { toggle }] = useDisclosure(false);
 
@@ -28,12 +30,7 @@ export default function App({
         header={<Header links={HEADER_DATA} isOpen={isOpen} toggle={toggle} />}
         footer={<Footer data={FOOTER_DATA} />}
         navbarOffsetBreakpoint={5000}
-        styles={(theme) => ({
-          main: {
-            padding: "0 !important",
-          }
-        })}
-
+        styles={styles}
         // styles={(theme) => ({
         //   main: {
         //     backgroundColor:

@@ -35,7 +35,13 @@ export default function LandingPage() {
   const [opened, setOpened] = useState(false);
   const { classes } = useStylesHero();
   return (
-    <LandingPageWrapper>
+    <LandingPageWrapper
+      styles={() => ({
+        main: {
+          padding: "0 !important",
+        },
+      })}
+    >
       {/* <HeroBullets /> */}
       <Modal
         opened={opened}
