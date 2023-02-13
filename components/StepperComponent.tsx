@@ -13,7 +13,6 @@ import { useHotkeys, useViewportSize } from "@mantine/hooks";
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons";
 import dynamic from "next/dynamic";
 import Image from "next/image";
-import { useRouter } from "next/router";
 import { useState } from "react";
 
 export default function StepperComponent() {
@@ -37,15 +36,6 @@ export default function StepperComponent() {
     ["space", nextStep],
     ["Shift+space", prevStep],
   ]);
-
-  const router = useRouter();
-  const { query } = router;
-  // {
-  //   referer: string | undefined;
-  //   name: string | undefined;
-  // }
-  // ?referrer=aktin.cz&name=Aktin
-
   const Map = dynamic(() => import("./Map/CustomMap"), {
     loading: () => (
       <Center className="h-full relative">
@@ -66,12 +56,18 @@ export default function StepperComponent() {
       <Portal>
         <Confetti
           width={width}
-          height={height}
+          height={1200}
           recycle={false}
           run={active === numberOfSteps}
           numberOfPieces={777}
           onConfettiComplete={(confetti) => {
             confetti?.reset();
+          }}
+          confettiSource={{
+            x: 0,
+            y: 800,
+            w: width,
+            height: 100,
           }}
         />
       </Portal>
@@ -89,6 +85,7 @@ export default function StepperComponent() {
                 },
               },
             })}
+            id="top"
           >
             <Stepper.Step label="Jak to funguje?">
               <Title order={2} mt="xl">
