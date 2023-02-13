@@ -22,7 +22,7 @@ function SettingsModal({ opened, setOpened }: Props) {
       opened={opened}
       onClose={() => setOpened(false)}
       title={<Title order={1}>Nastavení</Title>}
-      size="lg"
+      size="md"
     >
       <Title order={2}>Motiv</Title>
       <SegmentedControl
