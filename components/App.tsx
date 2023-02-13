@@ -1,8 +1,8 @@
-import { AppShell } from '@mantine/core';
+import { AppShell } from "@mantine/core";
 // import CustomNavbar from "./Layouts/Navbar";
-import { createBrowserSupabaseClient } from '@supabase/auth-helpers-nextjs';
-import { SessionContextProvider } from '@supabase/auth-helpers-react';
-import { useState } from 'react';
+import { createBrowserSupabaseClient } from "@supabase/auth-helpers-nextjs";
+import { SessionContextProvider } from "@supabase/auth-helpers-react";
+import { useState } from "react";
 
 export default function App({ Component, pageProps, children }: any) {
   const [supabaseClient] = useState(() => createBrowserSupabaseClient());
@@ -18,7 +18,7 @@ export default function App({ Component, pageProps, children }: any) {
         styles={(theme) => ({
           main: {
             backgroundColor:
-              theme.colorScheme === 'dark'
+              theme.colorScheme === "dark"
                 ? theme.colors.dark[8]
                 : theme.colors.gray[0],
           },

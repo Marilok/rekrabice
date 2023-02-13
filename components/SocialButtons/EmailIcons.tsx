@@ -1,4 +1,4 @@
-export function GmailIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
+export function GmailIcon(props: React.ComponentPropsWithoutRef<"svg">) {
   return (
     <svg
       fill="none"
@@ -42,7 +42,7 @@ export function GmailIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   );
 }
 
-export function ProtonmailIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
+export function ProtonmailIcon(props: React.ComponentPropsWithoutRef<"svg">) {
   return (
     <svg
       width="24"
@@ -96,7 +96,7 @@ export function ProtonmailIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   );
 }
 
-export function SeznamEmailIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
+export function SeznamEmailIcon(props: React.ComponentPropsWithoutRef<"svg">) {
   return (
     <svg
       version="1.1"
@@ -113,7 +113,7 @@ export function SeznamEmailIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   );
 }
 
-export function TutanotaIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
+export function TutanotaIcon(props: React.ComponentPropsWithoutRef<"svg">) {
   return (
     <svg
       enableBackground="new 0 0 1280 800"

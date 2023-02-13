@@ -1,22 +1,17 @@
-import { useState } from 'react';
 import {
-  createStyles,
-  Paper,
-  Title,
-  Text,
-  TextInput,
   Button,
   Container,
-  Group,
-  Anchor,
-  Center,
+  createStyles,
+  Paper,
   Space,
-  Box,
-  Alert,
-} from '@mantine/core';
-import { useForm } from '@mantine/form';
-import { IconSend, IconCheck } from '@tabler/icons';
-import { EmailButtons } from '../SocialButtons/EmailButtons';
+  Text,
+  TextInput,
+  Title,
+} from "@mantine/core";
+import { useForm } from "@mantine/form";
+import { IconCheck, IconSend } from "@tabler/icons";
+import { useState } from "react";
+import { EmailButtons } from "../SocialButtons/EmailButtons";
 
 const useStyles = createStyles((theme) => ({
   title: {
@@ -26,15 +21,15 @@ const useStyles = createStyles((theme) => ({
   },
 
   controls: {
-    [theme.fn.smallerThan('xs')]: {
-      flexDirection: 'column-reverse',
+    [theme.fn.smallerThan("xs")]: {
+      flexDirection: "column-reverse",
     },
   },
 
   control: {
-    [theme.fn.smallerThan('xs')]: {
-      width: '100%',
-      textAlign: 'center',
+    [theme.fn.smallerThan("xs")]: {
+      width: "100%",
+      textAlign: "center",
     },
   },
 }));
@@ -42,14 +37,14 @@ const useStyles = createStyles((theme) => ({
 export default function Auth({ supabase }) {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
   const form = useForm({
     initialValues: {
-      email: '',
+      email: "",
     },
 
     validate: {
-      email: (value) => (/^\S+@\S+$/.test(value) ? null : 'Chybný email'),
+      email: (value) => (/^\S+@\S+$/.test(value) ? null : "Chybný email"),
     },
   });
 
@@ -90,14 +85,14 @@ export default function Auth({ supabase }) {
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            {...form.getInputProps('email')}
+            {...form.getInputProps("email")}
           />
           <Space h="xs" />
           {success ? (
             <Button
               variant="gradient"
               type="button"
-              gradient={{ from: 'teal', to: 'lime', deg: 105 }}
+              gradient={{ from: "teal", to: "lime", deg: 105 }}
               className={classes.control}
               rightIcon={<IconCheck size={16} />}
               loading={loading}
@@ -112,7 +107,7 @@ export default function Auth({ supabase }) {
           ) : (
             <Button
               variant="gradient"
-              gradient={{ from: 'teal', to: 'blue', deg: 60 }}
+              gradient={{ from: "teal", to: "blue", deg: 60 }}
               type="submit"
               className={classes.control}
               rightIcon={<IconSend size={16} />}
@@ -120,7 +115,7 @@ export default function Auth({ supabase }) {
               loaderPosition="right"
               fullWidth
             >
-              {loading ? 'Odesílání' : 'Poslat odkaz'}
+              {loading ? "Odesílání" : "Poslat odkaz"}
             </Button>
           )}
         </form>

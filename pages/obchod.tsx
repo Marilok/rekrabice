@@ -1,50 +1,49 @@
 // @ts-nocheck
-import Link from 'next/link';
+import Link from "next/link";
 
-import { useState } from 'react';
 import {
-  Stepper,
   Button,
-  Group,
-  Title,
-  Text,
-  Portal,
-  Modal,
-  Container,
   Card,
   Center,
+  Container,
+  Group,
   Loader,
-} from '@mantine/core';
-import { useHotkeys, useViewportSize } from '@mantine/hooks';
+  Portal,
+  Stepper,
+  Text,
+  Title,
+} from "@mantine/core";
+import { useHotkeys, useViewportSize } from "@mantine/hooks";
 import {
-  IconArrowDown,
   IconArrowLeft,
   IconArrowRight,
-  IconArrowUp,
   IconMapPin,
   IconPhone,
-} from '@tabler/icons';
-import dynamic from 'next/dynamic';
-import { useRouter } from 'next/router';
-import Image from 'next/image';
-import LandingPageWrapper from '../components/Layouts/LandingPage/LandingPageWrapper';
+} from "@tabler/icons";
+import dynamic from "next/dynamic";
+import Image from "next/image";
+import { useRouter } from "next/router";
+import { useState } from "react";
+import LandingPageWrapper from "../components/Layouts/LandingPage/LandingPageWrapper";
 
 export default function Otoc() {
   const [active, setActive] = useState(0);
   const { height, width } = useViewportSize();
   const [opened, setOpened] = useState(false);
 
-  const nextStep = () => setActive((current) => (current < 5 ? current + 1 : current));
-  const prevStep = () => setActive((current) => (current > 0 ? current - 1 : current));
+  const nextStep = () =>
+    setActive((current) => (current < 5 ? current + 1 : current));
+  const prevStep = () =>
+    setActive((current) => (current > 0 ? current - 1 : current));
   useHotkeys([
-    ['ArrowDown', nextStep],
-    ['ArrowUp', prevStep],
+    ["ArrowDown", nextStep],
+    ["ArrowUp", prevStep],
 
-    ['Enter', nextStep],
-    ['Shift+Enter', prevStep],
+    ["Enter", nextStep],
+    ["Shift+Enter", prevStep],
 
-    ['space', nextStep],
-    ['Shift+space', prevStep],
+    ["space", nextStep],
+    ["Shift+space", prevStep],
   ]);
 
   const router = useRouter();
@@ -55,7 +54,7 @@ export default function Otoc() {
   // }
   // ?referrer=aktin.cz&name=Aktin
 
-  const Map = dynamic(() => import('../components/Map/CustomMap'), {
+  const Map = dynamic(() => import("../components/Map/CustomMap"), {
     loading: () => (
       <Center className="h-full relative">
         <Loader size="xl" />
@@ -65,7 +64,7 @@ export default function Otoc() {
     ssr: false, // This line is important. It's what prevents server-side render
   });
 
-  const Confetti = dynamic(() => import('react-confetti'), {
+  const Confetti = dynamic(() => import("react-confetti"), {
     loading: () => <></>,
     ssr: false, // This line is important. It's what prevents server-side render
   });
@@ -99,7 +98,9 @@ export default function Otoc() {
                   Už toho bylo dost? 🤔⁉️
                 </Title>
                 <Text mt="md">
-                  Už Vaše zákazníky nebaví pořád do kola vyhazovat krabice? Chtěli by něco udržitelnějšího? Nebo jste zkoušeli najít ekologičtější variantu, ale našli jste jen samý greenwashing?
+                  Už Vaše zákazníky nebaví pořád do kola vyhazovat krabice?
+                  Chtěli by něco udržitelnějšího? Nebo jste zkoušeli najít
+                  ekologičtější variantu, ale našli jste jen samý greenwashing?
                   A nebo Vám přijde balné moc drahé? Máme pro Vás řešení!
                 </Text>
                 <div className="m-auto flex justify-center my-5">
@@ -117,7 +118,8 @@ export default function Otoc() {
                   Pojd´me spolu otáčet krabice. 🌳🌎
                 </Title>
                 <Text mt="md">
-                  Počkat co? Princip otáčení zelených krabic je jednoduchý a stojí to Váš podnik i naši planetu méně.
+                  Počkat co? Princip otáčení zelených krabic je jednoduchý a
+                  stojí to Váš podnik i naši planetu méně.
                 </Text>
                 <div className="m-auto flex justify-center my-5">
                   <Image
@@ -135,7 +137,9 @@ export default function Otoc() {
                   Přidejte zákazníkům možnost přidání balného s vratnou zálohou.
                 </Title>
                 <Text mt="md">
-                  Tato možnost stojí Vaše zákazníky 50 Kč, ale je to jen vratná záloha. Po potvrzení objednávky, stačí už jen zabalit nákup do zelené krabice a odeslat ji zákazníkovi.
+                  Tato možnost stojí Vaše zákazníky 50 Kč, ale je to jen vratná
+                  záloha. Po potvrzení objednávky, stačí už jen zabalit nákup do
+                  zelené krabice a odeslat ji zákazníkovi.
                 </Text>
                 <div className="m-auto flex justify-center my-5">
                   <Image
@@ -150,10 +154,13 @@ export default function Otoc() {
 
               <Stepper.Step label="Vrácení">
                 <Title order={1} mt="xl">
-                  Dovolte zákazníkům vrátit odeslané krabice na Vašich výdejních místech.
+                  Dovolte zákazníkům vrátit odeslané krabice na Vašich výdejních
+                  místech.
                 </Title>
                 <Text mt="md">
-                  Prázdnou krabici Vaši zákaznici mohou přinést přímo k Vám nebo do jednoho z dalších 23 vratných míst. Vratnou zálohu prosím vrat´te zákazníkovi v hotovosti.
+                  Prázdnou krabici Vaši zákaznici mohou přinést přímo k Vám nebo
+                  do jednoho z dalších 23 vratných míst. Vratnou zálohu prosím
+                  vrat´te zákazníkovi v hotovosti.
                 </Text>
                 <Card radius="sm" className="h-80" shadow="sm" p={0}>
                   <Map />
@@ -177,8 +184,8 @@ export default function Otoc() {
                   Wohoooo! 🥳
                 </Title>
                 <Text mt="md">
-                  Právě jsme spolu otočili krabici a zachránil 1/156 stromu jen díky
-                  tomu, že jste využil Zelenou krabici. 🌳
+                  Právě jsme spolu otočili krabici a zachránil 1/156 stromu jen
+                  díky tomu, že jste využil Zelenou krabici. 🌳
                 </Text>
                 <Link passHref href="/kontakt">
                   <Button
@@ -194,9 +201,7 @@ export default function Otoc() {
                 </Link>
                 {query.referrer && (
                   <Button component="a" href={`https://${query.referrer}`}>
-                    Vrátit se do super obchodu
-                    {' '}
-                    {query.name}
+                    Vrátit se do super obchodu {query.name}
                   </Button>
                 )}
               </Stepper.Completed>
@@ -219,7 +224,7 @@ export default function Otoc() {
                   size="xl"
                   color="green"
                   onClick={nextStep}
-                  className={`w-60 ${active == 0 ? 'w-96 !rounded' : ''}`}
+                  className={`w-60 ${active == 0 ? "w-96 !rounded" : ""}`}
                   rightIcon={<IconArrowRight size={14} />}
                 >
                   Další krok

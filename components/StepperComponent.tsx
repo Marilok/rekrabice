@@ -1,39 +1,42 @@
 // @ts-nocheck
-import Link from 'next/link';
-import Image from 'next/image';
-import { useState } from 'react';
 import {
-  Stepper,
   Button,
-  Title,
-  Text,
-  Portal,
-  Container,
   Card,
   Center,
+  Container,
   Loader,
-} from '@mantine/core';
-import { useHotkeys, useViewportSize } from '@mantine/hooks';
-import { IconArrowLeft, IconArrowRight, IconMapPin } from '@tabler/icons';
-import dynamic from 'next/dynamic';
-import { useRouter } from 'next/router';
+  Portal,
+  Stepper,
+  Text,
+  Title,
+} from "@mantine/core";
+import { useHotkeys, useViewportSize } from "@mantine/hooks";
+import { IconArrowLeft, IconArrowRight } from "@tabler/icons";
+import dynamic from "next/dynamic";
+import Image from "next/image";
+import { useRouter } from "next/router";
+import { useState } from "react";
 
 export default function StepperComponent() {
   const [active, setActive] = useState(0);
   const { height, width } = useViewportSize();
   const [opened, setOpened] = useState(false);
 
-  const nextStep = () => setActive((current) => (current < 3 ? current + 1 : current));
-  const prevStep = () => setActive((current) => (current > 0 ? current - 1 : current));
+  const numberOfSteps = 4;
+
+  const nextStep = () =>
+    setActive((current) => (current < numberOfSteps ? current + 1 : current));
+  const prevStep = () =>
+    setActive((current) => (current > 0 ? current - 1 : current));
   useHotkeys([
-    ['ArrowDown', nextStep],
-    ['ArrowUp', prevStep],
+    ["ArrowDown", nextStep],
+    ["ArrowUp", prevStep],
 
-    ['Enter', nextStep],
-    ['Shift+Enter', prevStep],
+    ["Enter", nextStep],
+    ["Shift+Enter", prevStep],
 
-    ['space', nextStep],
-    ['Shift+space', prevStep],
+    ["space", nextStep],
+    ["Shift+space", prevStep],
   ]);
 
   const router = useRouter();
@@ -44,7 +47,7 @@ export default function StepperComponent() {
   // }
   // ?referrer=aktin.cz&name=Aktin
 
-  const Map = dynamic(() => import('./Map/CustomMap'), {
+  const Map = dynamic(() => import("./Map/CustomMap"), {
     loading: () => (
       <Center className="h-full relative">
         <Loader size="xl" />
@@ -54,7 +57,7 @@ export default function StepperComponent() {
     ssr: false, // This line is important. It's what prevents server-side render
   });
 
-  const Confetti = dynamic(() => import('react-confetti'), {
+  const Confetti = dynamic(() => import("react-confetti"), {
     loading: () => <></>,
     ssr: false, // This line is important. It's what prevents server-side render
   });
@@ -66,7 +69,7 @@ export default function StepperComponent() {
           width={width}
           height={height}
           recycle={false}
-          run={active === 3}
+          run={active === numberOfSteps}
           numberOfPieces={777}
           onConfettiComplete={(confetti) => {
             confetti?.reset();
@@ -82,13 +85,32 @@ export default function StepperComponent() {
             color="green"
             mt="xl"
           >
+            <Stepper.Step label="Jak to funguje?">
+              <Title order={2} mt="xl">
+                Jak to funguje?
+              </Title>
+              <Text mt="sm">
+                <br></br>
+                <br></br>
+              </Text>
+              <div className="m-auto flex justify-center mt-5">
+                <Image
+                  src="/prototype.png"
+                  height={300}
+                  width={500}
+                  alt="Jak to funguje"
+                  className="m-auto rounded shadow"
+                />
+              </div>
+            </Stepper.Step>
             <Stepper.Step label="Zvol ReKrabici">
               <Title order={2} mt="xl">
                 Nech si nákup zabalit do ReKrabice.
               </Title>
               <Text mt="sm">
-                Tato možnost stojí 50 Kč, ale nenech se odradit, je to totiž
-                vratná záloha. 😉
+                V košíku zapojených eshopů zaškrtni možnost, že by si chtěl
+                zboží zabalit do vratné krabice. Tato možnost stojí 50 Kč, ale
+                neboj, je to vratná záloha, kterou dostaneš zpět. 😉
               </Text>
               <div className="m-auto flex justify-center mt-5">
                 <Image
@@ -106,8 +128,9 @@ export default function StepperComponent() {
                 Rozbal svůj balíček a raduj se ze svého nákupu.
               </Title>
               <Text mt="sm">
-                Při tomto kroku ti jen popřejeme, aby jsi byl spokojen se svým
-                nákupem. 😅
+                Jakmile ti přijde tvůj balíček domů nebo na výdejnu, tak ho
+                rozbal jako normálně. Při tomto kroku ti jen popřejeme, aby jsi
+                byl spokojen se svým nákupem. 😅
               </Text>
               <div className="m-auto flex justify-center mt-5">
                 <Image
@@ -124,8 +147,10 @@ export default function StepperComponent() {
                 Přines krabici do vratného místa
               </Title>
               <Text mt="sm">
-                Prázdnou krabici přines do jednoho z 23 vratných míst. Vratnou
-                zálohu ti automaticky připíšeme na účet.
+                Prázdnou krabici můžeš vrátit rovnou na výdejně nebo ji můžeě
+                přinést do jednoho z 23 zapojených vratných míst. Jednoduše ji
+                přines a až nám doputuje na sklad, pošleme ti vratnou zálohu na
+                účet.
               </Text>
               <Card
                 radius="sm"
@@ -155,8 +180,10 @@ export default function StepperComponent() {
                 Wohoooo! 🥳
               </Title>
               <Text mt="sm">
-                Právě jsi otočil krabici a zachránil 1/156 stromu jen díky tomu,
-                že si využil ReKrabici. 🌳
+                Vrácenou ReKrabici pak po vyčištění poskytneme opět zapojeným
+                eshopům. A právě díky tomu, že jsi otočil ReKrabice místo toho
+                aby si vyhodil tu kartonovou, tak nemuselo být pokáceno 0,6 %
+                stromu. Děkujeme ti za tvou pomoc šetřit naše lesy. 😎🌳
               </Text>
               <div className="m-auto flex justify-center mt-5">
                 <Image
@@ -182,12 +209,12 @@ export default function StepperComponent() {
                 Předchozí krok
               </Button>
             )}
-            {active !== 3 && (
+            {active !== numberOfSteps && (
               <Button
                 size="xl"
                 color="green"
                 onClick={nextStep}
-                className={`w-60 ${active == 0 ? 'w-96 !rounded' : ''}`}
+                className={`w-60 ${active == 0 ? "w-96 !rounded" : ""}`}
                 rightIcon={<IconArrowRight size={14} />}
               >
                 Další krok

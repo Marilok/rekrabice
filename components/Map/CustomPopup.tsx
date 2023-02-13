@@ -1,22 +1,12 @@
-import { Popup } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
-import {
-  Popover,
-  Text,
-  Button,
-  Paper,
-  Title,
-  Avatar,
-  useMantineTheme,
-  MantineTheme,
-  Group,
-} from '@mantine/core';
-import { IconExternalLink } from '@tabler/icons';
+import { Avatar, Button, Group, Paper, Title } from "@mantine/core";
+import { IconExternalLink } from "@tabler/icons";
+import "leaflet/dist/leaflet.css";
+import { Popup } from "react-leaflet";
 
 export default function CustomPopup({
   title,
   subsidiary,
-  logo = '/favicon.svg',
+  logo = "/favicon.svg",
 }: {
   title: string;
   subsidiary?: string;
@@ -30,7 +20,7 @@ export default function CustomPopup({
           <Avatar src={logo} radius="xl" size="md" />
           <Title order={2}>
             {title}
-            {subsidiary ? `- ${subsidiary}` : ''}
+            {subsidiary ? `- ${subsidiary}` : ""}
           </Title>
         </Group>
         {/* <Text>Po-Pá: 8-18h</Text> */}

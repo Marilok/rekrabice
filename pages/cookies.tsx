@@ -1,13 +1,13 @@
 import {
-  Table,
-  Title,
-  Text,
-  List,
   Container,
+  List,
+  Table,
+  Text,
+  Title,
   TypographyStylesProvider,
-} from '@mantine/core';
+} from "@mantine/core";
 
-import LandingPageWrapper from '../components/Layouts/LandingPage/LandingPageWrapper';
+import LandingPageWrapper from "../components/Layouts/LandingPage/LandingPageWrapper";
 
 export default function Cookies() {
   const rowsEssential = ESSENTIAL.map((element) => (
@@ -41,8 +41,7 @@ export default function Cookies() {
           <List withPadding>
             <List.Item>
               <Text weight={700} component="span">
-                Esenciální
-                {' '}
+                Esenciální{" "}
               </Text>
               - Jde o technická a funkční cookies, která umožňují správné
               fungování našich stránek a pokročilých funkcí. Umožňují vám
@@ -51,8 +50,7 @@ export default function Cookies() {
             </List.Item>
             <List.Item>
               <Text weight={700} component="span">
-                Analytické a Marketingové
-                {' '}
+                Analytické a Marketingové{" "}
               </Text>
               - Jde o anonymizovaná cookies, která nám slouží ke statistickým
               účelům, díky kterým můžeme vylepšovat naše stránky a dělat je pro
@@ -104,8 +102,7 @@ export default function Cookies() {
             Druhá možnost je cookies v prohlížeči kompletně vypnout. Tímto však
             omezíte fungování našich stránek a je potřeba počítat s tím, že
             nebudete mít možnost využívat všech našich funkcí včetně přihlášení.
-            Návody pro běžné prohlížeče:
-            {' '}
+            Návody pro běžné prohlížeče:{" "}
             <Text
               variant="link"
               component="a"
@@ -154,6 +151,6 @@ export default function Cookies() {
 }
 
 const ESSENTIAL = [
-  { name: 'mantine-color-scheme', purpose: 'Pro ukládání barevného režimu.' },
+  { name: "mantine-color-scheme", purpose: "Pro ukládání barevného režimu." },
 ];
-const OPTIONAL = [{ name: 'Zatím žádné', purpose: '' }];
+const OPTIONAL = [{ name: "Zatím žádné", purpose: "" }];

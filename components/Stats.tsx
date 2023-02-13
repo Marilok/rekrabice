@@ -1,40 +1,4 @@
-import {
-  createStyles,
-  Navbar,
-  Group,
-  Code,
-  Button,
-  Menu,
-  Avatar,
-  Text,
-  Autocomplete,
-  Paper,
-  Container,
-  Space,
-} from '@mantine/core';
-import { useState, useEffect } from 'react';
-import supabaseClient from '@supabase/auth-helpers-nextjs';
-import Link from 'next/link';
-
-import {
-  IconBellRinging,
-  IconFingerprint,
-  IconKey,
-  IconSettings,
-  Icon2fa,
-  IconDatabaseImport,
-  IconReceipt2,
-  IconSwitchHorizontal,
-  IconLogout,
-  IconArrowBackUp,
-  IconHelp,
-  IconTransferIn,
-  IconTransferOut,
-  IconChartArea,
-} from '@tabler/icons';
-import { UserButton } from './UserButton/UserButton';
-import { StatsGrid } from './StatsGrid';
-import Forrest from './Forrest';
+import Forrest from "./Forrest";
 
 interface Props {
   data: any;

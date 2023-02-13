@@ -1,10 +1,5 @@
-import { useState } from 'react';
-import {
-  Navbar, MediaQuery, Button, Accordion, Stack,
-} from '@mantine/core';
-import Link from 'next/link';
-import Image from 'next/image';
-import { IconMapPin } from '@tabler/icons';
+import { Accordion, MediaQuery, Navbar, Stack } from "@mantine/core";
+import Link from "next/link";
 
 export default function CustomNavbar({
   links,
@@ -53,7 +48,7 @@ export default function CustomNavbar({
   });
 
   return (
-    <MediaQuery largerThan="sm" styles={{ display: 'none', width: 0 }}>
+    <MediaQuery largerThan="sm" styles={{ display: "none", width: 0 }}>
       <Navbar
         width={{ base: 300 }}
         p="xs"
@@ -61,19 +56,18 @@ export default function CustomNavbar({
         hiddenBreakpoint="sm"
       >
         <Navbar.Section grow>{items}</Navbar.Section>
-        <Navbar.Section>
+        {/* <Navbar.Section>
           <Button
             size="sm"
             variant="light"
             color="green"
             fullWidth
             // component="a"
-            // TODO1: change to brand color
             leftIcon={<IconMapPin size={14} />}
           >
             Vratná místa
           </Button>
-        </Navbar.Section>
+        </Navbar.Section> */}
       </Navbar>
     </MediaQuery>
   );

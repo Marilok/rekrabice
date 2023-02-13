@@ -1,52 +1,49 @@
-import { AppProps } from 'next/app';
-import Head from 'next/head';
-import { NotificationsProvider } from '@mantine/notifications';
+import { NotificationsProvider } from "@mantine/notifications";
+import { AppProps } from "next/app";
+import Head from "next/head";
 // import { UserProvider } from "@supabase/auth-helpers-react";
-// import { supabaseClient as supabase } from "@supabase/auth-helpers-nextjs";
-import { GetServerSidePropsContext } from 'next';
-import { getCookie, setCookie, deleteCookie } from 'cookies-next';
 import {
-  MantineProvider,
   ColorScheme,
   ColorSchemeProvider,
-} from '@mantine/core';
-import { useState, useEffect } from 'react';
-import { useColorScheme } from '@mantine/hooks';
-import '../styles/globals.css';
+  MantineProvider,
+} from "@mantine/core";
+import { getCookie, setCookie } from "cookies-next";
+import { GetServerSidePropsContext } from "next";
+import Script from "next/script";
+import { useEffect, useState } from "react";
+import "../styles/globals.css";
 
 export default function App(props: AppProps & { colorScheme: ColorScheme }) {
   const { Component, pageProps } = props;
 
   const [colorScheme, setColorScheme] = useState<ColorScheme>(
-    props.colorScheme || 'dark',
+    props.colorScheme || "dark"
   );
 
   useEffect(() => {
     if (
-      window.matchMedia('(prefers-color-scheme: dark)').matches
-      && !props.colorScheme
+      window.matchMedia("(prefers-color-scheme: dark)").matches &&
+      !props.colorScheme
     ) {
-      setColorScheme('dark');
+      setColorScheme("dark");
     } else if (
-      window.matchMedia('(prefers-color-scheme: light)').matches
-      && !props.colorScheme
+      window.matchMedia("(prefers-color-scheme: light)").matches &&
+      !props.colorScheme
     ) {
-      setColorScheme('light');
+      setColorScheme("light");
     } else if (
-      window.matchMedia('(prefers-color-scheme: normal)').matches
-      && !props.colorScheme
+      window.matchMedia("(prefers-color-scheme: normal)").matches &&
+      !props.colorScheme
     ) {
-      setColorScheme('light');
+      setColorScheme("light");
     }
   }, [props.colorScheme]);
 
   const toggleColorScheme = (value?: ColorScheme) => {
-    //     if (value == "system") {
-    // deleteCookie("mantine-color-scheme");
-    //     }
-    const nextColorScheme = value || (colorScheme === 'dark' ? 'light' : 'dark');
+    const nextColorScheme =
+      value || (colorScheme === "dark" ? "light" : "dark");
     setColorScheme(nextColorScheme);
-    setCookie('mantine-color-scheme', nextColorScheme, {
+    setCookie("mantine-color-scheme", nextColorScheme, {
       maxAge: 60 * 60 * 24 * 30,
     });
   };
@@ -60,7 +57,6 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
       </Head>
-      {/* <UserProvider supabaseClient={supabase}> */}
       <ColorSchemeProvider
         colorScheme={colorScheme}
         toggleColorScheme={toggleColorScheme}
@@ -69,27 +65,7 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
           withGlobalStyles
           withNormalizeCSS
           theme={{
-            primaryColor: 'green',
-            // colors: {
-            //   brand: [
-            //     "#8DAF87",
-            //     "#79A971",
-            //     "#64A759",
-            //     "#54A148",
-            //     "#459D37",
-            //     "#369A27",
-            //     "#289916",
-            //     "#2D7E20",
-            //     "#2E6925",
-            //     "#2E5827",
-            //     "#2D4B28",
-            //     "#2A4027",
-            //     ,
-            //     "#283825",
-            //   ],
-            // },
-            // primaryColor: "brand",
-
+            primaryColor: "green",
             colorScheme,
           }}
         >
@@ -98,23 +74,54 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
           </NotificationsProvider>
         </MantineProvider>
       </ColorSchemeProvider>
-
-      {/* </UserProvider> */}
+      <GoogleScripts />
     </>
   );
 }
 
 App.getInitialProps = ({ ctx }: { ctx: GetServerSidePropsContext }) => ({
-  colorScheme: getCookie('mantine-color-scheme', ctx),
+  colorScheme: getCookie("mantine-color-scheme", ctx),
 });
 
-// App.getInitialProps = ({ ctx }: { ctx: GetServerSidePropsContext }) => {
-//   // const preferredColorScheme = useColorScheme(undefined);
-//   const colorScheme = getCookie("mantine-color-scheme", ctx);
-//   console.log("window", window);
+function GoogleScripts() {
+  return (
+    <>
+      <GoogleTagsScript />
+      <GoogleAnalyticsFist />
+      <GoogleAnalyticsSecond />
+    </>
+  );
+}
 
-//   return {
-//     colorScheme: colorScheme,
-//     // preferredColorScheme: preferredColorScheme,
-//   };
-// };
+function GoogleTagsScript() {
+  return (
+    <Script id="gtag3">
+      {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NXPWLNM');`}
+    </Script>
+  );
+}
+
+function GoogleAnalyticsFist() {
+  return (
+    <Script
+      async
+      src={`https://www.googletagmanager.com/gtag/js?id=G-7G3GVM43NK`}
+      id="gtag1"
+    ></Script>
+  );
+}
+function GoogleAnalyticsSecond() {
+  return (
+    <Script id="gtag2">
+      {`window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7G3GVM43NK');`}
+    </Script>
+  );
+}

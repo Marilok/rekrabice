@@ -1,14 +1,14 @@
-import Link from 'next/link';
 import {
-  createStyles,
-  Container,
-  Title,
-  Text,
   Button,
-  SimpleGrid,
+  Container,
+  createStyles,
   Image,
-} from '@mantine/core';
-import LandingPageWrapper from '../components/Layouts/LandingPage/LandingPageWrapper';
+  SimpleGrid,
+  Text,
+  Title,
+} from "@mantine/core";
+import Link from "next/link";
+import LandingPageWrapper from "../components/Layouts/LandingPage/LandingPageWrapper";
 
 export default function FourOhFour() {
   const { classes } = useStyles();
@@ -19,7 +19,7 @@ export default function FourOhFour() {
         <SimpleGrid
           spacing={80}
           cols={2}
-          breakpoints={[{ maxWidth: 'sm', cols: 1, spacing: 40 }]}
+          breakpoints={[{ maxWidth: "sm", cols: 1, spacing: 40 }]}
         >
           {/* <Image radius="md" src={image} className={classes.mobileImage} /> */}
           <div>
@@ -27,7 +27,8 @@ export default function FourOhFour() {
               Otevřeli jste prázdnou stránku
             </Title>
             <Text color="dimmed" size="lg">
-              Možná jste špatně zadali adresu nebo byla stránka přesunuta na jinou URL adresu.
+              Možná jste špatně zadali adresu nebo byla stránka přesunuta na
+              jinou URL adresu.
             </Text>
             <Button
               component={Link}
@@ -66,26 +67,26 @@ const useStyles = createStyles((theme) => ({
     marginBottom: theme.spacing.md,
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
 
-    [theme.fn.smallerThan('sm')]: {
+    [theme.fn.smallerThan("sm")]: {
       fontSize: 32,
     },
   },
 
   control: {
-    [theme.fn.smallerThan('sm')]: {
-      width: '100%',
+    [theme.fn.smallerThan("sm")]: {
+      width: "100%",
     },
   },
 
   mobileImage: {
-    [theme.fn.largerThan('sm')]: {
-      display: 'none',
+    [theme.fn.largerThan("sm")]: {
+      display: "none",
     },
   },
 
   desktopImage: {
-    [theme.fn.smallerThan('sm')]: {
-      display: 'none',
+    [theme.fn.smallerThan("sm")]: {
+      display: "none",
     },
   },
 }));

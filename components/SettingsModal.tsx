@@ -1,18 +1,13 @@
-import { useState } from 'react';
 import {
-  Modal,
-  Button,
-  Group,
-  Title,
-  SegmentedControl,
-  Center,
   Box,
+  Center,
+  Modal,
+  SegmentedControl,
+  Title,
   useMantineColorScheme,
-} from '@mantine/core';
-import {
-  IconMoonStars, IconSun, IconSettings, IconTool,
-} from '@tabler/icons';
-import LanguagePicker from './LanguagePicker/LanguagePicker';
+} from "@mantine/core";
+import { IconMoonStars, IconSun, IconTool } from "@tabler/icons";
+import LanguagePicker from "./LanguagePicker/LanguagePicker";
 
 interface Props {
   opened: boolean;
@@ -43,7 +38,7 @@ function SettingsModal({ opened, setOpened }: Props) {
                 <Box ml={10}>Světlý</Box>
               </Center>
             ),
-            value: 'light',
+            value: "light",
           },
           {
             label: (
@@ -52,7 +47,7 @@ function SettingsModal({ opened, setOpened }: Props) {
                 <Box ml={10}>Tmavý</Box>
               </Center>
             ),
-            value: 'dark',
+            value: "dark",
           },
           {
             label: (
@@ -61,7 +56,7 @@ function SettingsModal({ opened, setOpened }: Props) {
                 <Box ml={10}>Dle systému</Box>
               </Center>
             ),
-            value: 'system',
+            value: "system",
             disabled: true,
           },
         ]}
