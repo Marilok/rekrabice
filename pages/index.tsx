@@ -24,7 +24,6 @@ import Link from "next/link";
 import { useState } from "react";
 import LandingPageWrapper from "../components/Layouts/LandingPage/LandingPageWrapper";
 import StepperComponent from "../components/StepperComponent";
-import prototypeImg from "../public/prototype.png";
 
 // import Image from 'next/image'
 // import logoEconeaSrc from "../public/images/logos/econea.svg";
@@ -50,12 +49,17 @@ export default function LandingPage() {
         centered
         size={"lg"}
       >
-        <Center>
-          <Image src={prototypeImg} alt="Fyzická krabice" height={300} />
+        <Center className="w-full h-72 relative">
+          <Image
+            src="/prototype.png"
+            fill
+            alt="Prototyp krabice"
+            className="m-auto rounded shadow object-contain"
+          />
         </Center>
-        Buď mezi prvními, kteří se dozví o nových partnerech a budou moci začít
-        testovat ReKrabice. Ukážeš tím, že je o ReKrabice zájem a má smysl
-        šetřit naše lesy. 🌲
+        Buď mezi prvními, kteří budou moci začít využívat ReKrabice. Už nebudeš
+        muset zbytečně vyhazovat kartónové krabice a budeš tím šetřit naše lesy.
+        🌲
         <EmailInput id="signup_hero_submit" />
       </Modal>
       <div className={classes.root}>
@@ -90,7 +94,7 @@ export default function LandingPage() {
                 onClick={() => setOpened(true)}
                 id="signup_hero_open"
               >
-                <span id="signup_hero_open">Začít používat ReKrabice</span>
+                <span id="signup_hero_open">Vyzkoušet ReKrabice</span>
               </Button>
             </div>
           </div>
