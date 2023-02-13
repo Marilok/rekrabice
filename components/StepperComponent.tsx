@@ -87,7 +87,7 @@ export default function StepperComponent() {
             })}
             id="top"
           >
-            <Stepper.Step label="Jak to funguje?">
+            <Stepper.Step label="Jak to funguje?" id="stepper_0">
               <Title order={2} mt="xl">
                 Jak to funguje?
               </Title>
@@ -104,7 +104,7 @@ export default function StepperComponent() {
                 />
               </div>
             </Stepper.Step>
-            <Stepper.Step label="Zvol ReKrabici">
+            <Stepper.Step label="Zvol ReKrabici" id="stepper_1">
               <Title order={2} mt="xl">
                 Nech si nákup zabalit do ReKrabice.
               </Title>
@@ -123,7 +123,7 @@ export default function StepperComponent() {
               </div>
             </Stepper.Step>
 
-            <Stepper.Step label="Rozbal balíček">
+            <Stepper.Step label="Rozbal balíček" id="stepper_2">
               <Title order={2} mt="xl">
                 Rozbal svůj balíček a raduj se ze svého nákupu.
               </Title>
@@ -141,7 +141,7 @@ export default function StepperComponent() {
                 />
               </div>
             </Stepper.Step>
-            <Stepper.Step label="Přines krabici">
+            <Stepper.Step label="Přines krabici" id="stepper_3">
               <Title order={2} mt="xl">
                 Přines krabici do vratného místa
               </Title>
@@ -182,7 +182,7 @@ export default function StepperComponent() {
                 Podrobná mapa vratných míst
               </Button> */}
             </Stepper.Step>
-            <Stepper.Completed>
+            <Stepper.Completed id="stepper_4">
               <Title order={2} mt="xl">
                 Wohoooo! 🥳
               </Title>
@@ -211,6 +211,7 @@ export default function StepperComponent() {
                 fullWidth
                 className={`max-w-80 ${active == 0 ? "max-w-96 !rounded" : ""}`}
                 color="green"
+                id="stepper_prev"
                 leftIcon={<IconArrowLeft size={14} />}
               >
                 Zpátky
@@ -224,6 +225,7 @@ export default function StepperComponent() {
                 fullWidth
                 className={`max-w-80 ${active == 0 ? "max-w-96 !rounded" : ""}`}
                 rightIcon={<IconArrowRight size={14} />}
+                id="stepper_next"
               >
                 Další krok
               </Button>

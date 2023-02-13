@@ -148,7 +148,7 @@ function ComponentUno() {
       <Container>
         <Flex justify="space-around" my="xl" />
         <Card p="xl" withBorder shadow="md">
-          <Title order={2}>Hurá ReKrabice?</Title>
+          <Title order={2}>Co dál?</Title>
           <Text mt="sm">
             Aby se tento projekt stal realitou, potřebujeme pro eshopy a
             dopravce ověřit, zda o vratné krabice je mezi lidmi vůbez zájem.
