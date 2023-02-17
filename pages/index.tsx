@@ -292,7 +292,18 @@ function Faq() {
         Často kladené dotazy
       </Title>
 
-      <Accordion variant="separated">
+      <Accordion
+        variant="separated"
+        styles={{
+          control: {
+            // styles added to expanded item
+            // fontWeight: "bold",
+            "&[data-active] *": {
+              fontWeight: "bold",
+            },
+          },
+        }}
+      >
         <Accordion.Item className={classes.item} value="first">
           <Accordion.Control>Kolik mě to bude stát?</Accordion.Control>
           <Accordion.Panel>
@@ -323,8 +334,8 @@ function Faq() {
           <Accordion.Panel>
             Krabice je vyrobena z recyklovatelného plastu, ale neděs se, plast
             není ve všech případech neekologický. Tento materiál je lehký a
-            pevný, proto je krabice schopna vydržet až 150 cest. Kartónová by
-            vydržela pouze 3-4 cesty. Celkový dopad ReKrabice (a 150 cest k nám
+            pevný, proto je krabice schopna vydržet až 100 cest. Kartónová by
+            vydržela pouze 3-4 cesty. Celkový dopad ReKrabice (a 100 cest k nám
             na sklad) má o 70 % menší dopad na životní prostředí než používání
             jednorázových kartónových krabic.
           </Accordion.Panel>
