@@ -427,7 +427,7 @@ const useStylesHero = createStyles((theme) => ({
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
     fontWeight: 900,
     lineHeight: 1.05,
-    maxWidth: 500,
+    maxWidth: 600,
     fontSize: 48,
 
     [theme.fn.smallerThan("md")]: {
@@ -441,7 +441,7 @@ const useStylesHero = createStyles((theme) => ({
   description: {
     color: theme.white,
     opacity: 0.75,
-    maxWidth: 500,
+    maxWidth: 550,
 
     [theme.fn.smallerThan("md")]: {
       maxWidth: "100%",
