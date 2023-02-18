@@ -108,6 +108,7 @@ export default function StepperComponent() {
                   fill
                   alt="Jak to funguje"
                   className="m-auto rounded shadow object-contain"
+                  priority
                 />
               </div>
             </Stepper.Step>
@@ -127,6 +128,7 @@ export default function StepperComponent() {
                   fill
                   alt="Vybrat balení do vratné krabice z eshopu"
                   className="m-auto rounded shadow object-contain"
+                  priority
                 />
               </div>
             </Stepper.Step>
@@ -147,6 +149,7 @@ export default function StepperComponent() {
                   fill
                   alt="Box opening gif"
                   className="m-auto rounded shadow object-contain"
+                  priority
                 />
               </div>
             </Stepper.Step>
@@ -166,6 +169,7 @@ export default function StepperComponent() {
                   fill
                   alt="Box opening gif"
                   className="m-auto rounded shadow object-contain"
+                  priority
                 />
               </div>
               {/*               
@@ -207,6 +211,7 @@ export default function StepperComponent() {
                   fill
                   alt="A tree in misty cloud"
                   className="m-auto rounded shadow object-contain"
+                  priority
                 />
               </div>
             </Stepper.Completed>
