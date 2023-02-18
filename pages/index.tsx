@@ -75,7 +75,7 @@ export default function LandingPage() {
                 >
                   {" "}
                   vratných krabic
-                </Text>
+                </Text>{" "}
                 pro své online nákupy!
               </Title>
 
