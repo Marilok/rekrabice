@@ -99,8 +99,8 @@ export default function StepperComponent() {
                 Jak to funguje?
               </Title>
               <Text mt="sm">
-                <br></br>
-                <br></br>
+                Zajímá tě, jak to bude prakticky pro tebe fungovat? Klikni dole
+                na tlačítko Začít!
               </Text>
               <div className="m-auto flex justify-center mt-5 w-full h-72 relative">
                 <Image
@@ -113,12 +113,13 @@ export default function StepperComponent() {
             </Stepper.Step>
             <Stepper.Step label="Zvol ReKrabici" id="stepper_1">
               <Title order={2} mt="xl">
-                Nech si nákup zabalit do ReKrabice.
+                Vyměň kartón za ReKrabici.
               </Title>
               <Text mt="sm">
-                V košíku zapojených eshopů zaškrtni možnost, že by si chtěl
-                zboží zabalit do vratné krabice. Tato možnost stojí 50 Kč, ale
-                neboj, je to vratná záloha, kterou dostaneš zpět. 😉
+                Při objednávání zaškrtni v košíku možnost zabalení zboží do
+                ReKrabice. K ceně objednávky ti bude přičteno 50 Kč – neboj,
+                jedná se o vratnou zálohu. Jakmile nám doneseš ReKrabici na
+                jedno z vratných míst, dostaneš zpátky peníze. 😉
               </Text>
               <div className="m-auto flex justify-center relative mt-5 w-full h-72">
                 <Image
@@ -135,9 +136,10 @@ export default function StepperComponent() {
                 Rozbal svůj balíček a raduj se ze svého nákupu.
               </Title>
               <Text mt="sm">
-                Jakmile ti přijde tvůj balíček domů nebo na výdejnu, tak ho
-                rozbal jako normálně. Při tomto kroku ti jen popřejeme, aby jsi
-                byl spokojen se svým nákupem. 😅
+                Konečně ti dorazil balíček? Rozbal ho jako normálně a užívej si
+                jeho obsah. Nebo to třeba tentokrát nebyla trefa do černého, i
+                to se stane. Tak jako tak už teď zbývá jen ReKrabici vrátit. Jak
+                na to?
               </Text>
               <div className="m-auto flex justify-center relative mt-5 w-full h-72">
                 <Image
@@ -148,14 +150,15 @@ export default function StepperComponent() {
                 />
               </div>
             </Stepper.Step>
-            <Stepper.Step label="Přines krabici" id="stepper_3">
+            <Stepper.Step label="Vrať nám ReKrabici" id="stepper_3">
               <Title order={2} mt="xl">
-                Přines krabici do vratného místa
+                Vrať nám ReKrabici
               </Title>
               <Text mt="sm">
-                Prázdnou krabici můžeš vrátit rovnou na výdejně nebo ji můžeě
-                přinést do jednoho z našich vratných míst. Jakmile se krabice
-                doputuje k nám na sklad, pošleme ti vratnou zálohu na účet.
+                Prázdnou ReKrabici vrať buď přímo na výdejně nebo ji dones na
+                jedno z našich vratných míst. Hodláš-li nějakou část objednávky
+                vracet, zabal ji do ReKrabice. Až k nám doputuje zpátky, vrátíme
+                ti zálohu zpátky na účet.
               </Text>
               <div className="m-auto flex justify-center relative mt-5 w-full h-72">
                 <Image
@@ -194,10 +197,9 @@ export default function StepperComponent() {
                 Wohoooo! 🥳
               </Title>
               <Text mt="sm">
-                Vrácenou ReKrabici pak po vyčištění poskytneme opět zapojeným
-                eshopům. A právě díky tomu, že jsi otočil ReKrabice místo toho
-                aby si vyhodil tu kartonovou, tak nemuselo být pokáceno 0,6 %
-                stromu. Děkujeme ti za tvou pomoc šetřit naše lesy. 😎🌳
+                ReKrabici vyčistíme a opět poskytneme zapojeným eshopům. Díky
+                tomu, že sis ji zvolil/a místo té kartonové, se ušetřil kus
+                stromu! 😎🌳
               </Text>
               <div className="m-auto flex justify-center relative mt-5 w-full h-72">
                 <Image
@@ -234,7 +236,7 @@ export default function StepperComponent() {
                 rightIcon={<IconArrowRight size={14} />}
                 id="stepper_next"
               >
-                Další krok
+                {active == 0 ? "Začít" : "Další krok"}
               </Button>
             )}
           </Button.Group>

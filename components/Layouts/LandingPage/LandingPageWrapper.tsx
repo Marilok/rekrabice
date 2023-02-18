@@ -49,7 +49,7 @@ export default function App({
 
 const FOOTER_DATA = [
   {
-    title: "Pro lidi",
+    title: "Jak to funguje",
     links: [
       // {
       //   label: "Kde ji vrátit?",
@@ -71,16 +71,16 @@ const FOOTER_DATA = [
   //   ],
   // },
   {
-    title: "Pro všechny",
+    title: "O nás",
     links: [
       {
         label: "O projektu",
         link: "o-nas",
       },
-      {
-        label: "/baleni",
-        link: "/baleni",
-      },
+      // {
+      //   label: "/baleni",
+      //   link: "/baleni",
+      // },
       {
         label: "Kontakty",
         link: "/kontakt",

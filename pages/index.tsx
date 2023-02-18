@@ -57,9 +57,8 @@ export default function LandingPage() {
             className="m-auto rounded shadow object-contain"
           />
         </Center>
-        Buď mezi prvními, kteří budou moci začít využívat ReKrabice. Už nebudeš
-        muset zbytečně vyhazovat kartónové krabice a budeš tím šetřit naše lesy.
-        🌲
+        Chceš být první, komu přijde domů zásilka v ReKrabici? Nech nám tu tvoji
+        mailovou adresu a my se ti ozveme, až budou k dispozici!
         <EmailInput id="signup_hero_submit" />
       </Modal>
       <div className={classes.root}>
@@ -67,7 +66,7 @@ export default function LandingPage() {
           <div className={classes.inner}>
             <div className={classes.content}>
               <Title className={classes.title}>
-                Začni používat
+                Ušetři přírodě používáním
                 <Text
                   component="span"
                   inherit
@@ -75,14 +74,14 @@ export default function LandingPage() {
                   gradient={{ from: "pink", to: "yellow" }}
                 >
                   {" "}
-                  vratné krabice
-                </Text>{" "}
-                pro své online nákupy
+                  vratných krabic
+                </Text>
+                !
               </Title>
 
               <Text className={classes.description} mt={30}>
-                Už nemusíš zbytečně plnit svůj domov kartónovými krabicemi.
-                Všechny ReKrabice můžeš vrátit a ušetřit tím kus lesa. 🌲
+                Nestav doma věže z kartonových krabic. Všechny ReKrabice můžeš
+                vrátit a ušetřit tak našim lesům. A to zcela zdarma! 🌲
               </Text>
               <Button
                 component="button"
@@ -154,10 +153,10 @@ function ComponentUno() {
         <Card p="xl" withBorder shadow="md">
           <Title order={2}>Co dál?</Title>
           <Text mt="sm">
-            Aby se tento projekt stal realitou, potřebujeme pro eshopy a
-            dopravce ověřit, zda o vratné krabice je mezi lidmi vůbez zájem.
-            Svůj zájem můžeš projevit tím, že nám zapíšeš svůj mail. V budoucnu
-            ti dáme vědět, jak se tento projekt hýbe. 🌲
+            Aby se tento projekt mohl stát realitou, potřebujeme dopravcům a
+            prodejcům dokázat, že je o ReKrabice zájem. Ten můžeš snadno
+            projevit tak, že nám tu zanecháš svoji mailovou adresu. V budoucnu
+            se ti ozveme, jak se nám daří.
           </Text>
           <EmailInput id="signup_bottom_submit" />
         </Card>
@@ -305,64 +304,62 @@ function Faq() {
         }}
       >
         <Accordion.Item className={classes.item} value="first">
-          <Accordion.Control>Kolik mě to bude stát?</Accordion.Control>
+          <Accordion.Control>Bude mě ReKrabice něco stát?</Accordion.Control>
           <Accordion.Panel>
-            <strong>0 Kč.</strong> Služba je pro tebe zdarma, ale musíš zaplatit
-            motivační vratnou zálohu 50 Kč. Těchto 50 Kč pak dostaneš zpátky po
-            vrácení krabice.
+            Ne, nestojí tě ani korunu. Jediné, co od tebe potřebujeme, je
+            vratnou zálohu, kterou ti však pošleme zpátky po vrácení krabice.
           </Accordion.Panel>
         </Accordion.Item>
         <Accordion.Item className={classes.item} value="second">
-          <Accordion.Control>Jak ji mohu vrátit?</Accordion.Control>
+          <Accordion.Control>Jak mohu ReKrabici vrátit?</Accordion.Control>
           <Accordion.Panel>
-            Stačí když ji přineseš na jakkoukoliv pobočku Zásilkovny či
-            Balíkovny. Také můžeš balíček vybalit rovnou na výdejně a vrátit ji.
-            A nebo ji můžeš využít pro své účely.
+            Stačí ji přinést na tvou nejbližší pobočku Zásilkovny. Pokud hoříš
+            nedočkavostí, můžeš balíček rozbalit taky přímo na výdejně a
+            ReKrabici tam rovnou nechat. Nebo se ti ReKrabice natolik zalíbila,
+            že ji vracet nechceš. V takovém případě ti akorát nevrátíme zálohu.
           </Accordion.Panel>
         </Accordion.Item>
         <Accordion.Item className={classes.item} value="third">
-          <Accordion.Control>
-            Jak dostanu zpět vratnou zálohu?
-          </Accordion.Control>
+          <Accordion.Control>Jak mi vrátíte zálohu?</Accordion.Control>
           <Accordion.Panel>
-            Až krabice doputuje z vratného místa k nám na sklad, připíšeme ti
-            danou částku na bankovní účet.
+            Až se ReKrabice dostane zpátky k nám na sklad, pošleme ti
+            padesátikorunu zpátky na tvůj účet.
           </Accordion.Panel>
         </Accordion.Item>
         <Accordion.Item className={classes.item} value="fourth">
-          <Accordion.Control>Z čeho je vyrobena?</Accordion.Control>
+          <Accordion.Control>Z čeho jsou ReKrabice vyrobeny?</Accordion.Control>
           <Accordion.Panel>
-            Krabice je vyrobena z recyklovatelného plastu, ale neděs se, plast
-            není ve všech případech neekologický. Tento materiál je lehký a
-            pevný, proto je krabice schopna vydržet až 100 cest. Kartónová by
-            vydržela pouze 3-4 cesty. Celkový dopad ReKrabice (a 100 cest k nám
-            na sklad) má o 70 % menší dopad na životní prostředí než používání
-            jednorázových kartónových krabic.
+            ReKrabice jsou plastové. Možná si teď říkáš, co je na tom
+            ekologického. Kartónové krabice s trochou štěstí přežijí 4 cesty,
+            ReKrabice jich zvládne až 100. Celkový dopad jedné ReKrabice po 100
+            použitích (včetně cesty zpátky na sklad) je o 70 % nižší, než dopad
+            obyčejné kartónové.
           </Accordion.Panel>
         </Accordion.Item>
         <Accordion.Item className={classes.item} value="companies">
           <Accordion.Control>Proč tu nejsou další eshopy?</Accordion.Control>
           <Accordion.Panel>
-            Zatím projevili o tento inovatiní způsob balení zájem pouze tyto
-            eshopy, ale pokud by si tu rád viděl i tvůj oblíbený eshop, napiš
-            nám to prosím a my to zkusíme zařídit. Díky!
+            Zatím o ReKrabice projevily zájem jen tyto eshopy, na rozšíření
+            jejich sítě však pilně pracujeme. Chybí ti tu nějaký eshop? Dej nám
+            nebo svému eshopu vědět!
           </Accordion.Panel>
         </Accordion.Item>
         <Accordion.Item className={classes.item} value="start">
           <Accordion.Control>
-            Kdy to budu moct začít používat?
+            Kdy to budu moct ReKrabice začít používat?
           </Accordion.Control>
           <Accordion.Panel>
-            Plánované spuštění je na druhou polovinu 2023. Můžeš to ale urychlit
-            tím, že projevíš svůj zájem na konci stránky.
+            Spuštění plánujeme na druhou půlku letošního roku. Nemůžeš se toho
+            dočkat? Spuštění můžeš urychlit projevením zájmu na konci stránky!
           </Accordion.Panel>
         </Accordion.Item>
         <Accordion.Item className={classes.item} value="last">
           <Accordion.Control>Mám další dotaz!</Accordion.Control>
           <Accordion.Panel>
-            Super, prosím ozvi se nám v sekci{" "}
+            Všechny otázky ti moc rádi zodpovíme. Ozvi se nám v sekci
             <Anchor component={"span"}>
-              <Link href={"/kontakt"}>kontakty</Link> nebo na sociálních sítích.
+              <Link href={"/kontakt"}>Kontakty</Link> nebo na našich sociálních
+              sítích.
             </Anchor>
           </Accordion.Panel>
         </Accordion.Item>
@@ -437,6 +434,7 @@ const useStylesHero = createStyles((theme) => ({
       maxWidth: "100%",
       fontSize: 34,
       lineHeight: 1.15,
+      // textAlign: "center",
     },
   },
 
@@ -447,6 +445,7 @@ const useStylesHero = createStyles((theme) => ({
 
     [theme.fn.smallerThan("md")]: {
       maxWidth: "100%",
+      // textAlign: "center",
     },
   },
 

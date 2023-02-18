@@ -40,9 +40,7 @@ export default function SlashPackaging() {
             </Text>
           </div>
           <div>
-            <Title order={2}>
-              K čemu je to dobré a proč bychom ji měli mít?
-            </Title>
+            <Title order={2}>Proč bychom ji měli mít? K čemu to je?</Title>
             <Text>
               Zodpovědný přístup k obalovému odpadu je důležitým tématem pro
               stále větší počet lidí. <br />
@@ -68,7 +66,7 @@ export default function SlashPackaging() {
             </Text>
           </div>
           <div>
-            <Title order={2}>Co by vaše podstránka měla obsahovat?</Title>
+            <Title order={2}>Co by měla naše podstránka obsahovat?</Title>
             <Text>
               Slash Packaging je o pokroku, ne o dokonalosti. Je lepší mít něco
               než nic. Zpočátku se držte jednoduchosti, časem můžete stránku
@@ -104,11 +102,11 @@ export default function SlashPackaging() {
           <div>
             <Title order={2}>Kdo za tím stojí?</Title>
             <Text>
-              Tuto myšlenku založil{" "}
+              S touto myšlenkou přišel{" "}
               <Anchor href="https://www.slashpackaging.org/" target="_blank">
                 Stephan Ango
               </Anchor>
-              . V Česku tuto iniciativu propaguje tým z ReKrabic.
+              . V Česku tuto iniciativu propaguje tým za ReKrabicemi.
             </Text>
           </div>
           <Title order={2}>Přehled zapojených firem</Title>

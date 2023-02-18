@@ -206,8 +206,8 @@ export default function ContactUs() {
               <Title className={classes.title}>Kontaktujte nás</Title>
               <Text className={classes.description} mt="sm" mb={30}>
                 Pojďme spojit síly! 😎 Ať už ve formě firemní spolupráce nebo
-                jako parťáka do týmu. Zanech nám svůj mail a ozveme se ti do 24
-                hodin. 😉
+                jako parťáka do týmu. Zanech nám svůj email a my se ti ozveme do
+                24 hodin. 😉
               </Text>
 
               <ContactIconsList data={contactData} variant="white" />
