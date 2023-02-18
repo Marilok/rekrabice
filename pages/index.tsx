@@ -80,7 +80,7 @@ export default function LandingPage() {
               </Title>
 
               <Text className={classes.description} mt={30}>
-                Nestav doma věže z kartonových krabic. Všechny ReKrabice můžeš
+                Nestav doma věže z kartónových krabic. Všechny ReKrabice můžeš
                 vrátit a ušetřit tak našim lesům. A to zcela zdarma! 🌲
               </Text>
               <Button
@@ -434,7 +434,7 @@ const useStylesHero = createStyles((theme) => ({
       maxWidth: "100%",
       fontSize: 34,
       lineHeight: 1.15,
-      // textAlign: "center",
+      textAlign: "center",
     },
   },
 
@@ -445,7 +445,7 @@ const useStylesHero = createStyles((theme) => ({
 
     [theme.fn.smallerThan("md")]: {
       maxWidth: "100%",
-      // textAlign: "center",
+      textAlign: "center",
     },
   },
 

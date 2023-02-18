@@ -198,7 +198,7 @@ export default function StepperComponent() {
               </Title>
               <Text mt="sm">
                 ReKrabici vyčistíme a opět poskytneme zapojeným eshopům. Díky
-                tomu, že sis ji zvolil/a místo té kartonové, se ušetřil kus
+                tomu, že sis ji zvolil/a místo té kartónové, se ušetřil kus
                 stromu! 😎🌳
               </Text>
               <div className="m-auto flex justify-center relative mt-5 w-full h-72">
