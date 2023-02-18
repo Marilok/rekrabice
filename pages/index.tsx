@@ -66,7 +66,7 @@ export default function LandingPage() {
           <div className={classes.inner}>
             <div className={classes.content}>
               <Title className={classes.title}>
-                Ušetři přírodě používáním
+                Ušetři přírodě použitím
                 <Text
                   component="span"
                   inherit
@@ -74,9 +74,9 @@ export default function LandingPage() {
                   gradient={{ from: "pink", to: "yellow" }}
                 >
                   {" "}
-                  vratných krabic
+                  vratné krabice
                 </Text>{" "}
-                pro své online nákupy!
+                pro svůj online nákup!
               </Title>
 
               <Text className={classes.description} mt={30}>
@@ -432,7 +432,7 @@ const useStylesHero = createStyles((theme) => ({
 
     [theme.fn.smallerThan("md")]: {
       maxWidth: "100%",
-      fontSize: 34,
+      fontSize: 32,
       lineHeight: 1.15,
       textAlign: "center",
     },
