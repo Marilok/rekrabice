@@ -76,7 +76,7 @@ export default function LandingPage() {
                   {" "}
                   vratných krabic
                 </Text>
-                !
+                pro své online nákupy!
               </Title>
 
               <Text className={classes.description} mt={30}>
