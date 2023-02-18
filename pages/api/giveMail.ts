@@ -26,7 +26,7 @@ export default async function handler(
     to: req.body.mail,
     priority: "normal",
     subject: "ReKrabice - úvod",
-    html: "<p>Ahoj! 👋<br/><br/>Těší nás tvůj zájem o ReKrabice a šetření našich lesů. 🌲 Za projektem ReKrabic stojí tým studentů, kteří se společně snaží přinést zálohované krabice k nám do Česka. 🇨🇿 Aktuálně se snažíme ověřit, zda by o tento koncept vůbec byl nějaký zájem. To potřebujeme zjistit především pro eshopy a dopravce, kteří do toho půjdou, jen pokud o to lidé budou stát. Tím že si projevil zájem si posunul tento projekt o krůček dál. Takže díky! 😊 Co nejdříve tě budeme informovat o posunu tohoto projektu.<br/><br/>Pokud máš jakkékoliv otázky, neváhej se nám napsat na mail nebo na naše sociální sítě. <br/><br/> PS: V mezičase se můžeš rozjímat nad pěknými štěnátky, které na tebe koukají v příloze. ;) </p>",
+    html: "<p>Ahoj! 👋<br/><br/>Moc nás těší Tvůj zájem o ReKrabice a šetření lesů. Za projektem ReKrabic stojí tým studentů, kteří se společně snaží přinést zálohované krabice k nám do Česka a tím chránit naše stromy a naše ovzduší. 🇨🇿 Aktuálně ověřujeme, zda je mezi lidmi o tento koncept vůbec zájem. Tím že jsi nám zanechal/a emailovou adresu jsi posunul/a tento projekt zase o krůček dál. Takže velké DÍKY! 👏 Co nejdříve Tě budeme informovat o tom, jak se ReKrabicím daří. ♻️<br/><br/>Pokud máš jakkékoliv otázky, neváhej se nám ozvat na mail nebo na naše sociální sítě.<br/><br/>PS: V mezičase se můžeš rozjímat nad pěknými štěnátky, které na tebe koukají v příloze. 🐶</p>",
     attachments: [
       {
         filename: "První štěnátko.jpg",

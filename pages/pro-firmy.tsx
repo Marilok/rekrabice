@@ -101,7 +101,7 @@ function EmailInput() {
         id: "notification-message",
         loading: true,
         title: "Zpracovávání...",
-        message: "Tvůj email se snažíme zapsat k nám do systému",
+        message: "Zapisujeme tvůj email k nám do systému",
         autoClose: false,
         disallowClose: true,
       });

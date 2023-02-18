@@ -159,7 +159,7 @@ export default function StepperComponent() {
               </Text>
               <div className="m-auto flex justify-center relative mt-5 w-full h-72">
                 <Image
-                  src="/gifs/open.gif"
+                  src="/images/mapa.png"
                   fill
                   alt="Box opening gif"
                   className="m-auto rounded shadow object-contain"
@@ -201,7 +201,7 @@ export default function StepperComponent() {
               </Text>
               <div className="m-auto flex justify-center relative mt-5 w-full h-72">
                 <Image
-                  src="/images/tree.jpg"
+                  src="/images/logs.jpg"
                   fill
                   alt="A tree in misty cloud"
                   className="m-auto rounded shadow object-contain"
