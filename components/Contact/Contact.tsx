@@ -1,10 +1,13 @@
 import {
   ActionIcon,
+  Avatar,
+  Box,
   Button,
   Container,
   createStyles,
   Group,
   SimpleGrid,
+  Space,
   Text,
   Textarea,
   TextInput,
@@ -256,7 +259,7 @@ export default function ContactUs() {
           </SimpleGrid>
         </div>
       </Container>
-      {/* <Container p={0} mt={"xl"} size={"md"}>
+      <Container p={0} mt={"xl"} size={"md"}>
         <div className={classes.wrapper2}>
           <Box
             sx={(theme) => ({
@@ -269,14 +272,13 @@ export default function ContactUs() {
               <Avatar radius="xl" size="md" />
               <Title order={2}>
                 <Text
-                  variant="gradient"
-                  gradient={{ from: "indigo", to: "cyan", deg: 45 }}
+                  // variant="gradient"
+                  // gradient={{ from: "green", to: "teal", deg: 45 }}
                   component="span"
                 >
-                  Tadeáš Bíbr
-                  &nbsp;
+                  Tadeáš Bíbr &nbsp;
                 </Text>
-                s.r.o.
+                {/* s.r.o. */}
               </Title>
             </Group>
             <Space h="xl" />
@@ -284,7 +286,7 @@ export default function ContactUs() {
             <ContactIconsList data={legalData} variant="legal" />
           </Box>
         </div>
-      </Container> */}
+      </Container>
     </>
   );
 }
@@ -313,15 +315,21 @@ const contactData = [
 const legalData = [
   {
     title: "Sídlo",
-    description: "Nové sady 988/2, Brno, 602 00",
+    description: "Čermákova 2040/55, Velké Meziříčí, 59401",
     icon: IconMapPin,
     // type: "place",
   },
-  { title: "IČO", description: "87654321", icon: IconSectionSign },
+  { title: "IČO", description: "17455235", icon: IconSectionSign },
+  // {
+  //   title: "Zápis do OR",
+  //   description:
+  //     "Společnost Zelená firma s.r.o. je zapsána v OR vedeném Krajským soudem v Brně, oddíl A, vložka 00000.",
+  //   icon: IconGavel,
+  // },
   {
-    title: "Zápis do OR",
+    title: "Zápis",
     description:
-      "Společnost Zelená firma s.r.o. je zapsána v OR vedeném Krajským soudem v Brně, oddíl A, vložka 00000.",
+      "Zapsaný v živnostenském rejstříku u Městského úřadu Velké Meziříčí",
     icon: IconGavel,
   },
 ];
