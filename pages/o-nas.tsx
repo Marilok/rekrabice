@@ -18,7 +18,7 @@ export default function About() {
           <Title order={2}>Příběh</Title>
           <Text>
             To se tak jednou sešel jeden středoškolák z Brna s druhým z Velkého
-            Meziříčí. A štvalo je neustálé vyhazování kartónových krabic, tak si
+            Meziříčí. A štvalo je neustálé vyhazování kartonových krabic, tak si
             řekli, že spolu něco vymyslí. No a zrodily se z toho ReKrabice.
             Projekt, který do Česka přináší koncept cirkulární ekonomiky, aby
             naši přírodu zatěžovalo zase o trochu míň zbytečného odpadu.

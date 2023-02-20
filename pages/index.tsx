@@ -330,7 +330,7 @@ function Faq() {
           <Accordion.Control>Z čeho jsou ReKrabice vyrobeny?</Accordion.Control>
           <Accordion.Panel>
             ReKrabice jsou plastové. Možná si teď říkáš, co je na tom
-            ekologického. Kartónové krabice s trochou štěstí přežijí 4 cesty,
+            ekologického. kartonové krabice s trochou štěstí přežijí 4 cesty,
             ReKrabice jich zvládne až 100. Celkový dopad jedné ReKrabice po 100
             použitích (včetně cesty zpátky na sklad) je o 70 % nižší, než dopad
             obyčejné kartonové.

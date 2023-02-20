@@ -99,8 +99,7 @@ export default function StepperComponent() {
                 Jak to funguje?
               </Title>
               <Text mt="sm">
-                Zajímá tě, jak to bude prakticky pro tebe fungovat? Klikni dole
-                na tlačítko Začít!
+                <br></br> <br></br>
               </Text>
               <div className="m-auto flex justify-center mt-5 w-full h-72 relative">
                 <Image
@@ -114,7 +113,7 @@ export default function StepperComponent() {
             </Stepper.Step>
             <Stepper.Step label="Zvol ReKrabici" id="stepper_1">
               <Title order={2} mt="xl">
-                Vyměň kartón za ReKrabici.
+                Vyměň karton za ReKrabici
               </Title>
               <Text mt="sm">
                 Při objednávání zaškrtni v košíku možnost zabalení zboží do
@@ -135,7 +134,7 @@ export default function StepperComponent() {
 
             <Stepper.Step label="Rozbal balíček" id="stepper_2">
               <Title order={2} mt="xl">
-                Rozbal svůj balíček a raduj se ze svého nákupu.
+                Rozbal svůj balíček a raduj se ze svého nákupu
               </Title>
               <Text mt="sm">
                 Konečně ti dorazil balíček? Rozbal ho jako normálně a užívej si
@@ -202,7 +201,7 @@ export default function StepperComponent() {
               </Title>
               <Text mt="sm">
                 ReKrabici vyčistíme a opět poskytneme zapojeným e-shopům. Díky
-                tomu, že sis ji zvolil/a místo té kartónové, se ušetřil kus
+                tomu, že sis ji zvolil/a místo té kartonové, se ušetřil kus
                 stromu! 😎🌲
               </Text>
               <div className="m-auto flex justify-center relative mt-5 w-full h-72">

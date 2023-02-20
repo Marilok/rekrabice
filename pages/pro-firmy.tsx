@@ -4,7 +4,7 @@ import {
   Button,
   Container,
   createStyles,
-  Title
+  Title,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { showNotification, updateNotification } from "@mantine/notifications";
@@ -218,7 +218,7 @@ function Faq() {
 //               krabice pro e-shopové zásilky.
 //             </Title>
 //             <Text color="dimmed" mt="md">
-//               Rozlučte se s jednorázovými kartónovými krabicemi a přivítejte
+//               Rozlučte se s jednorázovými kartonovými krabicemi a přivítejte
 //               udržitelnost s naší znovupoužitelnou krabicí.
 //             </Text>
 
@@ -235,7 +235,7 @@ function Faq() {
 //               <List.Item>
 //                 <b>Ekologická</b> – už to není žádný greenwashing, ale skutečná
 //                 změna. Za život krabice celkově ušetří 70 % CO2 oproti těm
-//                 kartónovým
+//                 kartonovým
 //               </List.Item>
 //               <List.Item>
 //                 <b>Recyklovatelná</b> – po skončení životnosti krabice (okolo
@@ -243,7 +243,7 @@ function Faq() {
 //               </List.Item>
 //               <List.Item>
 //                 <b>Žádné nové náklady</b> – vratné krabice Vás budou stát
-//                 stejně, v některých případech i méně než ty kartónové
+//                 stejně, v některých případech i méně než ty kartonové
 //               </List.Item>
 //             </List>
 
