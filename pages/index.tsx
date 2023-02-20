@@ -81,7 +81,7 @@ export default function LandingPage() {
 
               <Text className={classes.description} mt={30}>
                 Nestav doma věže z kartonových krabic. Všechny ReKrabice můžeš
-                vrátit a ušetřit tak našim lesům. A to zcela zdarma! 🌲
+                vrátit a ušetřit tak našim lesům. &nbsp; A to zcela zdarma! 🌲
               </Text>
               <Button
                 component="button"
