@@ -113,7 +113,7 @@ function ComponentUno() {
       <Divider my={40} />
       <Container>
         <Title order={2} align="center" className={classes.wrapper}>
-          Zapojené eshopy
+          Zapojené e-shopy
         </Title>
         <Flex
           justify="space-around"
@@ -337,11 +337,11 @@ function Faq() {
           </Accordion.Panel>
         </Accordion.Item>
         <Accordion.Item className={classes.item} value="companies">
-          <Accordion.Control>Proč tu nejsou další eshopy?</Accordion.Control>
+          <Accordion.Control>Proč tu nejsou další e-shopy?</Accordion.Control>
           <Accordion.Panel>
-            Zatím o ReKrabice projevily zájem jen tyto eshopy, na rozšíření
-            jejich sítě však pilně pracujeme. Chybí ti tu nějaký eshop? Dej nám
-            nebo svému eshopu vědět!
+            Zatím o ReKrabice projevily zájem jen tyto e-shopy, na rozšíření
+            jejich sítě však pilně pracujeme. Chybí ti tu nějaký e-shop? Dej nám
+            nebo svému e-shopu vědět!
           </Accordion.Panel>
         </Accordion.Item>
         <Accordion.Item className={classes.item} value="start">
@@ -358,9 +358,9 @@ function Faq() {
           <Accordion.Panel>
             Všechny otázky ti moc rádi zodpovíme. Ozvi se nám v sekci
             <Anchor component={"span"}>
-              <Link href={"/kontakt"}>Kontakty</Link> nebo na našich sociálních
-              sítích.
+              <Link href={"/kontakt"}> Kontakty </Link>
             </Anchor>
+            nebo na našich sociálních sítích.
           </Accordion.Panel>
         </Accordion.Item>
       </Accordion>

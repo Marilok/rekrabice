@@ -32,7 +32,7 @@ export default function About() {
           <Title order={2}>Mise</Title>
           <Text>
             Naší bezodpadové vize chceme docílit prostřednictvím poskytování
-            znovupoužitelných obalů eshopům.
+            znovupoužitelných obalů e-shopům.
           </Text>
           <Title order={2}>Hodnoty</Title>
           <Text>

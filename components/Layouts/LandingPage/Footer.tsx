@@ -159,7 +159,7 @@ export default function Footer({ data }: FooterLinksProps) {
           s.r.o.
         </Text>
         <Text color="dimmed" size="sm">
-          Vytvořeno s ❤️ ke 🌳 v Česku.
+          Vytvořeno s ❤️ ke 🌲 v Česku.
         </Text>
 
         <Group spacing={0} className={classes.social} position="right" noWrap>

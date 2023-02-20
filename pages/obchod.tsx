@@ -108,14 +108,14 @@ export default function Otoc() {
                     src="/1_KR7l3KcOvAp50OAilLMNUQ.jpeg"
                     height={300}
                     width={540}
-                    alt="Vybrat balení do vratné krabice z eshopu"
+                    alt="Vybrat balení do vratné krabice z e-shopu"
                     className="m-auto rounded shadow"
                   />
                 </div>
               </Stepper.Step>
               <Stepper.Step label="Řešení">
                 <Title order={1} mt="xl">
-                  Pojd´me spolu otáčet krabice. 🌳🌎
+                  Pojd´me spolu otáčet krabice. 🌲🌎
                 </Title>
                 <Text mt="md">
                   Počkat co? Princip otáčení zelených krabic je jednoduchý a
@@ -126,7 +126,7 @@ export default function Otoc() {
                     src="/logo_text.svg"
                     height={300}
                     width={540}
-                    alt="Vybrat balení do vratné krabice z eshopu"
+                    alt="Vybrat balení do vratné krabice z e-shopu"
                     className="m-auto rounded shadow"
                   />
                 </div>
@@ -146,7 +146,7 @@ export default function Otoc() {
                     src="/otoc_button.png"
                     height={300}
                     width={540}
-                    alt="Vybrat balení do vratné krabice z eshopu"
+                    alt="Vybrat balení do vratné krabice z e-shopu"
                     className="m-auto rounded shadow"
                   />
                 </div>
@@ -185,7 +185,7 @@ export default function Otoc() {
                 </Title>
                 <Text mt="md">
                   Právě jsme spolu otočili krabici a zachránil 1/156 stromu jen
-                  díky tomu, že jste využil Zelenou krabici. 🌳
+                  díky tomu, že jste využil Zelenou krabici. 🌲
                 </Text>
                 <Link passHref href="/kontakt">
                   <Button

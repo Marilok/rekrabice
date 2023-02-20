@@ -235,7 +235,7 @@ export default function ContactUs() {
               <Textarea
                 required
                 label="Zpráva"
-                placeholder="Chtěl bych začít využívat využívat ReKrabice a tím ulevit našim lesům! :)"
+                placeholder="Chtěl bych začít využívat ReKrabice a tím ulevit našim lesům! :)"
                 minRows={4}
                 mt="md"
                 classNames={{ input: classes.input, label: classes.inputLabel }}
@@ -273,7 +273,8 @@ export default function ContactUs() {
                   gradient={{ from: "indigo", to: "cyan", deg: 45 }}
                   component="span"
                 >
-                  Zelená firma &nbsp;
+                  Tadeáš Bíbr
+                  &nbsp;
                 </Text>
                 s.r.o.
               </Title>

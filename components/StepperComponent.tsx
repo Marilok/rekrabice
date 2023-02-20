@@ -119,14 +119,14 @@ export default function StepperComponent() {
               <Text mt="sm">
                 Při objednávání zaškrtni v košíku možnost zabalení zboží do
                 ReKrabice. K ceně objednávky ti bude přičteno 50 Kč – neboj,
-                jedná se o vratnou zálohu. Jakmile nám doneseš ReKrabici na
-                jedno z vratných míst, dostaneš zpátky peníze. 😉
+                jedná se o vratnou zálohu. Jakmile nám ReKrabici vrátíš na
+                jednom z vratných míst, pošleme ti peníze zpátky. 😉
               </Text>
               <div className="m-auto flex justify-center relative mt-5 w-full h-72">
                 <Image
                   src="/otoc_button.png"
                   fill
-                  alt="Vybrat balení do vratné krabice z eshopu"
+                  alt="Vybrat balení do vratné krabice z e-shopu"
                   className="m-auto rounded shadow object-contain"
                   priority
                 />
@@ -140,8 +140,8 @@ export default function StepperComponent() {
               <Text mt="sm">
                 Konečně ti dorazil balíček? Rozbal ho jako normálně a užívej si
                 jeho obsah. Nebo to třeba tentokrát nebyla trefa do černého, i
-                to se stane. Tak jako tak už teď zbývá jen ReKrabici vrátit. Jak
-                na to?
+                to se stane. V každém případě teď už jen zbývá ReKrabici vrátit.
+                Jak na to?
               </Text>
               <div className="m-auto flex justify-center relative mt-5 w-full h-72">
                 <Image
@@ -201,9 +201,9 @@ export default function StepperComponent() {
                 Wohoooo! 🥳
               </Title>
               <Text mt="sm">
-                ReKrabici vyčistíme a opět poskytneme zapojeným eshopům. Díky
+                ReKrabici vyčistíme a opět poskytneme zapojeným e-shopům. Díky
                 tomu, že sis ji zvolil/a místo té kartónové, se ušetřil kus
-                stromu! 😎🌳
+                stromu! 😎🌲
               </Text>
               <div className="m-auto flex justify-center relative mt-5 w-full h-72">
                 <Image

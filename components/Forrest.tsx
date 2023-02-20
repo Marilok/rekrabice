@@ -11,7 +11,7 @@ export default function Forrest({ treesCount = 0 }: ForrestProps) {
         Ušetříili jste {treesCount} stromů! 🥳
       </Text>
       {[...Array(treesCount)].map((x, i) => (
-        <span key={i}>🌳</span>
+        <span key={i}>🌲</span>
       ))}
     </Container>
   );

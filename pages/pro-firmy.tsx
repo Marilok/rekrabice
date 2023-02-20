@@ -4,7 +4,7 @@ import {
   Button,
   Container,
   createStyles,
-  Title,
+  Title
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { showNotification, updateNotification } from "@mantine/notifications";
@@ -28,7 +28,7 @@ export default function LandingPage() {
       <Container mt="xl">
         {/* <StepperComponent /> */
 }
-//   <Title order={2}>Zapojené eshopy</Title>
+//   <Title order={2}>Zapojené e-shopy</Title>
 //   <Flex justify="space-around" my="xl">
 //     <Image
 //       src="/images/logos/econea.svg"
@@ -215,7 +215,7 @@ function Faq() {
 //           <div className={classes.content}>
 //             <Title className={classes.title}>
 //               Zálohovaná a <span className={classes.highlight}>vratná</span>{" "}
-//               krabice pro eshopové zásilky.
+//               krabice pro e-shopové zásilky.
 //             </Title>
 //             <Text color="dimmed" mt="md">
 //               Rozlučte se s jednorázovými kartónovými krabicemi a přivítejte
