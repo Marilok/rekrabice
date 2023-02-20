@@ -80,8 +80,8 @@ export default function LandingPage() {
               </Title>
 
               <Text className={classes.description} mt={30}>
-                Nestav doma věže z kartónových krabic. Všechny ReKrabice můžeš
-                vrátit a ušetřit tak našim lesům. A to zcela zdarma! 🌲
+                Nestav doma věže z kartonových krabic. Všechny ReKrabice můžeš
+                vrátit a ušetřit tak našim lesům. &nbsp; A to zcela zdarma! 🌲
               </Text>
               <Button
                 component="button"
@@ -333,7 +333,7 @@ function Faq() {
             ekologického. Kartónové krabice s trochou štěstí přežijí 4 cesty,
             ReKrabice jich zvládne až 100. Celkový dopad jedné ReKrabice po 100
             použitích (včetně cesty zpátky na sklad) je o 70 % nižší, než dopad
-            obyčejné kartónové.
+            obyčejné kartonové.
           </Accordion.Panel>
         </Accordion.Item>
         <Accordion.Item className={classes.item} value="companies">
