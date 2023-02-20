@@ -4,13 +4,13 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 // import { Database } from "../database.types";
 import {
-  IconChartArea,
-  IconHelp,
-  IconLogout,
-  IconSettings,
-  IconTransferIn,
-  IconTransferOut,
-} from "@tabler/icons";
+    IconChartArea,
+    IconHelp,
+    IconLogout,
+    IconSettings,
+    IconTransferIn,
+    IconTransferOut
+} from "@tabler/icons-react";
 import SettingsModal from "../SettingsModal";
 
 import { UserButton } from "../UserButton/UserButton";

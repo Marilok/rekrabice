@@ -5,7 +5,7 @@ import {
   Menu,
   UnstyledButton,
 } from "@mantine/core";
-import { IconChevronDown } from "@tabler/icons";
+import { IconChevronDown } from "@tabler/icons-react";
 import { useState } from "react";
 
 // TODO: replace this with next image

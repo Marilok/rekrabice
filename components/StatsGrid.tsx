@@ -8,7 +8,7 @@ import {
   IconPackage,
   IconReceipt2,
   IconUserPlus,
-} from "@tabler/icons";
+} from "@tabler/icons-react";
 
 const useStyles = createStyles((theme) => ({
   root: {

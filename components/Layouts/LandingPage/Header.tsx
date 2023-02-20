@@ -9,7 +9,7 @@ import {
   Menu,
   useMantineColorScheme,
 } from "@mantine/core";
-import { IconChevronDown, IconMoonStars, IconSun } from "@tabler/icons";
+import { IconChevronDown, IconMoonStars, IconSun } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
 

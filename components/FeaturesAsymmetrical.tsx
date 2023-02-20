@@ -1,10 +1,5 @@
 import { Container, createStyles, SimpleGrid, Text } from "@mantine/core";
-import {
-  IconCertificate,
-  IconCoin,
-  IconTruck,
-  // TablerIcon,
-} from "@tabler/icons-react";
+import { IconCertificate, IconCoin, IconTruck } from "@tabler/icons-react";
 
 const useStyles = createStyles((theme) => ({
   feature: {
@@ -42,7 +37,7 @@ const useStyles = createStyles((theme) => ({
 }));
 
 interface FeatureProps extends React.ComponentPropsWithoutRef<"div"> {
-  // icon: TablerIcon;
+  // icon: @tabler/icons-react;
   icon: any;
   title: string;
   description: string;

@@ -18,7 +18,7 @@ import {
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { showNotification, updateNotification } from "@mantine/notifications";
-import { IconCheck, IconSend, IconX } from "@tabler/icons";
+import { IconCheck, IconSend, IconX } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";

@@ -10,7 +10,7 @@ import {
   Title,
 } from "@mantine/core";
 import { useHotkeys, useScrollIntoView, useViewportSize } from "@mantine/hooks";
-import { IconArrowLeft, IconArrowRight } from "@tabler/icons";
+import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 

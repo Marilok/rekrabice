@@ -8,7 +8,7 @@ import {
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { showNotification, updateNotification } from "@mantine/notifications";
-import { IconCheck, IconSend, IconX } from "@tabler/icons";
+import { IconCheck, IconSend, IconX } from "@tabler/icons-react";
 import { useState } from "react";
 // import Image from 'next/image'
 // import logoEconeaSrc from "../public/images/logos/econea.svg";

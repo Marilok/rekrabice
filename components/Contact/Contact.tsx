@@ -20,7 +20,7 @@ import {
   IconSectionSign,
   IconSend,
   IconX,
-} from "@tabler/icons";
+} from "@tabler/icons-react";
 import { useState } from "react";
 import { social } from "../../helperData/socials";
 import { ContactIconsList } from "./ContactIcons";

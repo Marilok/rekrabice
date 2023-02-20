@@ -6,7 +6,7 @@ import {
   Title,
   useMantineColorScheme,
 } from "@mantine/core";
-import { IconMoonStars, IconSun, IconTool } from "@tabler/icons";
+import { IconMoonStars, IconSun, IconTool } from "@tabler/icons-react";
 import LanguagePicker from "./LanguagePicker/LanguagePicker";
 
 interface Props {

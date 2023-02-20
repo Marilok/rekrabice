@@ -1,15 +1,15 @@
 import {
-  Button,
-  Container,
-  createStyles,
-  Paper,
-  Space,
-  Text,
-  TextInput,
-  Title,
+    Button,
+    Container,
+    createStyles,
+    Paper,
+    Space,
+    Text,
+    TextInput,
+    Title
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
-import { IconCheck, IconSend } from "@tabler/icons";
+import { IconCheck, IconSend } from "@tabler/icons-react";
 import { useState } from "react";
 import { EmailButtons } from "../SocialButtons/EmailButtons";
 

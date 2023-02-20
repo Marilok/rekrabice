@@ -19,7 +19,7 @@ import {
   IconArrowRight,
   IconMapPin,
   IconPhone,
-} from "@tabler/icons";
+} from "@tabler/icons-react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useRouter } from "next/router";

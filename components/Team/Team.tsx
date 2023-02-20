@@ -1,5 +1,5 @@
 import { Avatar, createStyles, Flex, Group, Text } from "@mantine/core";
-import { IconAt } from "@tabler/icons";
+import { IconAt } from "@tabler/icons-react";
 import Link from "next/link";
 
 export default function Team() {

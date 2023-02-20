@@ -1,8 +1,8 @@
 import {
-  IconBrandFacebook,
-  IconBrandInstagram,
-  IconBrandLinkedin,
-} from "@tabler/icons";
+    IconBrandFacebook,
+    IconBrandInstagram,
+    IconBrandLinkedin
+} from "@tabler/icons-react";
 
 export const social = [
   {

@@ -10,7 +10,7 @@
 //   // hideNotification,
 //   updateNotification,
 // } from "@mantine/notifications";
-// import { IconCheck, IconX } from "@tabler/icons";
+// import { IconCheck, IconX } from "@tabler/icons-react";
 // import { Database } from "../database.types";
 // // import { UserButton } from "./UserButton/UserButton";
 

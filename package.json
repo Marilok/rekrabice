@@ -20,7 +20,7 @@
     "@supabase/auth-helpers-nextjs": "^0.5.2",
     "@supabase/auth-helpers-react": "^0.3.1",
     "@supabase/supabase-js": "^2.2.2",
-    "@tabler/icons": "^2.4.0",
+    "@tabler/icons-react": "^2.4.0",
     "autoprefixer": "^10.4.13",
     "cookies-next": "^2.1.1",
     "cssnano": "^5.1.15",

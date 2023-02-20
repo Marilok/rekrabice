@@ -5,7 +5,7 @@ import {
   IconPhone,
   IconSectionSign,
   IconSun,
-} from "@tabler/icons";
+} from "@tabler/icons-react";
 
 type ContactIconVariant = "white" | "gradient" | "legal";
 
