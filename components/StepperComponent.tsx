@@ -116,10 +116,10 @@ export default function StepperComponent() {
                 Vyměň karton za ReKrabici
               </Title>
               <Text mt="sm">
-                Při objednávání zaškrtni v košíku možnost zabalení zboží do
-                ReKrabice. K ceně objednávky ti bude přičteno 50 Kč – neboj,
-                jedná se o vratnou zálohu. Jakmile nám ReKrabici vrátíš na
-                jednom z vratných míst, pošleme ti peníze zpátky. 😉
+                Při objednávaní na svém oblíbeném e-shopu zaškrtni v košíku
+                možnost zabalení do ReKrabice. K ceně objednávky ti bude
+                přičteno 50 Kč – neboj, jedná se o vratnou zálohu. Jakmile nám
+                ReKrabici vrátíš, pošleme ti peníze zpátky. 😉
               </Text>
               <div className="m-auto flex justify-center relative mt-5 w-full h-72">
                 <Image
