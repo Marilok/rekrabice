@@ -1,7 +1,9 @@
-# Block all crawlers for /accounts
+# Block all crawlers for /app
 User-agent: *
 Disallow: /app
 
 # Allow all crawlers
 User-agent: *
 Allow: /
+
+Sitemap: https://rekrabice.cz/sitemap.xml
