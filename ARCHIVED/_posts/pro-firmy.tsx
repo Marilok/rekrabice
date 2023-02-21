@@ -14,7 +14,7 @@ import { useState } from "react";
 // import logoEconeaSrc from "../public/images/logos/econea.svg";
 // import logoTierraVerdeSrc from "../public/images/logos/tierra-verde.png";
 
-import LandingPageWrapper from "../components/Layouts/LandingPage/LandingPageWrapper";
+import LandingPageWrapper from "../../components/Layouts/LandingPage/LandingPageWrapper";
 
 export default function LandingPage() {
   return (

@@ -1,10 +1,5 @@
 import { Container, createStyles, SimpleGrid, Text } from "@mantine/core";
-import {
-  IconCertificate,
-  IconCoin,
-  IconTruck,
-  // TablerIcon,
-} from "@tabler/icons-react";
+import { IconCertificate, IconCoin, IconTruck } from "@tabler/icons-react";
 
 const useStyles = createStyles((theme) => ({
   feature: {
@@ -16,7 +11,7 @@ const useStyles = createStyles((theme) => ({
   overlay: {
     position: "absolute",
     height: 100,
-    width: 160,
+    width: 180,
     top: 0,
     left: 0,
     backgroundColor: theme.fn.variant({
