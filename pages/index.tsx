@@ -39,6 +39,8 @@ export default function LandingPage() {
           padding: "0 !important",
         },
       })}
+      title="ReKrabice - zálohané krabice pro online nákupy"
+      titleRemoveName={true}
       description="Nestav doma věže z kartonových krabic. Všechny ReKrabice můžeš vrátit a ušetřit tak našim lesům. A to zcela zdarma! 🌲"
     >
       {/* <HeroBullets /> */}
@@ -335,11 +337,11 @@ function Faq() {
         <Accordion.Item className={classes.item} value="fourth">
           <Accordion.Control>Z čeho jsou ReKrabice vyrobeny?</Accordion.Control>
           <Accordion.Panel>
-            ReKrabice jsou z recyklovaného plastu. Možná si teď říkáš, co je na tom
-            ekologického. Kartonové krabice s trochou štěstí přežijí 4 cesty,
-            ReKrabice jich zvládne až 100. Celkový dopad jedné ReKrabice po 100
-            použitích (včetně cesty zpátky na sklad) je o 70 % nižší, než kdyby byly použity jen ty
-            obyčejné kartonové.
+            ReKrabice jsou z recyklovaného plastu. Možná si teď říkáš, co je na
+            tom ekologického. Kartonové krabice s trochou štěstí přežijí 4
+            cesty, ReKrabice jich zvládne až 100. Celkový dopad jedné ReKrabice
+            po 100 použitích (včetně cesty zpátky na sklad) je o 70 % nižší, než
+            kdyby byly použity jen ty obyčejné kartonové.
           </Accordion.Panel>
         </Accordion.Item>
         <Accordion.Item className={classes.item} value="companies">

@@ -9,11 +9,13 @@ import CustomNavbar from "./Navbar";
 export default function LandingPageWrapper({
   children,
   title,
+  titleRemoveName = false,
   styles,
   description,
 }: {
   children?: any;
   title?: string;
+  titleRemoveName?: boolean;
   styles?: any;
   description?: string;
 }) {
@@ -22,7 +24,13 @@ export default function LandingPageWrapper({
   return (
     <>
       <Head>
-        <title>{title ? `${title} | ReKrabice` : "ReKrabice"}</title>
+        <title>
+          {title && titleRemoveName == false
+            ? `${title} | ReKrabice`
+            : title && titleRemoveName == true
+            ? `${title}`
+            : "ReKrabice"}
+        </title>
         <meta
           name="description"
           content={description ? `${description} | ReKrabice` : " "}
