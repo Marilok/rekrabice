@@ -8,7 +8,7 @@ import {
   Title,
   TypographyStylesProvider,
 } from "@mantine/core";
-import LandingPageWrapper from "../components/Layouts/LandingPage/LandingPageWrapper";
+import LandingPageWrapper from "../../components/Layouts/LandingPage/LandingPageWrapper";
 
 export default function SlashPackaging() {
   const rows = elements.map((element) => (
