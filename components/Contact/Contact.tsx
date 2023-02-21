@@ -223,14 +223,14 @@ export default function ContactUs() {
             >
               <TextInput
                 label="Email"
-                placeholder="tatka@smoulifirma.cz"
+                placeholder="petr@skvelafirma.cz"
                 required
                 classNames={{ input: classes.input, label: classes.inputLabel }}
                 {...form.getInputProps("mail")}
               />
               <TextInput
                 label="Tvoje jméno či název firmy, za kterou píšeš"
-                placeholder="Taťka Šmoula nebo Šmoulí firma"
+                placeholder="Petr nebo Skvělá firma"
                 mt="md"
                 classNames={{ input: classes.input, label: classes.inputLabel }}
                 {...form.getInputProps("name")}
