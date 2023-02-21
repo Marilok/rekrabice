@@ -171,7 +171,7 @@ export default function Footer({ data }: FooterLinksProps) {
               key={index}
               href={item.url}
               target="_blank"
-              aria-aria-label={item.label}
+              aria-label={item.label}
             >
               <item.icon size={22} stroke={1.5} />
             </ActionIcon>

@@ -137,7 +137,7 @@ export default function HeaderAction({
           <ActionIcon
             onClick={() => toggleColorScheme()}
             size="lg"
-            aria-aria-label="Toggle color scheme"
+            aria-label="Toggle color scheme"
             sx={(theme) => ({
               backgroundColor:
                 theme.colorScheme === "dark"
