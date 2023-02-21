@@ -1,13 +1,9 @@
 // @ts-nocheck
 import {
-  Button,
-  Center,
-  Container,
-  Loader,
-  Portal,
+  Button, Container, Portal,
   Stepper,
   Text,
-  Title,
+  Title
 } from "@mantine/core";
 import { useHotkeys, useScrollIntoView, useViewportSize } from "@mantine/hooks";
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
@@ -38,15 +34,15 @@ export default function StepperComponent() {
     ["Shift+space", prevStep],
   ]);
 
-  const Map = dynamic(() => import("./Map/CustomMap"), {
-    loading: () => (
-      <Center className="h-full relative">
-        <Loader size="xl" />
-        <Text ml="md">Načítání mapy</Text>
-      </Center>
-    ),
-    ssr: false, // This line is important. It's what prevents server-side render
-  });
+  // const Map = dynamic(() => import("./Map/CustomMap"), {
+  //   loading: () => (
+  //     <Center className="h-full relative">
+  //       <Loader size="xl" />
+  //       <Text ml="md">Načítání mapy</Text>
+  //     </Center>
+  //   ),
+  //   ssr: false, // This line is important. It's what prevents server-side render
+  // });
 
   const Confetti = dynamic(() => import("react-confetti"), {
     loading: () => <></>,

@@ -3,22 +3,18 @@ import Link from "next/link";
 
 import {
   Button,
-  Card,
-  Center,
-  Container,
-  Group,
-  Loader,
-  Portal,
+  Card, Center, Container,
+  Group, Loader, Portal,
   Stepper,
   Text,
-  Title,
+  Title
 } from "@mantine/core";
 import { useHotkeys, useViewportSize } from "@mantine/hooks";
 import {
   IconArrowLeft,
   IconArrowRight,
   IconMapPin,
-  IconPhone,
+  IconPhone
 } from "@tabler/icons-react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
