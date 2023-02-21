@@ -352,7 +352,7 @@ function Faq() {
         </Accordion.Item>
         <Accordion.Item className={classes.item} value="start">
           <Accordion.Control>
-            Kdy to budu moct ReKrabice začít používat?
+            Kdy budu moct ReKrabice začít používat?
           </Accordion.Control>
           <Accordion.Panel>
             Spuštění plánujeme na druhou půlku letošního roku. Nemůžeš se toho
