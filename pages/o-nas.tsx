@@ -11,7 +11,10 @@ import Team from "../components/Team/Team";
 
 export default function About() {
   return (
-    <LandingPageWrapper title="O nás">
+    <LandingPageWrapper
+      title="O nás"
+      description="Příběh dvou studentů a jejich vratných krabic. Zjisti za čím projekt ReKrabic stojí a vede k vytváření lepší budoucnosti."
+    >
       <Container size="lg" p="lg">
         <TypographyStylesProvider>
           <Title order={1}>O nás</Title>
