@@ -24,7 +24,7 @@ export default function Cookies() {
   ));
 
   return (
-    <LandingPageWrapper>
+    <LandingPageWrapper title="Cookies">
       <Container size="lg" p="lg">
         <TypographyStylesProvider>
           <Title order={1}>Zásady používání souborů cookie 🍪</Title>
@@ -153,4 +153,7 @@ export default function Cookies() {
 const ESSENTIAL = [
   { name: "mantine-color-scheme", purpose: "Pro ukládání barevného režimu." },
 ];
-const OPTIONAL = [{ name: "Zatím žádné", purpose: "" }];
+const OPTIONAL = [
+  { name: "_ga", purpose: "Pro statistické účely." },
+  { name: "_ga_<container-id>", purpose: "Pro statistické účely." },
+];
