@@ -9,7 +9,6 @@ import {
   createStyles,
   Divider,
   Flex,
-  Image as MantineImage,
   MediaQuery,
   Modal,
   Space,
@@ -40,6 +39,7 @@ export default function LandingPage() {
           padding: "0 !important",
         },
       })}
+      description="Nestav doma věže z kartonových krabic. Všechny ReKrabice můžeš vrátit a ušetřit tak našim lesům. A to zcela zdarma! 🌲"
     >
       {/* <HeroBullets /> */}
       <Modal
@@ -123,27 +123,33 @@ function ComponentUno() {
           gap={20}
           wrap="wrap"
         >
-          <MantineImage
-            src="/images/logos/econea.svg"
-            height="80px"
-            width="auto"
-            alt="Econea logo"
-            className=" opacity-80 hover:scale-110	 hover:opacity-100 transition-opacity"
-          />
-          <MantineImage
-            src="/images/logos/tierra-verde.png"
-            height="80px"
-            width="auto"
-            alt="Tierra Verde logo"
-            className="max-w-full opacity-80 hover:scale-110 hover:opacity-100 transition-opacity"
-          />
-          <MantineImage
-            src="/images/logos/aktin.svg"
-            height="60px"
-            width="auto"
-            alt="Aktin logo"
-            className="max-w-full opacity-80 hover:scale-110 hover:opacity-100 transition-opacity"
-          />
+          <div className="w-60 h-20 relative">
+            <Image
+              src="/images/logos/econea.svg"
+              fill
+              alt="Econea logo"
+              className="object-contain opacity-80 hover:scale-110 hover:opacity-100 transition-opacity"
+              priority
+            />
+          </div>
+          <div className="h-20 w-20 relative">
+            <Image
+              src="/images/logos/tierra-verde.png"
+              fill
+              alt="Tierra Verde logo"
+              className="object-contain opacity-80 hover:scale-110 hover:opacity-100 transition-opacity"
+              priority
+            />
+          </div>
+          <div className="w-60 h-14 relative">
+            <Image
+              src="/images/logos/aktin.svg"
+              fill
+              alt="Aktin logo"
+              className="object-contain opacity-80 hover:scale-110 hover:opacity-100 transition-opacity"
+              priority
+            />
+          </div>
         </Flex>
       </Container>
       <Divider my={40} />

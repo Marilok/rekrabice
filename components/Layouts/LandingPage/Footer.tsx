@@ -146,7 +146,7 @@ export default function Footer({ data }: FooterLinksProps) {
     <footer className={classes.footer}>
       <Container className={classes.inner}>
         <div className={classes.logo}>
-          <Avatar src="/favicon.svg" size={30} />
+          <Avatar src="/favicon.svg" size={30} alt="logo icon" />
           <Text size="xs" color="dimmed" className={classes.description}>
             Přestaňme si posílat odpad.
           </Text>
@@ -171,6 +171,7 @@ export default function Footer({ data }: FooterLinksProps) {
               key={index}
               href={item.url}
               target="_blank"
+              aria-aria-label={item.label}
             >
               <item.icon size={22} stroke={1.5} />
             </ActionIcon>

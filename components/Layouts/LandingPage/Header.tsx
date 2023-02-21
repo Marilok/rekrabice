@@ -117,6 +117,7 @@ export default function HeaderAction({
             onClick={toggle}
             className={classes.burger}
             size="sm"
+            aria-label="Side navigation toggle"
           />
           {/* <Avatar src="/favicon.svg" size={28} /> */}
           <Link href="/">
@@ -136,6 +137,7 @@ export default function HeaderAction({
           <ActionIcon
             onClick={() => toggleColorScheme()}
             size="lg"
+            aria-aria-label="Toggle color scheme"
             sx={(theme) => ({
               backgroundColor:
                 theme.colorScheme === "dark"

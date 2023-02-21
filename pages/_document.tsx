@@ -8,7 +8,7 @@ export default class _Document extends Document {
 
   render() {
     return (
-      <Html>
+      <Html lang="cs">
         <Head />
         <body style={{ overflowX: "hidden" }}>
           <GoogleTagsNoScript />

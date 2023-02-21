@@ -6,14 +6,16 @@ import Footer from "./Footer";
 import Header from "./Header";
 import CustomNavbar from "./Navbar";
 
-export default function App({
+export default function LandingPageWrapper({
   children,
   title,
   styles,
+  description,
 }: {
   children?: any;
   title?: string;
   styles?: any;
+  description?: string;
 }) {
   const [isOpen, { toggle }] = useDisclosure(false);
 
@@ -21,6 +23,10 @@ export default function App({
     <>
       <Head>
         <title>{title ? `${title} | ReKrabice` : "ReKrabice"}</title>
+        <meta
+          name="description"
+          content={description ? `${description} | ReKrabice` : " "}
+        />
       </Head>
       <AppShell
         // padding="md"

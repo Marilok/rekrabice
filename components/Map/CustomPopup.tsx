@@ -17,7 +17,7 @@ export default function CustomPopup({
       {/* style={{ backgroundColor: theme.colors.gray[7] }} */}
       <Paper className="w-full h-full" shadow="xl" p="sm">
         <Group>
-          <Avatar src={logo} radius="xl" size="md" />
+          <Avatar src={logo} alt="logo image" radius="xl" size="md" />
           <Title order={2}>
             {title}
             {subsidiary ? `- ${subsidiary}` : ""}

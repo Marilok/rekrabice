@@ -269,7 +269,7 @@ export default function ContactUs() {
           >
             <Title>Informace o provozovateli</Title>
             <Group mt={"md"}>
-              <Avatar radius="xl" size="md" />
+              <Avatar radius="xl" size="md" alt="avatar image" />
               <Title order={2}>
                 <Text
                   // variant="gradient"
