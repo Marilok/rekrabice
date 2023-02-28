@@ -39,7 +39,7 @@ export default function LandingPage() {
           padding: "0 !important",
         },
       })}
-      title="ReKrabice - zálohané krabice pro online nákupy"
+      title="ReKrabice - zálohované krabice pro online nákupy"
       titleRemoveName={true}
       description="Nestav doma věže z kartonových krabic. Všechny ReKrabice můžeš vrátit a ušetřit tak našim lesům. A to zcela zdarma! 🌲"
     >
