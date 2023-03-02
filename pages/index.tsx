@@ -39,7 +39,7 @@ export default function LandingPage() {
           padding: "0 !important",
         },
       })}
-      title="ReKrabice - zálohované krabice pro online nákupy"
+      title="ReKrabice - zálohovaná krabice pro online nákupy"
       titleRemoveName={true}
       description="Nestav doma věže z kartonových krabic. Všechny ReKrabice můžeš vrátit a ušetřit tak našim lesům. A to zcela zdarma! 🌲"
     >
@@ -173,7 +173,7 @@ function ComponentUno() {
   );
 }
 
-function EmailInput({ id }: { id: string }) {
+export function EmailInput({ id }: { id: string }) {
   const [loading, setLoading] = useState(false);
 
   async function sendMsg(values: any) {
