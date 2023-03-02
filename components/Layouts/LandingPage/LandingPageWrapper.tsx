@@ -63,7 +63,7 @@ export default function LandingPageWrapper({
 
 const FOOTER_DATA = [
   {
-    title: "Jak to funguje",
+    title: "Rozcestník",
     links: [
       // {
       //   label: "Kde ji vrátit?",
@@ -72,6 +72,10 @@ const FOOTER_DATA = [
       {
         label: "Jak to funguje?",
         link: "/",
+      },
+      {
+        label: "Napsali o nás",
+        link: "napsali-o-nas",
       },
     ],
   },
@@ -142,6 +146,10 @@ const HEADER_DATA = [
   {
     link: "/o-nas",
     label: "O nás",
+  },
+  {
+    link: "/napsali-o-nas",
+    label: "Napsali o nás",
   },
   {
     link: "/kontakt",
