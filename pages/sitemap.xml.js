@@ -16,7 +16,10 @@ function generateSiteMap(posts) {
        <loc>https://rekrabice.cz/kontakt</loc>
        <lastmod>2023-02-20</lastmod>
      </url>
-   
+     <url>
+     <loc>https://rekrabice.cz/napsali-o-nas</loc>
+     <lastmod>2023-03-02</lastmod>
+   </url>
    </urlset>
  `;
 }
