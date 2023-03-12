@@ -15,7 +15,6 @@ export default function Kontakt() {
     <Card
       key={article.title}
       p="md"
-      radius="md"
       component="a"
       href={article.url}
       target="_blank"
@@ -25,7 +24,7 @@ export default function Kontakt() {
         <Image
           src={article.image}
           fill
-          className="object-cover object-top rounded"
+          className="object-cover object-top rounded-sm"
           alt="Image"
         />
       </AspectRatio>
@@ -54,6 +53,13 @@ export default function Kontakt() {
 }
 
 const data = [
+  {
+    title:
+      "Výherní projekt soutěžě Validation Contest v rámci E-commerce summitu.",
+    image: "/images/napsali-o-nas/ecommerce_summit.png",
+    date: "28.2. 2023",
+    url: "https://www.ecommercesummit.cz/validation-contest-technologic-festival-2023/",
+  },
   {
     title:
       "ReKrabice. Studenti ukázali projekt přepravních obalů na Validation Campu v Brně",
