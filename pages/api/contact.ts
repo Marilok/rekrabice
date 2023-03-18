@@ -33,7 +33,7 @@ export default async function handler(
     } z kontaktního formuláře`,
 
     text: req.body.msg,
-    html: `<div>${req.body.msg}</div>`,
+    html: `<div>${req.body.msg}<br/><br/>${req.body.mail}</div>`,
   };
 
   const confirmationData = {
