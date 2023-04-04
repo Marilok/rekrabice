@@ -55,6 +55,13 @@ export default function Kontakt() {
 const data = [
   {
     title:
+      "Vratné mohou být i krabice, tvrdí mladí vynálezci z Moravy. Ta jejich vydrží až 60 cest.",
+    image: "/images/napsali-o-nas/brnan.jpeg",
+    date: "2.4. 2023",
+    url: "https://www.novinky.cz/clanek/domaci-vratne-mohou-byt-i-krabice-tvrdi-mladi-vynalezci-z-moravy-ta-jejich-vydrzi-az-60-cest-40426658",
+  },
+  {
+    title:
       "Výherní projekt soutěžě Validation Contest v rámci E-commerce summitu.",
     image: "/images/napsali-o-nas/ecommerce_summit.png",
     date: "28.2. 2023",
