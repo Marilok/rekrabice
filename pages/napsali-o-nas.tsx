@@ -56,7 +56,7 @@ const data = [
   {
     title:
       "Vratné mohou být i krabice, tvrdí mladí vynálezci z Moravy. Ta jejich vydrží až 60 cest.",
-    image: "/images/napsali-o-nas/brnan.jpeg",
+    image: "/images/napsali-o-nas/novinky.png",
     date: "2.4. 2023",
     url: "https://www.novinky.cz/clanek/domaci-vratne-mohou-byt-i-krabice-tvrdi-mladi-vynalezci-z-moravy-ta-jejich-vydrzi-az-60-cest-40426658",
   },
@@ -70,7 +70,7 @@ const data = [
   {
     title:
       "ReKrabice. Studenti ukázali projekt přepravních obalů na Validation Campu v Brně",
-    image: "/images/napsali-o-nas/brnan.jpeg",
+    image: "/images/napsali-o-nas/brnan.png",
     date: "27.2. 2023",
     url: "https://www.brnan.cz/udalosti/rekrabice-studenti-ukazali-projekt-prepravnich-obalu-na-validation-campu-v-brne",
   },
