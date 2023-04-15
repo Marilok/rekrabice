@@ -13,7 +13,7 @@ import {
   Modal,
   Space,
   Text,
-  Title,
+  Title
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { showNotification, updateNotification } from "@mantine/notifications";
@@ -114,7 +114,7 @@ function ComponentUno() {
       <StepperComponent />
       <Divider my={40} />
       <Container>
-        <Title order={2} align="center" className={classes.wrapper}>
+        <Title order={2} align="center">
           Zapojené e-shopy
         </Title>
         <Flex
@@ -185,7 +185,7 @@ export function EmailInput({ id }: { id: string }) {
         title: "Zpracovávání...",
         message: "Zapisujeme tvůj email k nám do systému",
         autoClose: false,
-        disallowClose: true,
+        withCloseButton: false,
       });
 
       await fetch("/api/giveMail", {
@@ -294,7 +294,7 @@ function Faq() {
   const { classes } = useStyles();
 
   return (
-    <Container size="sm" className={classes.wrapper}>
+    <Container size="sm">
       <Title align="center" order={2} className={classes.title}>
         Často kladené dotazy
       </Title>
@@ -377,13 +377,8 @@ function Faq() {
 }
 
 const useStyles = createStyles((theme) => ({
-  wrapper: {
-    // paddingTop: theme.spacing.xl * 2,
-    // paddingBottom: theme.spacing.xl * 2,
-  },
-
   title: {
-    marginBottom: theme.spacing.xl * 1.5,
+    marginBottom: `calc(${theme.spacing.xl} * 1.5)`,
   },
 
   item: {
@@ -401,8 +396,8 @@ const useStylesHero = createStyles((theme) => ({
     backgroundPosition: "center",
     backgroundImage:
       "linear-gradient(250deg, rgba(130, 201, 30, 0) 0%, #062343 70%), url(https://images.unsplash.com/photo-1558710763-9791081edd44?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80)",
-    paddingTop: theme.spacing.xl * 3,
-    paddingBottom: theme.spacing.xl * 3,
+    paddingTop: `calc(${theme.spacing.xl} * 3)`,
+    paddingBottom: `calc(${theme.spacing.xl} * 3)`,
   },
 
   inner: {
@@ -421,9 +416,9 @@ const useStylesHero = createStyles((theme) => ({
   },
 
   content: {
-    paddingTop: theme.spacing.xl * 2,
-    paddingBottom: theme.spacing.xl * 2,
-    marginRight: theme.spacing.xl * 3,
+    paddingTop: `calc(${theme.spacing.xl} * 2)`,
+    paddingBottom: `calc(${theme.spacing.xl} * 2)`,
+    marginRight: `calc(${theme.spacing.xl} * 3)`,
 
     [theme.fn.smallerThan("md")]: {
       marginRight: 0,

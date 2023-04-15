@@ -1,11 +1,11 @@
-import { NotificationsProvider } from "@mantine/notifications";
+import { Notifications } from "@mantine/notifications";
 import { AppProps } from "next/app";
 import Head from "next/head";
 // import { UserProvider } from "@supabase/auth-helpers-react";
 import {
   ColorScheme,
   ColorSchemeProvider,
-  MantineProvider,
+  MantineProvider
 } from "@mantine/core";
 import { getCookie, setCookie } from "cookies-next";
 import { GetServerSidePropsContext } from "next";
@@ -69,9 +69,9 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
             colorScheme,
           }}
         >
-          <NotificationsProvider>
+          <Notifications/>
             <Component {...pageProps} />
-          </NotificationsProvider>
+          
         </MantineProvider>
       </ColorSchemeProvider>
       <GoogleScripts />

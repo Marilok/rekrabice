@@ -1,6 +1,11 @@
 # Block all crawlers for /app
 User-agent: *
 Disallow: /app
+Disallow: /app/
+Disallow: /obsluha
+Disallow: /obsluha/
+
+
 
 # Allow all crawlers
 User-agent: *

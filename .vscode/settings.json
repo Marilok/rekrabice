@@ -1,7 +1,9 @@
 {
     "svg.preview.background": "black",
+    "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": true,
         "source.organizeImports": true
-    }
+    },
+    "remote.SSH.defaultForwardedPorts": []
 }

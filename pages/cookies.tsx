@@ -1,10 +1,9 @@
 import {
-  Container,
+  Anchor, Container,
   List,
   Table,
   Text,
-  Title,
-  TypographyStylesProvider,
+  Title, TypographyStylesProvider
 } from "@mantine/core";
 
 import LandingPageWrapper from "../components/Layouts/LandingPage/LandingPageWrapper";
@@ -103,45 +102,37 @@ export default function Cookies() {
             omezíte fungování našich stránek a je potřeba počítat s tím, že
             nebudete mít možnost využívat všech našich funkcí včetně přihlášení.
             Návody pro běžné prohlížeče:{" "}
-            <Text
-              variant="link"
-              component="a"
+                 <Anchor
+
               href="https://support.google.com/accounts/answer/61416?hl=cs"
             >
               Chrome
-            </Text>
+            </Anchor>
             ,&nbsp;
-            <Text
-              variant="link"
-              component="a"
+            <Anchor
               href="http://support.mozilla.org/cs/kb/Pr%C3%A1ce%20s%20cookies"
             >
               Firefox
-            </Text>
+            </Anchor>
             ,&nbsp;
-            <Text
-              variant="link"
-              component="a"
+             <Anchor
               href="http://support.microsoft.com/kb/283185/cs"
             >
               Internet Explorer
-            </Text>
+            </Anchor>
             ,&nbsp;
-            <Text
-              variant="link"
-              component="a"
+               <Anchor
+
               href="https://support.google.com/chrome/answer/2392709?visit_id=1-636270856459123937-2696746637&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;rd=1&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;co=GENIE.Platform%3DAndroid&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;oco=1"
             >
               Android
-            </Text>
+            </Anchor>
             &nbsp;nebo&nbsp;
-            <Text
-              variant="link"
-              component="a"
+            <Anchor
               href="https://support.google.com/accounts/answer/61416?hl=cs&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;co=GENIE.Platform%3DiOS&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;oco=1"
             >
               iPhone a iPad
-            </Text>
+            </Anchor>
             .
           </Text>
         </TypographyStylesProvider>

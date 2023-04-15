@@ -4,8 +4,8 @@ import { IconCertificate, IconCoin, IconTruck } from "@tabler/icons-react";
 const useStyles = createStyles((theme) => ({
   feature: {
     position: "relative",
-    paddingTop: theme.spacing.xl,
-    paddingLeft: theme.spacing.xl,
+    paddingTop: `calc(${theme.spacing.xl}`,
+    paddingLeft: `calc(${theme.spacing.xl}`,
   },
 
   overlay: {

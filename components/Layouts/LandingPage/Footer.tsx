@@ -4,7 +4,7 @@ import {
   Container,
   createStyles,
   Group,
-  Text,
+  Text
 } from "@mantine/core";
 import Link from "next/link";
 import { social } from "../../../helperData/socials";
@@ -12,8 +12,8 @@ import { social } from "../../../helperData/socials";
 const useStyles = createStyles((theme) => ({
   footer: {
     marginTop: theme.spacing.xl,
-    paddingTop: theme.spacing.xl * 2,
-    paddingBottom: theme.spacing.xl * 2,
+    paddingTop: `calc(${theme.spacing.xl} * 2)`,
+    paddingBottom: `calc(${theme.spacing.xl} * 2)`,
     backgroundColor:
       theme.colorScheme === "dark"
         ? theme.colors.dark[6]
@@ -84,7 +84,7 @@ const useStyles = createStyles((theme) => ({
     fontSize: theme.fontSizes.lg,
     fontWeight: 700,
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-    marginBottom: theme.spacing.xs / 2,
+    marginBottom: `calc(${theme.spacing.xs} / 2)`,
     color: theme.colorScheme === "dark" ? theme.white : theme.black,
   },
 

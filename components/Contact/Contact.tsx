@@ -11,7 +11,7 @@ import {
   Text,
   Textarea,
   TextInput,
-  Title,
+  Title
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { showNotification, updateNotification } from "@mantine/notifications";
@@ -22,7 +22,7 @@ import {
   IconMapPin,
   IconSectionSign,
   IconSend,
-  IconX,
+  IconX
 } from "@tabler/icons-react";
 import { useState } from "react";
 import { social } from "../../helperData/socials";
@@ -36,23 +36,23 @@ const useStyles = createStyles((theme) => ({
       theme.colors[theme.primaryColor][4]
     } 0%, ${theme.colors[theme.primaryColor][7]} 100%)`,
     borderRadius: theme.radius.md,
-    padding: theme.spacing.xl * 2.5,
+    padding: `calc(${theme.spacing.xl} * 2.5)` ,
 
     [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
       padding: theme.spacing.xl,
     },
     [`@media (min-width: ${theme.breakpoints.sm}px)`]: {
-      marginTop: theme.spacing.xl * 3,
+      marginTop: `calc(${theme.spacing.xl} * 3)`,
     },
   },
   wrapper2: {
     minHeight: 400,
     boxSizing: "border-box",
     borderRadius: theme.radius.md,
-    paddingLeft: theme.spacing.xl * 2.5,
-    paddingRight: theme.spacing.xl * 2.5,
-    paddingTop: theme.spacing.xl * 1,
-    paddingBottom: theme.spacing.xl * 1,
+    paddingLeft: `calc(${theme.spacing.xl} * 2.5)`,
+    paddingRight: `calc(${theme.spacing.xl} * 2.5)`,
+    paddingTop: theme.spacing.xl,
+    paddingBottom: theme.spacing.xl,
     backgroundColor:
       theme.colorScheme === "dark" ? theme.colors.dark[8] : theme.white,
     border: `1px solid ${
@@ -127,7 +127,7 @@ export default function ContactUs() {
         message: "Odesílání",
         autoClose: false,
         radius: "xs",
-        disallowClose: true,
+        withCloseButton: false,
       });
       await fetch("/api/contact", {
         method: "POST",
