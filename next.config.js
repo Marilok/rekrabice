@@ -8,6 +8,10 @@ const nextConfig = {
         source: "/impressum",
         destination: "/kontakt",
         permanent: true,
+      },{
+        source: "/obsluha",
+        destination: "/obsluha/prijmout",
+        permanent: true,
       },
     ];
   },
