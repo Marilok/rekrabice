@@ -13,7 +13,7 @@ import {
   Modal,
   Space,
   Text,
-  Title
+  Title,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { showNotification, updateNotification } from "@mantine/notifications";
@@ -247,7 +247,7 @@ export function EmailInput({ id }: { id: string }) {
         label="Tvůj email"
         styles={(theme) => ({
           rightSection: {
-            [`@media (max-width: ${theme.breakpoints.md}px)`]: {
+            [`@media (max-width: ${theme.breakpoints.md})`]: {
               display: "none",
             },
           },

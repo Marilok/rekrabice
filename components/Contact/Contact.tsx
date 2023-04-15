@@ -11,7 +11,7 @@ import {
   Text,
   Textarea,
   TextInput,
-  Title
+  Title,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { showNotification, updateNotification } from "@mantine/notifications";
@@ -22,7 +22,7 @@ import {
   IconMapPin,
   IconSectionSign,
   IconSend,
-  IconX
+  IconX,
 } from "@tabler/icons-react";
 import { useState } from "react";
 import { social } from "../../helperData/socials";
@@ -36,12 +36,12 @@ const useStyles = createStyles((theme) => ({
       theme.colors[theme.primaryColor][4]
     } 0%, ${theme.colors[theme.primaryColor][7]} 100%)`,
     borderRadius: theme.radius.md,
-    padding: `calc(${theme.spacing.xl} * 2.5)` ,
+    padding: `calc(${theme.spacing.xl} * 2.5)`,
 
-    [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
+    [`@media (max-width: ${theme.breakpoints.sm})`]: {
       padding: theme.spacing.xl,
     },
-    [`@media (min-width: ${theme.breakpoints.sm}px)`]: {
+    [`@media (min-width: ${theme.breakpoints.sm})`]: {
       marginTop: `calc(${theme.spacing.xl} * 3)`,
     },
   },
@@ -59,7 +59,7 @@ const useStyles = createStyles((theme) => ({
       theme.colorScheme === "dark" ? theme.colors.dark[8] : theme.colors.gray[2]
     }`,
 
-    [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
+    [`@media (max-width: ${theme.breakpoints.sm})`]: {
       padding: theme.spacing.xl,
     },
   },
@@ -73,7 +73,7 @@ const useStyles = createStyles((theme) => ({
     color: theme.colors[theme.primaryColor][0],
     maxWidth: 300,
 
-    [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
+    [`@media (max-width: ${theme.breakpoints.sm})`]: {
       maxWidth: "100%",
     },
   },

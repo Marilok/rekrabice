@@ -1,10 +1,5 @@
 // @ts-nocheck
-import {
-  Button, Container, Portal,
-  Stepper,
-  Text,
-  Title
-} from "@mantine/core";
+import { Button, Container, Portal, Stepper, Text, Title } from "@mantine/core";
 import { useHotkeys, useScrollIntoView, useViewportSize } from "@mantine/hooks";
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import dynamic from "next/dynamic";
@@ -82,7 +77,7 @@ export default function StepperComponent() {
             onClick={() => scrollIntoView({ alignment: "center" })}
             styles={(theme) => ({
               stepBody: {
-                [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
+                [`@media (max-width: ${theme.breakpoints.sm})`]: {
                   display: "none",
                 },
               },
