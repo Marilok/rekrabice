@@ -1,6 +1,7 @@
 
-import { Avatar, Code, createStyles, getStylesRef, Group, Navbar, rem } from '@mantine/core';
+import { Code, createStyles, getStylesRef, Group, Navbar, rem } from '@mantine/core';
 import { IconArrowDown, IconArrowUp, IconLogout, IconPhone, IconQuestionMark } from '@tabler/icons-react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
@@ -61,24 +62,24 @@ const useStyles = createStyles((theme) => ({
 
 const data = [
    {
-    link: "prijmout",
+    link: "obsluha/prijmout",
     label: "Přijmout ReKrabici",
         icon: IconArrowDown
 
   },
     {
-    link: "odeslat",
+    link: "obsluha/odeslat",
     label: "Odeslat ReKrabice pryč",
             icon: IconArrowUp
 
   },
   {
-    link: "navod",
+    link: "obsluha/navod",
     label: "Návod a časté dotazy",
     icon: IconQuestionMark
   },
   {
-    link: "kontakt",
+    link: "obsluha/kontakt",
     label: "Kontakt",
     icon: IconPhone
 
@@ -107,7 +108,7 @@ icon={<item.icon stroke={1.5} />} variant="light" label={item.label} onClick={(e
     <Navbar  width={{ sm: 300 }} p="md">
       <Navbar.Section grow>
         <Group className={classes.header} position="apart">
-          <Avatar src="/favicon.svg" size={30} alt="logo icon" />
+          <Image src="/logo_text.svg" height={30} width="100" alt="logo icon" />
           <Code>verze 0.1</Code>
         </Group>
         {links}
