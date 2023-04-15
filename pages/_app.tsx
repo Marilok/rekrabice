@@ -5,7 +5,7 @@ import Head from "next/head";
 import {
   ColorScheme,
   ColorSchemeProvider,
-  MantineProvider
+  MantineProvider,
 } from "@mantine/core";
 import { getCookie, setCookie } from "cookies-next";
 import { GetServerSidePropsContext } from "next";
@@ -69,15 +69,15 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
             colorScheme,
           }}
         >
-          <Notifications/>
-            <Component {...pageProps} />
-          
+          <Notifications />
+          <Component {...pageProps} />
         </MantineProvider>
       </ColorSchemeProvider>
       <GoogleScripts />
     </>
   );
 }
+// TODO: migrate, so it doesnt use getInitialProps
 
 App.getInitialProps = ({ ctx }: { ctx: GetServerSidePropsContext }) => ({
   colorScheme: getCookie("mantine-color-scheme", ctx),
