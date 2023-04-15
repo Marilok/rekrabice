@@ -87,7 +87,7 @@ export default function HeaderAction({
 
     if (menuItems) {
       return (
-        <Menu key={link.label} trigger="hover" exitTransitionDuration={0}>
+        <Menu key={link.label} trigger="hover">
           <Menu.Target>
             <Center>
               <Link className={classes.link} href={link.link}>
