@@ -88,16 +88,14 @@ const data = [
 
 export default function StyledNavbar() {
   const { classes, cx } = useStyles();
+  const location = useRouter().pathname.split('/').pop();
 
   const links = data.map((item) => (
     <Link
       href={item.link}
       key={item.label}
-      className={cx(classes.link, item.link === useRouter().pathname.split('/').pop() && classes.linkActive)}
-      // onClick={() => { setActive(item.label)}}
+      className={cx(classes.link, item.link === location && classes.linkActive)}
     >
-      {/* <NavLink active={item.label === active} component="a"
-icon={<item.icon stroke={1.5} />} variant="light" label={item.label} onClick={(e) => { setActive(item.label)}}/> */}
 
       <item.icon className={classes.linkIcon} stroke={1.5} />
       <span>{item.label}</span>
