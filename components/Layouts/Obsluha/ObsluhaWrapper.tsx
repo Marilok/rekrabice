@@ -15,7 +15,6 @@ export default function ObsluhaWrapper({
   styles?: any;
   description?: string;
 }) {
-
   return (
     <>
       <Head>
@@ -32,15 +31,18 @@ export default function ObsluhaWrapper({
         />
       </Head>
       <AppShell
-        navbar={
-          <StyledNavbar />
-        }
+        navbar={<StyledNavbar />}
+        styles={(theme) => ({
+          main: {
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexDirection: "column",
+          },
+        })}
       >
         {children}
       </AppShell>
     </>
   );
 }
-
-
-
