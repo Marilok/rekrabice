@@ -14,4 +14,3 @@ export default function Prijmout() {
     </App>
   );
 }
-// export const getServerSideProps = withPageAuth();
