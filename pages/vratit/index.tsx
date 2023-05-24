@@ -6,6 +6,7 @@ import {
   Checkbox,
   Flex,
   Group,
+  MediaQuery,
   NumberInput,
   Paper,
   PinInput,
@@ -52,7 +53,7 @@ export default function ReturnPackagePage() {
             router.push(`/vratit?packaging_id=${values.packaging_id}`)
           )}
         >
-          <Stack spacing={"md"}>
+          <Stack spacing={"md"} maw={500} m="sm" mx="auto">
             <Text>
               Pokud preferujete vyplacení záloh digitálně místo hotovosti na
               místě, tak vyplň prosím tento krátký formulář.
@@ -129,7 +130,11 @@ export default function ReturnPackagePage() {
               placeholder="petr@seznam.cz"
               {...form.getInputProps("email")}
             />
-            <Flex direction={"row"} gap="sm" align={"center"}>
+            <Flex
+              gap="sm"
+              direction={{ base: "column", sm: "row" }}
+              align={{ base: "flex-start", sm: "center" }}
+            >
               <NumberInput
                 type="number"
                 label="Předčíslí"
@@ -137,8 +142,9 @@ export default function ReturnPackagePage() {
                 className="w-24"
                 {...form.getInputProps("bankAccount.prefix")}
               />
-
-              <Text className="mt-6">-</Text>
+              <MediaQuery smallerThan="sm" styles={{ display: "none" }}>
+                <Text className="mt-6">-</Text>
+              </MediaQuery>
               <NumberInput
                 type="number"
                 label="Číslo účtu"
@@ -148,7 +154,9 @@ export default function ReturnPackagePage() {
                 placeholder="1234567890"
                 {...form.getInputProps("bankAccount.number")}
               />
-              <Text className="mt-6">/</Text>
+              <MediaQuery smallerThan="sm" styles={{ display: "none" }}>
+                <Text className="mt-6">/</Text>
+              </MediaQuery>
 
               <Autocomplete
                 label="Kód banky"

@@ -173,7 +173,7 @@ function ComponentUno() {
   );
 }
 
-export function EmailInput({ id }: { id: string }) {
+function EmailInput({ id }: { id: string }) {
   const [loading, setLoading] = useState(false);
 
   async function sendMsg(values: any) {
