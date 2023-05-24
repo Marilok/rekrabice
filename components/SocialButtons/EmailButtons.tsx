@@ -1,4 +1,5 @@
 import { Button, ButtonProps, SimpleGrid, Stack, Text } from "@mantine/core";
+import { IconMail } from "@tabler/icons-react";
 import {
   GmailIcon,
   OutlookIcon,
@@ -85,22 +86,41 @@ export function OutlookButton(props: ButtonProps) {
   );
 }
 
-export function EmailButtons() {
+export function DefaultEmailButton(props: ButtonProps) {
+  return (
+    <Button
+      leftIcon={<IconMail />}
+      variant="default"
+      color="gray"
+      component={"a"}
+      href="mailto:zavri@me.prosim?subject=Zavři mě prosím"
+      target="_blank"
+      {...props}
+    />
+  );
+}
+
+export function EmailButtons({
+  title = "Do pošty Vám jsme Vám poslali odkaz pro vstup do systému.",
+  subtitle = "Rychlé odkazy na populární emaily:",
+}: {
+  title?: string;
+  subtitle?: any;
+}) {
   return (
     <Stack>
       <Text align="center">
-        <span className="font-bold text-lg">
-          Do pošty Vám jsme Vám poslali odkaz pro vstup do systému.
-        </span>
+        <span className="font-bold text-lg">{title}</span>
         <br />
-        Rychlé odkazy na populární emaily:
+        {subtitle}
       </Text>
       <SimpleGrid cols={2}>
-        <GmailButton>Gmail</GmailButton>
         <SeznamEmailButton>Email.cz</SeznamEmailButton>
+        <GmailButton>Gmail</GmailButton>
         <OutlookButton>Outlook</OutlookButton>
         <ProtonmailButton>ProtonMail</ProtonmailButton>
         <TutanotaButton>Tutanota</TutanotaButton>
+        <DefaultEmailButton>Otevřít aplikaci</DefaultEmailButton>
       </SimpleGrid>
     </Stack>
   );

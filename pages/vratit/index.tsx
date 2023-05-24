@@ -1,4 +1,5 @@
 import {
+  Anchor,
   Autocomplete,
   Avatar,
   Button,
@@ -6,38 +7,196 @@ import {
   Flex,
   Group,
   NumberInput,
+  Paper,
+  PinInput,
   SelectItemProps,
+  Stack,
   Text,
 } from "@mantine/core";
-import { isEmail, useForm } from "@mantine/form";
+import { isEmail, isNotEmpty, matches, useForm } from "@mantine/form";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { forwardRef } from "react";
 import LandingPageWrapper from "../../components/Layouts/LandingPage/LandingPageWrapper";
+import { EmailButtons } from "../../components/SocialButtons/EmailButtons";
+import { BANK_CODES } from "../../helperData/bankCodes";
 
 export default function ReturnPackagePage() {
   const router = useRouter();
-  const { packaging_id } = router.query;
+  const { packaging_id, submitted } = router.query;
 
-  const form = useForm({
-    initialValues: {
-      email: "",
-      bankAccount: {
-        prefix: "",
-        number: "",
-        bankCode: "",
+  const FirstStep = () => {
+    const idForm = useForm({
+      initialValues: {
+        packaging_id: "",
       },
-      termsOfService: false,
-    },
 
-    validate: {
-      email: isEmail("Chybný email"),
-      bankAccount: {
-        // prefix: matches(/^\d{0,6}$|^$/, "Chybné předčíslí"),
-        // number: isNotEmpty("Chybí bankovní číslo účtu"),
-        // bankCode: matches(/^\d{4}$/, "Chybný kód banky"),
+      validate: {
+        packaging_id: isNotEmpty("Chybný email"),
       },
-    },
-  });
+
+      transformValues: (values) => ({
+        packaging_id: values.packaging_id.toUpperCase(),
+      }),
+    });
+
+    const handlePinChange = (value: string) => {
+      idForm.setValues({ packaging_id: value.toUpperCase() });
+    };
+
+    return (
+      <>
+        <form
+          onSubmit={idForm.onSubmit((values) =>
+            router.push(`/vratit?packaging_id=${values.packaging_id}`)
+          )}
+        >
+          <Stack spacing={"md"}>
+            <Text>
+              Pokud preferujete vyplacení záloh digitálně místo hotovosti na
+              místě, tak vyplň prosím tento krátký formulář.
+            </Text>
+            <Text>Zadejte 8-ciferný kód, který naleznete na ReKrabici:</Text>
+            <PinInput
+              length={8}
+              spacing={"xs"}
+              autoFocus
+              required
+              {...idForm.getInputProps("packaging_id")}
+              onChange={(event) => handlePinChange(event)}
+            />
+            <Button type="submit" fullWidth>
+              Načíst ReKrabici
+            </Button>
+          </Stack>
+        </form>
+      </>
+    );
+  };
+
+  const SecondStep = () => {
+    const form = useForm({
+      initialValues: {
+        packaging_id: packaging_id,
+        email: "",
+        bankAccount: {
+          prefix: "",
+          number: "",
+          bankCode: "",
+        },
+        termsOfService: false,
+      },
+
+      validate: {
+        email: isEmail("Chybný email"),
+        bankAccount: {
+          prefix: (value) =>
+            /^\d{2,6}$|^$/.test(value) ? null : "Chybné předčíslí",
+          number: (value) =>
+            /^\d{2,10}$/.test(value) ? null : "Chybné číslo účtu",
+          bankCode: matches(/^\d{4}$/, "Chybný kód banky"),
+        },
+        termsOfService: (value) =>
+          value === false ? "Musíte souhlasit s podmínkami" : null,
+      },
+    });
+
+    const email_providers =
+      form.values.email.trim().length > 0 && !form.values.email.includes("@")
+        ? ["gmail.com", "seznam.cz", "email.cz", "centrum.cz"].map(
+            (provider) => `${form.values.email}@${provider}`
+          )
+        : [];
+
+    return (
+      <>
+        <form
+          onSubmit={form.onSubmit((values) => {
+            router.push(
+              `/vratit?packaging_id=${values.packaging_id}&submitted=true`
+            );
+          })}
+        >
+          <Stack maw={500} m="sm" mx="auto">
+            <Text align="center">
+              Chystáš se spárovat ReKrabici s označením{" "}
+              <span className="font-bold">{packaging_id}</span>.
+            </Text>
+            <Autocomplete
+              data={email_providers}
+              label="Email"
+              autoFocus
+              required
+              placeholder="petr@seznam.cz"
+              {...form.getInputProps("email")}
+            />
+            <Flex direction={"row"} gap="sm" align={"center"}>
+              <NumberInput
+                type="number"
+                label="Předčíslí"
+                hideControls
+                className="w-24"
+                {...form.getInputProps("bankAccount.prefix")}
+              />
+
+              <Text className="mt-6">-</Text>
+              <NumberInput
+                type="number"
+                label="Číslo účtu"
+                hideControls
+                required
+                className="w-40"
+                placeholder="1234567890"
+                {...form.getInputProps("bankAccount.number")}
+              />
+              <Text className="mt-6">/</Text>
+
+              <Autocomplete
+                label="Kód banky"
+                required
+                placeholder="1111"
+                {...form.getInputProps("bankAccount.bankCode")}
+                data={BANK_CODES.map((item) => ({
+                  ...item,
+                  value: item.code,
+                }))}
+                itemComponent={AutoCompleteItem}
+                filter={(value, item) =>
+                  item.code.toLowerCase().includes(value.trim()) ||
+                  item.bank.toLowerCase().includes(value.toLowerCase().trim())
+                }
+                limit={5}
+              />
+            </Flex>
+            <Checkbox
+              label="Souhlasím se zpracováním osobních údajů"
+              {...form.getInputProps("termsOfService", { type: "checkbox" })}
+            />
+            <Button type="submit" fullWidth>
+              Spárovat ReKrabici
+            </Button>
+          </Stack>
+        </form>
+      </>
+    );
+  };
+
+  const ThirdStep = () => {
+    return (
+      <EmailButtons
+        title="Povedlo se!"
+        subtitle={
+          <>
+            Do pošty jsme Vám poslali potvrzení. Teď už jen stačí kdykoliv
+            ReKrabici zanést na jedno z{" "}
+            <Link href="/mapa" passHref>
+              <Anchor>vratných míst.</Anchor>
+            </Link>
+          </>
+        }
+      />
+    );
+  };
 
   return (
     <LandingPageWrapper
@@ -45,59 +204,11 @@ export default function ReturnPackagePage() {
       titleRemoveName={true}
       description="Spáruj svou ReKrabici se svým bankovním účtem."
     >
-      <Text>
-        Chystáš se vrátit ReKrabici s označením{" "}
-        <span className="font-bold">{packaging_id}</span>.
-      </Text>
-      <form onSubmit={form.onSubmit(console.log)}>
-        {/* <EmailInput id="email"></EmailInput> */}
-        <Flex direction={"row"} gap="sm" align={"center"}>
-          <NumberInput
-            type="number"
-            label="Předčíslí"
-            mt="sm"
-            hideControls
-            className="w-24"
-            {...form.getInputProps("bankAccount.prefix")}
-          />
-
-          <Text className="mt-8">-</Text>
-          <NumberInput
-            type="number"
-            label="Číslo účtu"
-            withAsterisk
-            hideControls
-            required
-            className="w-40"
-            {...form.getInputProps("bankAccount.number")}
-            mt="sm"
-          />
-          <Text className="mt-8">/</Text>
-
-          <Autocomplete
-            label="Kód banky"
-            required
-            withAsterisk
-            {...form.getInputProps("bankAccount.bankCode")}
-            mt="sm"
-            data={BANK_CODES.map((item) => ({ ...item, value: item.code }))}
-            itemComponent={AutoCompleteItem}
-            filter={(value, item) =>
-              item.code.toLowerCase().includes(value.trim()) ||
-              item.bank.toLowerCase().includes(value.toLowerCase().trim())
-            }
-            limit={5}
-          />
-        </Flex>
-        <Checkbox
-          mt="md"
-          label="Souhlasím se zpracováním osobních údajů"
-          {...form.getInputProps("termsOfService", { type: "checkbox" })}
-        />
-        <Button type="submit" fullWidth mt="sm">
-          Spárovat ReKrabici
-        </Button>
-      </form>
+      <Paper m="auto" p="sm" maw={600} withBorder mt={"xl"}>
+        {!packaging_id && <FirstStep />}
+        {packaging_id && !submitted && <SecondStep />}
+        {packaging_id && submitted && <ThirdStep />}
+      </Paper>
     </LandingPageWrapper>
   );
 }
@@ -109,98 +220,24 @@ interface ItemProps extends SelectItemProps {
 }
 
 const AutoCompleteItem = forwardRef<HTMLDivElement, ItemProps>(
-  ({ bank, value, img, ...others }: ItemProps, ref) => (
-    <div ref={ref} {...others}>
-      <Group noWrap>
-        {/* <Image src={img} width={48} height={48} alt="Bank logo" /> */}
-        {/* TODO: make this nextjs image */}
-        <Avatar size={"sm"} src={img} />
+  function AutoCompleteItem({ bank, value, img, ...others }: ItemProps, ref) {
+    return (
+      <div ref={ref} {...others}>
+        <Group noWrap>
+          {/* <Image src={img} width={48} height={48} alt="Bank logo" /> */}
+          {/* TODO: make this nextjs image */}
+          <Avatar size={"sm"} src={img} />
 
-        <div>
-          <Text>{value}</Text>
-          <Text size="xs" color="dimmed">
-            {bank}
-          </Text>
-        </div>
-      </Group>
-    </div>
-  )
+          <div>
+            <Text>{value}</Text>
+            <Text size="xs" color="dimmed">
+              {bank}
+            </Text>
+          </div>
+        </Group>
+      </div>
+    );
+  }
 );
 
-const BANK_CODES = [
-  {
-    bank: "Komerční banka",
-    code: "0100",
-    img: "https://vlzmneddlwojekmklqnf.supabase.co/storage/v1/object/public/bank_icons/komercni_banka?t=2023-05-22T09%3A34%3A30.764Z",
-  },
-  {
-    bank: "ČSOB",
-    code: "0300",
-    img: "https://vlzmneddlwojekmklqnf.supabase.co/storage/v1/object/public/bank_icons/csob",
-  },
-  {
-    bank: "MONETA",
-    code: "0600",
-    img: "https://vlzmneddlwojekmklqnf.supabase.co/storage/v1/object/public/bank_icons/moneta?t=2023-05-22T09%3A34%3A13.877Z",
-  },
-  {
-    bank: "Česká spořitelna",
-    code: "0800",
-    img: "https://vlzmneddlwojekmklqnf.supabase.co/storage/v1/object/public/bank_icons/ceska_sporitelna",
-  },
-  {
-    bank: "Fio banka",
-    code: "2010",
-    img: "https://vlzmneddlwojekmklqnf.supabase.co/storage/v1/object/public/bank_icons/fio",
-  },
-  {
-    bank: "Trinity Bank",
-    code: "2070",
-    img: "https://vlzmneddlwojekmklqnf.supabase.co/storage/v1/object/public/bank_icons/trinity",
-  },
-  {
-    bank: "Banka CREDITAS",
-    code: "2250",
-    img: "https://vlzmneddlwojekmklqnf.supabase.co/storage/v1/object/public/bank_icons/creditas",
-  },
-  {
-    bank: "UniCredit Bank",
-    code: "2700",
-    img: "https://vlzmneddlwojekmklqnf.supabase.co/storage/v1/object/public/bank_icons/unicredit",
-  },
-  {
-    bank: "Air Bank",
-    code: "3030",
-    img: "https://vlzmneddlwojekmklqnf.supabase.co/storage/v1/object/public/bank_icons/air_bank",
-  },
-  {
-    bank: "Max banka",
-    code: "4000",
-    img: "https://vlzmneddlwojekmklqnf.supabase.co/storage/v1/object/public/bank_icons/max_banka?t=2023-05-22T09%3A33%3A27.549Z",
-  },
-  {
-    bank: "Raiffeisenbank",
-    code: "5500",
-    img: "https://vlzmneddlwojekmklqnf.supabase.co/storage/v1/object/public/bank_icons/raiffeisenbank?t=2023-05-22T09%3A38%3A22.551Z",
-  },
-  {
-    bank: "J&T Banka",
-    code: "5800",
-    img: "https://vlzmneddlwojekmklqnf.supabase.co/storage/v1/object/public/bank_icons/j_and_t",
-  },
-  {
-    bank: "PPF banka",
-    code: "6000",
-    img: "https://vlzmneddlwojekmklqnf.supabase.co/storage/v1/object/public/bank_icons/ppf?t=2023-05-22T09%3A32%3A13.852Z",
-  },
-  {
-    bank: "Equa Banka",
-    code: "6100",
-    img: "https://vlzmneddlwojekmklqnf.supabase.co/storage/v1/object/public/bank_icons/equa_bank",
-  },
-  {
-    bank: "mBank",
-    code: "6210",
-    img: "https://vlzmneddlwojekmklqnf.supabase.co/storage/v1/object/public/bank_icons/mbank?t=2023-05-22T09%3A37%3A40.593Z",
-  },
-];
+AutoCompleteItem.displayName = "AutoCompleteItem";
