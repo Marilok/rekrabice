@@ -20,6 +20,7 @@ import { forwardRef } from "react";
 import LandingPageWrapper from "../../components/Layouts/LandingPage/LandingPageWrapper";
 import { EmailButtons } from "../../components/SocialButtons/EmailButtons";
 import { BANK_CODES } from "../../helperData/bankCodes";
+import { EMAIL_PROVIDERS } from "../../helperData/emailProviders";
 
 export default function ReturnPackagePage() {
   const router = useRouter();
@@ -103,9 +104,7 @@ export default function ReturnPackagePage() {
 
     const email_providers =
       form.values.email.trim().length > 0 && !form.values.email.includes("@")
-        ? ["gmail.com", "seznam.cz", "email.cz", "centrum.cz"].map(
-            (provider) => `${form.values.email}@${provider}`
-          )
+        ? EMAIL_PROVIDERS.map((provider) => `${form.values.email}@${provider}`)
         : [];
 
     return (
