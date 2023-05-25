@@ -8,16 +8,11 @@ import Image from "next/image";
 import { useState } from "react";
 
 export default function StepperComponent() {
-  const [active, setActive] = useState(0);
-  const { height, width } = useViewportSize();
-  const [opened, setOpened] = useState(false);
-
-  const numberOfSteps = 4;
-
-  const nextStep = () =>
-    setActive((current) => (current < numberOfSteps ? current + 1 : current));
-  const prevStep = () =>
-    setActive((current) => (current > 0 ? current - 1 : current));
+  const [active, setActive] = useState(0),
+    { width } = useViewportSize(),
+    numberOfSteps = 4,
+    nextStep = () => setActive((current) => (current < numberOfSteps ? current + 1 : current)),
+    prevStep = () => setActive((current) => (current > 0 ? current - 1 : current));
   useHotkeys([
     ["ArrowDown", nextStep],
     ["ArrowUp", prevStep],
@@ -29,23 +24,25 @@ export default function StepperComponent() {
     ["Shift+space", prevStep],
   ]);
 
-  // const Map = dynamic(() => import("./Map/CustomMap"), {
-  //   loading: () => (
-  //     <Center className="h-full relative">
-  //       <Loader size="xl" />
-  //       <Text ml="md">Načítání mapy</Text>
-  //     </Center>
-  //   ),
-  //   ssr: false, // This line is important. It's what prevents server-side render
-  // });
+  //   const Map = dynamic(() => import("./Map/CustomMap"), {
+  //     loading: () => (
+  //       <Center className="h-full relative">
+  //         <Loader size="xl" />
+  //         <Text ml="md">Načítání mapy</Text>
+  //       </Center>
+  //     ),
+  // This line is important. It's what prevents server-side render
+  //     ssr: false,
+  //   });
 
   const Confetti = dynamic(() => import("react-confetti"), {
-    loading: () => <></>,
-    ssr: false, // This line is important. It's what prevents server-side render
-  });
-  const { scrollIntoView, targetRef } = useScrollIntoView<HTMLDivElement>({
-    offset: 60,
-  });
+      loading: () => <></>,
+      // This line is important. It's what prevents server-side render
+      ssr: false,
+    }),
+    { scrollIntoView, targetRef } = useScrollIntoView<HTMLDivElement>({
+      offset: 60,
+    });
 
   return (
     <>
@@ -90,7 +87,7 @@ export default function StepperComponent() {
                 Jak to funguje?
               </Title>
               <Text mt="sm">
-                <br></br> <br></br>
+                <br /> <br />
               </Text>
               <div className="m-auto flex justify-center mt-5 w-full h-72 relative">
                 <Image
@@ -162,29 +159,6 @@ export default function StepperComponent() {
                   priority
                 />
               </div>
-              {/*               
-              <Card
-                radius="sm"
-                className="w-[525px] h-[300px] mx-auto"
-                shadow="sm"
-                p={0}
-              >
-                <Map />
-              </Card> */}
-              {/* <Button
-                size="md"
-                mt="md"
-                onClick={() => {
-                  setOpened(true);
-                }}
-                variant="light"
-                color="green"
-                component={Link}
-                href="/mapa"
-                leftIcon={<IconMapPin size={14} />}
-              >
-                Podrobná mapa vratných míst
-              </Button> */}
             </Stepper.Step>
             <Stepper.Completed id="stepper_4">
               <Title order={2} mt="xl">
@@ -213,7 +187,9 @@ export default function StepperComponent() {
                 onClick={prevStep}
                 variant="outline"
                 fullWidth
-                className={`max-w-80 ${active == 0 ? "max-w-96 !rounded" : ""}`}
+                className={`max-w-80 ${
+                  active === 0 ? "max-w-96 !rounded" : ""
+                }`}
                 color="green"
                 id="stepper_prev"
                 leftIcon={<IconArrowLeft size={14} />}
@@ -227,11 +203,13 @@ export default function StepperComponent() {
                 color="green"
                 onClick={nextStep}
                 fullWidth
-                className={`max-w-80 ${active == 0 ? "max-w-96 !rounded" : ""}`}
+                className={`max-w-80 ${
+                  active === 0 ? "max-w-96 !rounded" : ""
+                }`}
                 rightIcon={<IconArrowRight size={14} />}
                 id="stepper_next"
               >
-                {active == 0 ? "Začít" : "Další krok"}
+                {active === 0 ? "Začít" : "Další krok"}
               </Button>
             )}
           </Button.Group>

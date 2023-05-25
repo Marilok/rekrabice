@@ -1,4 +1,4 @@
-export const heartData = [
+const HEART_LOCATION_DATA = [
   {
     lng: 16.60878173861164,
     lat: 49.19428118670652,
@@ -1004,3 +1004,4 @@ export const heartData = [
     lat: 49.19428118670652,
   },
 ];
+export default HEART_LOCATION_DATA;

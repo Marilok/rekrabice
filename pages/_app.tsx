@@ -14,11 +14,8 @@ import { useEffect, useState } from "react";
 import "../styles/globals.css";
 
 export default function App(props: AppProps & { colorScheme: ColorScheme }) {
-  const { Component, pageProps } = props;
-
-  const [colorScheme, setColorScheme] = useState<ColorScheme>(
-    props.colorScheme || "dark"
-  );
+  const { Component, pageProps } = props,
+    [colorScheme, setColorScheme] = useState<ColorScheme>(props.colorScheme || "dark");
 
   useEffect(() => {
     if (
@@ -111,7 +108,7 @@ function GoogleAnalyticsFist() {
       async
       src={`https://www.googletagmanager.com/gtag/js?id=G-7G3GVM43NK`}
       id="gtag1"
-    ></Script>
+    />
   );
 }
 function GoogleAnalyticsSecond() {

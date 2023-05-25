@@ -25,11 +25,11 @@ export default function LandingPageWrapper({
     <>
       <Head>
         <title>
-          {title && titleRemoveName == false
+          {title && titleRemoveName === false
             ? `${title} | ReKrabice`
-            : title && titleRemoveName == true
-            ? `${title}`
-            : "ReKrabice"}
+            : title && titleRemoveName === true
+              ? `${title}`
+              : "ReKrabice"}
         </title>
         <meta
           name="description"
@@ -62,97 +62,96 @@ export default function LandingPageWrapper({
 }
 
 const FOOTER_DATA = [
-  {
-    title: "Rozcestník",
-    links: [
-      // {
-      //   label: "Kde ji vrátit?",
-      //   link: "/mapa",
-      // },
-      {
-        label: "Jak to funguje?",
-        link: "/",
-      },
-      {
-        label: "Napsali o nás",
-        link: "napsali-o-nas",
-      },
-    ],
-  },
-  // {
-  //   title: "Pro firmy",
-  //   links: [
-  //     {
-  //       label: "Co to je?",
-  //       link: "/pro-firmy",
-  //     },
-  //   ],
-  // },
-  {
-    title: "O nás",
-    links: [
-      {
-        label: "O projektu",
-        link: "o-nas",
-      },
-      // {
-      //   label: "/baleni",
-      //   link: "/baleni",
-      // },
-      {
-        label: "Kontakty",
-        link: "/kontakt",
-      },
-    ],
-  },
-];
+    {
+      title: "Rozcestník",
+      links: [
+        // {
+        //   label: "Kde ji vrátit?",
+        //   link: "/mapa",
+        // },
+        {
+          label: "Jak to funguje?",
+          link: "/",
+        },
+        {
+          label: "Napsali o nás",
+          link: "napsali-o-nas",
+        },
+      ],
+    },
+    // {
+    //   title: "Pro firmy",
+    //   links: [
+    //     {
+    //       label: "Co to je?",
+    //       link: "/pro-firmy",
+    //     },
+    //   ],
+    // },
+    {
+      title: "O nás",
+      links: [
+        {
+          label: "O projektu",
+          link: "o-nas",
+        },
+        // {
+        //   label: "/baleni",
+        //   link: "/baleni",
+        // },
+        {
+          label: "Kontakty",
+          link: "/kontakt",
+        },
+      ],
+    },
+  ],
+  HEADER_DATA = [
+    {
+      link: "/",
+      label: "Jak to funguje?",
+    },
+    // {
+    //   link: "/pro-firmy",
+    //   label: "Pro firmy",
+    // },
 
-const HEADER_DATA = [
-  {
-    link: "/",
-    label: "Jak to funguje?",
-  },
-  // {
-  //   link: "/pro-firmy",
-  //   label: "Pro firmy",
-  // },
-
-  // {
-  //   link: "/obchod",
-  //   label: "Pro obchody",
-  //   links: [
-  //     {
-  //       link: "/otoc",
-  //       label: "Jak to funguje?",
-  //     },
-  //     // {
-  //     //   link: "/krabice",
-  //     //   label: "Krabice",
-  //     // },
-  //     // {
-  //     //   link: "/cenik",
-  //     //   label: "Ceník",
-  //     // },
-  //     {
-  //       link: "/kontakt",
-  //       label: "Kontakt",
-  //     },
-  //   ],
-  // },
-  // {
-  //   link: "/statistika",
-  //   label: "Statistika",
-  // },
-  {
-    link: "/o-nas",
-    label: "O nás",
-  },
-  {
-    link: "/napsali-o-nas",
-    label: "Napsali o nás",
-  },
-  {
-    link: "/kontakt",
-    label: "Kontakt",
-  },
-];
+    // {
+    //   link: "/obchod",
+    //   label: "Pro obchody",
+    //   links: [
+    //     {
+    //       link: "/otoc",
+    //       label: "Jak to funguje?",
+    //     },
+    //     // {
+    //     //   link: "/krabice",
+    //     //   label: "Krabice",
+    //     // },
+    //     // {
+    //     //   link: "/cenik",
+    //     //   label: "Ceník",
+    //     // },
+    //     {
+    //       link: "/kontakt",
+    //       label: "Kontakt",
+    //     },
+    //   ],
+    // },
+    // {
+    //   link: "/statistika",
+    //   label: "Statistika",
+    // },
+    {
+      link: "/o-nas",
+      label: "O nás",
+    },
+    {
+      link: "/napsali-o-nas",
+      label: "Napsali o nás",
+    },
+    {
+      link: "/kontakt",
+      label: "Kontakt",
+    },
+  ];

@@ -1,4 +1,4 @@
-import { Accordion, MediaQuery, Navbar, Stack } from "@mantine/core";
+import {Accordion, MediaQuery, Navbar, Stack} from "@mantine/core";
 import Link from "next/link";
 
 export default function CustomNavbar({
@@ -48,9 +48,9 @@ export default function CustomNavbar({
   });
 
   return (
-    <MediaQuery largerThan="sm" styles={{ display: "none", width: 0 }}>
+    <MediaQuery largerThan="sm" styles={{display: "none", width: 0}}>
       <Navbar
-        width={{ base: 300 }}
+        width={{base: 300}}
         p="xs"
         hidden={!isOpen}
         hiddenBreakpoint="sm"

@@ -25,8 +25,8 @@ import {
   IconX,
 } from "@tabler/icons-react";
 import { useState } from "react";
-import { social } from "../../helperData/socials";
-import { ContactIconsList } from "./ContactIcons";
+import SOCIALS from "../../data/socials";
+import ContactIconsList from "./ContactIcons";
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -113,9 +113,8 @@ const useStyles = createStyles((theme) => ({
 }));
 
 export default function ContactUs() {
-  const { classes } = useStyles();
-
-  const [loading, setLoading] = useState(false);
+  const { classes } = useStyles(),
+    [loading, setLoading] = useState(false);
 
   async function sendMsg(values: any) {
     try {
@@ -171,30 +170,29 @@ export default function ContactUs() {
   }
 
   const form = useForm({
-    initialValues: {
-      mail: "",
-      name: "",
-      msg: "",
-    },
+      initialValues: {
+        mail: "",
+        name: "",
+        msg: "",
+      },
 
-    validate: {
-      mail: (value) => (/^\S+@\S+$/.test(value) ? null : "Chybička v emailu"),
-    },
-  });
-
-  const icons = social.map((item, index) => (
-    <ActionIcon
-      size="lg"
-      className={classes.social}
-      variant="transparent"
-      component="a"
-      key={index}
-      href={item.url}
-      target="_blank"
-    >
-      <item.icon stroke={1.5} />
-    </ActionIcon>
-  ));
+      validate: {
+        mail: (value) => (/^\S+@\S+$/.test(value) ? null : "Chybička v emailu"),
+      },
+    }),
+    icons = SOCIALS.map((item, index) => (
+      <ActionIcon
+        size="lg"
+        className={classes.social}
+        variant="transparent"
+        component="a"
+        key={index}
+        href={item.url}
+        target="_blank"
+      >
+        <item.icon stroke={1.5} />
+      </ActionIcon>
+    ));
 
   return (
     <>
@@ -291,45 +289,44 @@ export default function ContactUs() {
   );
 }
 const contactData = [
-  {
-    title: "Email",
-    description: "marek.svitek@rekrabice.cz",
-    icon: IconAt,
-    // type: "mail",
-  },
-  // {
-  //   title: "Telefon",
-  //   description: "(+420) 777 777 777",
-  //   icon: IconPhone,
-  //   // type: "phone",
-  // },
-  {
-    title: "Sídlo",
-    description: "Zatím hledáme (v Brně)",
-    icon: IconMapPin,
-    // type: "place",
-  },
-  // { title: "Pracovní doba", description: "8:00 - 12:00", icon: IconSun },
-];
-
-const legalData = [
-  {
-    title: "Sídlo",
-    description: "Čermákova 2040/55, Velké Meziříčí, 59401",
-    icon: IconMapPin,
-    // type: "place",
-  },
-  { title: "IČO", description: "17455235", icon: IconSectionSign },
-  // {
-  //   title: "Zápis do OR",
-  //   description:
-  //     "Společnost Zelená firma s.r.o. je zapsána v OR vedeném Krajským soudem v Brně, oddíl A, vložka 00000.",
-  //   icon: IconGavel,
-  // },
-  {
-    title: "Zápis",
-    description:
-      "Zapsaný v živnostenském rejstříku u Městského úřadu Velké Meziříčí",
-    icon: IconGavel,
-  },
-];
+    {
+      title: "Email",
+      description: "marek.svitek@rekrabice.cz",
+      icon: IconAt,
+      // type: "mail",
+    },
+    // {
+    //   title: "Telefon",
+    //   description: "(+420) 777 777 777",
+    //   icon: IconPhone,
+    //   // type: "phone",
+    // },
+    {
+      title: "Sídlo",
+      description: "Zatím hledáme (v Brně)",
+      icon: IconMapPin,
+      // type: "place",
+    },
+    // { title: "Pracovní doba", description: "8:00 - 12:00", icon: IconSun },
+  ],
+  legalData = [
+    {
+      title: "Sídlo",
+      description: "Čermákova 2040/55, Velké Meziříčí, 59401",
+      icon: IconMapPin,
+      // type: "place",
+    },
+    { title: "IČO", description: "17455235", icon: IconSectionSign },
+    // {
+    //   title: "Zápis do OR",
+    //   description:
+    //     "Společnost Zelená firma s.r.o. je zapsána v OR vedeném Krajským soudem v Brně, oddíl A, vložka 00000.",
+    //   icon: IconGavel,
+    // },
+    {
+      title: "Zápis",
+      description:
+        "Zapsaný v živnostenském rejstříku u Městského úřadu Velké Meziříčí",
+      icon: IconGavel,
+    },
+  ];

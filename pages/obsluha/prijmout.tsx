@@ -7,18 +7,16 @@ export default function Obsluha() {
     initialValues: { pin: "" },
 
     validate: {
-      pin: (value: string) =>
-        value.length < 8 ? "Označení má přesně 8 znaků." : null,
+      pin: (value: string) => (value.length < 8 ? "Označení má přesně 8 znaků." : null),
     },
 
     transformValues: (values) => ({
       pin: values.pin.toLocaleUpperCase(),
     }),
-  });
-
-  const handlePinChange = (value: string) => {
-    form.setValues({ pin: value.toUpperCase() });
-  };
+  }),
+    handlePinChange = (value: string) => {
+      form.setValues({ pin: value.toUpperCase() });
+    };
 
   return (
     <ObsluhaWrapper title="Obsluha">
@@ -46,5 +44,5 @@ export default function Obsluha() {
 }
 
 interface FormValues {
-  pin: string;
+	pin: string;
 }

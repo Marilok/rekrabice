@@ -4,11 +4,11 @@ import { useEffect, useState } from "react";
 import { MapContainer, Marker, Polygon, TileLayer } from "react-leaflet";
 // import "react-leaflet-markercluster/dist/styles.min.css";
 import L from "leaflet";
-import { supabase } from "../../lib/supabaseClient";
+import supabase from "../../lib/supabaseClient";
 import CustomPopup from "./CustomPopup";
-import { heartData } from "./heartData";
-import { myIcon } from "./Marker";
+import myIcon from "./Marker";
 import MarkerClusterGroup from "./MarkerClusterGroup";
+import HEART_LOCATION_DATA from "./heartData";
 // TODO1: Add GeoJSON data to the map
 // @ts-ignore
 // TODO3: change marker icon
@@ -20,6 +20,7 @@ export default function CustomMap() {
   async function getShopsLocations() {
     try {
       const { data, error } = await supabase.rpc("get_shops_locations");
+      alert(error.message);
 
       if (data) {
         setLocations(data);
@@ -28,7 +29,6 @@ export default function CustomMap() {
     } catch (error: any) {
       // console.log(error);
       alert(error.message);
-    } finally {
     }
   }
   const createClusterCustomIcon = (cluster: any) => {
@@ -42,9 +42,9 @@ export default function CustomMap() {
     } else if (count >= 100 && count < 500) {
       size = "Large";
     }
-    const options = {
-      cluster: `markerCluster${size}`,
-    };
+    // const options = {
+    //   cluster: `markerCluster${size}`,
+    // };
 
     // return L.divIcon({
     //   html: `<div>
@@ -103,7 +103,7 @@ export default function CustomMap() {
     </MapContainer>
   );
 }
-const shapes = [heartData];
+const shapes = [HEART_LOCATION_DATA];
 
 // export async function getServerSideProps() {
 //   console.log(supabase);

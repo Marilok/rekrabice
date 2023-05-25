@@ -7,17 +7,17 @@ export default function Obsluha() {
   return (
     <ObsluhaWrapper title="Obsluha">
       <Text>
-        Je už přepravka plná? Tak nám ji prosím odešlete tímto způsobem:
+				Je už přepravka plná? Tak nám ji prosím odešlete tímto způsobem:
       </Text>
       <List type="ordered">
         <List.Item>Zavřete přepravku s uskladněnými ReKrabicemi</List.Item>
         <List.Item>
-          Do&nbsp;
+					Do&nbsp;
           <Anchor href="https://admin.packeta.com/sign/in" target="_blank">
-            systému Zásilkovny
+						systému Zásilkovny
           </Anchor>
-          &nbsp; zadejte kód
-          <span className="font-bold"></span>
+					&nbsp; zadejte kód
+          <span className="font-bold" />
           <CopyButton value={RETURN_CODE} timeout={2000}>
             {({ copied, copy }) => (
               <Tooltip

@@ -6,6 +6,7 @@ import {
   IconSectionSign,
   IconSun,
 } from "@tabler/icons-react";
+import React from "react";
 
 type ContactIconVariant = "white" | "gradient" | "legal";
 
@@ -25,13 +26,13 @@ const useStyles = createStyles((theme, { variant }: ContactIconStyles) => ({
     backgroundImage:
       variant === "gradient"
         ? `linear-gradient(135deg, ${theme.colors[theme.primaryColor][4]} 0%, ${
-            theme.colors[theme.primaryColor][6]
-          } 100%)`
+          theme.colors[theme.primaryColor][6]
+        } 100%)`
         : variant === "legal"
-        ? `linear-gradient(135deg, ${theme.colors[theme.primaryColor][4]} 0%, ${
+          ? `linear-gradient(135deg, ${theme.colors[theme.primaryColor][4]} 0%, ${
             theme.colors[theme.primaryColor][6]
           } 100%)`
-        : "none",
+          : "none",
     backgroundColor: "transparent",
     color: theme.white,
   },
@@ -41,8 +42,8 @@ const useStyles = createStyles((theme, { variant }: ContactIconStyles) => ({
       variant === "gradient"
         ? theme.colors.gray[6]
         : variant === "white"
-        ? theme.colors[theme.primaryColor][0]
-        : "",
+          ? theme.colors[theme.primaryColor][0]
+          : "",
   },
 
   description: {
@@ -50,8 +51,8 @@ const useStyles = createStyles((theme, { variant }: ContactIconStyles) => ({
       variant === "gradient"
         ? theme.black
         : variant === "white"
-        ? theme.white
-        : "",
+          ? theme.white
+          : "",
   },
 }));
 
@@ -117,7 +118,7 @@ const MOCKDATA = [
   { title: "IČO", description: "87654321", icon: IconSectionSign },
 ];
 
-export function ContactIconsList({
+export default function ContactIconsList({
   data = MOCKDATA,
   variant,
 }: ContactIconsListProps) {
@@ -126,31 +127,3 @@ export function ContactIconsList({
   ));
   return <Stack>{items}</Stack>;
 }
-
-// export function ContactIcons() {
-//   return (
-//     <SimpleGrid cols={2} breakpoints={[{ maxWidth: 755, cols: 1 }]}>
-//       <Box
-//         sx={(theme) => ({
-//           padding: theme.spacing.xl,
-//           borderRadius: theme.radius.md,
-//           backgroundColor: theme.white,
-//         })}
-//       >
-//         <ContactIconsList />
-//       </Box>
-
-//       <Box
-//         sx={(theme) => ({
-//           padding: theme.spacing.xl,
-//           borderRadius: theme.radius.md,
-//           backgroundImage: `linear-gradient(135deg, ${
-//             theme.colors[theme.primaryColor][6]
-//           } 0%, ${theme.colors[theme.primaryColor][4]} 100%)`,
-//         })}
-//       >
-//         <ContactIconsList variant="white" />
-//       </Box>
-//     </SimpleGrid>
-//   );
-// }

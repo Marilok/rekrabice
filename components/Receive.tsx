@@ -12,7 +12,7 @@
 // } from "@mantine/notifications";
 // import { IconCheck, IconX } from "@tabler/icons-react";
 // import { Database } from "../database.types";
-// // import { UserButton } from "./UserButton/UserButton";
+// // import UserButton from "./UserButton/UserButton";
 
 // export default function Receive({ session }: any) {
 //   const [loading, setLoading] = useState(false);

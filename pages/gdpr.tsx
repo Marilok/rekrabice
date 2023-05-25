@@ -67,7 +67,7 @@ export default function Gdpr() {
             </p>
           </div>
           <div>
-            <Title order={2}></Title>
+            <Title order={2} />
             <Text>
               Vaše data zůstanou u nás. Přesto pro nás pracují některé
               společnosti nebo jiné osoby, které se k datům dostanou proto, že
@@ -82,7 +82,7 @@ export default function Gdpr() {
             {/* <Text>Vaše osobní údaje se dále mohou dostat k těmto dalším subjektům:</Text> */}
             <Text>Osobní údaje zpracováváme pouze na území Evropské unie.</Text>
           </div>
-         
+
           <div>
             <Title order={2}>IV. Používání souborů cookies</Title>
             <Text>

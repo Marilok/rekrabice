@@ -30,8 +30,8 @@ import StepperComponent from "../components/StepperComponent";
 // import Image from 'next/image'
 
 export default function LandingPage() {
-  const [opened, setOpened] = useState(false);
-  const { classes } = useStylesHero();
+  const [opened, setOpened] = useState(false),
+    { classes } = useStylesHero();
   return (
     <LandingPageWrapper
       styles={() => ({
@@ -40,7 +40,7 @@ export default function LandingPage() {
         },
       })}
       title="ReKrabice - zálohovaná krabice pro online nákupy"
-      titleRemoveName={true}
+      titleRemoveName
       description="Nestav doma věže z kartonových krabic. Všechny ReKrabice můžeš vrátit a ušetřit tak našim lesům. A to zcela zdarma! 🌲"
     >
       {/* <HeroBullets /> */}
@@ -90,7 +90,7 @@ export default function LandingPage() {
                 variant="gradient"
                 gradient={{ from: "green", to: "teal" }}
                 size="xl"
-                className={classes.control + " " + ""}
+                className={`${classes.control} ` + ``}
                 mt={40}
                 onClick={() => setOpened(true)}
                 id="signup_hero_open"
@@ -107,7 +107,6 @@ export default function LandingPage() {
 }
 
 function ComponentUno() {
-  const { classes } = useStyles();
   return (
     <>
       <Space h="xl" />
@@ -226,20 +225,17 @@ function EmailInput({ id }: { id: string }) {
   }
 
   const form = useForm({
-    initialValues: { mail: "" },
+      initialValues: { mail: "" },
 
-    // functions will be used to validate values at corresponding key
-    validate: {
-      mail: (value) => (/^\S+@\S+$/.test(value) ? null : "Překlep v mailu"),
-    },
-  });
-
-  const data =
-    form.values.mail.trim().length > 0 && !form.values.mail.includes("@")
-      ? ["gmail.com", "seznam.cz", "email.cz", "centrum.cz"].map(
-          (provider) => `${form.values.mail}@${provider}`
-        )
-      : [];
+      // functions will be used to validate values at corresponding key
+      validate: {
+        mail: (value) => (/^\S+@\S+$/.test(value) ? null : "Překlep v mailu"),
+      },
+    }),
+    data =
+      form.values.mail.trim().length > 0 && !form.values.mail.includes("@")
+        ? ["gmail.com", "seznam.cz", "email.cz", "centrum.cz"].map((provider) => `${form.values.mail}@${provider}`)
+        : [];
   return (
     <form onSubmit={form.onSubmit((values) => sendMsg(values))}>
       <Autocomplete
@@ -377,89 +373,90 @@ function Faq() {
 }
 
 const useStyles = createStyles((theme) => ({
-  title: {
-    marginBottom: `calc(${theme.spacing.xl} * 1.5)`,
-  },
-
-  item: {
-    borderRadius: theme.radius.md,
-    border: `1px solid ${
-      theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.gray[3]
-    }`,
-  },
-}));
-
-const useStylesHero = createStyles((theme) => ({
-  root: {
-    backgroundColor: "#11284b",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundImage:
-      "linear-gradient(250deg, rgba(130, 201, 30, 0) 0%, #062343 70%), url(https://images.unsplash.com/photo-1558710763-9791081edd44?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80)",
-    paddingTop: `calc(${theme.spacing.xl} * 3)`,
-    paddingBottom: `calc(${theme.spacing.xl} * 3)`,
-  },
-
-  inner: {
-    display: "flex",
-    justifyContent: "space-between",
-
-    [theme.fn.smallerThan("md")]: {
-      flexDirection: "column",
+    title: {
+      marginBottom: `calc(${theme.spacing.xl} * 1.5)`,
     },
-  },
 
-  image: {
-    [theme.fn.smallerThan("md")]: {
-      display: "none",
+    item: {
+      borderRadius: theme.radius.md,
+      border: `1px solid ${
+        theme.colorScheme === "dark"
+          ? theme.colors.dark[4]
+          : theme.colors.gray[3]
+      }`,
     },
-  },
-
-  content: {
-    paddingTop: `calc(${theme.spacing.xl} * 2)`,
-    paddingBottom: `calc(${theme.spacing.xl} * 2)`,
-    marginRight: `calc(${theme.spacing.xl} * 3)`,
-
-    [theme.fn.smallerThan("md")]: {
-      marginRight: 0,
+  })),
+  useStylesHero = createStyles((theme) => ({
+    root: {
+      backgroundColor: "#11284b",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundImage:
+        "linear-gradient(250deg, rgba(130, 201, 30, 0) 0%, #062343 70%), url(https://images.unsplash.com/photo-1558710763-9791081edd44?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80)",
+      paddingTop: `calc(${theme.spacing.xl} * 3)`,
+      paddingBottom: `calc(${theme.spacing.xl} * 3)`,
     },
-  },
 
-  title: {
-    color: theme.white,
-    fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-    fontWeight: 900,
-    lineHeight: 1.05,
-    maxWidth: 600,
-    fontSize: 48,
+    inner: {
+      display: "flex",
+      justifyContent: "space-between",
 
-    [theme.fn.smallerThan("md")]: {
-      maxWidth: "100%",
-      fontSize: 32,
-      lineHeight: 1.15,
-      textAlign: "center",
+      [theme.fn.smallerThan("md")]: {
+        flexDirection: "column",
+      },
     },
-  },
 
-  description: {
-    color: theme.white,
-    opacity: 0.75,
-    maxWidth: 550,
-
-    [theme.fn.smallerThan("md")]: {
-      maxWidth: "100%",
-      textAlign: "center",
+    image: {
+      [theme.fn.smallerThan("md")]: {
+        display: "none",
+      },
     },
-  },
 
-  control: {
-    paddingLeft: 50,
-    paddingRight: 50,
-    fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-    fontSize: 22,
+    content: {
+      paddingTop: `calc(${theme.spacing.xl} * 2)`,
+      paddingBottom: `calc(${theme.spacing.xl} * 2)`,
+      marginRight: `calc(${theme.spacing.xl} * 3)`,
 
-    [theme.fn.smallerThan("md")]: {
-      width: "100%",
+      [theme.fn.smallerThan("md")]: {
+        marginRight: 0,
+      },
     },
-  },
-}));
+
+    title: {
+      color: theme.white,
+      fontFamily: `Greycliff CF, ${theme.fontFamily}`,
+      fontWeight: 900,
+      lineHeight: 1.05,
+      maxWidth: 600,
+      fontSize: 48,
+
+      [theme.fn.smallerThan("md")]: {
+        maxWidth: "100%",
+        fontSize: 32,
+        lineHeight: 1.15,
+        textAlign: "center",
+      },
+    },
+
+    description: {
+      color: theme.white,
+      opacity: 0.75,
+      maxWidth: 550,
+
+      [theme.fn.smallerThan("md")]: {
+        maxWidth: "100%",
+        textAlign: "center",
+      },
+    },
+
+    control: {
+      paddingLeft: 50,
+      paddingRight: 50,
+      fontFamily: `Greycliff CF, ${theme.fontFamily}`,
+      fontSize: 22,
+
+      [theme.fn.smallerThan("md")]: {
+        width: "100%",
+      },
+    },
+  }));

@@ -4,10 +4,10 @@ import {
   Container,
   createStyles,
   Group,
-  Text
+  Text,
 } from "@mantine/core";
 import Link from "next/link";
-import { social } from "../../../helperData/socials";
+import SOCIALS from "../../../data/socials";
 
 const useStyles = createStyles((theme) => ({
   footer: {
@@ -15,9 +15,9 @@ const useStyles = createStyles((theme) => ({
     paddingTop: `calc(${theme.spacing.xl} * 2)`,
     paddingBottom: `calc(${theme.spacing.xl} * 2)`,
     backgroundColor:
-      theme.colorScheme === "dark"
-        ? theme.colors.dark[6]
-        : theme.colors.gray[0],
+			theme.colorScheme === "dark"
+			  ? theme.colors.dark[6]
+			  : theme.colors.gray[0],
     borderTop: `1px solid ${
       theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[2]
     }`,
@@ -68,9 +68,9 @@ const useStyles = createStyles((theme) => ({
   link: {
     display: "block",
     color:
-      theme.colorScheme === "dark"
-        ? theme.colors.dark[1]
-        : theme.colors.gray[6],
+			theme.colorScheme === "dark"
+			  ? theme.colors.dark[1]
+			  : theme.colors.gray[6],
     fontSize: theme.fontSizes.sm,
     paddingTop: 3,
     paddingBottom: 3,
@@ -112,35 +112,34 @@ const useStyles = createStyles((theme) => ({
 }));
 
 interface FooterLinksProps {
-  data: {
-    title: string;
-    links: { label: string; link: string }[];
-  }[];
+	data: {
+		title: string;
+		links: { label: string; link: string }[];
+	}[];
 }
 
 export default function Footer({ data }: FooterLinksProps) {
-  const { classes } = useStyles();
+  const { classes } = useStyles(),
+    groups = data.map((group) => {
+      const links = group.links.map((link, index) => (
+        <Text
+          className={classes.link}
+          component={Link}
+          href={link.link}
+          key={index}
+          passHref
+        >
+          {link.label}
+        </Text>
+      ));
 
-  const groups = data.map((group) => {
-    const links = group.links.map((link, index) => (
-      <Text
-        className={classes.link}
-        component={Link}
-        href={link.link}
-        key={index}
-        passHref
-      >
-        {link.label}
-      </Text>
-    ));
-
-    return (
-      <div className={classes.wrapper} key={group.title}>
-        <Text className={classes.title}>{group.title}</Text>
-        {links}
-      </div>
-    );
-  });
+      return (
+        <div className={classes.wrapper} key={group.title}>
+          <Text className={classes.title}>{group.title}</Text>
+          {links}
+        </div>
+      );
+    });
 
   return (
     <footer className={classes.footer}>
@@ -148,22 +147,22 @@ export default function Footer({ data }: FooterLinksProps) {
         <div className={classes.logo}>
           <Avatar src="/favicon.svg" size={30} alt="logo icon" />
           <Text size="xs" color="dimmed" className={classes.description}>
-            Přestaňme si posílat odpad.
+						Přestaňme si posílat odpad.
           </Text>
         </div>
         <div className={classes.groups}>{groups}</div>
       </Container>
       <Container className={classes.afterFooter}>
         <Text color="dimmed" size="sm">
-          &copy; <span>{new Date().getFullYear()}</span> Zatím hledáme jméno
-          s.r.o.
+					&copy; <span>{new Date().getFullYear()}</span> Zatím hledáme jméno
+					s.r.o.
         </Text>
         <Text color="dimmed" size="sm">
-          Vytvořeno s ❤️ ke 🌲 v Česku.
+					Vytvořeno s ❤️ ke 🌲 v Česku.
         </Text>
 
         <Group spacing={0} className={classes.social} position="right" noWrap>
-          {social.map((item, index) => (
+          {SOCIALS.map((item, index) => (
             <ActionIcon
               size="lg"
               className={classes.social}

@@ -1,26 +1,28 @@
 import {
-  Anchor, Container,
+  Anchor,
+  Container,
   List,
   Table,
   Text,
-  Title, TypographyStylesProvider
+  Title,
+  TypographyStylesProvider,
 } from "@mantine/core";
 
 import LandingPageWrapper from "../components/Layouts/LandingPage/LandingPageWrapper";
 
 export default function Cookies() {
   const rowsEssential = ESSENTIAL.map((element) => (
-    <tr key={element.name}>
-      <td>{element.name}</td>
-      <td>{element.purpose}</td>
-    </tr>
-  ));
-  const rowsOptional = OPTIONAL.map((element) => (
-    <tr key={element.name}>
-      <td>{element.name}</td>
-      <td>{element.purpose}</td>
-    </tr>
-  ));
+      <tr key={element.name}>
+        <td>{element.name}</td>
+        <td>{element.purpose}</td>
+      </tr>
+    )),
+    rowsOptional = OPTIONAL.map((element) => (
+      <tr key={element.name}>
+        <td>{element.name}</td>
+        <td>{element.purpose}</td>
+      </tr>
+    ));
 
   return (
     <LandingPageWrapper title="Cookies">
@@ -102,35 +104,23 @@ export default function Cookies() {
             omezíte fungování našich stránek a je potřeba počítat s tím, že
             nebudete mít možnost využívat všech našich funkcí včetně přihlášení.
             Návody pro běžné prohlížeče:{" "}
-                 <Anchor
-
-              href="https://support.google.com/accounts/answer/61416?hl=cs"
-            >
+            <Anchor href="https://support.google.com/accounts/answer/61416?hl=cs">
               Chrome
             </Anchor>
             ,&nbsp;
-            <Anchor
-              href="http://support.mozilla.org/cs/kb/Pr%C3%A1ce%20s%20cookies"
-            >
+            <Anchor href="http://support.mozilla.org/cs/kb/Pr%C3%A1ce%20s%20cookies">
               Firefox
             </Anchor>
             ,&nbsp;
-             <Anchor
-              href="http://support.microsoft.com/kb/283185/cs"
-            >
+            <Anchor href="http://support.microsoft.com/kb/283185/cs">
               Internet Explorer
             </Anchor>
             ,&nbsp;
-               <Anchor
-
-              href="https://support.google.com/chrome/answer/2392709?visit_id=1-636270856459123937-2696746637&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;rd=1&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;co=GENIE.Platform%3DAndroid&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;oco=1"
-            >
+            <Anchor href="https://support.google.com/chrome/answer/2392709?visit_id=1-636270856459123937-2696746637&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;rd=1&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;co=GENIE.Platform%3DAndroid&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;oco=1">
               Android
             </Anchor>
             &nbsp;nebo&nbsp;
-            <Anchor
-              href="https://support.google.com/accounts/answer/61416?hl=cs&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;co=GENIE.Platform%3DiOS&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;oco=1"
-            >
+            <Anchor href="https://support.google.com/accounts/answer/61416?hl=cs&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;co=GENIE.Platform%3DiOS&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;oco=1">
               iPhone a iPad
             </Anchor>
             .
@@ -142,9 +132,9 @@ export default function Cookies() {
 }
 
 const ESSENTIAL = [
-  { name: "mantine-color-scheme", purpose: "Pro ukládání barevného režimu." },
-];
-const OPTIONAL = [
-  { name: "_ga", purpose: "Pro statistické účely." },
-  { name: "_ga_<container-id>", purpose: "Pro statistické účely." },
-];
+    { name: "mantine-color-scheme", purpose: "Pro ukládání barevného režimu." },
+  ],
+  OPTIONAL = [
+    { name: "_ga", purpose: "Pro statistické účely." },
+    { name: "_ga_<container-id>", purpose: "Pro statistické účely." },
+  ];

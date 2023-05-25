@@ -1,4 +1,4 @@
-export const boatData = [
+const BOATS_LOCATION_DATA = [
   [
     [16.511064330469708, 49.23813072376262],
     [16.511064330469708, 49.23829455348036],
@@ -262,3 +262,5 @@ export const boatData = [
     [16.515542991903402, 49.23576279720774],
   ],
 ];
+
+export default BOATS_LOCATION_DATA;

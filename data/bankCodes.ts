@@ -3,7 +3,7 @@ export interface BankCode {
   code: string;
   img: string;
 }
-export const BANK_CODES: BankCode[] = [
+const BANK_CODES: BankCode[] = [
     {
       bank: "Komerční banka",
       code: "0100",
@@ -80,3 +80,5 @@ export const BANK_CODES: BankCode[] = [
       img: "https://vlzmneddlwojekmklqnf.supabase.co/storage/v1/object/public/bank_icons/mbank?t=2023-05-22T09%3A37%3A40.593Z",
     },
   ];
+
+  export default BANK_CODES;

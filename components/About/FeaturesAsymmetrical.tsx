@@ -1,5 +1,6 @@
 import { Container, createStyles, SimpleGrid, Text } from "@mantine/core";
 import { IconCertificate, IconCoin, IconTruck } from "@tabler/icons-react";
+import React from "react";
 
 const useStyles = createStyles((theme) => ({
   feature: {
@@ -90,8 +91,12 @@ const mockdata = [
   },
 ];
 
-export function FeaturesAsymmetrical({ data = mockdata }) {
-  const items = data.map((item) => <Feature {...item} key={item.title} />);
+export default function FeaturesAsymmetrical({
+  data = mockdata,
+}: {
+  data: any;
+}) {
+  const items = data.map((item: any) => <Feature {...item} key={item.title} />);
 
   return (
     <Container mt={30} mb={30} size="lg">

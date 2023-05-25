@@ -7,6 +7,7 @@ import {
   UnstyledButtonProps,
 } from "@mantine/core";
 import { IconChevronRight } from "@tabler/icons-react";
+import React from "react";
 
 const useStyles = createStyles((theme) => ({
   user: {
@@ -31,7 +32,7 @@ interface UserButtonProps extends UnstyledButtonProps {
   icon?: React.ReactNode;
 }
 
-export function UserButton({
+export default function UserButton({
   image,
   name,
   email,

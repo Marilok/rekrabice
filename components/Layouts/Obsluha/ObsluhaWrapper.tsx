@@ -6,23 +6,19 @@ export default function ObsluhaWrapper({
   children,
   title,
   titleRemoveName = false,
-  styles,
   description,
 }: {
   children?: any;
   title?: string;
   titleRemoveName?: boolean;
-  styles?: any;
   description?: string;
 }) {
   return (
     <>
       <Head>
         <title>
-          {title && titleRemoveName == false
-            ? `${title} | ReKrabice`
-            : title && titleRemoveName == true
-            ? `${title}`
+          {title
+            ? `${title} ${!titleRemoveName && "| ReKrabice"}`
             : "ReKrabice"}
         </title>
         <meta
@@ -32,7 +28,7 @@ export default function ObsluhaWrapper({
       </Head>
       <AppShell
         navbar={<StyledNavbar />}
-        styles={(theme) => ({
+        styles={() => ({
           main: {
             display: "flex",
             justifyContent: "center",

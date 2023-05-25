@@ -4,7 +4,7 @@ import {
   IconBrandLinkedin
 } from "@tabler/icons-react";
 
-export const social = [
+const SOCIALS = [
   {
     icon: IconBrandLinkedin,
     url: "https://www.linkedin.com/company/rekrabice",
@@ -13,3 +13,5 @@ export const social = [
   { icon: IconBrandInstagram, url: "https://www.instagram.com/rekrabice.cz/", label: "Instagram" },
   { icon: IconBrandFacebook, url: "https://www.facebook.com/rekrabice/", label: "Facebook" },
 ];
+
+export default SOCIALS;

@@ -1,7 +1,8 @@
+import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
 // @ts-ignore
-export const myIcon = new L.divIcon({
+const myIcon = new L.divIcon({
   html: `
 <svg
    xmlns="http://www.w3.org/2000/svg"
@@ -26,3 +27,5 @@ export const myIcon = new L.divIcon({
   iconSize: [32, 32],
   className: "transparent border-none",
 });
+
+export default myIcon;

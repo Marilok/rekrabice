@@ -1,12 +1,12 @@
 import {
-    Button,
-    Container,
-    createStyles,
-    Paper,
-    Space,
-    Text,
-    TextInput,
-    Title
+  Button,
+  Container,
+  createStyles,
+  Paper,
+  Space,
+  Text,
+  TextInput,
+  Title,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { IconCheck, IconSend } from "@tabler/icons-react";
@@ -34,35 +34,32 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export default function Auth({ supabase }) {
-  const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
-  const [email, setEmail] = useState("");
-  const form = useForm({
-    initialValues: {
-      email: "",
-    },
+export default function Auth({ supabase }: { supabase: any }) {
+  const [loading, setLoading] = useState(false),
+    [success, setSuccess] = useState(false),
+    form = useForm({
+      initialValues: {
+        email: "",
+      },
 
-    validate: {
-      email: (value) => (/^\S+@\S+$/.test(value) ? null : "Chybný email"),
-    },
-  });
-
-  const { classes } = useStyles();
-
-  const handleLogin = async (email) => {
-    try {
-      setLoading(true);
-      const { error } = await supabase.auth.signIn({ email });
-      if (error) throw error;
-      setSuccess(true);
-      // alert("Hurá, link už je ve Vaší poště!!");
-    } catch (error) {
-      alert(error.error_description || error.message);
-    } finally {
-      setLoading(false);
-    }
-  };
+      validate: {
+        email: (value) => (/^\S+@\S+$/.test(value) ? null : "Chybný email"),
+      },
+    }),
+    { classes } = useStyles(),
+    handleLogin = async (email: string) => {
+      try {
+        setLoading(true);
+        const { error } = await supabase.auth.signIn({ email });
+        if (error) throw error;
+        setSuccess(true);
+        // alert("Hurá, link už je ve Vaší poště!!");
+      } catch (error: any) {
+        alert(error.error_description || error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
 
   return (
     <Container size={460} my={30}>
@@ -83,8 +80,6 @@ export default function Auth({ supabase }) {
             label="Email"
             placeholder="krteček@seznam.cz"
             required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
             {...form.getInputProps("email")}
           />
           <Space h="xs" />
