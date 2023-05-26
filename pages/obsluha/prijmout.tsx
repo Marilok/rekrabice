@@ -1,25 +1,26 @@
 import { Button, PinInput, Stack, Text } from "@mantine/core";
 import { useForm } from "@mantine/form";
-import ObsluhaWrapper from "../../components/Layouts/Obsluha/ObsluhaWrapper";
+import ObsluhaLayout from "../../components/Layouts/Obsluha/layout";
 
 export default function Obsluha() {
   const form = useForm<FormValues>({
-    initialValues: { pin: "" },
+      initialValues: { pin: "" },
 
-    validate: {
-      pin: (value: string) => (value.length < 8 ? "Označení má přesně 8 znaků." : null),
-    },
+      validate: {
+        pin: (value: string) =>
+          value.length < 8 ? "Označení má přesně 8 znaků." : null,
+      },
 
-    transformValues: (values) => ({
-      pin: values.pin.toLocaleUpperCase(),
+      transformValues: (values) => ({
+        pin: values.pin.toLocaleUpperCase(),
+      }),
     }),
-  }),
     handlePinChange = (value: string) => {
       form.setValues({ pin: value.toUpperCase() });
     };
 
   return (
-    <ObsluhaWrapper title="Obsluha">
+    <ObsluhaLayout title="Obsluha">
       <form
         onSubmit={form.onSubmit((values) => {
           console.log(values);
@@ -39,10 +40,10 @@ export default function Obsluha() {
           <Button type="submit">Vrátit ReKrabici</Button>
         </Stack>
       </form>
-    </ObsluhaWrapper>
+    </ObsluhaLayout>
   );
 }
 
 interface FormValues {
-	pin: string;
+  pin: string;
 }

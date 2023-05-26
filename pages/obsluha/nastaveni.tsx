@@ -5,13 +5,13 @@ import {
   useMantineColorScheme,
 } from "@mantine/core";
 import { IconMoon, IconSun } from "@tabler/icons-react";
-import ObsluhaWrapper from "../../components/Layouts/Obsluha/ObsluhaWrapper";
+import ObsluhaLayout from "../../components/Layouts/Obsluha/layout";
 
 export default function SettinsPage() {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
 
   return (
-    <ObsluhaWrapper title="Obsluha">
+    <ObsluhaLayout title="Obsluha">
       <SegmentedControl
         value={colorScheme}
         onChange={(value: "light" | "dark") => toggleColorScheme(value)}
@@ -36,6 +36,6 @@ export default function SettinsPage() {
           },
         ]}
       />
-    </ObsluhaWrapper>
+    </ObsluhaLayout>
   );
 }

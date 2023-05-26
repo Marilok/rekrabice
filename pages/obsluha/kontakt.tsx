@@ -1,13 +1,22 @@
-import { Text } from "@mantine/core";
-import ObsluhaWrapper from "../../components/Layouts/Obsluha/ObsluhaWrapper";
+import { Anchor, Space, Text } from "@mantine/core";
+import ObsluhaLayout from "../../components/Layouts/Obsluha/layout";
 
-export default function Obsluha() {
+export default function ContactPage() {
   return (
-    <ObsluhaWrapper title="Obsluha">
-      <Text className="font-bold">Je to urgentní?</Text>
-      <Text>Zavolejte nám na +420 777 777 777</Text>
-      <Text className="font-bold">Není to urgentní?</Text>
-      <Text>Pošlete nám prosím email na marek.svitek@rekrabice.cz</Text>
-    </ObsluhaWrapper>
+    <ObsluhaLayout title="Kontakt">
+      <Text weight="bold">Spěchá to hodně?</Text>
+      <Text>
+        Zavolejte prosím Tadeášovi{" "}
+        <Anchor href="tel:+420606834894">+420 606 834 894</Anchor>
+      </Text>
+      <Space h="md" />
+      <Text weight="bold">Nespěchá to tolik?</Text>
+      <Text>
+        Pošlete prosím email Tadeášovi na{" "}
+        <Anchor href="mailto:tadeas.bibr@rekrabice.cz">
+          tadeas.bibr@rekrabice.cz
+        </Anchor>
+      </Text>
+    </ObsluhaLayout>
   );
 }

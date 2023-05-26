@@ -9,7 +9,6 @@ import {
 import {
   IconArrowDown,
   IconArrowUp,
-  IconHistory,
   IconLogout,
   IconPhone,
   IconQuestionMark,
@@ -47,18 +46,18 @@ const useStyles = createStyles((theme) => ({
       textDecoration: "none",
       fontSize: theme.fontSizes.sm,
       color:
-				theme.colorScheme === "dark"
-				  ? theme.colors.dark[1]
-				  : theme.colors.gray[7],
+        theme.colorScheme === "dark"
+          ? theme.colors.dark[1]
+          : theme.colors.gray[7],
       padding: `${theme.spacing.xs} ${theme.spacing.sm}`,
       borderRadius: theme.radius.sm,
       fontWeight: 500,
 
       "&:hover": {
         backgroundColor:
-					theme.colorScheme === "dark"
-					  ? theme.colors.dark[6]
-					  : theme.colors.gray[0],
+          theme.colorScheme === "dark"
+            ? theme.colors.dark[6]
+            : theme.colors.gray[0],
         color: theme.colorScheme === "dark" ? theme.white : theme.black,
 
         [`& .${getStylesRef("icon")}`]: {
@@ -70,9 +69,9 @@ const useStyles = createStyles((theme) => ({
     linkIcon: {
       ref: getStylesRef("icon"),
       color:
-				theme.colorScheme === "dark"
-				  ? theme.colors.dark[2]
-				  : theme.colors.gray[6],
+        theme.colorScheme === "dark"
+          ? theme.colors.dark[2]
+          : theme.colors.gray[6],
       marginRight: theme.spacing.sm,
     },
 
@@ -96,18 +95,13 @@ const useStyles = createStyles((theme) => ({
   data = [
     {
       link: "prijmout",
-      label: "Přijmout ReKrabici",
+      label: "Přijmout ReKrabici od zákazníka",
       icon: IconArrowDown,
     },
     {
       link: "odeslat",
       label: "Odeslat plnou přepravku",
       icon: IconArrowUp,
-    },
-    {
-      link: "historie",
-      label: "Historie operací",
-      icon: IconHistory,
     },
     {
       link: "navod",
@@ -143,7 +137,7 @@ export default function StyledNavbar() {
       <Navbar.Section grow>
         <Group className={classes.header} position="apart">
           <Image src="/logo_text.svg" height={30} width="100" alt="logo icon" />
-          <Code>verze 0.1</Code>
+          <Code>verze 0.2</Code>
         </Group>
         {links}
       </Navbar.Section>
