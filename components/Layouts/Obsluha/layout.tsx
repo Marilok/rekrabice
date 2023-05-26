@@ -1,5 +1,6 @@
 import { AppShell } from "@mantine/core";
 import Head from "next/head";
+import React from "react";
 import StyledNavbar from "./Navbar";
 
 export default function ObsluhaLayout({

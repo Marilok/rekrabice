@@ -36,8 +36,8 @@ const data = [
             ? theme.colors.dark[5]
             : theme.colors.dark[6]
           : opened
-          ? theme.colors.gray[0]
-          : theme.white,
+            ? theme.colors.gray[0]
+            : theme.white,
 
       "&:hover": {
         backgroundColor:

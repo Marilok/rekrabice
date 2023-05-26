@@ -4,17 +4,16 @@ import ObsluhaLayout from "../../components/Layouts/Obsluha/layout";
 
 export default function Obsluha() {
   const form = useForm<FormValues>({
-      initialValues: { pin: "" },
+    initialValues: { pin: "" },
 
-      validate: {
-        pin: (value: string) =>
-          value.length < 8 ? "Označení má přesně 8 znaků." : null,
-      },
+    validate: {
+      pin: (value: string) => (value.length < 8 ? "Označení má přesně 8 znaků." : null),
+    },
 
-      transformValues: (values) => ({
-        pin: values.pin.toLocaleUpperCase(),
-      }),
+    transformValues: (values) => ({
+      pin: values.pin.toLocaleUpperCase(),
     }),
+  }),
     handlePinChange = (value: string) => {
       form.setValues({ pin: value.toUpperCase() });
     };

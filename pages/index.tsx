@@ -234,9 +234,7 @@ function EmailInput({ id }: { id: string }) {
     }),
     data =
       form.values.mail.trim().length > 0 && !form.values.mail.includes("@")
-        ? ["gmail.com", "seznam.cz", "email.cz", "centrum.cz"].map(
-            (provider) => `${form.values.mail}@${provider}`,
-          )
+        ? ["gmail.com", "seznam.cz", "email.cz", "centrum.cz"].map((provider) => `${form.values.mail}@${provider}`)
         : [];
   return (
     <form onSubmit={form.onSubmit((values) => sendMsg(values))}>

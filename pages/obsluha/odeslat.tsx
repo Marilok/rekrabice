@@ -37,8 +37,8 @@ const useStyles = createStyles((theme) => ({
 
 export default function SendMasterBoxPage() {
   const { classes, theme } = useStyles();
-  const steps = mockdata.map((feature) => (
-    <Card shadow="md" className="w-96" padding="lg">
+  const steps = mockdata.map((feature: any) => (
+    <Card shadow="md" className="w-96" padding="lg" key={feature.title}>
       <feature.icon size={rem(48)} stroke={2} color={theme.fn.primaryColor()} />
       <Text fz="lg" fw={500} className={classes.cardTitle} mt="md">
         {feature.title}
@@ -119,7 +119,6 @@ const mockdata = [
       "Plnou přepravku vyměňte za prázdnou a můžete znovu přijímat ReKrabice.",
     icon: IconNumber4,
   },
-  ,
   {
     title: "Odměny",
     description:

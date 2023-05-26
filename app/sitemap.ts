@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next';
- 
-const DOMAIN = "https://rekrabice.cz"
+
+const DOMAIN = "https://rekrabice.cz";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -17,8 +17,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
     },
     {
-        url: `${DOMAIN}/napsali-o-nas`,
-        lastModified: new Date(),
-      },
+      url: `${DOMAIN}/napsali-o-nas`,
+      lastModified: new Date(),
+    },
   ];
 }

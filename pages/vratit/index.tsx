@@ -89,31 +89,24 @@ export default function ReturnPackagePage() {
           validate: {
             email: isEmail("Chybný email"),
             bankAccount: {
-              prefix: (value) =>
-                /^\d{2,6}$|^$/.test(value) ? null : "Chybné předčíslí",
-              number: (value) =>
-                /^\d{2,10}$/.test(value) ? null : "Chybné číslo účtu",
+              prefix: (value) => (/^\d{2,6}$|^$/.test(value) ? null : "Chybné předčíslí"),
+              number: (value) => (/^\d{2,10}$/.test(value) ? null : "Chybné číslo účtu"),
               bankCode: matches(/^\d{4}$/, "Chybný kód banky"),
             },
-            termsOfService: (value) =>
-              value === false ? "Musíte souhlasit s podmínkami" : null,
+            termsOfService: (value) => (value === false ? "Musíte souhlasit s podmínkami" : null),
           },
         }),
         email_providers =
           form.values.email.trim().length > 0 &&
           !form.values.email.includes("@")
-            ? EMAIL_PROVIDERS.map(
-                (provider) => `${form.values.email}@${provider}`,
-              )
+            ? EMAIL_PROVIDERS.map((provider) => `${form.values.email}@${provider}`)
             : [];
 
       return (
         <>
           <form
             onSubmit={form.onSubmit((values) => {
-              router.push(
-                `/vratit?packaging_id=${values.packaging_id}&submitted=true`,
-              );
+              router.push(`/vratit?packaging_id=${values.packaging_id}&submitted=true`);
             })}
           >
             <Stack maw={500} m="sm" mx="auto">
@@ -168,8 +161,7 @@ export default function ReturnPackagePage() {
                     value: item.code,
                   }))}
                   itemComponent={AutoCompleteItem}
-                  filter={(value, item) =>
-                    item.code.toLowerCase().includes(value.trim()) ||
+                  filter={(value, item) => item.code.toLowerCase().includes(value.trim()) ||
                     item.bank.toLowerCase().includes(value.toLowerCase().trim())
                   }
                   limit={5}
@@ -223,23 +215,21 @@ interface ItemProps extends SelectItemProps {
   img?: string;
 }
 
-const AutoCompleteItem = forwardRef<HTMLDivElement, ItemProps>(
-  ({ bank, value, img, ...others }: ItemProps, ref) => (
-    <div ref={ref} {...others}>
-      <Group noWrap>
-        {/* <Image src={img} width={48} height={48} alt="Bank logo" /> */}
-        {/* TODO: make this nextjs image */}
-        <Avatar size={"sm"} src={img} />
+const AutoCompleteItem = forwardRef<HTMLDivElement, ItemProps>(({ bank, value, img, ...others }: ItemProps, ref) => (
+  <div ref={ref} {...others}>
+    <Group noWrap>
+      {/* <Image src={img} width={48} height={48} alt="Bank logo" /> */}
+      {/* TODO: make this nextjs image */}
+      <Avatar size={"sm"} src={img} />
 
-        <div>
-          <Text>{value}</Text>
-          <Text size="xs" color="dimmed">
-            {bank}
-          </Text>
-        </div>
-      </Group>
-    </div>
-  ),
-);
+      <div>
+        <Text>{value}</Text>
+        <Text size="xs" color="dimmed">
+          {bank}
+        </Text>
+      </div>
+    </Group>
+  </div>
+));
 
 AutoCompleteItem.displayName = "AutoCompleteItem";
