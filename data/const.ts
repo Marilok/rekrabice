@@ -1,0 +1,1 @@
+export const RETURN_CODE = "970 32 390"

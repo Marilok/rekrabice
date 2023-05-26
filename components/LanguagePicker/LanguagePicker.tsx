@@ -16,7 +16,6 @@ const data = [
     { label: "Slovensky", image: "/icons/flags/sk.svg" },
     { label: "English", image: "/icons/flags/gb.svg" },
   ],
-
   useStyles = createStyles((theme, { opened }: { opened: boolean }) => ({
     control: {
       width: 200,
@@ -26,21 +25,25 @@ const data = [
       padding: "10px 15px",
       borderRadius: theme.radius.md,
       border: `1px solid ${
-        theme.colorScheme === "dark" ? theme.colors.dark[6] : theme.colors.gray[2]
+        theme.colorScheme === "dark"
+          ? theme.colors.dark[6]
+          : theme.colors.gray[2]
       }`,
       transition: "background-color 150ms ease",
       backgroundColor:
-			theme.colorScheme === "dark"
-			  ? theme.colors.dark[opened ? 5 : 6]
-			  : opened
-			    ? theme.colors.gray[0]
-			    : theme.white,
+        theme.colorScheme === "dark"
+          ? opened
+            ? theme.colors.dark[5]
+            : theme.colors.dark[6]
+          : opened
+          ? theme.colors.gray[0]
+          : theme.white,
 
       "&:hover": {
         backgroundColor:
-				theme.colorScheme === "dark"
-				  ? theme.colors.dark[5]
-				  : theme.colors.gray[0],
+          theme.colorScheme === "dark"
+            ? theme.colors.dark[5]
+            : theme.colors.gray[0],
       },
     },
 
@@ -57,12 +60,17 @@ const data = [
 
 export default function LanguagePicker() {
   const [opened, setOpened] = useState(false),
-	 { classes } = useStyles({ opened }),
-	 [selected, setSelected] = useState(data[0]),
-	 items = data.map((item) => (
+    { classes } = useStyles({ opened }),
+    [selected, setSelected] = useState(data[0]),
+    items = data.map((item) => (
       <Menu.Item
         icon={
-          <Image src={item.image} alt="language icon" width="18" height="auto" />
+          <Image
+            src={item.image}
+            alt="language icon"
+            width="18"
+            height="auto"
+          />
         }
         onClick={() => setSelected(item)}
         key={item.label}

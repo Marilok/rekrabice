@@ -11,7 +11,7 @@ import { getCookie, setCookie } from "cookies-next";
 import { GetServerSidePropsContext } from "next";
 import Script from "next/script";
 import { useEffect, useState } from "react";
-import "../styles/globals.css";
+import "../app/globals.css";
 
 export default function App(props: AppProps & { colorScheme: ColorScheme }) {
   const { Component, pageProps } = props,

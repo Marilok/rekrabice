@@ -6,7 +6,7 @@ import {
 } from "@mantine/core";
 import { IconArrowBarToDown, IconBulb, IconTree } from "@tabler/icons-react";
 import FeaturesAsymmetrical from "../components/About/FeaturesAsymmetrical";
-import LandingPageWrapper from "../components/Layouts/LandingPage/LandingPageWrapper";
+import LandingPageWrapper from "../components/Layouts/LandingPage/layout";
 import Team from "../components/Team/Team";
 
 export default function About() {

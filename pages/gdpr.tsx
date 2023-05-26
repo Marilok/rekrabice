@@ -7,7 +7,7 @@ import {
 } from "@mantine/core";
 import Link from "next/link";
 
-import LandingPageWrapper from "../components/Layouts/LandingPage/LandingPageWrapper";
+import LandingPageWrapper from "../components/Layouts/LandingPage/layout";
 
 export default function Gdpr() {
   return (

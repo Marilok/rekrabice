@@ -2,13 +2,13 @@ import { AppShell } from "@mantine/core";
 import Head from "next/head";
 import StyledNavbar from "./Navbar";
 
-export default function ObsluhaWrapper({
+export default function ObsluhaLayout({
   children,
   title,
   titleRemoveName = false,
   description,
 }: {
-  children?: any;
+  children: React.ReactNode;
   title?: string;
   titleRemoveName?: boolean;
   description?: string;
@@ -16,11 +16,7 @@ export default function ObsluhaWrapper({
   return (
     <>
       <Head>
-        <title>
-          {title
-            ? `${title} ${!titleRemoveName && "| ReKrabice"}`
-            : "ReKrabice"}
-        </title>
+        <title>Systém ReKrabice</title>
         <meta
           name="description"
           content={description ? `${description} | ReKrabice` : " "}

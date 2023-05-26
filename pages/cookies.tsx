@@ -8,7 +8,7 @@ import {
   TypographyStylesProvider,
 } from "@mantine/core";
 
-import LandingPageWrapper from "../components/Layouts/LandingPage/LandingPageWrapper";
+import LandingPageWrapper from "../components/Layouts/LandingPage/layout";
 
 export default function Cookies() {
   const rowsEssential = ESSENTIAL.map((element) => (

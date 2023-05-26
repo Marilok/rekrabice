@@ -1,5 +1,5 @@
 import Contact from "../components/Contact/Contact";
-import LandingPageWrapper from "../components/Layouts/LandingPage/LandingPageWrapper";
+import LandingPageWrapper from "../components/Layouts/LandingPage/layout";
 
 export default function Kontakt() {
   return (

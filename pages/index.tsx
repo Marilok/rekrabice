@@ -21,7 +21,7 @@ import { IconCheck, IconSend, IconX } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import LandingPageWrapper from "../components/Layouts/LandingPage/LandingPageWrapper";
+import LandingPageWrapper from "../components/Layouts/LandingPage/layout";
 import StepperComponent from "../components/StepperComponent";
 
 // import Image from 'next/image'
@@ -234,7 +234,9 @@ function EmailInput({ id }: { id: string }) {
     }),
     data =
       form.values.mail.trim().length > 0 && !form.values.mail.includes("@")
-        ? ["gmail.com", "seznam.cz", "email.cz", "centrum.cz"].map((provider) => `${form.values.mail}@${provider}`)
+        ? ["gmail.com", "seznam.cz", "email.cz", "centrum.cz"].map(
+            (provider) => `${form.values.mail}@${provider}`,
+          )
         : [];
   return (
     <form onSubmit={form.onSubmit((values) => sendMsg(values))}>
