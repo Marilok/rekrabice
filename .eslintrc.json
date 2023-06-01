@@ -35,7 +35,7 @@
         //Objects
         "no-const-assign": "error",
         "no-new-object": "error",
-        "object-shorthand": "error",
+        "object-shorthand": "warn",
         "prefer-object-spread": "error",
         //Arrays
         "no-array-constructor": "error",
@@ -67,8 +67,8 @@
         "arrow-spacing": "error",
         "arrow-parens": "error",
         "arrow-body-style": "error",
-        "no-confusing-arrow": "error",
-        "implicit-arrow-linebreak": "error",
+        "no-confusing-arrow": "warn",
+        "implicit-arrow-linebreak": "warn",
         //Imports
         "no-duplicate-imports": "error",
         "import/no-mutable-exports": "error",

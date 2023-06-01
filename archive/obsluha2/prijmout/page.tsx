@@ -1,6 +1,8 @@
+"use client";
+
 import { Button, PinInput, Stack, Text } from "@mantine/core";
 import { useForm } from "@mantine/form";
-import ObsluhaLayout from "../../components/Layouts/Obsluha/layout";
+import ObsluhaLayout from "../layout";
 
 export default function Obsluha() {
   const form = useForm<FormValues>({

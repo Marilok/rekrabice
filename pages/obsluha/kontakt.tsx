@@ -3,7 +3,7 @@ import ObsluhaLayout from "../../components/Layouts/Obsluha/layout";
 
 export default function ContactPage() {
   return (
-    <ObsluhaLayout title="Kontakt">
+    <ObsluhaLayout>
       <Text weight="bold">Spěchá to hodně?</Text>
       <Text>
         Zavolejte prosím Tadeášovi{" "}

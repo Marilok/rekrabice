@@ -11,7 +11,7 @@ export default function SettinsPage() {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
 
   return (
-    <ObsluhaLayout title="Obsluha">
+    <ObsluhaLayout>
       <SegmentedControl
         value={colorScheme}
         onChange={(value: "light" | "dark") => toggleColorScheme(value)}

@@ -1,7 +1,9 @@
+"use client";
+
 import { AppShell } from "@mantine/core";
 import Head from "next/head";
 import React from "react";
-import StyledNavbar from "./Navbar";
+import StyledNavbar from "./components/Navbar";
 
 export default function ObsluhaLayout({
   children,

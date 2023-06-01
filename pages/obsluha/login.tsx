@@ -13,6 +13,7 @@ import { isEmail, useForm } from "@mantine/form";
 import Link from "next/link";
 import { useState } from "react";
 import { EmailButtons } from "../../components/SocialButtons/EmailButtons";
+import supabaseClient from "../../lib/supabaseClient";
 
 export default function LoginPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -30,8 +31,18 @@ export default function LoginPage() {
 }
 
 interface FormValues {
-	email: string;
-	rememberMe: boolean;
+  email: string;
+  rememberMe: boolean;
+}
+
+async function signInWithEmail({ email }: any) {
+  const { data, error } = await supabaseClient.auth.signInWithOtp({
+    email: email,
+    options: {
+      emailRedirectTo: `${process.env.URL}/auth/callback`,
+    },
+  });
+  console.log(data || error);
 }
 
 function Form({ setSubmitted }: any) {
@@ -52,6 +63,7 @@ function Form({ setSubmitted }: any) {
     <form
       onSubmit={form.onSubmit((values) => {
         console.log(values.email + values.rememberMe);
+        signInWithEmail(values.email);
         setSubmitted(true);
       })}
     >
@@ -67,11 +79,11 @@ function Form({ setSubmitted }: any) {
           {...form.getInputProps("rememberMe", { type: "checkbox" })}
         />
         <Anchor href={"/kontakt"} component={Link} size="sm">
-					Nemůžete se přihlásit?
+          Nemůžete se přihlásit?
         </Anchor>
       </Group>
       <Button fullWidth mt="md" type="submit">
-				Přihlásit se
+        Přihlásit se
       </Button>
     </form>
   );
@@ -81,12 +93,12 @@ function UpperText() {
   return (
     <div className="relative">
       <Title align="center" className="font-extrabold">
-				Vstup do systému pro sběr ReKrabic
+        Vstup do systému pro sběr ReKrabic
       </Title>
       <Text color="dimmed" size="sm" align="center" mt={5}>
-				Nepřijímate zatím ReKrabice?{" "}
+        Nepřijímate zatím ReKrabice?{" "}
         <Anchor href={"/kontakt"} component={Link}>
-					Ozvěte se nám
+          Ozvěte se nám
         </Anchor>
       </Text>
     </div>
