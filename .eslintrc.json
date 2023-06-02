@@ -72,7 +72,7 @@
         //Imports
         "no-duplicate-imports": "error",
         "import/no-mutable-exports": "error",
-        "import/prefer-default-export": "error",
+        "import/prefer-default-export": "warn",
         "import/first": "error",
         "object-curly-newline": "error",
         "import/no-webpack-loader-syntax": "error",

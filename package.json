@@ -42,6 +42,7 @@
     "@types/node": "^18.16.16",
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.11",
+    "encoding": "^0.1.13",
     "eslint": "^8.32.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-next": "^13.3.0",
