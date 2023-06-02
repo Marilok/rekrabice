@@ -1,16 +1,18 @@
-import { createPagesServerClient } from '@supabase/auth-helpers-nextjs';
-import { NextApiHandler } from 'next';
+import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
+import { cookies } from 'next/headers';
+import { NextResponse } from 'next/server';
 
-const handler: NextApiHandler = async (req, res) => {
-  const { code } = req.query;
+import type { NextRequest } from 'next/server';
+
+export async function GET(request: NextRequest) {
+  const requestUrl = new URL(request.url);
+  const code = requestUrl.searchParams.get('code');
 
   if (code) {
-    const supabase = createPagesServerClient({ req, res });
-    await supabase.auth.exchangeCodeForSession(String(code));
+    const supabase = createRouteHandlerClient({ cookies });
+    await supabase.auth.exchangeCodeForSession(code);
   }
 
-  res.redirect('/obsluha/prijmout');
-};
-
-export default handler;
-
+  // URL to redirect to after sign in process completes
+  return NextResponse.redirect(requestUrl.origin);
+}
