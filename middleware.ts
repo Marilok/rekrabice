@@ -11,19 +11,19 @@ export async function middleware(req: NextRequest) {
 
   if (session) {
     console.log(session)
+    if (req.nextUrl.pathname.match('/system')) {
+      return NextResponse.rewrite(new URL('/system/prijmout', req.url));
+    }
     return res
   }
 
-  if (req.nextUrl.pathname === "/obsluha/login") {
+  if (req.nextUrl.pathname === "/system/login") {
     return res
   }
-  // if (req.nextUrl.pathname.match('/dashboard')) {
-  //   return NextResponse.rewrite(new URL('/dashboard/prijmout', req.url));
-  // }
 
-  return NextResponse.redirect(new URL('/obsluha/login', req.url))
+  return NextResponse.redirect(new URL('/system/login', req.url))
 }
 
 export const config = {
-  matcher: "/obsluha/:path*",
+  matcher: "/system/:path*",
 }
