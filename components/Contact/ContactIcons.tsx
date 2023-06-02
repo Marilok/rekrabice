@@ -26,13 +26,13 @@ const useStyles = createStyles((theme, { variant }: ContactIconStyles) => ({
     backgroundImage:
       variant === "gradient"
         ? `linear-gradient(135deg, ${theme.colors[theme.primaryColor][4]} 0%, ${
-          theme.colors[theme.primaryColor][6]
-        } 100%)`
-        : variant === "legal"
-          ? `linear-gradient(135deg, ${theme.colors[theme.primaryColor][4]} 0%, ${
             theme.colors[theme.primaryColor][6]
           } 100%)`
-          : "none",
+        : variant === "legal"
+        ? `linear-gradient(135deg, ${theme.colors[theme.primaryColor][4]} 0%, ${
+            theme.colors[theme.primaryColor][6]
+          } 100%)`
+        : "none",
     backgroundColor: "transparent",
     color: theme.white,
   },
@@ -42,8 +42,8 @@ const useStyles = createStyles((theme, { variant }: ContactIconStyles) => ({
       variant === "gradient"
         ? theme.colors.gray[6]
         : variant === "white"
-          ? theme.colors[theme.primaryColor][0]
-          : "",
+        ? theme.colors[theme.primaryColor][0]
+        : "",
   },
 
   description: {
@@ -51,8 +51,8 @@ const useStyles = createStyles((theme, { variant }: ContactIconStyles) => ({
       variant === "gradient"
         ? theme.black
         : variant === "white"
-          ? theme.white
-          : "",
+        ? theme.white
+        : "",
   },
 }));
 
@@ -75,21 +75,30 @@ function ContactIcon({
   ...others
 }: ContactIconProps) {
   const { classes, cx } = useStyles({ variant });
+
+  const GradientVariant = () => (
+    <ThemeIcon size={40} radius="md" className={classes.icon}>
+      <Icon size={24} />
+    </ThemeIcon>
+  );
+
+  const LegalVariant = () => (
+    <ThemeIcon size={40} radius="md" className={classes.icon}>
+      <Icon size={24} />
+    </ThemeIcon>
+  );
+
+  const FallbackVariant = () => (
+    <Box mr="md">
+      <Icon size={24} />
+    </Box>
+  );
+
   return (
     <div className={cx(classes.wrapper, className)} {...others}>
-      {variant === "gradient" ? (
-        <ThemeIcon size={40} radius="md" className={classes.icon}>
-          <Icon size={24} />
-        </ThemeIcon>
-      ) : variant === "legal" ? (
-        <ThemeIcon size={40} radius="md" className={classes.icon}>
-          <Icon size={24} />
-        </ThemeIcon>
-      ) : (
-        <Box mr="md">
-          <Icon size={24} />
-        </Box>
-      )}
+      {variant === "gradient" && <GradientVariant />}
+      {variant === "legal" && <LegalVariant />}
+      {!variant && <FallbackVariant />}
 
       <div>
         <Text
