@@ -35,12 +35,11 @@ interface FormValues {
   rememberMe: boolean;
 }
 
-async function signInWithEmail({ email }: any) {
+async function signInWithEmail({ emailProp }: any) {
+  console.log(emailProp);
+  console.log(supabaseClient.auth);
   const { data, error } = await supabaseClient.auth.signInWithOtp({
-    email: email,
-    options: {
-      emailRedirectTo: `${process.env.URL}/auth/callback`,
-    },
+    email: emailProp,
   });
   console.log(data || error);
 }
@@ -62,9 +61,13 @@ function Form({ setSubmitted }: any) {
   return (
     <form
       onSubmit={form.onSubmit((values) => {
-        console.log(values.email + values.rememberMe);
-        signInWithEmail(values.email);
-        setSubmitted(true);
+        try {
+          signInWithEmail(values.email);
+        } catch (error) {
+          console.error(error);
+        } finally {
+          setSubmitted(true);
+        }
       })}
     >
       <TextInput
