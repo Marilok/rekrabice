@@ -51,11 +51,11 @@ function Form({ setSubmitted }: any) {
     }),
   });
 
-  async function signInWithEmail({ email }: any) {
+  async function signInWithEmail(emailProp: any) {
     await supabase.auth.signInWithOtp({
-      email: email,
+      email: emailProp,
       options: {
-        emailRedirectTo: "https://rekrabice.cz/welcome",
+        emailRedirectTo: `${process.env.URL}/auth/callback`,
       },
     });
   }
