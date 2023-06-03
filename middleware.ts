@@ -8,9 +8,9 @@ export async function middleware(req: NextRequest) {
   const {
     data: { session },
   } = await supabase.auth.getSession()
+console.log((await supabase.auth.getSession()).data)
 
   if (session) {
-    console.log(session)
     if (req.nextUrl.pathname.match('/system')) {
       return NextResponse.rewrite(new URL('/system/prijmout', req.url));
     }
