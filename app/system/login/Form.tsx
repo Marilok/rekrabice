@@ -1,6 +1,6 @@
 "use client";
 import { isEmail, useForm } from "@mantine/form";
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import { createPagesBrowserClient } from "@supabase/auth-helpers-nextjs";
 import Link from "next/link";
 // import { useState } from "react";
 import {
@@ -18,7 +18,7 @@ interface FormValues {
 
 export default function Form() {
   // function Form({ setSubmitted }: any) {
-  const supabase = createClientComponentClient();
+  const supabase = createPagesBrowserClient();
   const form = useForm<FormValues>({
     initialValues: { email: "", rememberMe: false },
 
