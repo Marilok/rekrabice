@@ -18,7 +18,6 @@ import { EmailButtons } from "../../../components/SocialButtons/EmailButtons";
 
 export default function LoginPage() {
   const [submitted, setSubmitted] = useState(false);
-
   return (
     <main className="mt-60">
       <UpperText />
@@ -49,6 +48,11 @@ function Form({ setSubmitted }: any) {
       ...values,
       email: values.email.toLocaleLowerCase(),
     }),
+  });
+  console.log(supabase.auth.getSession());
+  console.log(supabase.auth.getUser());
+  supabase.auth.onAuthStateChange((event, session) => {
+    console.log(event, session);
   });
 
   async function signInWithEmail(emailProp: any) {
