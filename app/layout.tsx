@@ -14,9 +14,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="cs">
-      <MantineProvider>
-        <body>{children}</body>
-      </MantineProvider>
+      <body>
+        <MantineProvider>{children}</MantineProvider>
+      </body>
     </html>
   );
 }
