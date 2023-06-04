@@ -3,8 +3,7 @@ import { cookies } from 'next/headers';
 import { NextResponse, type NextRequest } from 'next/server';
 
 export async function GET(request: NextRequest) {
-  const requestUrl = new URL(request.url);
-  const code = requestUrl.searchParams.get('code');
+  const code = request.nextUrl.searchParams.get('code');
 
   if (code) {
     const supabase = createRouteHandlerClient({ cookies });
@@ -13,7 +12,5 @@ export async function GET(request: NextRequest) {
 
   // URL to redirect to after sign in process completes
   // return NextResponse.redirect(new URL("/system/prijmout", request.url));
-  // return NextResponse.redirect("https://rekrabice.cz/system/prijmout")
-  return NextResponse.redirect(requestUrl.origin)
-
+  return NextResponse.redirect("https://rekrabice.cz/system/prijmout");
 }

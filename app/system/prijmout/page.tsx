@@ -1,11 +1,9 @@
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
 import { Anchor, Space, Text } from "../../mantineClientComponents";
 import StoreLayout from "../layout";
 
 export default async function ContactPage() {
-  const supabase = createServerComponentClient({ cookies });
-  console.log(await supabase.auth.getSession());
+  // const supabase = createServerComponentClient({ cookies });
+  // console.log(await supabase.auth.getSession());
   return (
     <StoreLayout>
       <Text weight="bold">Spěchá to hodně?</Text>
