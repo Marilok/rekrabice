@@ -1,13 +1,12 @@
 import { AppShell } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import Head from "next/head";
-import Script from "next/script";
 import Footer from "./Footer";
 import Header from "./Header";
 import CustomNavbar from "./Navbar";
 
 export default function LandingPageWrapper({
-  children,
+  children = <p>This is empty</p>,
   title,
   titleRemoveName = false,
   styles,
@@ -25,11 +24,7 @@ export default function LandingPageWrapper({
     <>
       <Head>
         <title>
-          {title && titleRemoveName === false
-            ? `${title} | ReKrabice`
-            : title && titleRemoveName === true
-              ? `${title}`
-              : "ReKrabice"}
+          {titleRemoveName ? title || "ReKrabice" : `${title} | ReKrabice`}
         </title>
         <meta
           name="description"
@@ -56,7 +51,6 @@ export default function LandingPageWrapper({
       >
         {children}
       </AppShell>
-      <Script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" />
     </>
   );
 }
