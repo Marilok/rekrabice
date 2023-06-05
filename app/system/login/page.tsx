@@ -33,7 +33,7 @@ function UpperText() {
       </Title>
       <Text color="dimmed" size="sm" align="center" mt={5}>
         Nepřijímate zatím ReKrabice?{" "}
-        <Anchor href={"/kontakt"} component={Link}>
+        <Anchor href="/kontakt" component={Link}>
           Ozvěte se nám
         </Anchor>
       </Text>

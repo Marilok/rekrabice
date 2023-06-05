@@ -1,4 +1,6 @@
-import { Button, CloseButton, Group, Paper, Text } from "@mantine/core";
+import {
+  Button, CloseButton, Group, Paper, Text,
+} from "@mantine/core";
 
 export default function CookiesBanner() {
   return (

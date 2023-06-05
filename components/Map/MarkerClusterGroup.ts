@@ -4,8 +4,8 @@ import L from "leaflet";
 import "leaflet.markercluster";
 
 const MarkerClusterGroup = createPathComponent(({children: _c, ...props}, ctx) => {
-  const clusterProps: Record<string, any> = {},
-    clusterEvents: Record<string, any> = {};
+  const clusterProps: Record<string, any> = {};
+  const clusterEvents: Record<string, any> = {};
 
   // Splitting props and events to different objects
   Object.entries(props).forEach(([propName, prop]) => (propName.startsWith("on")

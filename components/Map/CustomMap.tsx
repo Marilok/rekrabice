@@ -1,7 +1,9 @@
 // @ts-nocheck
 import "leaflet/dist/leaflet.css";
 import { useEffect, useState } from "react";
-import { MapContainer, Marker, Polygon, TileLayer } from "react-leaflet";
+import {
+  MapContainer, Marker, Polygon, TileLayer,
+} from "react-leaflet";
 // import "react-leaflet-markercluster/dist/styles.min.css";
 import L from "leaflet";
 import supabase from "../../lib/supabaseClient";

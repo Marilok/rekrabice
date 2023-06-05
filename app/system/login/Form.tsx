@@ -1,4 +1,5 @@
 "use client";
+
 import { isEmail, useForm } from "@mantine/form";
 import { createPagesBrowserClient } from "@supabase/auth-helpers-nextjs";
 import Link from "next/link";
@@ -68,7 +69,7 @@ export default function Form() {
           label="Zapamatuj si mě pro příště"
           {...form.getInputProps("rememberMe", { type: "checkbox" })}
         />
-        <Anchor href={"/kontakt"} component={Link} size="sm">
+        <Anchor href="/kontakt" component={Link} size="sm">
           Nemůžete se přihlásit?
         </Anchor>
       </Group>

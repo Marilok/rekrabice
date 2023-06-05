@@ -12,17 +12,17 @@ import LandingPageWrapper from "../components/Layouts/LandingPage/layout";
 
 export default function Cookies() {
   const rowsEssential = ESSENTIAL.map((element) => (
-      <tr key={element.name}>
-        <td>{element.name}</td>
-        <td>{element.purpose}</td>
-      </tr>
-    )),
-    rowsOptional = OPTIONAL.map((element) => (
-      <tr key={element.name}>
-        <td>{element.name}</td>
-        <td>{element.purpose}</td>
-      </tr>
-    ));
+    <tr key={element.name}>
+      <td>{element.name}</td>
+      <td>{element.purpose}</td>
+    </tr>
+  ));
+  const rowsOptional = OPTIONAL.map((element) => (
+    <tr key={element.name}>
+      <td>{element.name}</td>
+      <td>{element.purpose}</td>
+    </tr>
+  ));
 
   return (
     <LandingPageWrapper title="Cookies">
@@ -132,9 +132,9 @@ export default function Cookies() {
 }
 
 const ESSENTIAL = [
-    { name: "mantine-color-scheme", purpose: "Pro ukládání barevného režimu." },
-  ],
-  OPTIONAL = [
-    { name: "_ga", purpose: "Pro statistické účely." },
-    { name: "_ga_<container-id>", purpose: "Pro statistické účely." },
-  ];
+  { name: "mantine-color-scheme", purpose: "Pro ukládání barevného režimu." },
+];
+const OPTIONAL = [
+  { name: "_ga", purpose: "Pro statistické účely." },
+  { name: "_ga_<container-id>", purpose: "Pro statistické účely." },
+];

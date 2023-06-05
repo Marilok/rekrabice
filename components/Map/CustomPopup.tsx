@@ -1,4 +1,6 @@
-import { Avatar, Button, Group, Paper, Title } from "@mantine/core";
+import {
+  Avatar, Button, Group, Paper, Title,
+} from "@mantine/core";
 import { IconExternalLink } from "@tabler/icons-react";
 import "leaflet/dist/leaflet.css";
 import { Popup } from "react-leaflet";

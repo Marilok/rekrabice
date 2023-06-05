@@ -1,5 +1,7 @@
 // @ts-nocheck
-import { Button, Container, Portal, Stepper, Text, Title } from "@mantine/core";
+import {
+  Button, Container, Portal, Stepper, Text, Title,
+} from "@mantine/core";
 import { useHotkeys, useScrollIntoView, useViewportSize } from "@mantine/hooks";
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import dynamic from "next/dynamic";
@@ -8,11 +10,11 @@ import Image from "next/image";
 import { useState } from "react";
 
 export default function StepperComponent() {
-  const [active, setActive] = useState(0),
-    { width } = useViewportSize(),
-    numberOfSteps = 4,
-    nextStep = () => setActive((current) => (current < numberOfSteps ? current + 1 : current)),
-    prevStep = () => setActive((current) => (current > 0 ? current - 1 : current));
+  const [active, setActive] = useState(0);
+  const { width } = useViewportSize();
+  const numberOfSteps = 4;
+  const nextStep = () => setActive((current) => (current < numberOfSteps ? current + 1 : current));
+  const prevStep = () => setActive((current) => (current > 0 ? current - 1 : current));
   useHotkeys([
     ["ArrowDown", nextStep],
     ["ArrowUp", prevStep],
@@ -36,13 +38,13 @@ export default function StepperComponent() {
   //   });
 
   const Confetti = dynamic(() => import("react-confetti"), {
-      loading: () => <></>,
-      // This line is important. It's what prevents server-side render
-      ssr: false,
-    }),
-    { scrollIntoView, targetRef } = useScrollIntoView<HTMLDivElement>({
-      offset: 60,
-    });
+    loading: () => <></>,
+    // This line is important. It's what prevents server-side render
+    ssr: false,
+  });
+  const { scrollIntoView, targetRef } = useScrollIntoView<HTMLDivElement>({
+    offset: 60,
+  });
 
   return (
     <>

@@ -1,4 +1,6 @@
-import {Accordion, MediaQuery, Navbar, Stack} from "@mantine/core";
+import {
+  Accordion, MediaQuery, Navbar, Stack,
+} from "@mantine/core";
 import Link from "next/link";
 
 export default function CustomNavbar({

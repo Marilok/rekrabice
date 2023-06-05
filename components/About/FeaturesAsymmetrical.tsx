@@ -1,4 +1,6 @@
-import { Container, createStyles, SimpleGrid, Text } from "@mantine/core";
+import {
+  Container, createStyles, SimpleGrid, Text,
+} from "@mantine/core";
 import { IconCertificate, IconCoin, IconTruck } from "@tabler/icons-react";
 import React from "react";
 

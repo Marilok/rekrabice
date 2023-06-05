@@ -1,4 +1,6 @@
-import { Button, ButtonProps, SimpleGrid, Stack, Text } from "@mantine/core";
+import {
+  Button, ButtonProps, SimpleGrid, Stack, Text,
+} from "@mantine/core";
 import { IconMail } from "@tabler/icons-react";
 import {
   GmailIcon,
@@ -14,7 +16,7 @@ export function GmailButton(props: ButtonProps) {
       leftIcon={<GmailIcon />}
       variant="default"
       color="gray"
-      component={"a"}
+      component="a"
       href="https://mail.google.com/"
       target="_blank"
       {...props}
@@ -27,7 +29,7 @@ export function SeznamEmailButton(props: ButtonProps) {
       leftIcon={<SeznamEmailIcon />}
       variant="default"
       color="gray"
-      component={"a"}
+      component="a"
       href="https://email.seznam.cz/"
       target="_blank"
       {...props}
@@ -40,7 +42,7 @@ export function ProtonmailButton(props: ButtonProps) {
       leftIcon={<ProtonmailIcon />}
       variant="default"
       color="gray"
-      component={"a"}
+      component="a"
       href="https://mail.proton.me/"
       target="_blank"
       {...props}
@@ -53,7 +55,7 @@ export function TutanotaButton(props: ButtonProps) {
       leftIcon={<TutanotaIcon />}
       variant="default"
       color="gray"
-      component={"a"}
+      component="a"
       href="https://mail.tutanota.com/"
       target="_blank"
       {...props}
@@ -67,7 +69,7 @@ export function OutlookButton(props: ButtonProps) {
       leftIcon={<OutlookIcon />}
       variant="default"
       color="gray"
-      component={"a"}
+      component="a"
       href="https://mail.outlook.com/"
       target="_blank"
       {...props}
@@ -81,7 +83,7 @@ export function DefaultEmailButton(props: ButtonProps) {
       leftIcon={<IconMail />}
       variant="default"
       color="gray"
-      component={"a"}
+      component="a"
       href="mailto:zavri@me.prosim?subject=Zavři mě prosím"
       target="_blank"
       {...props}

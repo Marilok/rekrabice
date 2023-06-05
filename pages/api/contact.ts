@@ -10,53 +10,53 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>,
 ) {
-  const nodemailer = require("nodemailer"),
-    transporter = nodemailer.createTransport({
-      port: 465,
-      host: process.env.EMAIL_HOST,
-      auth: {
-        user: process.env.EMAIL_USERNAME,
-        pass: process.env.EMAIL_PASSWORD,
-      },
-      secure: true,
-    }),
-
-    mailData = {
-      from: `Robot z ReKrabice <${process.env.EMAIL_USERNAME}>`,
-      to: process.env.EMAIL_TESTER_USERNAME,
-      replyTo: req.body.mail
-        ? `${req.body.name} <${req.body.mail}>`
-        : req.body.mail,
-      priority: "high",
-      subject: `Zpráva ${
-        req.body.name ? `od ${req.body.name}` : ""
-      } z kontaktního formuláře`,
-
-      text: req.body.msg,
-      html: `<div>${req.body.msg}<br/><br/>${req.body.mail}</div>`,
+  const nodemailer = require("nodemailer");
+  const transporter = nodemailer.createTransport({
+    port: 465,
+    host: process.env.EMAIL_HOST,
+    auth: {
+      user: process.env.EMAIL_USERNAME,
+      pass: process.env.EMAIL_PASSWORD,
     },
+    secure: true,
+  });
 
-	 confirmationData = {
-      from: `Robot z ReKrabice <${process.env.EMAIL_USERNAME}>`,
-      to: req.body.mail,
-      priority: "high",
-      subject: "Potvrzení o odeslání zprávy z kontaktního formuláře",
-      html: "<p>Hurá! Tvoje zpráva, kterou si nám (týmu za ReKrabicí) poslal skrze kontaktní formulář na našem webu (ReKrabice.cz) nám dorazila do schránky! Na zprávu ti odpovíme do 24 hodin. <br/><br/> PS: V mezičase se můžeš rozjímat nad pěknými štěnátky, které na tebe koukají v příloze. ;) </p>",
-      attachments: [
-        {
-          filename: "První štěnátko.jpg",
-          path: `${process.env.URL}/mail_images/puppy_1.jpg`,
-        },
-        {
-          filename: "Druhé štěnátko.jpg",
-          path: `${process.env.URL}/mail_images/puppy_2.jpg`,
-        },
-        {
-          filename: "Třetí štěnátko.jpg",
-          path: `${process.env.URL}/mail_images/puppy_3.jpg`,
-        },
-      ],
-    };
+  const mailData = {
+    from: `Robot z ReKrabice <${process.env.EMAIL_USERNAME}>`,
+    to: process.env.EMAIL_TESTER_USERNAME,
+    replyTo: req.body.mail
+      ? `${req.body.name} <${req.body.mail}>`
+      : req.body.mail,
+    priority: "high",
+    subject: `Zpráva ${
+      req.body.name ? `od ${req.body.name}` : ""
+    } z kontaktního formuláře`,
+
+    text: req.body.msg,
+    html: `<div>${req.body.msg}<br/><br/>${req.body.mail}</div>`,
+  };
+
+	 const confirmationData = {
+    from: `Robot z ReKrabice <${process.env.EMAIL_USERNAME}>`,
+    to: req.body.mail,
+    priority: "high",
+    subject: "Potvrzení o odeslání zprávy z kontaktního formuláře",
+    html: "<p>Hurá! Tvoje zpráva, kterou si nám (týmu za ReKrabicí) poslal skrze kontaktní formulář na našem webu (ReKrabice.cz) nám dorazila do schránky! Na zprávu ti odpovíme do 24 hodin. <br/><br/> PS: V mezičase se můžeš rozjímat nad pěknými štěnátky, které na tebe koukají v příloze. ;) </p>",
+    attachments: [
+      {
+        filename: "První štěnátko.jpg",
+        path: `${process.env.URL}/mail_images/puppy_1.jpg`,
+      },
+      {
+        filename: "Druhé štěnátko.jpg",
+        path: `${process.env.URL}/mail_images/puppy_2.jpg`,
+      },
+      {
+        filename: "Třetí štěnátko.jpg",
+        path: `${process.env.URL}/mail_images/puppy_3.jpg`,
+      },
+    ],
+  };
 
   // try {
   //   let confirmation_mail = await transporter.sendMail(confirmationData);
@@ -91,8 +91,8 @@ export default async function handler(
   //   console.log("Message mail error: ", error);
   // }
   try {
-    const message_mail = await transporter.sendMail(mailData),
-      confirmation_mail = await transporter.sendMail(confirmationData);
+    const message_mail = await transporter.sendMail(mailData);
+    const confirmation_mail = await transporter.sendMail(confirmationData);
 
     res.status(200).send({});
     console.log("Message mail info: ", message_mail);

@@ -1,4 +1,6 @@
-import { Avatar, createStyles, Flex, Group, Text } from "@mantine/core";
+import {
+  Avatar, createStyles, Flex, Group, Text,
+} from "@mantine/core";
 import { IconAt } from "@tabler/icons-react";
 import Link from "next/link";
 

@@ -119,27 +119,27 @@ interface FooterLinksProps {
 }
 
 export default function Footer({ data }: FooterLinksProps) {
-  const { classes } = useStyles(),
-    groups = data.map((group) => {
-      const links = group.links.map((link, index) => (
-        <Text
-          className={classes.link}
-          component={Link}
-          href={link.link}
-          key={index}
-          passHref
-        >
-          {link.label}
-        </Text>
-      ));
+  const { classes } = useStyles();
+  const groups = data.map((group) => {
+    const links = group.links.map((link, index) => (
+      <Text
+        className={classes.link}
+        component={Link}
+        href={link.link}
+        key={index}
+        passHref
+      >
+        {link.label}
+      </Text>
+    ));
 
-      return (
-        <div className={classes.wrapper} key={group.title}>
-          <Text className={classes.title}>{group.title}</Text>
-          {links}
-        </div>
-      );
-    });
+    return (
+      <div className={classes.wrapper} key={group.title}>
+        <Text className={classes.title}>{group.title}</Text>
+        {links}
+      </div>
+    );
+  });
 
   return (
     <footer className={classes.footer}>
