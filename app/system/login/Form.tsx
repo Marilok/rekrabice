@@ -1,7 +1,6 @@
 "use client";
 
 import { isEmail, useForm } from "@mantine/form";
-import { createPagesBrowserClient } from "@supabase/auth-helpers-nextjs";
 import Link from "next/link";
 // import { useState } from "react";
 import {
@@ -11,6 +10,7 @@ import {
   Group,
   TextInput,
 } from "../../mantineClientComponents";
+import { signIn } from "./signIn";
 
 interface FormValues {
   email: string;
@@ -19,7 +19,6 @@ interface FormValues {
 
 export default function Form() {
   // function Form({ setSubmitted }: any) {
-  const supabase = createPagesBrowserClient();
   const form = useForm<FormValues>({
     initialValues: { email: "", rememberMe: false },
 
@@ -33,24 +32,11 @@ export default function Form() {
     }),
   });
 
-  supabase.auth.onAuthStateChange((event, session) => {
-    console.log(event, session);
-  });
-
-  async function signInWithEmail(emailProp: any) {
-    await supabase.auth.signInWithOtp({
-      email: emailProp,
-      options: {
-        emailRedirectTo: "https://rekrabice.cz/auth/callback",
-      },
-    });
-  }
-
   return (
     <form
       onSubmit={form.onSubmit((values) => {
         try {
-          signInWithEmail(values.email);
+          signIn(values.email);
         } catch (error) {
           console.error(error);
         } finally {

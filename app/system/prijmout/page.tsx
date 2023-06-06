@@ -1,3 +1,5 @@
+"use client";
+
 import { Anchor, Space, Text } from "../../mantineClientComponents";
 import StoreLayout from "../layout";
 
