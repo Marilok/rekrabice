@@ -42,7 +42,8 @@ export default function Cookies() {
           <List withPadding>
             <List.Item>
               <Text weight={700} component="span">
-                Esenciální{" "}
+                Esenciální
+                {" "}
               </Text>
               - Jde o technická a funkční cookies, která umožňují správné
               fungování našich stránek a pokročilých funkcí. Umožňují vám
@@ -51,7 +52,8 @@ export default function Cookies() {
             </List.Item>
             <List.Item>
               <Text weight={700} component="span">
-                Analytické a Marketingové{" "}
+                Analytické a Marketingové
+                {" "}
               </Text>
               - Jde o anonymizovaná cookies, která nám slouží ke statistickým
               účelům, díky kterým můžeme vylepšovat naše stránky a dělat je pro
@@ -103,7 +105,8 @@ export default function Cookies() {
             Druhá možnost je cookies v prohlížeči kompletně vypnout. Tímto však
             omezíte fungování našich stránek a je potřeba počítat s tím, že
             nebudete mít možnost využívat všech našich funkcí včetně přihlášení.
-            Návody pro běžné prohlížeče:{" "}
+            Návody pro běžné prohlížeče:
+            {" "}
             <Anchor href="https://support.google.com/accounts/answer/61416?hl=cs">
               Chrome
             </Anchor>

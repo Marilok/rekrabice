@@ -1,4 +1,4 @@
-import { MetadataRoute } from 'next';
+import { MetadataRoute } from "next";
 
 const DOMAIN = "https://rekrabice.cz";
 

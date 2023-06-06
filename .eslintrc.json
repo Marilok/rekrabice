@@ -3,7 +3,8 @@
         "next/core-web-vitals",
         "eslint:recommended",
         "plugin:react/recommended",
-        "prettier"
+        "prettier",
+        "airbnb"
     ],
     "parser": "@typescript-eslint/parser",
     "overrides": [
@@ -27,84 +28,43 @@
         }
     },
     "rules": {
-        //https://github.com/airbnb/javascript
-        //References
-        "prefer-const": "error",
-        "no-var": "error",
+        "no-use-before-define": "off",
         "quote-props": ["error", "as-needed"],
-        //Objects
-        "no-const-assign": "error",
-        "no-new-object": "error",
         "object-shorthand": "warn",
-        "prefer-object-spread": "error",
-        //Arrays
-        "no-array-constructor": "error",
-        //Destructuring
-        "prefer-destructuring": "warn",
-        //Quotes
         "semi": "error",
-        //Strings
+        "quotes": ["warn", "double"],
         "prefer-template": "error",
-        "template-curly-spacing": "error",
-        "no-eval": "error",
-        "no-useless-escape": "error",
-        //Functions
-        //func-style, func-names¨
-        "wrap-iife": "error",
-        "no-loop-func": "error",
-        "prefer-rest-params": "error",
         "default-param-last": "warn",
-        "no-new-func": "error",
         "space-before-function-paren": ["error", {
             "anonymous": "never",
             "named": "never",
             "asyncArrow": "always"
         }],
-        "prefer-spread": "error",
-        "function-paren-newline": "error",
-        //Arrow-functions
-        "prefer-arrow-callback": "error",
-        "arrow-spacing": "error",
-        "arrow-parens": "error",
-        "arrow-body-style": "error",
         "no-confusing-arrow": "warn",
         "implicit-arrow-linebreak": "warn",
-        //Imports
-        "no-duplicate-imports": "error",
-        "import/no-mutable-exports": "error",
         "import/prefer-default-export": "warn",
-        "import/first": "error",
-        "object-curly-newline": "error",
-        "import/no-webpack-loader-syntax": "error",
-        "import/extensions": "error",
-        //Iterators and Generators
+        "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+              "js": "never",
+              "jsx": "never",
+              "ts": "never",
+              "tsx": "never"
+            }
+         ],
         "no-restricted-syntax": "warn",
         "no-iterator": "warn",
-        "generator-star-spacing": "error",
-        //Properties
-        "dot-notation": "error",
-        "prefer-exponentiation-operator": "error",
-        //Variables
-        "no-undef": "error",
         // "one-var": "warn",
-        "no-multi-assign": "error",
-        "no-plusplus": "error",
-        //operator-linebrak
         "max-len": ["warn", { "code": 100, "ignoreStrings": true, "ignoreComments": true }],
         "no-unused-vars": "warn",
-        //Comparison Operators & Equality
         "eqeqeq": "warn",
-        "no-case-declarations": "error",
         "no-nested-ternary": "warn",
         "no-unneeded-ternary": "warn",
         "no-mixed-operators": "warn",
-        //Blocks
         "nonblock-statement-body-position": "warn",
         "brace-style": "warn",
-        //no-else returns
-        //Comments
         "spaced-comment": "warn",
-        //Whitespaces
         "indent": ["warn", 2],
         "space-before-blocks": "warn",
         "keyword-spacing": "warn",
@@ -115,13 +75,11 @@
         "no-multiple-empty-lines": "warn",
         "space-in-parens": "warn",
         "array-bracket-spacing": "warn",
-        // "object-curly-spacing": "warn",
         "block-spacing": "warn",
         "comma-spacing": "warn",
         "func-call-spacing": "warn",
         "key-spacing": "warn",
         "no-trailing-spaces": "warn",
-        //Commas
         "comma-style": "warn",
         "comma-dangle": ["warn", {
             "arrays": "always-multiline",
@@ -130,14 +88,10 @@
             "exports": "always-multiline",
             "functions": "always-multiline"
         }],
-        //Naming convenctions
-        //camelcase
-        //Standard Library
-        "no-restricted-globals": "error",
         "computed-property-spacing": "warn",
         
-        //React
         //https://github.com/airbnb/javascript/tree/master/react
+        "react/jsx-props-no-spreading": "off",
         "react/react-in-jsx-scope": "off",
         "react/jsx-closing-bracket-location": "warn",
         "react/jsx-closing-tag-location": "warn",
@@ -147,6 +101,14 @@
         "react/jsx-curly-spacing": "warn",
         "react/jsx-boolean-value": "warn",
         "react/jsx-wrap-multilines": "warn",
-        "react/self-closing-comp": "warn"
+        "react/self-closing-comp": "warn",
+        "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+        //Currently is not working properly for example - name = "Mark"
+        "react/require-default-props": "off",
+        "react/destructuring-assignment": "warn",
+        "global-require": "warn",
+        "no-console": "off",
+        "react/no-unused-prop-types": "warn",
+        "react/no-unstable-nested-components": "warn"
     }
 }

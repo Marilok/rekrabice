@@ -42,7 +42,7 @@ export default function CustomNavbar({
       <Link
         key={link.label}
         href={link.link}
-        className=" p-4 inline-block w-full"
+        className="p-4 inline-block w-full"
       >
         {link.label}
       </Link>
@@ -50,9 +50,9 @@ export default function CustomNavbar({
   });
 
   return (
-    <MediaQuery largerThan="sm" styles={{display: "none", width: 0}}>
+    <MediaQuery largerThan="sm" styles={{ display: "none", width: 0 }}>
       <Navbar
-        width={{base: 300}}
+        width={{ base: 300 }}
         p="xs"
         hidden={!isOpen}
         hiddenBreakpoint="sm"

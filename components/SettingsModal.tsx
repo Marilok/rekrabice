@@ -10,8 +10,8 @@ import { IconMoonStars, IconSun, IconTool } from "@tabler/icons-react";
 import LanguagePicker from "./unused_components/LanguagePicker/LanguagePicker";
 
 interface Props {
-	opened: boolean;
-	setOpened: Function;
+  opened: boolean;
+  setOpened: Function;
 }
 
 function SettingsModal({ opened, setOpened }: Props) {

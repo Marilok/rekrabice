@@ -63,7 +63,8 @@ export default function FiveOhThree() {
             <Title className={classes.title}>Ach ty technologie...</Title>
             <Text color="dimmed" size="lg">
               Něco se pokazilo a nejsme si jisti, co konkrétně. Zkuste prosím
-              obnovit stránku. Pokud potřebujete pomoc, můžete nás zkusit{" "}
+              obnovit stránku. Pokud potřebujete pomoc, můžete nás zkusit
+              {" "}
               <Link href="/kontakt" legacyBehavior>
                 <Anchor>kontaktovat</Anchor>
               </Link>

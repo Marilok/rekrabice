@@ -1,6 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import supabase from "../../lib/supabaseClient";
 
+const nodemailer = require("nodemailer");
+
 type Data = {
   success?: boolean;
   error?: any;
@@ -10,7 +12,6 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>,
 ) {
-  const nodemailer = require("nodemailer");
   const transporter = nodemailer.createTransport({
     port: 465,
     host: process.env.EMAIL_HOST,
@@ -44,15 +45,18 @@ export default async function handler(
   };
 
   try {
-    const confirmation_mail = await transporter.sendMail(confirmationData);
+    const confirmationMail = await transporter.sendMail(confirmationData);
 
     const signup = await supabase.rpc("landingpagesignup", {
       usermail: req.body.mail,
     });
 
+    console.log(confirmationMail);
+    console.log(signup);
+
     res.status(200).send({});
   } catch (error) {
-    res.status(500).send({error});
+    res.status(500).send({ error });
     console.log(error);
   }
 }

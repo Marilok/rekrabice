@@ -15,16 +15,10 @@ import {
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { showNotification, updateNotification } from "@mantine/notifications";
-import {
-  IconAt,
-  IconCheck,
-  IconGavel,
-  IconMapPin,
-  IconSectionSign,
-  IconSend,
-  IconX,
-} from "@tabler/icons-react";
+import { IconCheck, IconSend, IconX } from "@tabler/icons-react";
 import { useState } from "react";
+import { contactData } from "../../data/contactData";
+import { legalData } from "../../data/legalData";
 import SOCIALS from "../../data/socials";
 import ContactIconsList from "./ContactIcons";
 
@@ -180,13 +174,13 @@ export default function ContactUs() {
       mail: (value) => (/^\S+@\S+$/.test(value) ? null : "Chybička v emailu"),
     },
   });
-  const icons = SOCIALS.map((item, index) => (
+  const icons = SOCIALS.map((item) => (
     <ActionIcon
       size="lg"
       className={classes.social}
       variant="transparent"
       component="a"
-      key={index}
+      key={item.label}
       href={item.url}
       target="_blank"
     >
@@ -288,45 +282,3 @@ export default function ContactUs() {
     </>
   );
 }
-const contactData = [
-  {
-    title: "Email",
-    description: "marek.svitek@rekrabice.cz",
-    icon: IconAt,
-    // type: "mail",
-  },
-  // {
-  //   title: "Telefon",
-  //   description: "(+420) 777 777 777",
-  //   icon: IconPhone,
-  //   // type: "phone",
-  // },
-  {
-    title: "Sídlo",
-    description: "Zatím hledáme (v Brně)",
-    icon: IconMapPin,
-    // type: "place",
-  },
-  // { title: "Pracovní doba", description: "8:00 - 12:00", icon: IconSun },
-];
-const legalData = [
-  {
-    title: "Sídlo",
-    description: "Čermákova 2040/55, Velké Meziříčí, 59401",
-    icon: IconMapPin,
-    // type: "place",
-  },
-  { title: "IČO", description: "17455235", icon: IconSectionSign },
-  // {
-  //   title: "Zápis do OR",
-  //   description:
-  //     "Společnost Zelená firma s.r.o. je zapsána v OR vedeném Krajským soudem v Brně, oddíl A, vložka 00000.",
-  //   icon: IconGavel,
-  // },
-  {
-    title: "Zápis",
-    description:
-        "Zapsaný v živnostenském rejstříku u Městského úřadu Velké Meziříčí",
-    icon: IconGavel,
-  },
-];

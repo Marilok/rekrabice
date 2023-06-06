@@ -77,7 +77,8 @@ export default function LandingPage() {
                 >
                   {" "}
                   vratné krabice
-                </Text>{" "}
+                </Text>
+                {" "}
                 pro svůj online nákup!
               </Title>
 
@@ -90,7 +91,7 @@ export default function LandingPage() {
                 variant="gradient"
                 gradient={{ from: "green", to: "teal" }}
                 size="xl"
-                className={`${classes.control} ` + ``}
+                className={classes.control}
                 mt={40}
                 onClick={() => setOpened(true)}
                 id="signup_hero_open"
@@ -227,15 +228,15 @@ function EmailInput({ id }: { id: string }) {
   const form = useForm({
     initialValues: { mail: "" },
 
-    // functions will be used to validate values at corresponding key
     validate: {
       mail: (value) => (/^\S+@\S+$/.test(value) ? null : "Překlep v mailu"),
     },
   });
-  const data =
-      form.values.mail.trim().length > 0 && !form.values.mail.includes("@")
-        ? ["gmail.com", "seznam.cz", "email.cz", "centrum.cz"].map((provider) => `${form.values.mail}@${provider}`)
-        : [];
+  const data = form.values.mail.trim().length > 0 && !form.values.mail.includes("@")
+    ? ["gmail.com", "seznam.cz", "email.cz", "centrum.cz"].map(
+      (provider) => `${form.values.mail}@${provider}`,
+    )
+    : [];
   return (
     <form onSubmit={form.onSubmit((values) => sendMsg(values))}>
       <Autocomplete
@@ -380,9 +381,7 @@ const useStyles = createStyles((theme) => ({
   item: {
     borderRadius: theme.radius.md,
     border: `1px solid ${
-      theme.colorScheme === "dark"
-        ? theme.colors.dark[4]
-        : theme.colors.gray[3]
+      theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.gray[3]
     }`,
   },
 }));
@@ -392,7 +391,7 @@ const useStylesHero = createStyles((theme) => ({
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundImage:
-        "linear-gradient(250deg, rgba(130, 201, 30, 0) 0%, #062343 70%), url(https://images.unsplash.com/photo-1558710763-9791081edd44?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80)",
+      "linear-gradient(250deg, rgba(130, 201, 30, 0) 0%, #062343 70%), url(https://images.unsplash.com/photo-1558710763-9791081edd44?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80)",
     paddingTop: `calc(${theme.spacing.xl} * 3)`,
     paddingBottom: `calc(${theme.spacing.xl} * 3)`,
   },

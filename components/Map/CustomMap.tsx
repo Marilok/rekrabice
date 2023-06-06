@@ -22,28 +22,26 @@ export default function CustomMap() {
   async function getShopsLocations() {
     try {
       const { data, error } = await supabase.rpc("get_shops_locations");
-      alert(error.message);
+      console.log(error.message);
 
       if (data) {
         setLocations(data);
-        // console.log(data);
       }
     } catch (error: any) {
-      // console.log(error);
-      alert(error.message);
+      console.log(error.message);
     }
   }
   const createClusterCustomIcon = (cluster: any) => {
     const count = cluster.getChildCount();
-    let size = "LargeXL";
+    // let size = "LargeXL";
 
-    if (count < 10) {
-      size = "Small";
-    } else if (count >= 10 && count < 100) {
-      size = "Medium";
-    } else if (count >= 100 && count < 500) {
-      size = "Large";
-    }
+    // if (count < 10) {
+    //   size = "Small";
+    // } else if (count >= 10 && count < 100) {
+    //   size = "Medium";
+    // } else if (count >= 100 && count < 500) {
+    //   size = "Large";
+    // }
     // const options = {
     //   cluster: `markerCluster${size}`,
     // };
@@ -67,7 +65,7 @@ export default function CustomMap() {
   return (
     <MapContainer
       id="map"
-      className="w-full h-screen	"
+      className="w-full h-screen"
       center={[49.1930642, 16.6099019]}
       zoom={13}
     >
@@ -78,8 +76,8 @@ export default function CustomMap() {
         // m{s}.mapserver.mapy.cz/base-m/{z}-{x}-{y}
       />
       <MarkerClusterGroup iconCreateFunction={createClusterCustomIcon}>
-        {locations &&
-          locations.map((place: any) => (
+        {locations
+          && locations.map((place: any) => (
             <Marker
               icon={myIcon}
               key={place.subsidiary}
@@ -94,9 +92,9 @@ export default function CustomMap() {
           ))}
       </MarkerClusterGroup>
 
-      {shapes.map((shape, index) => (
+      {shapes.map((shape) => (
         <Polygon
-          key={index}
+          key={`${shape.lng} + ${shape.lat}`}
           pathOptions={{ color: "green" }}
           // @ts-ignore
           positions={shape}

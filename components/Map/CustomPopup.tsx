@@ -10,9 +10,9 @@ export default function CustomPopup({
   subsidiary,
   logo = "/favicon.svg",
 }: {
-	title: string;
-	subsidiary?: string;
-	logo?: string;
+  title: string;
+  subsidiary?: string;
+  logo?: string;
 }) {
   return (
     <Popup>
@@ -34,7 +34,7 @@ export default function CustomPopup({
           rightIcon={<IconExternalLink size={14} />}
           mt="sm"
         >
-					Detail pobočky
+          Detail pobočky
         </Button>
       </Paper>
     </Popup>

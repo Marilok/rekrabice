@@ -9,6 +9,23 @@ import {
 } from "../../mantineClientComponents";
 import Form from "./Form";
 
+function UpperText() {
+  return (
+    <div className="relative">
+      <Title align="center" className="font-extrabold">
+        Vstup do systému pro sběr ReKrabic
+      </Title>
+      <Text color="dimmed" size="sm" align="center" mt={5}>
+        Nepřijímate zatím ReKrabice?
+        {" "}
+        <Anchor href="/kontakt" component={Link}>
+          Ozvěte se nám
+        </Anchor>
+      </Text>
+    </div>
+  );
+}
+
 export default function LoginPage() {
   // const [submitted, setSubmitted] = useState(false);
   return (
@@ -22,21 +39,5 @@ export default function LoginPage() {
         </Paper>
       </Container>
     </main>
-  );
-}
-
-function UpperText() {
-  return (
-    <div className="relative">
-      <Title align="center" className="font-extrabold">
-        Vstup do systému pro sběr ReKrabic
-      </Title>
-      <Text color="dimmed" size="sm" align="center" mt={5}>
-        Nepřijímate zatím ReKrabice?{" "}
-        <Anchor href="/kontakt" component={Link}>
-          Ozvěte se nám
-        </Anchor>
-      </Text>
-    </div>
   );
 }

@@ -1,7 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
+const nodemailer = require("nodemailer");
+
 type Data = {
-  type?: "confirmation_mail" | "message_mail";
+  type?: "confirmationMail" | "msgMail";
   success?: boolean;
   error?: any;
 };
@@ -10,7 +12,6 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>,
 ) {
-  const nodemailer = require("nodemailer");
   const transporter = nodemailer.createTransport({
     port: 465,
     host: process.env.EMAIL_HOST,
@@ -33,10 +34,10 @@ export default async function handler(
     } z kontaktního formuláře`,
 
     text: req.body.msg,
-    html: `<div>${req.body.msg}<br/><br/>${req.body.mail}</div>`,
+    html: `<div>${req.body.msg}</div>`,
   };
 
-	 const confirmationData = {
+  const confirmationData = {
     from: `Robot z ReKrabice <${process.env.EMAIL_USERNAME}>`,
     to: req.body.mail,
     priority: "high",
@@ -58,47 +59,15 @@ export default async function handler(
     ],
   };
 
-  // try {
-  //   let confirmation_mail = await transporter.sendMail(confirmationData);
-  //   res.status(200).send({
-  //     type: "confirmation_mail",
-  //     success: true,
-  //   });
-
-  //   console.log("Confirmation mail info:", confirmation_mail);
-  // } catch (error) {
-  //   res.status(500).send({
-  //     type: "confirmation_mail",
-  //     success: false,
-  //     error: "failed to fetch data",
-  //   });
-  //   console.log("Confirmation mail error: ", error);
-  // }
-
-  // try {
-  //   let message_mail = await transporter.sendMail(mailData);
-  //   res.status(200).send({
-  //     type: "message_mail",
-  //     success: true,
-  //   });
-  //   console.log("Message mail info: ", message_mail);
-  // } catch (error) {
-  //   res.status(500).send({
-  //     type: "message_mail",
-  //     success: false,
-  //     error: "failed to fetch data",
-  //   });
-  //   console.log("Message mail error: ", error);
-  // }
   try {
-    const message_mail = await transporter.sendMail(mailData);
-    const confirmation_mail = await transporter.sendMail(confirmationData);
+    const msgMail = await transporter.sendMail(mailData);
+    const confirmationMail = await transporter.sendMail(confirmationData);
 
     res.status(200).send({});
-    console.log("Message mail info: ", message_mail);
-    console.log("Confirmation mail info: ", confirmation_mail);
+    console.log("Message mail info: ", msgMail);
+    console.log("Confirmation mail info: ", confirmationMail);
   } catch (error) {
-    res.status(500).send({error});
+    res.status(500).send({ error });
     console.log(error);
   }
 }

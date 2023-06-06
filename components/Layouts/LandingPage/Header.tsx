@@ -9,7 +9,7 @@ import {
   Menu,
   useMantineColorScheme,
 } from "@mantine/core";
-import {IconChevronDown, IconMoonStars, IconSun} from "@tabler/icons-react";
+import { IconChevronDown, IconMoonStars, IconSun } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -43,16 +43,16 @@ const useStyles = createStyles((theme) => ({
     textDecoration: "none",
     color:
       theme.colorScheme === "dark"
-      	? theme.colors.dark[0]
-      	: theme.colors.gray[7],
+        ? theme.colors.dark[0]
+        : theme.colors.gray[7],
     fontSize: theme.fontSizes.sm,
     fontWeight: 500,
 
     "&:hover": {
       backgroundColor:
         theme.colorScheme === "dark"
-        	? theme.colors.dark[6]
-        	: theme.colors.gray[0],
+          ? theme.colors.dark[6]
+          : theme.colors.gray[0],
     },
   },
 
@@ -76,8 +76,8 @@ export default function HeaderAction({
   isOpen,
   toggle,
 }: HeaderActionProps) {
-  const {colorScheme, toggleColorScheme} = useMantineColorScheme();
-  const {classes} = useStyles();
+  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
+  const { classes } = useStyles();
   const items = links.map((link) => {
     const menuItems = link.links?.map((item) => (
       <Menu.Item key={item.link} component={Link} href={item.link}>
@@ -141,12 +141,12 @@ export default function HeaderAction({
             sx={(theme) => ({
               backgroundColor:
                 theme.colorScheme === "dark"
-                	? theme.colors.dark[6]
-                	: theme.colors.gray[0],
+                  ? theme.colors.dark[6]
+                  : theme.colors.gray[0],
               color:
                 theme.colorScheme === "dark"
-                	? theme.colors.yellow[4]
-                	: theme.colors.blue[6],
+                  ? theme.colors.yellow[4]
+                  : theme.colors.blue[6],
             })}
           >
             {colorScheme === "dark" ? (
