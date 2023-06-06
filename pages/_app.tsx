@@ -1,40 +1,51 @@
-import { Notifications } from "@mantine/notifications";
-import { AppProps } from "next/app";
-import Head from "next/head";
-// import { UserProvider } from "@supabase/auth-helpers-react";
 import {
   ColorScheme,
   ColorSchemeProvider,
   MantineProvider,
 } from "@mantine/core";
+import { Notifications } from "@mantine/notifications";
+// import { createPagesBrowserClient } from "@supabase/auth-helpers-nextjs";
+// import { SessionContextProvider } from "@supabase/auth-helpers-react";
 import { getCookie, setCookie } from "cookies-next";
 import { GetServerSidePropsContext } from "next";
+import Head from "next/head";
 import Script from "next/script";
 import { useEffect, useState } from "react";
 import "../app/globals.css";
 
-export default function App(props: AppProps & { colorScheme: ColorScheme }) {
-  const { Component, pageProps } = props,
-    [colorScheme, setColorScheme] = useState<ColorScheme>(props.colorScheme || "dark");
+export default function App({
+  Component,
+  pageProps,
+  colorSchemeProps,
+}: {
+  Component: any;
+  colorSchemeProps: ColorScheme;
+  pageProps: any;
+}) {
+  // const [supabaseClient] = useState(() => createPagesBrowserClient());
+
+  const [colorScheme, setColorScheme] = useState<ColorScheme>(
+    colorSchemeProps || "dark",
+  );
 
   useEffect(() => {
     if (
       window.matchMedia("(prefers-color-scheme: dark)").matches &&
-      !props.colorScheme
+      !colorSchemeProps
     ) {
       setColorScheme("dark");
     } else if (
       window.matchMedia("(prefers-color-scheme: light)").matches &&
-      !props.colorScheme
+      !colorSchemeProps
     ) {
       setColorScheme("light");
     } else if (
       window.matchMedia("(prefers-color-scheme: normal)").matches &&
-      !props.colorScheme
+      !colorSchemeProps
     ) {
       setColorScheme("light");
     }
-  }, [props.colorScheme]);
+  }, [colorSchemeProps]);
 
   const toggleColorScheme = (value?: ColorScheme) => {
     const nextColorScheme =
@@ -54,6 +65,10 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
       </Head>
+      {/* <SessionContextProvider
+        supabaseClient={supabaseClient}
+        initialSession={pageProps?.initialSession}
+      > */}
       <ColorSchemeProvider
         colorScheme={colorScheme}
         toggleColorScheme={toggleColorScheme}
@@ -71,13 +86,13 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
         </MantineProvider>
       </ColorSchemeProvider>
       <GoogleScripts />
+      {/* </SessionContextProvider> */}
     </>
   );
 }
-// TODO: migrate, so it doesnt use getInitialProps
 
 App.getInitialProps = ({ ctx }: { ctx: GetServerSidePropsContext }) => ({
-  colorScheme: getCookie("mantine-color-scheme", ctx),
+  colorSchemeProps: getCookie("mantine-color-scheme", ctx),
 });
 
 function GoogleScripts() {
@@ -106,7 +121,7 @@ function GoogleAnalyticsFist() {
   return (
     <Script
       async
-      src={`https://www.googletagmanager.com/gtag/js?id=G-7G3GVM43NK`}
+      src="https://www.googletagmanager.com/gtag/js?id=G-7G3GVM43NK"
       id="gtag1"
     />
   );
