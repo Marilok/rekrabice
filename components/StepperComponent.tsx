@@ -38,7 +38,7 @@ export default function StepperComponent() {
   //   });
 
   const Confetti = dynamic(() => import("react-confetti"), {
-    loading: () => <></>,
+    loading: () => null,
     // This line is important. It's what prevents server-side render
     ssr: false,
   });
@@ -89,7 +89,8 @@ export default function StepperComponent() {
                 Jak to funguje?
               </Title>
               <Text mt="sm">
-                <br /> <br />
+                <br />
+                <br />
               </Text>
               <div className="m-auto flex justify-center mt-5 w-full h-72 relative">
                 <Image
