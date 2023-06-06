@@ -9,7 +9,7 @@ import {
   Checkbox,
   Group,
   TextInput,
-} from "../../mantineClientComponents";
+} from "../../../mantineClientComponents";
 import { signIn } from "./signIn";
 
 interface FormValues {
