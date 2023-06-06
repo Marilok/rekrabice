@@ -16,7 +16,8 @@ function UpperText() {
         Vstup do systému pro sběr ReKrabic
       </Title>
       <Text color="dimmed" size="sm" align="center" mt={5}>
-        Nepřijímate zatím ReKrabice?{" "}
+        Nepřijímate zatím ReKrabice?
+        {" "}
         <Anchor href="/kontakt" component={Link}>
           Ozvěte se nám
         </Anchor>
