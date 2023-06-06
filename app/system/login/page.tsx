@@ -1,5 +1,6 @@
 import Link from "next/link";
 // import { useState } from "react";
+import { redirect } from "next/navigation";
 import {
   Anchor,
   Container,
@@ -10,7 +11,6 @@ import {
 import { getSession } from "../../supabase-server";
 import Form from "./_components/Form";
 
-import { redirect } from "next/navigation";
 function UpperText() {
   return (
     <div className="relative">
@@ -18,7 +18,8 @@ function UpperText() {
         Vstup do systému pro sběr ReKrabic
       </Title>
       <Text color="dimmed" size="sm" align="center" mt={5}>
-        Nepřijímate zatím ReKrabice?{" "}
+        Nepřijímate zatím ReKrabice?
+        {" "}
         <Anchor href="/kontakt" component={Link}>
           Ozvěte se nám
         </Anchor>

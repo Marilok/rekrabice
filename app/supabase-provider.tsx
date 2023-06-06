@@ -1,19 +1,21 @@
-'use client';
+"use client";
 
-import { createContext, useContext, useEffect, useState } from 'react';
-import { createPagesBrowserClient } from '@supabase/auth-helpers-nextjs';
-import { useRouter } from 'next/navigation';
+import { createPagesBrowserClient } from "@supabase/auth-helpers-nextjs";
+import { useRouter } from "next/navigation";
+import React, {
+  createContext, useContext, useEffect, useState,
+} from "react";
 
-import type { SupabaseClient } from '@supabase/auth-helpers-nextjs';
+import type { SupabaseClient } from "@supabase/auth-helpers-nextjs";
 
 type SupabaseContext = {
-  supabase: SupabaseClient
+  supabase: SupabaseClient;
 };
 
 const Context = createContext<SupabaseContext | undefined>(undefined);
 
 export default function SupabaseProvider({
-  children
+  children,
 }: {
   children: React.ReactNode;
 }) {
@@ -22,7 +24,7 @@ export default function SupabaseProvider({
 
   useEffect(() => {
     const {
-      data: { subscription }
+      data: { subscription },
     } = supabase.auth.onAuthStateChange(() => {
       router.refresh();
     });
@@ -33,9 +35,8 @@ export default function SupabaseProvider({
   }, [router, supabase]);
 
   return (
-    <Context.Provider value={{ supabase }}>
-      <>{children}</>
-    </Context.Provider>
+    // eslint-disable-next-line react/jsx-no-constructed-context-values
+    <Context.Provider value={{ supabase }}>{children}</Context.Provider>
   );
 }
 
@@ -43,7 +44,7 @@ export const useSupabase = () => {
   const context = useContext(Context);
 
   if (context === undefined) {
-    throw new Error('useSupabase must be used inside SupabaseProvider');
+    throw new Error("useSupabase must be used inside SupabaseProvider");
   }
 
   return context;
