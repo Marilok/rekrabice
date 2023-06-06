@@ -23,13 +23,12 @@ export default function Form() {
   const router = useRouter();
   const supabase = createClientComponentClient();
   async function signIn(emailProp: string) {
-    const { data } = await supabase.auth.signInWithOtp({
+    await supabase.auth.signInWithOtp({
       email: emailProp,
       options: {
         emailRedirectTo: "https://rekrabice.cz/auth/callback",
       },
     });
-    console.log(data);
     router.refresh();
   }
   // function Form({ setSubmitted }: any) {
