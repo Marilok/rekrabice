@@ -1,6 +1,4 @@
 // import "@mantine/core/styles.css";
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
 import React from "react";
 import { MantineProvider } from "./mantineClientComponents";
 import SupabaseProvider from "./supabase-provider";
@@ -15,12 +13,6 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const supabase = createServerComponentClient({ cookies });
-  const {
-    data: { session },
-  } = await supabase.auth.getSession();
-  console.log("root - ", session);
-
   return (
     <html lang="cs">
       <body>
