@@ -7,8 +7,10 @@ import {
   Text,
   Title,
 } from "../../mantineClientComponents";
+import { getSession } from "../../supabase-server";
 import Form from "./_components/Form";
 
+import { redirect } from "next/navigation";
 function UpperText() {
   return (
     <div className="relative">
@@ -16,8 +18,7 @@ function UpperText() {
         Vstup do systému pro sběr ReKrabic
       </Title>
       <Text color="dimmed" size="sm" align="center" mt={5}>
-        Nepřijímate zatím ReKrabice?
-        {" "}
+        Nepřijímate zatím ReKrabice?{" "}
         <Anchor href="/kontakt" component={Link}>
           Ozvěte se nám
         </Anchor>
@@ -26,7 +27,12 @@ function UpperText() {
   );
 }
 
-export default function LoginPage() {
+export default async function LoginPage() {
+  const session = await getSession();
+
+  if (session) {
+    return redirect("/system/prijmout");
+  }
   // const [submitted, setSubmitted] = useState(false);
   return (
     <main className="mt-60">
