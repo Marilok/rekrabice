@@ -106,10 +106,8 @@ export default function CustomMap() {
 const shapes = [HEART_LOCATION_DATA];
 
 // export async function getServerSideProps() {
-//   console.log(supabase);
 //   const { data, error } = await supabase.rpc("get_shops_locations");
 //   if (error) console.error(error);
-//   else console.log(supabase);
 
 //   // Pass data to the page via props
 //   return { props: { data } };

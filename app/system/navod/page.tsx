@@ -1,7 +1,8 @@
+"use client";
+
 import { Accordion, Anchor } from "@mantine/core";
 import Link from "next/link";
 import { ReactNode } from "react";
-import ObsluhaLayout from "../../components/Layouts/Obsluha/layout";
 
 type AccordionItem = {
   value: string;
@@ -27,8 +28,9 @@ const accordionData: AccordionItem[] = [
     control: "Máte další dotaz?",
     panel: (
       <>
-        Rádi ho uslyšíme, obraťte se na nás na stránce{" "}
-        <Link href="kontakt" passHref>
+        Rádi ho uslyšíme, obraťte se na nás na stránce
+        {" "}
+        <Link href="kontakt" passHref legacyBehavior>
           <Anchor>stránce kontakty</Anchor>
         </Link>
       </>
@@ -38,19 +40,13 @@ const accordionData: AccordionItem[] = [
 
 export default function QuestionsPage() {
   return (
-    <ObsluhaLayout>
-      <Accordion variant="contained" className="w-1/3">
-        {accordionData.map((item) => (
-          <Accordion.Item
-            key={item.value}
-            value={item.value}
-            className="w-full"
-          >
-            <Accordion.Control>{item.control}</Accordion.Control>
-            <Accordion.Panel>{item.panel}</Accordion.Panel>
-          </Accordion.Item>
-        ))}
-      </Accordion>
-    </ObsluhaLayout>
+    <Accordion variant="contained" className="w-1/3">
+      {accordionData.map((item) => (
+        <Accordion.Item key={item.value} value={item.value} className="w-full">
+          <Accordion.Control>{item.control}</Accordion.Control>
+          <Accordion.Panel>{item.panel}</Accordion.Panel>
+        </Accordion.Item>
+      ))}
+    </Accordion>
   );
 }

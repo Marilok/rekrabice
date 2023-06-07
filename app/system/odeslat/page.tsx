@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Anchor,
   Button,
@@ -19,13 +21,12 @@ import {
   IconNumber3,
   IconNumber4,
 } from "@tabler/icons-react";
-import ObsluhaLayout from "../../components/Layouts/Obsluha/layout";
-import { RETURN_CODE } from "../../data/const";
+import { RETURN_CODE } from "../../../data/const";
 
 const useStyles = createStyles((theme) => ({
   cardTitle: {
     "&::after": {
-      content: '""',
+      content: "\"\"",
       display: "block",
       backgroundColor: theme.fn.primaryColor(),
       width: rem(80),
@@ -49,7 +50,7 @@ export default function SendMasterBoxPage() {
     </Card>
   ));
   return (
-    <ObsluhaLayout>
+    <>
       <Title order={2}>Máte plnou přepravku?</Title>
       <Text weight="bold" my="md">
         Skvělá práce! Rádi Vás plné přepravky zbavíme. Zde je návod jak:
@@ -57,13 +58,13 @@ export default function SendMasterBoxPage() {
       <Flex
         direction={{ base: "column", md: "row" }}
         wrap="wrap"
-        justify={"center"}
+        justify="center"
         gap="xl"
         mt={50}
       >
         {steps}
       </Flex>
-    </ObsluhaLayout>
+    </>
   );
 }
 
@@ -78,10 +79,12 @@ const mockdata = [
     title: "Vratka Zásilkovně",
     description: (
       <>
-        V{" "}
+        V
+        {" "}
         <Anchor href="https://admin.packeta.com/sign/in" target="_blank">
           systému Zásilkovny
-        </Anchor>{" "}
+        </Anchor>
+        {" "}
         zadejte kód
         <span className="font-bold" />
         <CopyButton value={RETURN_CODE} timeout={2000}>

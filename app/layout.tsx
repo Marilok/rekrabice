@@ -1,21 +1,32 @@
 // import "@mantine/core/styles.css";
 import React from "react";
 import { MantineProvider } from "./mantineClientComponents";
+import SupabaseProvider from "./supabase-provider";
 
 export const metadata = {
-  title: "My Mantine app",
-  description: "I have followed setup instructions carefully",
+  title: "ReKrabice",
+  description: "Some dummy text.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
     <html lang="cs">
+      {/* <head><ColorSchemeScript /> future migration to Mantine v7</head> */}
       <body>
-        <MantineProvider>{children}</MantineProvider>
+        <SupabaseProvider>
+          <MantineProvider
+            theme={{ primaryColor: "green" }}
+            withCSSVariables
+            withGlobalStyles
+            withNormalizeCSS
+          >
+            {children}
+          </MantineProvider>
+        </SupabaseProvider>
       </body>
     </html>
   );

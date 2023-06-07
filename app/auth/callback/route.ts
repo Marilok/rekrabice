@@ -1,9 +1,12 @@
 import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
-import { NextResponse, type NextRequest } from "next/server";
+import { NextResponse } from "next/server";
+
+import type { NextRequest } from "next/server";
 
 export async function GET(request: NextRequest) {
-  const code = request.nextUrl.searchParams.get("code");
+  const requestUrl = new URL(request.url);
+  const code = requestUrl.searchParams.get("code");
 
   if (code) {
     const supabase = createRouteHandlerClient({ cookies });
@@ -11,5 +14,7 @@ export async function GET(request: NextRequest) {
   }
 
   // URL to redirect to after sign in process completes
-  return NextResponse.redirect("/system/prijmout");
+  // return NextResponse.redirect(requestUrl.origin);
+  return NextResponse.redirect(new URL('/system/prijmout', requestUrl));
+  //TODO:  return NextResponse.redirect("/login");
 }

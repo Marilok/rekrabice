@@ -6,7 +6,7 @@ import {
   Paper,
   Text,
   Title,
-} from "../../mantineClientComponents";
+} from "../mantineClientComponents";
 import Form from "./_components/Form";
 
 function UpperText() {
@@ -26,7 +26,7 @@ function UpperText() {
   );
 }
 
-export default function LoginPage() {
+export default async function LoginPage() {
   // const [submitted, setSubmitted] = useState(false);
   return (
     <main className="mt-60">
