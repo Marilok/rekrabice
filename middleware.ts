@@ -13,11 +13,13 @@ export async function middleware(req: NextRequest) {
 
   if (pathname === '/system' && data.session) {
     return NextResponse.redirect(new URL('/system/prijmout', req.url));
-  }
+  } else if (pathname === '/login' && data.session){
+    return NextResponse.redirect(new URL('/system/prijmout', req.url));
+}
   
   return res
 }
 
 export const config = {
-  matcher: '/system/:path*',
+  matcher: ['/system/:path*', '/login/:path*'],
 };

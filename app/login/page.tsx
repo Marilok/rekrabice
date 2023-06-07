@@ -1,6 +1,5 @@
 import Link from "next/link";
 // import { useState } from "react";
-import { redirect } from "next/navigation";
 import {
   Anchor,
   Container,
@@ -8,7 +7,6 @@ import {
   Text,
   Title,
 } from "../mantineClientComponents";
-import { getSession } from "../supabase-server";
 import Form from "./_components/Form";
 
 function UpperText() {
@@ -29,11 +27,6 @@ function UpperText() {
 }
 
 export default async function LoginPage() {
-  const session = await getSession();
-
-  if (session) {
-    return redirect("/system/prijmout");
-  }
   // const [submitted, setSubmitted] = useState(false);
   return (
     <main className="mt-60">
