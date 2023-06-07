@@ -4,7 +4,6 @@ Disallow: /app
 Disallow: /app/
 Disallow: /system
 Disallow: /system/
-Disallow: /system/
 
 
 
