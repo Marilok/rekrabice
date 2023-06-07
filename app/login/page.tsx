@@ -7,8 +7,8 @@ import {
   Paper,
   Text,
   Title,
-} from "../../mantineClientComponents";
-import { getSession } from "../../supabase-server";
+} from "../mantineClientComponents";
+import { getSession } from "../supabase-server";
 import Form from "./_components/Form";
 
 function UpperText() {

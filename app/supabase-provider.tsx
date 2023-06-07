@@ -2,17 +2,9 @@
 
 import { createPagesBrowserClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
-import React, {
-  createContext, useContext, useEffect, useState,
-} from "react";
+import React, { useEffect, useState } from "react";
 
-import type { SupabaseClient } from "@supabase/auth-helpers-nextjs";
-
-type SupabaseContext = {
-  supabase: SupabaseClient;
-};
-
-const Context = createContext<SupabaseContext | undefined>(undefined);
+import { SessionContextProvider } from "@supabase/auth-helpers-react";
 
 export default function SupabaseProvider({
   children,
@@ -36,16 +28,8 @@ export default function SupabaseProvider({
 
   return (
     // eslint-disable-next-line react/jsx-no-constructed-context-values
-    <Context.Provider value={{ supabase }}>{children}</Context.Provider>
+    <SessionContextProvider supabaseClient={supabase}>
+      {children}
+    </SessionContextProvider>
   );
 }
-
-export const useSupabase = () => {
-  const context = useContext(Context);
-
-  if (context === undefined) {
-    throw new Error("useSupabase must be used inside SupabaseProvider");
-  }
-
-  return context;
-};

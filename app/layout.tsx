@@ -4,8 +4,8 @@ import { MantineProvider } from "./mantineClientComponents";
 import SupabaseProvider from "./supabase-provider";
 
 export const metadata = {
-  title: "My Mantine app",
-  description: "I have followed setup instructions carefully",
+  title: "ReKrabice",
+  description: "Some dummy text.",
 };
 
 export default async function RootLayout({
@@ -15,9 +15,17 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="cs">
+      {/* <head><ColorSchemeScript /> future migration to Mantine v7</head> */}
       <body>
         <SupabaseProvider>
-          <MantineProvider>{children}</MantineProvider>
+          <MantineProvider
+            theme={{ primaryColor: "green" }}
+            withCSSVariables
+            withGlobalStyles
+            withNormalizeCSS
+          >
+            {children}
+          </MantineProvider>
         </SupabaseProvider>
       </body>
     </html>

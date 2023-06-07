@@ -1,4 +1,5 @@
+import { Loader } from "../mantineClientComponents";
+
 export default function Loading() {
-  // Or a custom loading skeleton component
-  return "Loading...";
+  return <Loader color="green" size="xl" />;
 }

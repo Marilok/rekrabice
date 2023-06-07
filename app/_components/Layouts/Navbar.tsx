@@ -1,5 +1,6 @@
 "use client";
 
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import {
   IconArrowDown,
   IconArrowUp,
@@ -116,6 +117,7 @@ const data = [
 export default function StyledNavbar() {
   const { classes, cx } = useStyles();
   const pathname = usePathname();
+  const supabase = useSupabaseClient();
 
   const links = data.map((item) => (
     <Link
@@ -139,14 +141,14 @@ export default function StyledNavbar() {
       </Navbar.Section>
 
       <Navbar.Section className={classes.footer}>
-        <Link href="nastaveni" className={classes.link}>
+        <Link href="system/nastaveni" className={classes.link}>
           <IconSettings className={classes.linkIcon} stroke={1.5} />
           <span>Nastavení</span>
         </Link>
         <Link
-          href="nastaveni"
-          className={classes.link}
-          onClick={(event) => event.preventDefault()}
+          href="login"
+          className={`${classes.link} cursor-pointer`}
+          onClick={() => supabase.auth.signOut()}
         >
           <IconLogout className={classes.linkIcon} stroke={1.5} />
           <span>Odhlásit se</span>
