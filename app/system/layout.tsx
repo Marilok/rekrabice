@@ -6,6 +6,7 @@ import { AppShell } from "../mantineClientComponents";
 export const metadata: Metadata = {
   title: "Systém ReKrabice",
   description: "Interní systém pro trasování ReKrabic.",
+  robots: "none, noimageindex",
 };
 
 export default function StoreLayout({

@@ -2,8 +2,9 @@
 User-agent: *
 Disallow: /app
 Disallow: /app/
-Disallow: /obsluha
-Disallow: /obsluha/
+Disallow: /system
+Disallow: /system/
+Disallow: /system/
 
 
 
