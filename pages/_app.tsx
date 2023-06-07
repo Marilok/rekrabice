@@ -22,8 +22,6 @@ export default function App({
   colorSchemeProps: ColorScheme;
   pageProps: any;
 }) {
-  // const [supabaseClient] = useState(() => createPagesBrowserClient());
-
   const [colorScheme, setColorScheme] = useState<ColorScheme>(
     colorSchemeProps || "dark",
   );
@@ -64,10 +62,6 @@ export default function App({
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
       </Head>
-      {/* <SessionContextProvider
-        supabaseClient={supabaseClient}
-        initialSession={pageProps?.initialSession}
-      > */}
       <ColorSchemeProvider
         colorScheme={colorScheme}
         toggleColorScheme={toggleColorScheme}
@@ -85,7 +79,6 @@ export default function App({
         </MantineProvider>
       </ColorSchemeProvider>
       <GoogleScripts />
-      {/* </SessionContextProvider> */}
     </>
   );
 }
