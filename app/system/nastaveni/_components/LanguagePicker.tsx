@@ -1,3 +1,5 @@
+"use client";
+
 import {
   createStyles,
   Group,
@@ -17,11 +19,11 @@ const data = [
   { label: "English", image: "/icons/flags/gb.svg" },
 ];
 
-function getBgColor(opened:boolean, theme:any) {
+function getBgColor(opened: boolean, theme: any) {
   if (theme.colorScheme === "dark") {
-    return (opened ? theme.colors.dark[5] : theme.colors.dark[6]);
+    return opened ? theme.colors.dark[5] : theme.colors.dark[6];
   }
-  return (opened ? theme.colors.gray[0] : theme.white);
+  return opened ? theme.colors.gray[0] : theme.white;
 }
 
 const useStyles = createStyles((theme, { opened }: { opened: boolean }) => ({

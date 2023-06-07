@@ -16,14 +16,14 @@ export default function StoreLayout({
   return (
     <AppShell
       navbar={<StyledNavbar />}
-      // classNames={{
-      //   main: {
-      //     display: "flex",
-      //     justifyContent: "center",
-      //     alignItems: "center",
-      //     flexDirection: "column",
-      //   },
-      // }}
+      styles={{
+        main: {
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: "column",
+        },
+      }}
     >
       {children}
     </AppShell>
