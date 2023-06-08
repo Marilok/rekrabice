@@ -9,9 +9,6 @@ import {
 
 const useStyles = createStyles((theme) => ({
   user: {
-    display: "block",
-    width: "100%",
-    padding: theme.spacing.md,
     color: theme.colorScheme === "dark" ? theme.colors.dark[0] : theme.black,
 
     "&:hover": {
@@ -33,9 +30,9 @@ export default function UserButton({ image, name, email }: UserButtonProps) {
   const { classes } = useStyles();
 
   return (
-    <UnstyledButton className={classes.user}>
+    <UnstyledButton className={`${classes.user} block w-full`} p="md">
       <Group>
-        <Avatar src={image} radius="xl" alt="uesr image" />
+        <Avatar src={image} radius="xl" alt="Avatar image" />
 
         <div style={{ flex: 1 }}>
           <Text size="sm" weight={500}>
