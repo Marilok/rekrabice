@@ -14,30 +14,15 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   Code,
+  Divider,
   Group,
   Navbar,
   createStyles,
   getStylesRef,
-  rem,
 } from "../../mantineClientComponents";
+import UserButton from "./UserButton/UserButton";
 
 const useStyles = createStyles((theme) => ({
-  header: {
-    paddingBottom: theme.spacing.md,
-    marginBottom: `calc(${theme.spacing.md} * 1.5)`,
-    borderBottom: `${rem(1)} solid ${
-      theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.gray[2]
-    }`,
-  },
-
-  footer: {
-    paddingTop: theme.spacing.md,
-    marginTop: theme.spacing.md,
-    borderTop: `${rem(1)} solid ${
-      theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.gray[2]
-    }`,
-  },
-
   link: {
     ...theme.fn.focusStyles(),
     display: "flex",
@@ -91,7 +76,7 @@ const useStyles = createStyles((theme) => ({
     },
   },
 }));
-const data = [
+const LINKS_OBJECT = [
   {
     link: "/system/prijmout",
     label: "Přijmout ReKrabici od zákazníka",
@@ -114,12 +99,12 @@ const data = [
   },
 ];
 
-export default function StyledNavbar() {
+export default async function StyledNavbar() {
   const { classes, cx } = useStyles();
   const pathname = usePathname();
   const supabase = useSupabaseClient();
 
-  const links = data.map((item) => (
+  const links = LINKS_OBJECT.map((item) => (
     <Link
       href={item.link}
       key={item.label}
@@ -130,29 +115,40 @@ export default function StyledNavbar() {
     </Link>
   ));
 
+  const { data } = await supabase.auth.getSession();
+
   return (
     <Navbar width={{ sm: 300 }} p="md">
       <Navbar.Section grow>
-        <Group className={classes.header} position="apart">
+        <Group position="apart">
           <Image src="/logo_text.svg" height={30} width="100" alt="logo icon" />
-          <Code>verze 0.2</Code>
+          <Code>verze 0.3</Code>
         </Group>
+        <Divider my="sm" size="sm" />
+
         {links}
       </Navbar.Section>
+      <Divider my="sm" size="sm" />
 
-      <Navbar.Section className={classes.footer}>
+      <Navbar.Section>
         <Link href="system/nastaveni" className={classes.link}>
           <IconSettings className={classes.linkIcon} stroke={1.5} />
           <span>Nastavení</span>
         </Link>
         <Link
-          href="login"
+          href="system/prijmout"
           className={`${classes.link} cursor-pointer`}
           onClick={() => supabase.auth.signOut()}
         >
           <IconLogout className={classes.linkIcon} stroke={1.5} />
           <span>Odhlásit se</span>
         </Link>
+        <Divider my="sm" size="sm" />
+        <UserButton
+          email={data.session?.user.email}
+          name="nike"
+          image="https://picsum.photos/200"
+        />
       </Navbar.Section>
     </Navbar>
   );
