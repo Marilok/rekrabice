@@ -5,7 +5,7 @@ export default function Loading() {
     <Loader
       color="green"
       size="xl"
-      className="absolute inset-y-1/2 inset-x-1/2"
+      className="fixed inset-x-1/2 inset-y-1/2 -translate-x-1/2 -translate-y-1/2"
     />
   );
 }
