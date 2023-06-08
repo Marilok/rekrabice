@@ -11,7 +11,7 @@ import { GetServerSidePropsContext } from "next";
 import Head from "next/head";
 import Script from "next/script";
 import { useEffect, useState } from "react";
-import "../app/globals.css";
+import "../app/global.css";
 
 export default function App({
   Component,
@@ -28,25 +28,26 @@ export default function App({
 
   useEffect(() => {
     if (
-      window.matchMedia("(prefers-color-scheme: dark)").matches
-      && !colorSchemeProps
+      window.matchMedia("(prefers-color-scheme: dark)").matches &&
+      !colorSchemeProps
     ) {
       setColorScheme("dark");
     } else if (
-      window.matchMedia("(prefers-color-scheme: light)").matches
-      && !colorSchemeProps
+      window.matchMedia("(prefers-color-scheme: light)").matches &&
+      !colorSchemeProps
     ) {
       setColorScheme("light");
     } else if (
-      window.matchMedia("(prefers-color-scheme: normal)").matches
-      && !colorSchemeProps
+      window.matchMedia("(prefers-color-scheme: normal)").matches &&
+      !colorSchemeProps
     ) {
       setColorScheme("light");
     }
   }, [colorSchemeProps]);
 
   const toggleColorScheme = (value?: ColorScheme) => {
-    const nextColorScheme = value || (colorScheme === "dark" ? "light" : "dark");
+    const nextColorScheme =
+      value || (colorScheme === "dark" ? "light" : "dark");
     setColorScheme(nextColorScheme);
     setCookie("mantine-color-scheme", nextColorScheme, {
       maxAge: 60 * 60 * 24 * 30,

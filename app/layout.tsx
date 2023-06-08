@@ -1,5 +1,6 @@
 // import "@mantine/core/styles.css";
 import React from "react";
+import "./global.css";
 import { MantineProvider } from "./mantineClientComponents";
 import SupabaseProvider from "./supabase-provider";
 
