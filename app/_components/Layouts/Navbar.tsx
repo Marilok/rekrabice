@@ -11,7 +11,7 @@ import {
 } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import {
   Code,
   Divider,
@@ -99,7 +99,7 @@ const LINKS_OBJECT = [
   },
 ];
 
-export default async function StyledNavbar() {
+export default function StyledNavbar() {
   const { classes, cx } = useStyles();
   const pathname = usePathname();
   const supabase = useSupabaseClient();
@@ -115,7 +115,8 @@ export default async function StyledNavbar() {
     </Link>
   ));
 
-  const { data } = await supabase.auth.getSession();
+  // const { data } = await supabase.auth.getSession();
+  const router = useRouter();
 
   return (
     <Navbar width={{ sm: 300 }} p="md">
@@ -124,11 +125,11 @@ export default async function StyledNavbar() {
           <Image src="/logo_text.svg" height={30} width="100" alt="logo icon" />
           <Code>verze 0.3</Code>
         </Group>
-        <Divider my="sm" size="sm" />
+        <Divider my="sm" />
 
         {links}
       </Navbar.Section>
-      <Divider my="sm" size="sm" />
+      <Divider my="sm" />
 
       <Navbar.Section>
         <Link href="system/nastaveni" className={classes.link}>
@@ -138,15 +139,19 @@ export default async function StyledNavbar() {
         <Link
           href="system/prijmout"
           className={`${classes.link} cursor-pointer`}
-          onClick={() => supabase.auth.signOut()}
+          onClick={() => {
+            supabase.auth.signOut();
+            router.refresh();
+          }}
         >
           <IconLogout className={classes.linkIcon} stroke={1.5} />
           <span>Odhlásit se</span>
         </Link>
-        <Divider my="sm" size="sm" />
+        <Divider my="sm" />
         <UserButton
-          email={data.session?.user.email}
-          name="nike"
+          // email={data.session?.user.email}
+          name={"Acme - Brno, Česká"}
+          email="acme@email.cz"
           image="https://picsum.photos/200"
         />
       </Navbar.Section>
