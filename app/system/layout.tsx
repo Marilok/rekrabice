@@ -16,7 +16,7 @@ export default function StoreLayout({
 }) {
   return (
     <AppShell
-      // @ts-expect-error Server Component TODO
+    // @ts-ignore TODO
       navbar={<StyledNavbar />}
       styles={{
         main: {
