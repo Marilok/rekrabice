@@ -150,7 +150,7 @@ export default function StyledNavbar() {
         <Divider my="sm" />
         <UserButton
           // email={data.session?.user.email}
-          name={"Acme - Brno, Česká"}
+          name="Acme - Brno, Česká"
           email="acme@email.cz"
           image="https://picsum.photos/200"
         />

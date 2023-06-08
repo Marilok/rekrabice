@@ -24,7 +24,8 @@ function getBgVariant(variant: any, theme: any) {
     return `linear-gradient(135deg, ${
       theme.colors[theme.primaryColor][4]
     } 0%, ${theme.colors[theme.primaryColor][6]} 100%)`;
-  } if (variant === "legal") {
+  }
+  if (variant === "legal") {
     return `linear-gradient(135deg, ${
       theme.colors[theme.primaryColor][4]
     } 0%, ${theme.colors[theme.primaryColor][6]} 100%)`;
@@ -35,7 +36,8 @@ function getBgVariant(variant: any, theme: any) {
 function getDescriptionColorVariant(variant: any, theme: any) {
   if (variant === "gradient") {
     return theme.black;
-  } if (variant === "white") {
+  }
+  if (variant === "white") {
     return theme.white;
   }
   return "";
