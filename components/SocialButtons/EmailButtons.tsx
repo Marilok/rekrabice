@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Button, ButtonProps, SimpleGrid, Stack, Text,
 } from "@mantine/core";
