@@ -31,7 +31,7 @@ interface FormValues {
 //   return url;
 // }
 
-export default function Form() {
+export default function Form({ setSubmitted }: any) {
   const router = useRouter();
   const supabase = createClientComponentClient();
   async function signIn(emailProp: string) {
@@ -45,9 +45,9 @@ export default function Form() {
     });
     router.refresh();
   }
-  // function Form({ setSubmitted }: any) {
+
   const form = useForm<FormValues>({
-    initialValues: { email: "", rememberMe: false },
+    initialValues: { email: "", rememberMe: true },
 
     validate: {
       email: isEmail("Chybný formát emailové adresy"),
@@ -67,7 +67,7 @@ export default function Form() {
         } catch (error) {
           console.error(error);
         } finally {
-          //   setSubmitted(true);
+          setSubmitted(true);
         }
       })}
     >
@@ -80,6 +80,7 @@ export default function Form() {
       <Group position="apart" mt="sm">
         <Checkbox
           label="Zapamatuj si mě pro příště"
+          disabled
           {...form.getInputProps("rememberMe", { type: "checkbox" })}
         />
         <Anchor href="/kontakt" component={Link} size="sm">

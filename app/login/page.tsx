@@ -1,5 +1,4 @@
 import Link from "next/link";
-// import { useState } from "react";
 import {
   Anchor,
   Container,
@@ -7,7 +6,7 @@ import {
   Text,
   Title,
 } from "../mantineClientComponents";
-import Form from "./_components/Form";
+import LoginComponent from "./_components/LoginComponent";
 
 function UpperText() {
   return (
@@ -32,10 +31,8 @@ export default async function LoginPage() {
     <main className="mt-60">
       <UpperText />
       <Container size="sm">
-        {/* <Container size={submitted ? "sm" : "xs"}> */}
         <Paper withBorder shadow="md" p="xl" mt="xl">
-          <Form />
-          {/* {submitted ? <EmailButtons /> : <Form setSubmitted={setSubmitted} />} */}
+          <LoginComponent />
         </Paper>
       </Container>
     </main>
