@@ -38,7 +38,8 @@ export default function Form() {
     await supabase.auth.signInWithOtp({
       email: emailProp,
       options: {
-        emailRedirectTo: `${location.origin}/auth/callback`,
+        emailRedirectTo: "https://rekrabice.cz/auth/callback",
+        // emailRedirectTo: `${location.origin}/auth/callback`,
         // emailRedirectTo: getURL(),
       },
     });
