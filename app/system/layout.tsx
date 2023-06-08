@@ -9,14 +9,14 @@ export const metadata: Metadata = {
   robots: "none, noimageindex",
 };
 
-export default function StoreLayout({
+export default async function Layout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
     <AppShell
-    // @ts-ignore TODO
+      // @ts-ignore TODO
       navbar={<StyledNavbar />}
       styles={{
         main: {
@@ -26,6 +26,7 @@ export default function StoreLayout({
           flexDirection: "column",
         },
       }}
+      layout="alt"
     >
       {children}
     </AppShell>
