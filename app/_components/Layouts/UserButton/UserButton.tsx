@@ -30,7 +30,7 @@ export default function UserButton({ image, name, email }: UserButtonProps) {
   const { classes } = useStyles();
 
   return (
-    <UnstyledButton className={`${classes.user} block w-full`} p="md">
+    <UnstyledButton className={`${classes.user} block w-full`} p="sm">
       <Group>
         <Avatar src={image} radius="xl" alt="Avatar image" />
 
