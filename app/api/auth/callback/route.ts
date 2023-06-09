@@ -1,6 +1,6 @@
 import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
+import { NextResponse } from "next/server";
 
 import type { NextRequest } from "next/server";
 
@@ -14,5 +14,5 @@ export async function GET(request: NextRequest) {
   }
 
   // URL to redirect to after sign in process completes
-  redirect("/login");
+  return NextResponse.rewrite(new URL('/login', request.url))
 }
