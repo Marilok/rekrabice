@@ -12,7 +12,7 @@ export async function middleware(req: NextRequest) {
   }
 
   if (pathname === "/auth/callback" && searchParams.get("code")) {
-    return NextResponse.redirect(new URL("/login", req.url));
+    return NextResponse.redirect(new URL(`/login?code=${searchParams.get("code")}`, req.url));
   } 
 
   if (pathname === "/system" && data.session) {
