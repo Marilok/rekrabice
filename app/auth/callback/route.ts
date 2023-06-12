@@ -14,5 +14,5 @@ export async function GET(request: NextRequest) {
   }
 
   // URL to redirect to after sign in process completes
-  return NextResponse.rewrite(new URL('/login', request.url))
+  return NextResponse.rewrite(new URL("/login", request.url));
 }

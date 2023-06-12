@@ -12,6 +12,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import translations from "../../../dictionaries/translations";
 import {
   Code,
   Divider,
@@ -79,22 +80,22 @@ const useStyles = createStyles((theme) => ({
 const LINKS_OBJECT = [
   {
     link: "/system/prijmout",
-    label: "Přijmout ReKrabici od zákazníka",
+    label: translations.systemNavbar.accept,
     icon: IconArrowDown,
   },
   {
     link: "/system/odeslat",
-    label: "Odeslat plnou přepravku",
+    label: translations.systemNavbar.send,
     icon: IconArrowUp,
   },
   {
     link: "/system/navod",
-    label: "Návod a časté dotazy",
+    label: translations.systemNavbar.faq,
     icon: IconQuestionMark,
   },
   {
     link: "/system/kontakt",
-    label: "Kontakt",
+    label: translations.systemNavbar.contact,
     icon: IconPhone,
   },
 ];
@@ -123,7 +124,11 @@ export default function StyledNavbar() {
       <Navbar.Section grow>
         <Group position="apart">
           <Image src="/logo_text.svg" height={30} width="100" alt="logo icon" />
-          <Code>verze 0.3</Code>
+          <Code>
+            {translations.systemNavbar.version}
+            {" "}
+            0.3
+          </Code>
         </Group>
         <Divider my="sm" />
 
@@ -134,7 +139,7 @@ export default function StyledNavbar() {
       <Navbar.Section>
         <Link href="system/nastaveni" className={classes.link}>
           <IconSettings className={classes.linkIcon} stroke={1.5} />
-          <span>Nastavení</span>
+          <span>{translations.systemNavbar.settings}</span>
         </Link>
         <Link
           href="system/prijmout"
@@ -145,7 +150,7 @@ export default function StyledNavbar() {
           }}
         >
           <IconLogout className={classes.linkIcon} stroke={1.5} />
-          <span>Odhlásit se</span>
+          <span>{translations.systemNavbar.logout}</span>
         </Link>
         <Divider my="sm" />
         <UserButton

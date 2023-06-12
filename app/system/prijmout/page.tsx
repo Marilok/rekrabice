@@ -4,6 +4,7 @@ import {
   Button, PinInput, Stack, Text,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
+import translations from "../../../dictionaries/translations";
 
 export default function Obsluha() {
   const form = useForm<FormValues>({
@@ -29,7 +30,7 @@ export default function Obsluha() {
       })}
     >
       <Stack>
-        <Text>Zadejte 8-ciferný kód, který naleznete na ReKrabici:</Text>
+        <Text>{translations.systemReceive.code}</Text>
         <PinInput
           length={8}
           autoFocus
@@ -38,7 +39,7 @@ export default function Obsluha() {
           {...form.getInputProps("packaging_id")}
           onChange={(event) => handlePinChange(event)}
         />
-        <Button type="submit">Vrátit ReKrabici</Button>
+        <Button type="submit">{translations.systemReceive.button}</Button>
       </Stack>
     </form>
   );

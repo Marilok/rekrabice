@@ -7,18 +7,19 @@ import {
   Title,
 } from "../mantineClientComponents";
 import LoginComponent from "./_components/LoginComponent";
+import translations from "../../dictionaries/translations";
 
 function UpperText() {
   return (
     <div className="relative">
       <Title align="center" className="font-extrabold">
-        Vstup do systému pro sběr ReKrabic
+        {translations.login.heading}
       </Title>
       <Text color="dimmed" size="sm" align="center" mt={5}>
-        Nepřijímate zatím ReKrabice?
+        {translations.login.dontAccept}
         {" "}
         <Anchor href="/kontakt" component={Link}>
-          Ozvěte se nám
+          {translations.login.contactUs}
         </Anchor>
       </Text>
     </div>
@@ -26,11 +27,10 @@ function UpperText() {
 }
 
 export default async function LoginPage() {
-  // const [submitted, setSubmitted] = useState(false);
   return (
-    <main className="mt-60">
+    <main className="flex flex-col h-screen relative">
       <UpperText />
-      <Container size="sm">
+      <Container size="sm" className="self-center">
         <Paper withBorder shadow="md" p="xl" mt="xl">
           <LoginComponent />
         </Paper>

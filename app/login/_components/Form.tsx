@@ -6,6 +6,7 @@ import Link from "next/link";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 
+import translations from "../../../dictionaries/translations";
 import {
   Anchor,
   Button,
@@ -19,18 +20,6 @@ interface FormValues {
   rememberMe: boolean;
 }
 
-// function getURL() {
-//   let url =
-//     process?.env?.NEXT_PUBLIC_SITE_URL ?? // Set this to your site URL in production env.
-//     process?.env?.NEXT_PUBLIC_VERCEL_URL ?? // Automatically set by Vercel.
-//     "http://localhost:3000/";
-//   // Make sure to include `https://` when not localhost.
-//   url = url.includes("http") ? url : `https://${url}`;
-//   // Make sure to including trailing `/`.
-//   url = url.charAt(url.length - 1) === "/" ? url : `${url}/`;
-//   return url;
-// }
-
 export default function Form({ setSubmitted }: any) {
   const router = useRouter();
   const supabase = createClientComponentClient();
@@ -39,8 +28,6 @@ export default function Form({ setSubmitted }: any) {
       email: emailProp,
       options: {
         emailRedirectTo: "https://rekrabice.cz/auth/callback/",
-        // emailRedirectTo: `${location.origin}/auth/callback`,
-        // emailRedirectTo: getURL(),
       },
     });
     router.refresh();
@@ -50,7 +37,7 @@ export default function Form({ setSubmitted }: any) {
     initialValues: { email: "", rememberMe: true },
 
     validate: {
-      email: isEmail("Chybný formát emailové adresy"),
+      email: isEmail(translations.login.wrongEmailFormat),
     },
 
     transformValues: (values) => ({
@@ -72,23 +59,23 @@ export default function Form({ setSubmitted }: any) {
       })}
     >
       <TextInput
-        label="Email"
-        placeholder="skvela@firma.cz"
+        label={translations.login.email}
+        placeholder={translations.login.emailPlaceholder}
         {...form.getInputProps("email")}
         required
       />
       <Group position="apart" mt="sm">
         <Checkbox
-          label="Zapamatuj si mě pro příště"
+          label={translations.login.rememberMe}
           disabled
           {...form.getInputProps("rememberMe", { type: "checkbox" })}
         />
         <Anchor href="/kontakt" component={Link} size="sm">
-          Nemůžete se přihlásit?
+          {translations.login.cannotLogin}
         </Anchor>
       </Group>
       <Button fullWidth mt="md" type="submit">
-        Přihlásit se
+        {translations.login.login}
       </Button>
     </form>
   );

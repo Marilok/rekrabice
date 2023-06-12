@@ -1,21 +1,24 @@
+import translations from "../../../dictionaries/translations";
 import { Anchor, Space, Text } from "../../mantineClientComponents";
 
-export default async function ContactPage() {
+export default function ContactPage() {
   return (
     <>
-      <Text weight="bold">Spěchá to hodně?</Text>
+      <Text weight="bold">{translations.systemContact.boldText2}</Text>
       <Text>
-        Zavolejte prosím Tadeášovi
+        {translations.systemContact.text1}
         {" "}
-        <Anchor href="tel:+420606834894">+420 606 834 894</Anchor>
+        <Anchor href="tel:+420606834894">
+          {translations.systemContact.anchorText1}
+        </Anchor>
       </Text>
       <Space h="md" />
-      <Text weight="bold">Nespěchá to tolik?</Text>
+      <Text weight="bold">{translations.systemContact.boldText2}</Text>
       <Text>
-        Pošlete prosím email Tadeášovi na
+        {translations.systemContact.text2}
         {" "}
         <Anchor href="mailto:tadeas.bibr@rekrabice.cz">
-          tadeas.bibr@rekrabice.cz
+          {translations.systemContact.anchorText2}
         </Anchor>
       </Text>
     </>

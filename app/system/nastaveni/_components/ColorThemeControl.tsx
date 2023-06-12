@@ -1,4 +1,5 @@
 import { IconMoon, IconSun, IconTool } from "@tabler/icons-react";
+import translations from "../../../../dictionaries/translations";
 import {
   Box,
   Center,
@@ -19,7 +20,7 @@ export default function ColorThemeControl() {
           label: (
             <Center>
               <IconSun size="1rem" stroke={1.5} />
-              <Box ml={8}>Světlý</Box>
+              <Box ml={8}>{translations.systemSettings.light}</Box>
             </Center>
           ),
         },
@@ -28,7 +29,7 @@ export default function ColorThemeControl() {
           label: (
             <Center>
               <IconMoon size="1rem" stroke={1.5} />
-              <Box ml={8}>Tmavý</Box>
+              <Box ml={8}>{translations.systemSettings.dark}</Box>
             </Center>
           ),
         },
@@ -37,7 +38,7 @@ export default function ColorThemeControl() {
           label: (
             <Center>
               <IconTool size="1rem" stroke={1.5} />
-              <Box ml={8}>Podle systému</Box>
+              <Box ml={8}>{translations.systemSettings.auto}</Box>
             </Center>
           ),
         },

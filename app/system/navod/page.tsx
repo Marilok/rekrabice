@@ -3,6 +3,7 @@
 import { Accordion, Anchor } from "@mantine/core";
 import Link from "next/link";
 import { ReactNode } from "react";
+import translations from "../../../dictionaries/translations";
 
 type AccordionItem = {
   value: string;
@@ -13,25 +14,23 @@ type AccordionItem = {
 const accordionData: AccordionItem[] = [
   {
     value: "own-purpose",
-    control: "Mohu ReKrabice použít k vlastním účelům?",
-    panel:
-      "Bohužel ne. Každá ReKrabice se před použitím musí vyčistit a zkontrolovat, to se děje jen na našem skladě.",
+    control: translations.systemFaq.question1,
+    panel: translations.systemFaq.answer1,
   },
   {
     value: "damaged",
-    control: "Co s poškozenou ReKrabicí?",
-    panel:
-      "To nechte na nás. ReKrabici prosím přijměte od zákazníka. Na skladě ji dáme druhý život.",
+    control: translations.systemFaq.question2,
+    panel: translations.systemFaq.answer2,
   },
   {
     value: "contact",
-    control: "Máte další dotaz?",
+    control: translations.systemFaq.question3,
     panel: (
       <>
-        Rádi ho uslyšíme, obraťte se na nás na stránce
+        {translations.systemFaq.answer3A}
         {" "}
         <Link href="kontakt" passHref legacyBehavior>
-          <Anchor>stránce kontakty</Anchor>
+          <Anchor>{translations.systemFaq.answer3B}</Anchor>
         </Link>
       </>
     ),

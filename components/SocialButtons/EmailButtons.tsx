@@ -4,6 +4,7 @@ import {
   Button, ButtonProps, SimpleGrid, Stack, Text,
 } from "@mantine/core";
 import { IconMail } from "@tabler/icons-react";
+import translations from "../../dictionaries/translations";
 import {
   GmailIcon,
   OutlookIcon,
@@ -86,7 +87,7 @@ export function DefaultEmailButton(props: ButtonProps) {
       variant="default"
       color="gray"
       component="a"
-      href="mailto:zavri@me.prosim?subject=Zavři mě prosím"
+      href={`mailto:${translations.emailButtons.closeEmail}?subject=${translations.emailButtons.closeSubject}`}
       target="_blank"
       {...props}
     />
@@ -94,8 +95,8 @@ export function DefaultEmailButton(props: ButtonProps) {
 }
 
 export function EmailButtons({
-  title = "Do pošty Vám jsme Vám poslali odkaz pro vstup do systému.",
-  subtitle = "Rychlé odkazy na populární emaily:",
+  title = translations.emailButtons.title,
+  subtitle = translations.emailButtons.subtitle,
 }: {
   title?: string;
   subtitle?: any;
