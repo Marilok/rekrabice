@@ -7,7 +7,6 @@ import {
   IconLogout,
   IconPhone,
   IconQuestionMark,
-  IconSettings,
 } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -21,7 +20,7 @@ import {
   createStyles,
   getStylesRef,
 } from "../../mantineClientComponents";
-import UserButton from "./UserButton/UserButton";
+// import UserButton from "./UserButton/UserButton";
 
 const useStyles = createStyles((theme) => ({
   link: {
@@ -127,7 +126,7 @@ export default function StyledNavbar() {
           <Code>
             {translations.systemNavbar.version}
             {" "}
-            0.3
+            Alpha 0.3
           </Code>
         </Group>
         <Divider my="sm" />
@@ -137,10 +136,10 @@ export default function StyledNavbar() {
       <Divider my="sm" />
 
       <Navbar.Section>
-        <Link href="system/nastaveni" className={classes.link}>
+        {/* <Link href="system/nastaveni" className={classes.link}>
           <IconSettings className={classes.linkIcon} stroke={1.5} />
           <span>{translations.systemNavbar.settings}</span>
-        </Link>
+        </Link> */}
         <Link
           href="system/prijmout"
           className={`${classes.link} cursor-pointer`}
@@ -152,13 +151,14 @@ export default function StyledNavbar() {
           <IconLogout className={classes.linkIcon} stroke={1.5} />
           <span>{translations.systemNavbar.logout}</span>
         </Link>
-        <Divider my="sm" />
+        {/* TODO: make this work */}
+        {/* <Divider my="sm" />
         <UserButton
           // email={data.session?.user.email}
           name="Acme - Brno, Česká"
           email="acme@email.cz"
           image="https://picsum.photos/200"
-        />
+        /> */}
       </Navbar.Section>
     </Navbar>
   );
