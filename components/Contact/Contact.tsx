@@ -17,9 +17,9 @@ import { useForm } from "@mantine/form";
 import { showNotification, updateNotification } from "@mantine/notifications";
 import { IconCheck, IconSend, IconX } from "@tabler/icons-react";
 import { useState } from "react";
-import { contactData } from "../../data/contactData";
-import { legalData } from "../../data/legalData";
-import SOCIALS from "../../data/socials";
+import { contactData } from "../../data/CONTACT_DATA";
+import { legalData } from "../../data/LEGAL_DATA";
+import SOCIALS from "../../data/SOCIALS";
 import ContactIconsList from "./ContactIcons";
 
 const useStyles = createStyles((theme) => ({

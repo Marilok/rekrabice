@@ -2,7 +2,7 @@ import {
   Box, createStyles, Stack, Text, ThemeIcon,
 } from "@mantine/core";
 import React from "react";
-import { IMPRESSUM_DATA } from "../../data/impressumData";
+import { IMPRESSUM_DATA } from "../../data/IMPRESSUM_DATA";
 
 type ContactIconVariant = "white" | "gradient" | "legal";
 

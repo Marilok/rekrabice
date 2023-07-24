@@ -7,7 +7,7 @@ import {
   Text,
 } from "@mantine/core";
 import Link from "next/link";
-import SOCIALS from "../../../data/socials";
+import SOCIALS from "../../../data/SOCIALS";
 
 const useStyles = createStyles((theme) => ({
   footer: {
