@@ -4,7 +4,7 @@ import { Button } from "@mantine/core";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { jsPDF } from "jspdf";
 
-export default async function Page() {
+export default function Page() {
   const supabase = createClientComponentClient();
 
   const generatePdf = async (data: any) => {
