@@ -1,31 +1,20 @@
 import {
-  Anchor,
-  Autocomplete,
   Avatar,
   Button,
-  Checkbox,
-  Flex,
   Group,
-  MediaQuery,
-  NumberInput,
   Paper,
   PinInput,
   SelectItemProps,
   Stack,
   Text,
 } from "@mantine/core";
-import {
-  isEmail, isNotEmpty, matches, useForm,
-} from "@mantine/form";
-import Link from "next/link";
+import { isNotEmpty, useForm } from "@mantine/form";
 import { useRouter } from "next/router";
 import { forwardRef } from "react";
 import LandingPageWrapper from "../../components/Layouts/LandingPage/layout";
-import { EmailButtons } from "../../components/SocialButtons/EmailButtons";
-import BANK_CODES from "../../data/BANK_CODES";
-import EMAIL_PROVIDERS from "../../data/EMAIL_PROVIDERS";
 
 export default function ReturnPackagePage() {
+  const router = useRouter();
   function FirstStep() {
     const idForm = useForm({
       initialValues: {
@@ -78,11 +67,11 @@ export default function ReturnPackagePage() {
       titleRemoveName
       description="Spáruj svou ReKrabici se svým bankovním účtem."
     >
-      <Paper m="auto" p="sm" maw={600} withBorder mt="xl">
+      {/* <Paper m="auto" p="sm" maw={600} withBorder mt="xl">
         {!packaging_id && <FirstStep />}
         {packaging_id && !submitted && <SecondStep />}
-        {packaging_id && submitted && <ThirdStep />}
-      </Paper>
+        {packaging_id && submitted && <ThirdStep />} */}
+      {/* </Paper> */}
     </LandingPageWrapper>
   );
 }
@@ -93,23 +82,23 @@ interface ItemProps extends SelectItemProps {
   img?: string;
 }
 
-const AutoCompleteItem = forwardRef<HTMLDivElement, ItemProps>(({
-  bank, value, img, ...others
-}: ItemProps, ref) => (
-  <div ref={ref} {...others}>
-    <Group noWrap>
-      {/* <Image src={img} width={48} height={48} alt="Bank logo" /> */}
-      {/* TODO: make this nextjs image */}
-      <Avatar size="sm" src={img} />
+const AutoCompleteItem = forwardRef<HTMLDivElement, ItemProps>(
+  ({ bank, value, img, ...others }: ItemProps, ref) => (
+    <div ref={ref} {...others}>
+      <Group noWrap>
+        {/* <Image src={img} width={48} height={48} alt="Bank logo" /> */}
+        {/* TODO: make this nextjs image */}
+        <Avatar size="sm" src={img} />
 
-      <div>
-        <Text>{value}</Text>
-        <Text size="xs" color="dimmed">
-          {bank}
-        </Text>
-      </div>
-    </Group>
-  </div>
-));
+        <div>
+          <Text>{value}</Text>
+          <Text size="xs" color="dimmed">
+            {bank}
+          </Text>
+        </div>
+      </Group>
+    </div>
+  ),
+);
 
 AutoCompleteItem.displayName = "AutoCompleteItem";
