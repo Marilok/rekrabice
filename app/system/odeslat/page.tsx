@@ -39,7 +39,7 @@ const useStyles = createStyles((theme) => ({
 export default function SendMasterBoxPage() {
   const { classes, theme } = useStyles();
   const steps = mockdata.map((feature: any) => (
-    <Card shadow="md" className="w-96" padding="lg" key={feature.title}>
+    <Card shadow="md" className="w-80" padding="lg" key={feature.title}>
       <feature.icon size={rem(48)} stroke={2} color={theme.fn.primaryColor()} />
       <Text fz="lg" fw={500} className={classes.cardTitle} mt="md">
         {feature.title}
@@ -53,7 +53,7 @@ export default function SendMasterBoxPage() {
     <>
       <Title order={2}>Máte plnou přepravku?</Title>
       <Text weight="bold" my="md">
-        Skvělá práce! Rádi Vás plné přepravky zbavíme. Zde je návod jak:
+        Skvělá práce! Rádi Vás plné přepravky zbavíme. Zde je návod jak nám ji poslat:
       </Text>
       <Flex
         direction={{ base: "column", md: "row" }}
