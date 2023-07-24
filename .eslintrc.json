@@ -2,9 +2,9 @@
     "extends": [
         "next/core-web-vitals",
         "eslint:recommended",
-        "plugin:react/recommended",
-        "prettier",
-        "airbnb"
+        // "plugin:react/recommended",
+        "airbnb",
+        "prettier"
     ],
     "parser": "@typescript-eslint/parser",
     "overrides": [
@@ -30,18 +30,13 @@
     "rules": {
         "no-use-before-define": "off",
         "quote-props": ["error", "as-needed"],
-        "object-shorthand": "warn",
         "semi": "error",
         "quotes": ["warn", "double"],
-        "prefer-template": "error",
-        "default-param-last": "warn",
-        "space-before-function-paren": ["error", {
-            "anonymous": "never",
-            "named": "never",
-            "asyncArrow": "always"
-        }],
-        "no-confusing-arrow": "warn",
-        "implicit-arrow-linebreak": "warn",
+        "react/react-in-jsx-scope": "off",
+        "react/jsx-props-no-spreading": "off",
+        "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx",".ts",".tsx"] }],
+        "react/require-default-props": "off",
+        "new-cap": "warn",
         "import/prefer-default-export": "warn",
         "import/extensions": [
             "error",
@@ -53,60 +48,7 @@
               "tsx": "never"
             }
          ],
-        "no-restricted-syntax": "warn",
-        "no-iterator": "warn",
-        // "one-var": "warn",
         "max-len": ["warn", { "code": 100, "ignoreStrings": true, "ignoreComments": true }],
-        "no-unused-vars": "warn",
-        "eqeqeq": "warn",
-        "no-nested-ternary": "warn",
-        "no-unneeded-ternary": "warn",
-        "no-mixed-operators": "warn",
-        "nonblock-statement-body-position": "warn",
-        "brace-style": "warn",
-        "spaced-comment": "warn",
-        "indent": ["warn", 2],
-        "space-before-blocks": "warn",
-        "keyword-spacing": "warn",
-        "space-infix-ops": "warn",
-        "eol-last": "warn",
-        //newline-per-chained-call no-whitespace-before-property
-        "padded-blocks": ["warn", "never"],
-        "no-multiple-empty-lines": "warn",
-        "space-in-parens": "warn",
-        "array-bracket-spacing": "warn",
-        "block-spacing": "warn",
-        "comma-spacing": "warn",
-        "func-call-spacing": "warn",
-        "key-spacing": "warn",
-        "no-trailing-spaces": "warn",
-        "comma-style": "warn",
-        "comma-dangle": ["warn", {
-            "arrays": "always-multiline",
-            "objects": "always-multiline",
-            "imports": "always-multiline",
-            "exports": "always-multiline",
-            "functions": "always-multiline"
-        }],
-        "computed-property-spacing": "warn",
-        
-        //https://github.com/airbnb/javascript/tree/master/react
-        "react/jsx-props-no-spreading": "off",
-        "react/react-in-jsx-scope": "off",
-        "react/jsx-closing-bracket-location": "warn",
-        "react/jsx-closing-tag-location": "warn",
-        "jsx-quotes": ["warn", "prefer-double"],
-        "no-multi-spaces": "warn",
-        "react/jsx-tag-spacing": "warn",
-        "react/jsx-curly-spacing": "warn",
-        "react/jsx-boolean-value": "warn",
-        "react/jsx-wrap-multilines": "warn",
-        "react/self-closing-comp": "warn",
-        "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
-        //Currently is not working properly for example - name = "Mark"
-        "react/require-default-props": "off",
-        "react/destructuring-assignment": "warn",
-        "global-require": "warn",
         "no-console": "off",
         "react/no-unused-prop-types": "warn",
         "react/no-unstable-nested-components": "warn"
