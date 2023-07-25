@@ -4,6 +4,7 @@ import {
     IconSectionSign
 } from "@tabler/icons-react";
 
+export const street = "Nové sady 2"
 
 export const legalData = [
     {

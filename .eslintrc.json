@@ -51,6 +51,7 @@
         "max-len": ["warn", { "code": 100, "ignoreStrings": true, "ignoreComments": true }],
         "no-console": "off",
         "react/no-unused-prop-types": "warn",
-        "react/no-unstable-nested-components": "warn"
+        "react/no-unstable-nested-components": "warn",
+        "no-shadow": "warn"
     }
 }

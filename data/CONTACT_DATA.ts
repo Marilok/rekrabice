@@ -1,7 +1,13 @@
 import {
-    IconAt,
-    IconMapPin
+  IconAt,
+  IconMapPin
 } from "@tabler/icons-react";
+
+export const CONTACT = {
+  bankAccountFull: 200200/5300,
+  bankAccountNumber: 123456796,
+  bankAccountBank: 5500
+}
 
 export const contactData = [
     {
