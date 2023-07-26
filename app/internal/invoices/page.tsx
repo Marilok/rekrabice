@@ -1,5 +1,7 @@
 "use client";
 
+/* eslint-disable react/self-closing-comp */
+
 import { Button, Flex, Grid, Stack, Table, Text } from "@mantine/core";
 import { jsPDF } from "jspdf";
 import Image from "next/image";
@@ -7,11 +9,17 @@ import { CONTACT } from "../../../data/CONTACT_DATA";
 import brandSrc from "../../../public/images/logos/aktin.svg";
 import logoSrc from "../../../public/logo_text.svg";
 
+// ! This page is unfinished but can be used to built on top of for future development
+
 export default function Page() {
   const generatePdf = () => {
+    // * The library constructor starts with lowercase, causing eslint error
+    // eslint-disable-next-line new-cap
     const doc = new jsPDF();
 
     doc.html(document.getElementById("id")!, {
+      // TODO: can this be fixed?
+      // eslint-disable-next-line no-shadow
       callback(doc) {
         doc.save();
       },
@@ -54,36 +62,36 @@ export default function Page() {
   return (
     <>
       <div id="id" className="w-[800px]">
-        <Flex align={"center"} justify={"space-between"} h={"120"} p={"md"}>
-          <Image alt="logo" src={logoSrc} height={"60"} />
-          <Text fw={"bold"}>
+        <Flex align="center" justify="space-between" h="120" p="md">
+          <Image alt="logo" src={logoSrc} height="60" />
+          <Text fw="bold">
             FAKTURA&nbsp;
             {String(data.number).replace(/(\d{4})(\d{2})(\d{4})/, "$1-$2-$3")}
           </Text>
         </Flex>
-        <Grid h={120} p={"md"} bg="var(--mantine-color-green-6)">
-          <Grid.Col span={"auto"}>
+        <Grid h={120} p="md" bg="var(--mantine-color-green-6)">
+          <Grid.Col span="auto">
             <div>
               <Text>Prosíme o zaplacení částky</Text>
-              <Text fw="bold" size={"xl"}>
+              <Text fw="bold" size="xl">
                 {data.sum} Kč
               </Text>
             </div>
           </Grid.Col>
-          <Grid.Col span={"auto"}>
+          <Grid.Col span="auto">
             <Grid>
               <Grid.Col span="auto">
-                <Stack justify="center" align="flex-end" spacing={"0"}>
+                <Stack justify="center" align="flex-end" spacing="0">
                   <Text>Způsob platby</Text>
                   <Text>Bankovní účet</Text>
                   <Text>Variabilní symbol</Text>
                 </Stack>
               </Grid.Col>
               <Grid.Col span="auto">
-                <Stack justify="center" align="flex-start" spacing={"0"}>
+                <Stack justify="center" align="flex-start" spacing="0">
                   <Text>Převodem</Text>
-                  <Text fw={"bold"}>{CONTACT.bankAccountFull}</Text>
-                  <Text fw={"bold"}>{data.number}</Text>
+                  <Text fw="bold">{CONTACT.bankAccountFull}</Text>
+                  <Text fw="bold">{data.number}</Text>
                 </Stack>
               </Grid.Col>
             </Grid>
@@ -127,11 +135,12 @@ export default function Page() {
           alt="QR payment code"
           width="80"
           height="80"
+          // eslint-disable-next-line max-len
           src={`https://api.paylibo.com/paylibo/generator/czech/image?accountNumber=${CONTACT.bankAccountNumber}&bankCode=${CONTACT.bankAccountBank}&amount=${data.sum}&currency=CZK&vs=${data.number}&message=Platba%20za%20objednavku}`}
         />
         <div>
           <Text>Odběratel</Text>
-          <Image alt="logo" src={brandSrc} width="70" height={"60"} />
+          <Image alt="logo" src={brandSrc} width="70" height="60" />
           <Text>{data.legalName}</Text>
           <Text>{data.street}</Text>
           <Text>
@@ -143,8 +152,8 @@ export default function Page() {
         <Table>
           <thead>
             <tr>
-              <th></th>
-              <th></th>
+              <th className="hidden"> </th>
+              <th className="hidden"> </th>
               <th>Cena za MJ</th>
               <th>Celkem</th>
             </tr>
@@ -152,9 +161,9 @@ export default function Page() {
           <tbody>{rows}</tbody>
           <tfoot>
             <tr>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td className="hidden"> </td>
+              <td className="hidden"> </td>
+              <td className="hidden"> </td>
               <td className="font-bold">
                 Celkem{" "}
                 {elements.reduce(
@@ -181,7 +190,7 @@ export default function Page() {
       </div>
       <Button
         onClick={handleClick}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2"
+        className="absolute inset-x-1/2 inset-y-1/2 -translate-x-1/2 -translate-y-1/2"
       >
         Generovat fakturu
       </Button>
