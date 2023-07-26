@@ -10,14 +10,13 @@ import translations from "../../../dictionaries/translations";
 import {
   Anchor,
   Button,
-  Checkbox,
   Group,
   TextInput,
 } from "../../mantineClientComponents";
 
 interface FormValues {
   email: string;
-  rememberMe: boolean;
+  // rememberMe: boolean;
 }
 
 export default function Form({ setSubmitted }: any) {
@@ -34,7 +33,10 @@ export default function Form({ setSubmitted }: any) {
   }
 
   const form = useForm<FormValues>({
-    initialValues: { email: "", rememberMe: true },
+    initialValues: {
+      email: "",
+      //  rememberMe: true
+    },
 
     validate: {
       email: isEmail(translations.login.wrongEmailFormat),
@@ -65,11 +67,12 @@ export default function Form({ setSubmitted }: any) {
         required
       />
       <Group position="apart" mt="sm">
-        <Checkbox
+        {/* <Checkbox
+        //TODO: implement remember me feature
           label={translations.login.rememberMe}
           disabled
           {...form.getInputProps("rememberMe", { type: "checkbox" })}
-        />
+        /> */}
         <Anchor href="/kontakt" component={Link} size="sm">
           {translations.login.cannotLogin}
         </Anchor>

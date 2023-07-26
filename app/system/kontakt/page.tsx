@@ -4,6 +4,8 @@ import { Anchor, Space, Text } from "../../mantineClientComponents";
 export default function ContactPage() {
   return (
     <>
+      
+
       <Text weight="bold">{translations.systemContact.boldText1}</Text>
       <Text>
         {translations.systemContact.text1}

@@ -8,8 +8,8 @@ export default function Page() {
   const supabase = createClientComponentClient();
 
   const generatePdf = async (data: any) => {
-    //  TODO: igoners that the constructor doesnt have upperase
-    //  @ts-igonre
+    // * The library constructor starts with lowercase, causing eslint error
+    // eslint-disable-next-line new-cap
     const doc = new jsPDF({
       orientation: "landscape",
       format: "A9", // 52x37 mm
@@ -57,7 +57,7 @@ export default function Page() {
   return (
     <Button
       onClick={handleClick}
-      className="absolute top-1/2 left-1/2 -translate-x-1/2"
+      className="fixed inset-x-1/2 inset-y-1/2 -translate-x-1/2 -translate-y-1/2"
     >
       Generovat etikety
     </Button>

@@ -1,8 +1,6 @@
 "use client";
 
-import {
-  Button, ButtonProps, SimpleGrid, Stack, Text,
-} from "@mantine/core";
+import { Button, ButtonProps, SimpleGrid, Stack, Text } from "@mantine/core";
 import { IconMail } from "@tabler/icons-react";
 import translations from "../../dictionaries/translations";
 import {
@@ -87,6 +85,8 @@ export function DefaultEmailButton(props: ButtonProps) {
       variant="default"
       color="gray"
       component="a"
+      // TODO: fix this length
+      // eslint-disable-next-line max-len
       href={`mailto:${translations.emailButtons.closeEmail}?subject=${translations.emailButtons.closeSubject}`}
       target="_blank"
       {...props}

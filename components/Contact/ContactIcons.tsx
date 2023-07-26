@@ -1,6 +1,4 @@
-import {
-  Box, createStyles, Stack, Text, ThemeIcon,
-} from "@mantine/core";
+import { Box, createStyles, Stack, Text, ThemeIcon } from "@mantine/core";
 import React from "react";
 import { IMPRESSUM_DATA } from "../../data/IMPRESSUM_DATA";
 
@@ -13,7 +11,8 @@ interface ContactIconStyles {
 function getColorVariant(variant: any, theme: any) {
   if (variant === "gradient") {
     return theme.colors.gray[6];
-  } if (variant === "white") {
+  }
+  if (variant === "white") {
     return theme.colors[theme.primaryColor][0];
   }
   return "";
@@ -75,6 +74,30 @@ interface ContactIconProps
   variant?: ContactIconVariant;
 }
 
+function GradientVariant({ Icon, classes }: any) {
+  return (
+    <ThemeIcon size={40} radius="md" className={classes.icon}>
+      <Icon size={24} />
+    </ThemeIcon>
+  );
+}
+
+function LegalVariant({ Icon, classes }: any) {
+  return (
+    <ThemeIcon size={40} radius="md" className={classes.icon}>
+      <Icon size={24} />
+    </ThemeIcon>
+  );
+}
+
+function FallbackVariant({ Icon }: any) {
+  return (
+    <Box mr="md">
+      <Icon size={24} />
+    </Box>
+  );
+}
+
 function ContactIcon({
   icon: Icon,
   title,
@@ -85,34 +108,14 @@ function ContactIcon({
   ...others
 }: ContactIconProps) {
   const { classes, cx } = useStyles({ variant });
-  function GradientVariant() {
-    return (
-      <ThemeIcon size={40} radius="md" className={classes.icon}>
-        <Icon size={24} />
-      </ThemeIcon>
-    );
-  }
 
-  function LegalVariant() {
-    return (
-      <ThemeIcon size={40} radius="md" className={classes.icon}>
-        <Icon size={24} />
-      </ThemeIcon>
-    );
-  }
-
-  function FallbackVariant() {
-    return (
-      <Box mr="md">
-        <Icon size={24} />
-      </Box>
-    );
-  }
   return (
     <div className={cx(classes.wrapper, className)} {...others}>
-      {variant === "gradient" && <GradientVariant />}
-      {variant === "legal" && <LegalVariant />}
-      {!variant && <FallbackVariant />}
+      {variant === "gradient" && (
+        <GradientVariant classes={classes} Icon={Icon} />
+      )}
+      {variant === "legal" && <LegalVariant classes={classes} Icon={Icon} />}
+      {!variant && <FallbackVariant Icon={Icon} />}
 
       <div>
         <Text

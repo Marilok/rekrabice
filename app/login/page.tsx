@@ -1,4 +1,5 @@
 import Link from "next/link";
+import translations from "../../dictionaries/translations";
 import {
   Anchor,
   Container,
@@ -7,7 +8,6 @@ import {
   Title,
 } from "../mantineClientComponents";
 import LoginComponent from "./_components/LoginComponent";
-import translations from "../../dictionaries/translations";
 
 function UpperText() {
   return (
@@ -16,8 +16,7 @@ function UpperText() {
         {translations.login.heading}
       </Title>
       <Text color="dimmed" size="sm" align="center" mt={5}>
-        {translations.login.dontAccept}
-        {" "}
+        {translations.login.dontAccept}{" "}
         <Anchor href="/kontakt" component={Link}>
           {translations.login.contactUs}
         </Anchor>
@@ -31,7 +30,7 @@ export default async function LoginPage() {
     <main className="flex flex-col h-screen relative">
       <UpperText />
       <Container size="sm" className="self-center">
-        <Paper withBorder shadow="md" p="xl" mt="xl">
+        <Paper withBorder shadow="md" p="xl" mt="xl" miw={400}>
           <LoginComponent />
         </Paper>
       </Container>

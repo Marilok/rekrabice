@@ -1,6 +1,4 @@
-import {
-  Accordion, MediaQuery, Navbar, Stack,
-} from "@mantine/core";
+import { Accordion, MediaQuery, Navbar, Stack } from "@mantine/core";
 import Link from "next/link";
 
 export default function CustomNavbar({
@@ -13,6 +11,8 @@ export default function CustomNavbar({
     links?: { link: string; label: string }[];
   }[];
   isOpen: boolean;
+  // TODO: fix this
+  // eslint-disable-next-line react/no-unused-prop-types
   toggle: () => void;
 }) {
   const items = links.map((link) => {
