@@ -4,11 +4,16 @@ Disallow: /app
 Disallow: /app/
 Disallow: /system
 Disallow: /system/
+Disallow: /internal
+Disallow: /internal/
 
 
 
 # Allow all crawlers
 User-agent: *
 Allow: /
+Allow: /login
+Allow: /login/
+
 
 Sitemap: https://rekrabice.cz/sitemap.xml
