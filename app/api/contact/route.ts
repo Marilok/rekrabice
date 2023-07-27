@@ -1,17 +1,15 @@
-import type { NextApiRequest, NextApiResponse } from "next";
+import { NextRequest, NextResponse } from "next/server";
 
 const nodemailer = require("nodemailer");
 
-type Data = {
-  type?: "confirmationMail" | "msgMail";
-  success?: boolean;
-  error?: any;
-};
+// eslint-disable-next-line import/prefer-default-export
+export async function POST(req: NextRequest) {
+  const {
+    mail: reqMail,
+    name: reqName,
+    msg: reqMsg,
+  }: { mail: string; name: string; msg: string } = await req.json();
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>,
-) {
   const transporter = nodemailer.createTransport({
     port: 465,
     host: process.env.EMAIL_HOST,
@@ -25,21 +23,17 @@ export default async function handler(
   const mailData = {
     from: `Robot z ReKrabice <${process.env.EMAIL_USERNAME}>`,
     to: process.env.EMAIL_TESTER_USERNAME,
-    replyTo: req.body.mail
-      ? `${req.body.name} <${req.body.mail}>`
-      : req.body.mail,
+    replyTo: reqMail ? `${reqName} <${reqMail}>` : reqMail,
     priority: "high",
-    subject: `Zpráva ${
-      req.body.name ? `od ${req.body.name}` : ""
-    } z kontaktního formuláře`,
+    subject: `Zpráva ${reqName ? `od ${reqName}` : ""} z kontaktního formuláře`,
 
-    text: req.body.msg,
-    html: `<div>${req.body.msg}</div>`,
+    text: reqMsg,
+    html: `<div>${reqMsg}</div>`,
   };
 
   const confirmationData = {
     from: `Robot z ReKrabice <${process.env.EMAIL_USERNAME}>`,
-    to: req.body.mail,
+    to: reqMail,
     priority: "high",
     subject: "Potvrzení o odeslání zprávy z kontaktního formuláře",
     html: "<p>Hurá! Tvoje zpráva, kterou si nám (týmu za ReKrabicí) poslal skrze kontaktní formulář na našem webu (ReKrabice.cz) nám dorazila do schránky! Na zprávu ti odpovíme do 24 hodin. <br/><br/> PS: V mezičase se můžeš rozjímat nad pěknými štěnátky, které na tebe koukají v příloze. ;) </p>",
@@ -63,11 +57,11 @@ export default async function handler(
     const msgMail = await transporter.sendMail(mailData);
     const confirmationMail = await transporter.sendMail(confirmationData);
 
-    res.status(200).send({});
     console.log("Message mail info: ", msgMail);
     console.log("Confirmation mail info: ", confirmationMail);
+    return new NextResponse(null, { status: 200 });
   } catch (error) {
-    res.status(500).send({ error });
     console.log(error);
+    return new NextResponse(JSON.stringify({ error }), { status: 500 });
   }
 }
