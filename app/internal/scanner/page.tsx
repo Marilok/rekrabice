@@ -62,21 +62,21 @@ export default function Page() {
           notifications.show({
             title: "Chybná hodnota",
             message: "A code was found, but it's read value was not valid.",
-            autoClose: 2000,
+            autoClose: 4000,
             color: "red",
           });
         } else if (error && error instanceof FormatException) {
           notifications.show({
             title: "Špatný formát",
             message: "A code was found, but it was in a invalid format.",
-            autoClose: 2000,
+            autoClose: 4000,
             color: "red",
           });
         } else {
           notifications.show({
             title: "Ještě nepoznaná chyba",
             message: "Nastala chyba, kterou zatím jsme nebyli schopin popsat.",
-            autoClose: 2000,
+            autoClose: 4000,
             color: "red",
           });
         }
@@ -88,12 +88,13 @@ export default function Page() {
     palleteId: any,
     existingArray: any,
     newBox: any,
+    trackingName: string,
   ) => {
     if (existingArray.includes(newBox)) {
       notifications.show({
-        title: `${newBox} už je v paletě`,
-        message: `Krabice s označením ${newBox} už byla přidána do palety`,
-        autoClose: 2000,
+        title: `${trackingName} už je v paletě`,
+        message: `Krabice s označením ${trackingName} už byla přidána do palety`,
+        autoClose: 4000,
         color: "red",
       });
     } else {
@@ -112,7 +113,7 @@ export default function Page() {
         notifications.show({
           title: `${newBox} přidána`,
           message: `Krabice s označením ${newBox} byla přidána do palety`,
-          autoClose: 2000,
+          autoClose: 4000,
         });
       }
     }
@@ -143,7 +144,7 @@ export default function Page() {
       throw new Error("Error fetching data from Supabase");
     } else {
       const boxId = await getBoxId(trackingName);
-      updatePallete(palleteId, data?.boxes, boxId);
+      updatePallete(palleteId, data?.boxes, boxId, trackingName);
     }
   };
 
