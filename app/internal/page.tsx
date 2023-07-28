@@ -41,12 +41,12 @@ export default function Page() {
     const videoInputDevices = await BrowserQRCodeReader.listVideoInputDevices();
     // choose your media device (webcam, frontal camera, back camera, etc.)
     const selectedDeviceId = videoInputDevices[0].deviceId;
-    const previewElem = document.querySelector("#video-preview");
 
     // eslint-disable-next-line no-unused-vars
     const controls = await codeReader.decodeFromVideoDevice(
       selectedDeviceId,
-      previewElem,
+      // The id of the video element
+      "video-preview",
       (result: any, error: any) => {
         // you can use the controls to stop() the scan or switchTorch() if available
         // const controls = await codeReader.decodeFromVideoDevice(selectedDeviceId, previewElem, (result, error, controls) => {
