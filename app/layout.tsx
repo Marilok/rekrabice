@@ -4,6 +4,7 @@
 // import "@mantine/notifications/styles.css";
 
 import React from "react";
+import { Notifications } from "./_components/client/Notifications";
 import "./global.css";
 import { MantineProvider } from "./mantineClientComponents";
 import SupabaseProvider from "./supabase-provider";
@@ -30,6 +31,7 @@ export default async function RootLayout({
             withGlobalStyles
             withNormalizeCSS
           >
+            <Notifications />
             {children}
           </MantineProvider>
         </SupabaseProvider>

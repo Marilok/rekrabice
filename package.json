@@ -21,6 +21,8 @@
     "@supabase/auth-helpers-react": "^0.4.0",
     "@supabase/supabase-js": "^2.2.2",
     "@tabler/icons-react": "^2.4.0",
+    "@zxing/browser": "^0.1.4",
+    "@zxing/library": "^0.20.0",
     "autoprefixer": "^10.4.13",
     "cookies-next": "^2.1.1",
     "cssnano": "^6.0.0",
@@ -53,6 +55,7 @@
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.33.0",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "postcss-preset-mantine": "^1.7.0",
     "typescript": "^5.1.3"
   }
 }
