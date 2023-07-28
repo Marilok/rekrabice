@@ -1,7 +1,3 @@
-import { Avatar, Group, SelectItemProps, Text } from "@mantine/core";
-import { forwardRef } from "react";
-import LandingPageWrapper from "../../../../components/Layouts/LandingPage/layout";
-
 export default function ReturnPackagePage() {
   // const router = useRouter();
   // function FirstStep() {
@@ -51,43 +47,44 @@ export default function ReturnPackagePage() {
   // }
 
   return (
-    <LandingPageWrapper
-      title="Vrátit ReKrabici"
-      titleRemoveName
-      description="Spáruj svou ReKrabici se svým bankovním účtem."
-    >
-      {/* <Paper m="auto" p="sm" maw={600} withBorder mt="xl">
+    <>Nothing</>
+    // <LandingPageWrapper
+    //   title="Vrátit ReKrabici"
+    //   titleRemoveName
+    //   description="Spáruj svou ReKrabici se svým bankovním účtem."
+    // >
+    /* <Paper m="auto" p="sm" maw={600} withBorder mt="xl">
         {!packaging_id && <FirstStep />}
         {packaging_id && !submitted && <SecondStep />}
-        {packaging_id && submitted && <ThirdStep />} */}
-      {/* </Paper> */}
-    </LandingPageWrapper>
+        {packaging_id && submitted && <ThirdStep />} */
+    // /* </Paper> *
+    // </LandingPageWrapper>
   );
 }
 
-interface ItemProps extends SelectItemProps {
-  code: string;
-  bank: string;
-  img?: string;
-}
+// interface ItemProps extends SelectItemProps {
+//   code: string;
+//   bank: string;
+//   img?: string;
+// }
 
-const AutoCompleteItem = forwardRef<HTMLDivElement, ItemProps>(
-  ({ bank, value, img, ...others }: ItemProps, ref) => (
-    <div ref={ref} {...others}>
-      <Group noWrap>
-        {/* <Image src={img} width={48} height={48} alt="Bank logo" /> */}
-        {/* TODO: make this nextjs image */}
-        <Avatar size="sm" src={img} />
+// const AutoCompleteItem = forwardRef<HTMLDivElement, ItemProps>(
+//   ({ bank, value, img, ...others }: ItemProps, ref) => (
+//     <div ref={ref} {...others}>
+//       <Group noWrap>
+//         {/* <Image src={img} width={48} height={48} alt="Bank logo" /> */}
+//         {/* TODO: make this nextjs image */}
+// //         <Avatar size="sm" src={img} />
 
-        <div>
-          <Text>{value}</Text>
-          <Text size="xs" color="dimmed">
-            {bank}
-          </Text>
-        </div>
-      </Group>
-    </div>
-  ),
-);
+// //         <div>
+// //           <Text>{value}</Text>
+// //           <Text size="xs" color="dimmed">
+// //             {bank}
+// //           </Text>
+// //         </div>
+// //       </Group>
+// //     </div>
+// //   ),
+// // );
 
-AutoCompleteItem.displayName = "AutoCompleteItem";
+// // AutoCompleteItem.displayName = "AutoCompleteItem";
