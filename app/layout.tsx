@@ -1,4 +1,8 @@
+// mantine v7
 // import "@mantine/core/styles.css";
+// import "@mantine/form/styles.css";
+// import "@mantine/notifications/styles.css";
+
 import React from "react";
 import "./global.css";
 import { MantineProvider } from "./mantineClientComponents";
@@ -6,7 +10,8 @@ import SupabaseProvider from "./supabase-provider";
 
 export const metadata = {
   title: "ReKrabice",
-  description: "Some dummy text.",
+  description:
+    "Nestav doma věže z kartonových krabic. Všechny ReKrabice můžeš vrátit a ušetřit tak našim lesům. A to zcela zdarma!",
 };
 
 export default async function RootLayout({
