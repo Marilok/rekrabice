@@ -134,7 +134,7 @@ export default function HeaderAction({
         </Group>
         <Group position="center" my="xl">
           <ActionIcon
-            onClick={() => toggleColorScheme()}
+            // onClick={() => toggleColorScheme()}
             size="lg"
             aria-label="Toggle color scheme"
             sx={(theme) => ({
