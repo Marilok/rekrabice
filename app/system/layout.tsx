@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import React from "react";
-import StyledNavbar from "../_components/Layouts/Navbar";
 import { AppShell } from "../mantineClientComponents";
+import StyledNavbar from "./_components/Navbar/Navbar";
 
 export const metadata: Metadata = {
   title: "Systém ReKrabice",

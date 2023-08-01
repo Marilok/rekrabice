@@ -11,7 +11,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import translations from "../../../dictionaries/translations";
+import translations from "../../../../dictionaries/translations";
 import {
   Code,
   Divider,
@@ -19,7 +19,7 @@ import {
   Navbar,
   createStyles,
   getStylesRef,
-} from "../../mantineClientComponents";
+} from "../../../mantineClientComponents";
 // import UserButton from "./UserButton/UserButton";
 
 const useStyles = createStyles((theme) => ({
@@ -123,11 +123,7 @@ export default function StyledNavbar() {
       <Navbar.Section grow>
         <Group position="apart">
           <Image src="/logo_text.svg" height={30} width="100" alt="logo icon" />
-          <Code>
-            {translations.systemNavbar.version}
-            {" "}
-            Alpha 0.3
-          </Code>
+          <Code>{translations.systemNavbar.version} Alpha 0.3</Code>
         </Group>
         <Divider my="sm" />
 
