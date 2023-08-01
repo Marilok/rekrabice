@@ -3,8 +3,6 @@
 "use client";
 
 import { Avatar, Button, Flex, Group, Select, Text } from "@mantine/core";
-// import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-
 import { useForm } from "@mantine/form";
 import React, { forwardRef } from "react";
 import sellPallete from "./_functions/actions";
@@ -91,6 +89,22 @@ const SelectItem = forwardRef<HTMLDivElement, ItemProps>(
   ),
 );
 
+const retailersData = [
+  {
+    value: "Decathlon",
+    label: "Decathlon",
+    logo_url:
+      "https://vlzmneddlwojekmklqnf.supabase.co/storage/v1/object/public/retailers_favicons/decathlon.svg",
+    brand_name: "Decathlon",
+  },
+  {
+    value: "T-Mobile",
+    label: "T-Mobile",
+    logo_url:
+      "https://vlzmneddlwojekmklqnf.supabase.co/storage/v1/object/public/retailers_favicons/tmobile.svg",
+    brand_name: "T-Mobile",
+  },
+];
 // const palletesMockdata = [
 //   {
 //     value: "1002",
@@ -108,22 +122,6 @@ const SelectItem = forwardRef<HTMLDivElement, ItemProps>(
 //   },
 // ];
 
-const retailersData = [
-  {
-    value: "Decathlon",
-    label: "Decathlon",
-    logo_url:
-      "https://vlzmneddlwojekmklqnf.supabase.co/storage/v1/object/public/retailers_favicons/decathlon.svg",
-    brand_name: "Decathlon",
-  },
-  {
-    value: "T-Mobile",
-    label: "T-Mobile",
-    logo_url:
-      "https://vlzmneddlwojekmklqnf.supabase.co/storage/v1/object/public/retailers_favicons/tmobile.svg",
-    brand_name: "T-Mobile",
-  },
-];
 // function ItemComponent({ data, selected }: TransferListItemComponentProps) {
 //   return (
 //     <Group noWrap key={data.value}>

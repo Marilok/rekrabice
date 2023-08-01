@@ -1,10 +1,10 @@
-export default async function getBoxIdFromTrackingId(
+export default async function getBoxFromTrackingName(
   boxTrackingName: string,
   supabase: any,
 ) {
   const { data, error } = await supabase
     .from("boxes")
-    .select("box_id")
+    .select("box_id, active_loop_id")
     .eq("tracking_id", boxTrackingName)
     .single();
 
@@ -12,5 +12,5 @@ export default async function getBoxIdFromTrackingId(
     throw error;
   }
 
-  return data.box_id;
+  return data;
 }

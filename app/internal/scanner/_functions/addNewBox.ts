@@ -1,3 +1,5 @@
+"use client";
+
 import { notifications } from "@mantine/notifications";
 
 export default async function addNewBox(
