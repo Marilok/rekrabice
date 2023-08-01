@@ -14,6 +14,8 @@ import {
   FormatException,
   NotFoundException,
 } from "@zxing/library";
+import addNewBox from "./_functions/addNewBox";
+import getBoxIdFromTrackingId from "./_functions/getBoxIdFromTrackingId";
 
 export default function Page() {
   const supabase = createClientComponentClient();
@@ -84,52 +86,6 @@ export default function Page() {
     );
   }
 
-  const updatePallete = async (
-    palleteId: any,
-    existingArray: any,
-    newBox: any,
-    trackingName: string,
-  ) => {
-    if (existingArray.includes(newBox)) {
-      notifications.show({
-        title: `${trackingName} už je v paletě`,
-        message: `Krabice s označením ${trackingName} už byla přidána do palety`,
-        autoClose: 4000,
-        color: "red",
-      });
-    } else {
-      const newArray = [...existingArray, newBox];
-
-      const { data, error } = await supabase
-        .from("palletes")
-        .update({ boxes: newArray })
-        .eq("pallete_id", palleteId)
-        .select();
-
-      if (error) {
-        throw new Error("Error updating data from Supabase");
-      } else {
-        console.log(data);
-        notifications.show({
-          title: `${newBox} přidána`,
-          message: `Krabice s označením ${newBox} byla přidána do palety`,
-          autoClose: 4000,
-        });
-      }
-    }
-  };
-
-  const getBoxId = async (boxTrackingName: string) => {
-    const { data, error } = await supabase
-      .from("boxes")
-      .select("box_id")
-      .eq("tracking_id", boxTrackingName)
-      .single();
-    if (error) {
-      throw new Error("Error fetching data from Supabase");
-    } else return data.box_id;
-  };
-
   const handleSuccess = async (
     palleteId: number | string,
     trackingName: string,
@@ -141,10 +97,10 @@ export default function Page() {
       .single();
 
     if (error) {
-      throw new Error("Error fetching data from Supabase");
+      throw error;
     } else {
-      const boxId = await getBoxId(trackingName);
-      updatePallete(palleteId, data?.boxes, boxId, trackingName);
+      const boxId = await getBoxIdFromTrackingId(trackingName, supabase);
+      await addNewBox(palleteId, data?.boxes, boxId, trackingName, supabase);
     }
   };
 
