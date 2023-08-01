@@ -6,7 +6,6 @@ import { Button, Flex, Grid, Stack, Table, Text } from "@mantine/core";
 import { jsPDF } from "jspdf";
 import Image from "next/image";
 import { CONTACT } from "../../../data/CONTACT_DATA";
-import brandSrc from "../../../public/images/logos/aktin.svg";
 import logoSrc from "../../../public/logo_text.svg";
 
 // ! This page is unfinished but can be used to built on top of for future development
@@ -17,15 +16,18 @@ export default function Page() {
     // eslint-disable-next-line new-cap
     const doc = new jsPDF();
 
-    doc.html(document.getElementById("id")!, {
+    console.log(document.getElementById("invoice-id"));
+
+    doc.html(document.getElementById("invoice-id")!, {
       // TODO: can this be fixed?
       // eslint-disable-next-line no-shadow
       callback(doc) {
+        doc.setTextColor(0);
         doc.save();
       },
-      width: 180,
+      // width: 180,
       html2canvas: {
-        scale: 0.7,
+        scale: 0.2,
       },
     });
   };
@@ -48,7 +50,9 @@ export default function Page() {
   const maturityDate = `${maturityDD}.${maturityMM}.${maturityYYYY}`;
 
   const data = {
-    retailer: "Aktin",
+    retailer: "Decathlon",
+    logoUrl:
+      "https://vlzmneddlwojekmklqnf.supabase.co/storage/v1/object/public/retailers_favicons/decathlon.svg",
     sum: 3000.3,
     number: 2023110001,
     ico: 11111,
@@ -56,12 +60,12 @@ export default function Page() {
     street: "Česká 90/22",
     zip: "90888",
     city: "Brno",
-    legalName: "Ullis s.r.o.",
+    legalName: "Decasport s.r.o.",
   };
 
   return (
     <>
-      <div id="id" className="w-[800px]">
+      <div id="invoice-id" className="w-[800px]">
         <Flex align="center" justify="space-between" h="120" p="md">
           <Image alt="logo" src={logoSrc} height="60" />
           <Text fw="bold">
@@ -140,7 +144,7 @@ export default function Page() {
         />
         <div>
           <Text>Odběratel</Text>
-          <Image alt="logo" src={brandSrc} width="70" height="60" />
+          <Image alt="logo" src={data.logoUrl} width="70" height="60" />
           <Text>{data.legalName}</Text>
           <Text>{data.street}</Text>
           <Text>
@@ -188,10 +192,7 @@ export default function Page() {
           <Text>DIČ {CONTACT.dic}</Text>
         </div>
       </div>
-      <Button
-        onClick={handleClick}
-        className="absolute inset-x-1/2 inset-y-1/2 -translate-x-1/2 -translate-y-1/2"
-      >
+      <Button onClick={handleClick} className="absolute">
         Generovat fakturu
       </Button>
     </>
