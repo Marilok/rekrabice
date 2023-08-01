@@ -54,14 +54,7 @@ export default function Page() {
     console.log(error || "Loaded data succesfully");
     generatePdf(boxes);
   };
-  return (
-    <Button
-      onClick={handleClick}
-      className="fixed inset-x-1/2 inset-y-1/2 -translate-x-1/2 -translate-y-1/2"
-    >
-      Generovat etikety
-    </Button>
-  );
+  return <Button onClick={handleClick}>Generovat etikety</Button>;
 }
 
 const PAGE_WIDTH = 52;
