@@ -28,7 +28,7 @@ export const contactData = [
   // },
   {
     title: "Sídlo",
-    description: "Zatím hledáme (v Brně)",
+    description: "Nové sady 988/2, 60200 Brno",
     icon: IconMapPin,
     // type: "place",
   },

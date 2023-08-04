@@ -7,6 +7,7 @@ import {
   Text,
 } from "@mantine/core";
 import Link from "next/link";
+import { CONTACT } from "../../../data/CONTACT_DATA";
 import SOCIALS from "../../../data/SOCIALS";
 
 const useStyles = createStyles((theme) => ({
@@ -156,7 +157,7 @@ export default function Footer({ data }: FooterLinksProps) {
         <Text color="dimmed" size="sm">
           &copy;
           <span>{new Date().getFullYear()}</span>
-          <span> Zatím hledáme jméno s.r.o.</span>
+          <span>{CONTACT.legalName}</span>
         </Text>
         <Text color="dimmed" size="sm">
           Vytvořeno s ❤️ ke 🌲 v Česku.
