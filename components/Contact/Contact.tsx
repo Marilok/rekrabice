@@ -264,13 +264,13 @@ export default function ContactUs() {
               <Avatar radius="xl" size="md" alt="avatar image" />
               <Title order={2}>
                 <Text
-                  // variant="gradient"
-                  // gradient={{ from: "green", to: "teal", deg: 45 }}
+                  variant="gradient"
+                  gradient={{ from: "green", to: "teal", deg: 45 }}
                   component="span"
                 >
-                  Tadeáš Bíbr &nbsp;
+                  Avoxo&nbsp;
                 </Text>
-                {/* s.r.o. */}
+                s.r.o.
               </Title>
             </Group>
             <Space h="xl" />
