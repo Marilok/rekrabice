@@ -14,6 +14,7 @@ import {
   IconCashBanknote,
   IconFileInvoice,
   IconLogout,
+  IconPlus,
   IconScan,
   IconSticker,
 } from "@tabler/icons-react";
@@ -101,6 +102,11 @@ const LINKS_OBJECT = [
     link: "/internal/new-word",
     label: "Návrh nových slov",
     icon: IconBarcode,
+  },
+  {
+    link: "/internal/new-por",
+    label: "Přidání nového vratného místa",
+    icon: IconPlus,
   },
 ];
 
