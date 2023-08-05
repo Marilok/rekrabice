@@ -32,13 +32,14 @@ export default function Page() {
       })}
     >
       <Stack spacing="md" maw={500} m="sm" mx="auto">
-        <Text>Zadejte kód palety</Text>
+        <Text>Číslo palety</Text>
         <PinInput
           length={4}
           autoFocus
           required
           size="xl"
           mx="auto"
+          type="number"
           {...form.getInputProps("pallete_id")}
         />
         <Button type="submit" fullWidth>
