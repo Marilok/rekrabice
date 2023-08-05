@@ -111,7 +111,7 @@ const LINKS_OBJECT = [
 ];
 
 // TODO: make this navbar DRY with the navbar in app\system\_components\Navbar\Navbar.tsx
-export default function StyledNavbar() {
+export default function StyledNavbar({ opened }: { opened: boolean }) {
   const { classes, cx } = useStyles();
   const pathname = usePathname();
   const supabase = useSupabaseClient();
@@ -131,7 +131,7 @@ export default function StyledNavbar() {
   const router = useRouter();
 
   return (
-    <Navbar width={{ sm: 300 }} p="md">
+    <Navbar width={{ sm: 300 }} p="md" hiddenBreakpoint="sm" hidden={!opened}>
       <Navbar.Section grow>
         <Group position="apart">
           <Image src="/logo_text.svg" height={30} width="100" alt="logo icon" />

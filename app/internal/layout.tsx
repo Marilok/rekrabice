@@ -1,8 +1,6 @@
 import { Metadata } from "next";
 import React from "react";
-
-import { AppShell } from "../mantineClientComponents";
-import StyledNavbar from "./_components/Navbar";
+import Wrapper from "./_components/Wrapper";
 
 export const metadata: Metadata = {
   title: "Interní aplikace",
@@ -15,21 +13,5 @@ export default async function Layout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <AppShell
-      // @ts-ignore TODO
-      navbar={<StyledNavbar />}
-      styles={{
-        main: {
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          flexDirection: "column",
-        },
-      }}
-      layout="alt"
-    >
-      {children}
-    </AppShell>
-  );
+  return <Wrapper>{children}</Wrapper>;
 }
