@@ -23,16 +23,12 @@ export default function Page() {
     }),
   });
 
-  const handlePinChange = (value: string) => {
-    form.setValues({ pallete_id: value.toUpperCase() });
-  };
-
   // TODO: handle case of not existing palleteId or trackingName
 
   return (
     <form
-      onSubmit={form.onSubmit(() => {
-        scan();
+      onSubmit={form.onSubmit((values) => {
+        scan(values.pallete_id, values.videoSrc);
       })}
     >
       <Stack spacing="md" maw={500} m="sm" mx="auto">
@@ -42,18 +38,17 @@ export default function Page() {
           autoFocus
           required
           size="xl"
-          {...form.getInputProps("pallete_id")}
-          onChange={(event) => handlePinChange(event)}
           mx="auto"
+          {...form.getInputProps("pallete_id")}
         />
         <Button type="submit" fullWidth>
           Načíst paletu
         </Button>
         <video id="video-preview" className="w-full h-72" />
         <NativeSelect
-          {...form.getInputProps("videoSrc")}
           label="Zdroj skenování"
           data={["0", "1", "2", "3", "4"]}
+          {...form.getInputProps("videoSrc")}
         />
       </Stack>
     </form>
