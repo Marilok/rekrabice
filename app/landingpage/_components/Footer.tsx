@@ -156,7 +156,7 @@ export default function Footer({ data }: FooterLinksProps) {
       <Container className={classes.afterFooter}>
         <Text color="dimmed" size="sm">
           &copy;
-          <span>{new Date().getFullYear()}</span>
+          <span>{new Date().getFullYear()}&nbsp;</span>
           <span>{CONTACT.legalName}</span>
         </Text>
         <Text color="dimmed" size="sm">
