@@ -5,7 +5,7 @@
 import { Flex, Grid, Stack, Table, Text, createStyles } from "@mantine/core";
 import Image from "next/image";
 import { CONTACT } from "../../../data/CONTACT_DATA";
-import logoSrc from "../../public/logo_text.svg";
+import logoSrc from "../../../public/logo_text.svg";
 import StatsRingCard from "./FirmCard";
 
 // ! This page is unfinished but can be used to built on top of for future development
