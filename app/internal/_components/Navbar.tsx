@@ -17,6 +17,7 @@ import {
   IconPlus,
   IconScan,
   IconSticker,
+  IconTruckDelivery,
 } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -107,6 +108,11 @@ const LINKS_OBJECT = [
     link: "/internal/new-por",
     label: "Přidání nového vratného místa",
     icon: IconPlus,
+  },
+  {
+    link: "/internal/orders",
+    label: "Objednávky",
+    icon: IconTruckDelivery,
   },
 ];
 
