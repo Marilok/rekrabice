@@ -1,6 +1,8 @@
 export default async function createNewOrderRecord(
   retailerId: number,
   invoiceNumber: string,
+  totalPrice: number,
+  products: any,
   supabase: any,
 ) {
   const { data, error } = await supabase
@@ -8,6 +10,8 @@ export default async function createNewOrderRecord(
     .insert({
       retailer_id: retailerId,
       invoice_number: invoiceNumber,
+      products,
+      total_price: totalPrice,
     })
     .select("order_id")
     .single();

@@ -16,14 +16,22 @@ import updatePalleteStatus from "./updatePalleteStatus";
 export default async function sellPalletes(
   retailerId: number,
   palleteIds: number[],
+  products: any,
 ) {
   const supabase = createServerActionClient({ cookies });
+
+  const totalPrice = products.reduce(
+    (accumulator: number, item: any) => accumulator + item.price * item.count,
+    0,
+  );
 
   try {
     // Creates a new order record and returns its id
     const orderId = await createNewOrderRecord(
       retailerId,
       createInvoiceNumber(await getLastInvoiceNumber(supabase)),
+      totalPrice,
+      products,
       supabase,
     );
 

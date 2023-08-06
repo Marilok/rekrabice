@@ -14,30 +14,40 @@ import {
   TransferListItemComponentProps,
 } from "@mantine/core";
 import { isNotEmpty, useForm } from "@mantine/form";
+import { notifications } from "@mantine/notifications";
 import { useRouter } from "next/navigation";
 import React, { forwardRef } from "react";
 import sellPalletes from "./_functions/actions";
 
 export default function UI({
-  palletes,
+  allPalletes,
   retailers,
 }: {
-  palletes: any;
+  allPalletes: any;
   retailers: any;
 }) {
   const form = useForm({
     initialValues: {
-      palletesIds: [[], palletes],
+      transferListData: [[], allPalletes],
       retailerId: "",
+      products: [],
     },
 
     transformValues: (values) => ({
       ...values,
-      palletesIds: values.palletesIds[0].map((item: any) => item.value),
+      palletesIds: values.transferListData[0].map((item: any) => item.value),
+      products: values.transferListData[0].map((item: any) => ({
+        price: item.price,
+        count: item.count,
+        width: item.width,
+        depth: item.depth,
+        height: item.height,
+        color: item.color,
+      })),
     }),
 
     validate: {
-      palletesIds: (value) =>
+      transferListData: (value) =>
         value[0].length === 0 ? "Vyber alespoň 1 paletu k prodeji" : null,
       retailerId: isNotEmpty("Vyber komu se palety odešlou"),
     },
@@ -48,9 +58,21 @@ export default function UI({
   return (
     <form
       onSubmit={form.onSubmit((values) => {
-        sellPalletes(parseInt(values.retailerId, 10), values.palletesIds);
+        console.log(values.transferListData[0]);
+
+        sellPalletes(
+          parseInt(values.retailerId, 10),
+          values.palletesIds,
+          values.products,
+        );
         form.reset();
-        router.refresh();
+        router.refresh(); // TODO: doesnt refresh the data in the transfer list
+        notifications.show({
+          title: "Palety byly prodány",
+          message: "Faktura byla poslána do mailu.",
+          color: "green",
+          autoClose: 8000,
+        });
       })}
     >
       <Flex gap="md" direction="column">
@@ -67,7 +89,7 @@ export default function UI({
             item.dimensions.includes(query.toLowerCase().trim()) ||
             item.color.toLowerCase().includes(query.toLowerCase().trim())
           }
-          {...form.getInputProps("palletesIds")}
+          {...form.getInputProps("transferListData")}
         />
         <Select
           label="Zvol komu se paleta odešle"
