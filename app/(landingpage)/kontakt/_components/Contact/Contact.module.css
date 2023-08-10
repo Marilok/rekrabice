@@ -1,0 +1,62 @@
+.wrapper {
+  min-height: 400px;
+  box-sizing: border-box;
+  border-radius: var(--mantine-radius-md);
+  padding: calc(var(--mantine-spacing-xl) * 1.5);
+  background-image: linear-gradient(
+    -60deg,
+    var(--mantine-color-green-4) 0%,
+    var(--mantine-color-green-7) 100%
+  );
+}
+
+.wrapper2 {
+  min-height: 400px;
+  box-sizing: border-box;
+  border-radius: var(--mantine-radius-md);
+  padding-left: calc(var(--mantine-spacing-xl) * 1.5);
+  padding-right: calc(var(--mantine-spacing-xl) * 1.5);
+  padding-top: var(--mantine-spacing-xl);
+  padding-bottom: var(--mantine-spacing-xl);
+  border-style: solid;
+  border-width: 1px;
+
+  @mixin dark {
+    background-color: var(--mantine-color-dark-8);
+    border-color: var(--mantine-color-dark-8);
+  }
+
+  @mixin light {
+    background-color: var(--mantine-color-white);
+    border-color: var(--mantine-color-gray-2);
+  }
+
+  @media (max-width: var(--mantine-breakpoint-sm)) {
+    padding: var(--mantine-spacing-xl);
+  }
+}
+
+.input {
+  background-color: var(--mantine-color-white);
+  border-color: var(--mantine-color-gray-4);
+  color: var(--mantine-color-black);
+
+  &::placeholder {
+    color: var(--mantine-color-gray-5);
+  }
+}
+
+.form {
+  background-color: var(--mantine-color-white);
+  padding: var(--mantine-spacing-xl);
+  border-radius: var(--mantine-radius-md);
+  box-shadow: var(--mantine-shadow-lg);
+}
+
+.inputLabel {
+  color: var(--mantine-color-black);
+}
+
+.control {
+  background-color: var(--mantine-color-green-6);
+}

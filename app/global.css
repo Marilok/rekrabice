@@ -10,11 +10,6 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
 * {
   box-sizing: border-box;
 }
@@ -29,6 +24,4 @@ a {
     background: black;
   }
 }
-.markercluster-map {
-  height: 90vh;
-} */
+  */

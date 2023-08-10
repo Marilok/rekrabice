@@ -1,8 +1,9 @@
+"use client";
+
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
-// eslint-disable-next-line
-const MyIcon = new (L.divIcon as any)({
+const MyIcon = L.divIcon({
   html: `
  <svg
     xmlns="http://www.w3.org/2000/svg"

@@ -3,7 +3,7 @@
 import { Accordion, Anchor } from "@mantine/core";
 import Link from "next/link";
 import { ReactNode } from "react";
-import translations from "../../../dictionaries/translations";
+import translations from "../../../translations/translations";
 
 type AccordionItem = {
   value: string;
@@ -27,11 +27,10 @@ const accordionData: AccordionItem[] = [
     control: translations.systemFaq.question3,
     panel: (
       <>
-        {translations.systemFaq.answer3A}
-        {" "}
-        <Link href="kontakt" passHref legacyBehavior>
-          <Anchor>{translations.systemFaq.answer3B}</Anchor>
-        </Link>
+        {translations.systemFaq.answer3A}{" "}
+        <Anchor component={Link} href="kontakt">
+          {translations.systemFaq.answer3B}
+        </Anchor>
       </>
     ),
   },

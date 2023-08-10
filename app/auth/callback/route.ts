@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 
 import type { NextRequest } from "next/server";
 
-// TODO: can this function be exported as default?
+export const dynamic = "force-dynamic";
 
 // eslint-disable-next-line import/prefer-default-export
 export async function GET(request: NextRequest) {

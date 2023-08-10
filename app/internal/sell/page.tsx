@@ -1,10 +1,12 @@
+"use server";
+
 /* eslint-disable camelcase */
 
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import getBoxMetadataFromPallete from "./_functions/getBoxMetadataFromPallete";
 import getPalletes from "./_functions/getPalletes";
-import getRetailers from "./_functions/getRetailers";
+// import getRetailers from "./_functions/getRetailers";
 import UI from "./ui";
 
 export default async function Page() {
@@ -26,19 +28,19 @@ export default async function Page() {
     };
   });
 
-  const retailers = await getRetailers(supabase);
+  // const retailers = await getRetailers(supabase);
 
   // This transformation is needed because of mandatory value prop in Select component of Mantine
-  const formattedRetailers = retailers.map((item: any) => ({
-    value: item.retailer_id,
-    label: item.brand_name,
-    favicon: item.favicon_url,
-  }));
+  // const formattedRetailers = retailers.map((item: any) => ({
+  //   value: item.retailer_id,
+  //   label: item.brand_name,
+  //   favicon: item.favicon_url,
+  // }));
 
   return (
     <UI
       allPalletes={await Promise.all(palletesWithMetadata)}
-      retailers={formattedRetailers}
+      // retailers={formattedRetailers}
     />
   );
 }

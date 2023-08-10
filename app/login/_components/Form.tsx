@@ -6,17 +6,12 @@ import Link from "next/link";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 
-import translations from "../../../dictionaries/translations";
-import {
-  Anchor,
-  Button,
-  Group,
-  TextInput,
-} from "../../mantineClientComponents";
+import { Anchor, Button, Group, TextInput } from "@mantine/core";
+import { useFocusTrap } from "@mantine/hooks";
+import translations from "../../../translations/translations";
 
 interface FormValues {
   email: string;
-  // rememberMe: boolean;
 }
 
 export default function Form({ setSubmitted }: any) {
@@ -26,7 +21,8 @@ export default function Form({ setSubmitted }: any) {
     await supabase.auth.signInWithOtp({
       email: emailProp,
       options: {
-        emailRedirectTo: "https://rekrabice.cz/auth/callback/",
+        // eslint-disable-next-line no-restricted-globals
+        emailRedirectTo: `${location.origin}/auth/callback`,
       },
     });
     router.refresh();
@@ -35,7 +31,6 @@ export default function Form({ setSubmitted }: any) {
   const form = useForm<FormValues>({
     initialValues: {
       email: "",
-      //  rememberMe: true
     },
 
     validate: {
@@ -47,6 +42,8 @@ export default function Form({ setSubmitted }: any) {
       email: values.email.toLocaleLowerCase(),
     }),
   });
+
+  const focusTrapRef = useFocusTrap();
 
   return (
     <form
@@ -63,23 +60,18 @@ export default function Form({ setSubmitted }: any) {
       <TextInput
         label={translations.login.email}
         placeholder={translations.login.emailPlaceholder}
-        {...form.getInputProps("email")}
         required
+        ref={focusTrapRef}
+        {...form.getInputProps("email")}
       />
-      <Group position="apart" mt="sm">
-        {/* <Checkbox
-        //TODO: implement remember me feature
-          label={translations.login.rememberMe}
-          disabled
-          {...form.getInputProps("rememberMe", { type: "checkbox" })}
-        /> */}
+      <Button fullWidth mt="sm" type="submit">
+        {translations.login.login}
+      </Button>
+      <Group justify="space-between" mt="sm">
         <Anchor href="/kontakt" component={Link} size="sm">
           {translations.login.cannotLogin}
         </Anchor>
       </Group>
-      <Button fullWidth mt="md" type="submit">
-        {translations.login.login}
-      </Button>
     </form>
   );
 }

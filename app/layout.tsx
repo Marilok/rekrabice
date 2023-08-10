@@ -1,12 +1,12 @@
-// mantine v7
-// import "@mantine/core/styles.css";
-// import "@mantine/form/styles.css";
-// import "@mantine/notifications/styles.css";
+import "@mantine/core/styles.css";
+import "@mantine/notifications/styles.css";
 
+import { ColorSchemeScript, MantineProvider } from "@mantine/core";
+import { Notifications } from "@mantine/notifications";
 import React from "react";
-import { Notifications } from "./_components/client/Notifications";
+import GoogleScripts from "./_analytics/GoogleScripts";
+import GoogleTagsNoScript from "./_analytics/GoogleTagsNoScript";
 import "./global.css";
-import { MantineProvider } from "./mantineClientComponents";
 import SupabaseProvider from "./supabase-provider";
 
 export const metadata = {
@@ -22,20 +22,25 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="cs">
-      {/* <head><ColorSchemeScript /> future migration to Mantine v7</head> */}
+      <head>
+        <title>ReKrabice</title>
+        <meta
+          name="viewport"
+          content="minimum-scale=1, initial-scale=1, width=device-width"
+        />
+        <meta name="robots" content="noimageindex" />
+        <ColorSchemeScript />
+      </head>
       <body>
+        <GoogleTagsNoScript />
         <SupabaseProvider>
-          <MantineProvider
-            theme={{ primaryColor: "green" }}
-            withCSSVariables
-            withGlobalStyles
-            withNormalizeCSS
-          >
+          <MantineProvider theme={{ primaryColor: "green" }}>
             <Notifications />
             {children}
           </MantineProvider>
         </SupabaseProvider>
       </body>
+      <GoogleScripts />
     </html>
   );
 }

@@ -9,11 +9,10 @@ import {
   Table,
   Text,
   Tooltip,
-  useMantineTheme,
 } from "@mantine/core";
 import { IconMoneybag, IconTruckDelivery } from "@tabler/icons-react";
-import formatDate from "../../../lib/formatDate";
-import formatInvoiceNumber from "../../../lib/formatInvoiceNumber";
+import formatDate from "../../../utils/formatDate";
+import formatInvoiceNumber from "../../../utils/formatInvoiceNumber";
 
 interface OrdersTableProps {
   orders: {
@@ -33,14 +32,13 @@ const statusColors: Record<string, string> = {
 };
 
 export default function OrdersTable({ orders }: OrdersTableProps) {
-  const theme = useMantineTheme();
   const rows = orders.map((order) => (
-    <tr key={order.invoice_number}>
-      <td>
-        <Text fz="sm">{formatInvoiceNumber(order.invoice_number)}</Text>
-      </td>
-      <td>
-        <Group spacing="sm">
+    <Table.Tr key={order.invoice_number}>
+      <Table.Td>
+        <Text size="sm">{formatInvoiceNumber(order.invoice_number)}</Text>
+      </Table.Td>
+      <Table.Td>
+        <Group gap="sm">
           {/* // TODO: make this nextjs image */}
           <Avatar
             size={30}
@@ -48,32 +46,32 @@ export default function OrdersTable({ orders }: OrdersTableProps) {
             radius={30}
             alt="Logo eshopu"
           />
-          <Text fz="sm" fw={500}>
+          <Text size="sm" fw={500}>
             {order.retailer_id.brand_name}
           </Text>
         </Group>
-      </td>
+      </Table.Td>
 
-      <td>
+      <Table.Td>
         <Badge
           color={statusColors[order.status_id.description.toLowerCase()]}
-          variant={theme.colorScheme === "dark" ? "light" : "outline"}
+          variant="light"
         >
           {order.status_id.description}
         </Badge>
-      </td>
-      <td>
-        <Text fz="sm" c="dimmed">
+      </Table.Td>
+      <Table.Td>
+        <Text size="sm" c="dimmed">
           {order.total_price} Kč
         </Text>
-      </td>
-      <td>
-        <Text fz="sm" color="dimmed">
+      </Table.Td>
+      <Table.Td>
+        <Text size="sm" c="dimmed">
           {formatDate(order.issue_date)}
         </Text>
-      </td>
-      <td>
-        <Group spacing={4} position="right">
+      </Table.Td>
+      <Table.Td>
+        <Group gap={4} justify="right">
           <Tooltip label="Označit jako zaplaceno">
             <ActionIcon disabled>
               <IconMoneybag size="1rem" stroke={1.5} color="pink" />
@@ -85,24 +83,24 @@ export default function OrdersTable({ orders }: OrdersTableProps) {
             </ActionIcon>
           </Tooltip>
         </Group>
-      </td>
-    </tr>
+      </Table.Td>
+    </Table.Tr>
   ));
 
   return (
     <ScrollArea>
-      <Table sx={{ minWidth: 800 }} verticalSpacing="sm">
-        <thead>
-          <tr>
-            <th>Číslo objednávky</th>
-            <th>Eshop</th>
-            <th>Stav</th>
-            <th>Celková cena</th>
-            <th>Datum objednání</th>
-            <th> </th>
-          </tr>
-        </thead>
-        <tbody>{rows}</tbody>
+      <Table miw={800} verticalSpacing="sm">
+        <Table.Thead>
+          <Table.Tr>
+            <Table.Th>Číslo objednávky</Table.Th>
+            <Table.Th>Eshop</Table.Th>
+            <Table.Th>Stav</Table.Th>
+            <Table.Th>Celková cena</Table.Th>
+            <Table.Th>Datum objednání</Table.Th>
+            <Table.Th> </Table.Th>
+          </Table.Tr>
+        </Table.Thead>
+        <Table.Tbody>{rows}</Table.Tbody>
       </Table>
     </ScrollArea>
   );

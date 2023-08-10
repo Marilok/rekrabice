@@ -1,16 +1,12 @@
 "use client";
 
-import { Flex, Grid, Stack, Table, Text, createStyles } from "@mantine/core";
+import { Grid, Stack, Table, Text } from "@mantine/core";
 import Image from "next/image";
 import { CONTACT } from "../../../data/CONTACT_DATA";
-import formatDate from "../../../lib/formatDate";
-import formatInvoiceNumber from "../../../lib/formatInvoiceNumber";
-import logoSrc from "../../../public/logo_text.svg";
-import StatsRingCard from "./FirmCard";
+import formatDate from "../../../utils/formatDate";
+import classes from "./styles.module.css";
 
 export default function UI({ data }: any) {
-  const { classes } = useStyles();
-
   const rows = data.products.map((product: any) => (
     //   TODO: change the key
     <tr key={product.width}>
@@ -24,20 +20,20 @@ export default function UI({ data }: any) {
 
   return (
     <div id="invoice-id">
-      <Flex align="center" justify="space-between" h="120" px="md" py={40}>
+      {/* <Flex align="center" justify="space-between" h="120" px="md" py={40}>
         <Image alt="logo" src={logoSrc} height="60" />
         <Text fw="bold" size="xl">
           Proforma faktura &nbsp;
           {formatInvoiceNumber(data.invoice_number)}
         </Text>
-      </Flex>
+      </Flex> */}
       <Grid p="md" className={classes.wrapper} grow>
         <Grid.Col
           span={1}
           className="flex justify-center items-center flex-col"
         >
-          <Text color="white">Prosíme o zaplacení částky</Text>
-          <Text fw="bold" size={40} color="white">
+          <Text c="white">Prosíme o zaplacení částky</Text>
+          <Text fw="bold" size="40" c="white">
             {data.total_price} Kč
           </Text>
         </Grid.Col>
@@ -56,19 +52,19 @@ export default function UI({ data }: any) {
         >
           <Grid>
             <Grid.Col span="auto">
-              <Stack align="flex-end" spacing="0" w={120}>
-                <Text color="white">Způsob platby</Text>
-                <Text color="white">Bankovní účet</Text>
-                <Text color="white">VS</Text>
+              <Stack align="flex-end" gap="0" w={120}>
+                <Text c="white">Způsob platby</Text>
+                <Text c="white">Bankovní účet</Text>
+                <Text c="white">VS</Text>
               </Stack>
             </Grid.Col>
             <Grid.Col span="auto">
-              <Stack justify="center" align="flex-start" spacing="0">
-                <Text color="white">Převodem</Text>
-                <Text fw="bold" color="white">
+              <Stack justify="center" align="flex-start" gap="0">
+                <Text c="white">Převodem</Text>
+                <Text fw="bold" c="white">
                   {CONTACT.bankAccountFull}
                 </Text>
-                <Text fw="bold" color="white">
+                <Text fw="bold" c="white">
                   {data.invoice_number}
                 </Text>
               </Stack>
@@ -88,14 +84,14 @@ export default function UI({ data }: any) {
           border-0
           className="border-0 border-r border-white border-solid"
         >
-          <Text align="center">
+          <Text ta="center">
             Datum vystavení
             <br />
             {formatDate(data.issue_date)}
           </Text>
         </Grid.Col>
         <Grid.Col span="auto" className="border-0" py="md">
-          <Text align="center">
+          <Text ta="center">
             Datum splatnosti
             <br />
             <span className="font-bold">{formatDate(data.maturity_date)}</span>
@@ -107,7 +103,7 @@ export default function UI({ data }: any) {
             span="auto"
             className="border-0 border-l border-white border-solid"
           >
-            <Text align="center">
+            <Text ta="center">
               Datum zdanitelného plnění
               <br />
               {formatDate(data.taxable_date)}
@@ -115,7 +111,7 @@ export default function UI({ data }: any) {
           </Grid.Col>
         )}
       </Grid>
-      <Flex gap="xl" mt={40}>
+      {/* <Flex gap="xl" mt={40}>
         <StatsRingCard
           title={data.retailer_id.legal_name}
           favicon={data.retailer_id.favicon_url}
@@ -136,7 +132,7 @@ export default function UI({ data }: any) {
           dic={CONTACT.dic}
           subtitle="Dodavatel"
         />
-      </Flex>
+      </Flex> */}
       <Table mt={40}>
         <thead>
           <tr>
@@ -164,25 +160,9 @@ export default function UI({ data }: any) {
           </tr>
         </tfoot>
       </Table>
-      <Text
-        className="absolute bottom-0 right-1/2 -translate-1/2"
-        color="dimmed"
-      >
+      <Text className="absolute bottom-0 right-1/2 -translate-1/2" c="dimmed">
         údaj o zápisu včetně oddílu a vložky (u právnických osob);
       </Text>
     </div>
   );
 }
-
-// TODO: make this support colors from partners branding, mix the exisiting gradient with retailers color
-
-const useStyles = createStyles((theme) => ({
-  wrapper: {
-    backgroundImage: `linear-gradient(-60deg, ${
-      theme.colors[theme.primaryColor][7]
-    } 0%, ${theme.colors[theme.primaryColor][9]} 100%)`,
-  },
-  dates: {
-    backgroundColor: theme.colors[theme.primaryColor][9],
-  },
-}));

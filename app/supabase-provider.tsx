@@ -27,7 +27,6 @@ export default function SupabaseProvider({
   }, [router, supabase]);
 
   return (
-    // eslint-disable-next-line react/jsx-no-constructed-context-values
     <SessionContextProvider supabaseClient={supabase}>
       {children}
     </SessionContextProvider>

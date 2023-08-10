@@ -78,7 +78,7 @@ export default function ReturnPackagePage() {
 
 // //         <div>
 // //           <Text>{value}</Text>
-// //           <Text size="xs" color="dimmed">
+// //           <Text size="xs" c="dimmed">
 // //             {bank}
 // //           </Text>
 // //         </div>

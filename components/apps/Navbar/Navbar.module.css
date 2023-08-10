@@ -1,0 +1,53 @@
+/* //TODO: revrite to css-in-js */
+
+.link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-weight: 500;
+    padding: var(--mantine-spacing-xs) var(--mantine-spacing-sm);
+    font-size: var(--mantine-font-size-sm);
+    border-radius: var(--mantine-radius-sm);
+
+    @mixin light {
+            color: var(--mantine-color-gray-7);
+    }
+
+    @mixin dark {
+            color: var(--mantine-color-dark-1);
+    }
+}    
+
+.link:hover {
+    @mixin light {
+            background-color: var(--mantine-color-gray-0);
+                                    color: var(--mantine-color-black);
+    }
+
+    @mixin dark {
+            background-color: var(--mantine-color-dark-6);
+                        color: var(--mantine-color-white);
+    }
+}
+
+.link svg {
+    margin-right: var(--mantine-spacing-sm);
+    @mixin light {
+            stroke: var(--mantine-color-gray-6);
+        }
+    
+        @mixin dark {
+            stroke: var(--mantine-color-dark-2);
+        }
+}
+
+.linkActive {
+        background-color: var(--mantine-color-green-light);
+        color: var(--mantine-color-green-light-color) !important;
+    
+
+    }
+
+.linkActive svg {
+    stroke: var(--mantine-color-green-light-color) !important;
+}

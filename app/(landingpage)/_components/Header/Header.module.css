@@ -1,0 +1,51 @@
+.link {
+  @mixin light {
+    color: var(--mantine-color-gray-7);
+  }
+
+  @mixin dark {
+    color: var(--mantine-color-dark-0);
+  }
+}
+
+.link:hover {
+  @mixin light {
+    background-color: var(--mantine-color-gray-0);
+  }
+
+  @mixin dark {
+    background-color: var(--mantine-color-dark-6);
+  }
+}
+
+.actionIcon {
+  @mixin light {
+    background-color: var(--mantine-color-gray-0);
+    color: var(--mantine-color-blue-6);
+  }
+
+  @mixin dark {
+    color: var(--mantine-color-yellow-4);
+    background-color: var(--mantine-color-dark-6);
+  }
+}
+
+.moon {
+  @mixin dark {
+    display: none;
+  }
+
+  @mixin light {
+    display: block;
+  }
+}
+
+.sun {
+  @mixin light {
+    display: none;
+  }
+
+  @mixin dark {
+    display: block;
+  }
+}

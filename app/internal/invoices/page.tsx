@@ -1,3 +1,5 @@
+"use server";
+
 /* eslint-disable react/self-closing-comp */
 
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
@@ -22,20 +24,6 @@ export default async function Page() {
   //       });
   //     },
   //   });
-  // };
-
-  // const data = {
-  //   retailer: "Decathlon",
-  //   logoUrl:
-  //     "https://vlzmneddlwojekmklqnf.supabase.co/storage/v1/object/public/retailers_favicons/decathlon.svg",
-  //   sum: 3000.3,
-  //   number: 2023110001,
-  //   ico: 11111,
-  //   dic: 1111,
-  //   street: "Česká 90/22",
-  //   zip: "90888",
-  //   city: "Brno",
-  //   legalName: "Decasport s.r.o.",
   // };
 
   // const handleClick = async () => {

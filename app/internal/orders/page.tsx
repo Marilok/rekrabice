@@ -1,3 +1,5 @@
+"use server";
+
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import OrdersTable from "./OrdersTable";
@@ -8,10 +10,5 @@ export default async function Page() {
 
   const orders = await loadOrders(supabase);
 
-  return (
-    <>
-      {/* <CustomMap apiKey={process.env.MAPY_API_KEY!} /> */}
-      <OrdersTable orders={orders} />
-    </>
-  );
+  return <OrdersTable orders={orders} />;
 }

@@ -39,7 +39,6 @@ export default function Page() {
         <PinInput
           autoFocus
           size="xl"
-          required
           length={8}
           {...form.getInputProps("word")}
           onChange={(event) => handlePinChange(event)}

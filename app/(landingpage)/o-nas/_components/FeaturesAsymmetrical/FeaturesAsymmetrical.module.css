@@ -1,0 +1,34 @@
+.feature {
+  position: relative;
+  padding-top: var(--mantine-spacing-xl);
+  padding-left: var(--mantine-spacing-xl);
+}
+
+.overlay {
+  position: absolute;
+  height: 100px;
+  width: 180px;
+  top: 0;
+  left: 0;
+  background-color: var(--mantine-color-green-light);
+  z-index: 1;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+}
+
+.icon {
+  color: var(--mantine-color-green-light-color);
+}
+
+.title {
+  @mixin light {
+    color: var(--mantine-color-black);
+  }
+
+  @mixin dark {
+    color: var(--mantine-color-white);
+  }
+}

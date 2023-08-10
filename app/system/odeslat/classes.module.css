@@ -1,0 +1,8 @@
+.cardTitle::after {
+  content: '""';
+  display: "block";
+  background-color: var(--mantine-color-primary);
+  width: 80rem;
+  height: 2rem;
+  margin-top: var(--mantine-spacing-sm);
+}

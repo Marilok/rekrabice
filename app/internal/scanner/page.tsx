@@ -31,12 +31,11 @@ export default function Page() {
         scan(values.pallete_id, values.videoSrc);
       })}
     >
-      <Stack spacing="md" maw={500} m="sm" mx="auto">
+      <Stack gap="md" maw={500} m="sm" mx="auto">
         <Text>Číslo palety</Text>
         <PinInput
           length={4}
           autoFocus
-          required
           size="xl"
           mx="auto"
           type="number"
@@ -45,12 +44,12 @@ export default function Page() {
         <Button type="submit" fullWidth>
           Načíst paletu
         </Button>
-        <video id="video-preview" className="w-full h-72" />
         <NativeSelect
           label="Zdroj skenování"
           data={["0", "1", "2", "3", "4"]}
           {...form.getInputProps("videoSrc")}
         />
+        <video id="video-preview" className="w-full h-72" />
       </Stack>
     </form>
   );

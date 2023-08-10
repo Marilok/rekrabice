@@ -1,0 +1,33 @@
+/* // TODO: make this support colors from partners branding, mix the exisiting gradient with retailers color */
+
+.wrapper {
+  background-image: linear-gradient(
+    -60deg,
+    var(--mantine-colors-cyan-7) 0%,
+    var(--mantine-colors-lime-9) 100%
+  );
+}
+
+.label {
+  line-height: 1;
+}
+
+.lead {
+  font-family: Greycliff CF, var(--mantine-font-family);
+  font-weight: 700;
+  font-size: 1.375rem;
+  line-height: 1;
+}
+
+.ring {
+  display: flex;
+  justify-content: flex-end;
+  flex: 1;
+}
+
+.card {
+  background-color: light-dark(
+    var(--mantine-color-dark-7),
+    var(--mantine-color-white)
+  );
+}

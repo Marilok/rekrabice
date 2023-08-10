@@ -1,0 +1,9 @@
+.icon svg {
+  @mixin light {
+    color: var(--mantine-color-gray-5);
+  }
+
+  @mixin dark {
+    color: var(--mantine-color-dark-3);
+  }
+}

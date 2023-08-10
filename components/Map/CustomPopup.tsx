@@ -1,6 +1,4 @@
-import {
-  Avatar, Button, Group, Paper, Title,
-} from "@mantine/core";
+import { Avatar, Button, Group, Paper, Title } from "@mantine/core";
 import { IconExternalLink } from "@tabler/icons-react";
 import "leaflet/dist/leaflet.css";
 import { Popup } from "react-leaflet";
@@ -31,7 +29,7 @@ export default function CustomPopup({
           href="https://mapy.cz/zakladni?x=16.6122742&y=49.1918183&z=17&source=firm&id=13078566"
           variant="outline"
           target="_blank"
-          rightIcon={<IconExternalLink size={14} />}
+          rightSection={<IconExternalLink size={14} />}
           mt="sm"
         >
           Detail pobočky

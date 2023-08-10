@@ -1,6 +1,5 @@
 import { MetadataRoute } from "next";
-
-const DOMAIN = "https://rekrabice.cz";
+import { DOMAIN } from "../data/const";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [

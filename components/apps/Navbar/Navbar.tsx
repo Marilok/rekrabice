@@ -1,0 +1,70 @@
+"use client";
+
+import { AppShell, Code, Divider, Group } from "@mantine/core";
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
+import { IconLogout, IconSettings } from "@tabler/icons-react";
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
+import translations from "../../../translations/translations";
+import classes from "./Navbar.module.css";
+
+export default function StyledNavbar({ links }: { links: any[] }) {
+  const pathname = usePathname();
+  const supabase = useSupabaseClient();
+  // const { data } = await supabase.auth.getSession();
+  const router = useRouter();
+
+  const navLinks = links.map((item) => (
+    <Link
+      href={item.link}
+      key={item.label}
+      className={`${classes.link} ${
+        pathname === item.link ? classes.linkActive : ""
+      }`}
+    >
+      {item.icon}
+      <span>{item.label}</span>
+    </Link>
+  ));
+
+  return (
+    <AppShell.Navbar p="md">
+      <AppShell.Section grow>
+        <Group justify="space-between">
+          <Image src="/logo_text.svg" height={30} width="100" alt="logo icon" />
+          <Code>{translations.systemNavbar.version} Alpha 0.8</Code>
+        </Group>
+        <Divider my="sm" />
+        {navLinks}
+      </AppShell.Section>
+
+      <Divider my="sm" />
+
+      <AppShell.Section>
+        <Link
+          href="nastaveni"
+          className={`${classes.link} ${
+            pathname!.endsWith("nastaveni") ? classes.linkActive : ""
+          }`}
+        >
+          <IconSettings stroke={1.5} />
+          <span>Nastavení</span>
+        </Link>
+        <Link
+          href="/login"
+          className={`${classes.link} ${
+            pathname === "/login" ? classes.linkActive : ""
+          }`}
+          onClick={() => {
+            supabase.auth.signOut();
+            router.refresh();
+          }}
+        >
+          <IconLogout stroke={1.5} />
+          <span>{translations.systemNavbar.logout}</span>
+        </Link>
+      </AppShell.Section>
+    </AppShell.Navbar>
+  );
+}

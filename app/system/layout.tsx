@@ -1,7 +1,14 @@
+import { AppShell, AppShellMain } from "@mantine/core";
+import {
+  IconArrowDown,
+  IconArrowUp,
+  IconPhone,
+  IconQuestionMark,
+} from "@tabler/icons-react";
 import { Metadata } from "next";
 import React from "react";
-import { AppShell } from "../mantineClientComponents";
-import StyledNavbar from "./_components/Navbar/Navbar";
+import StyledNavbar from "../../components/apps/Navbar/Navbar";
+import translations from "../../translations/translations";
 
 export const metadata: Metadata = {
   title: "Systém ReKrabice",
@@ -16,8 +23,7 @@ export default async function Layout({
 }) {
   return (
     <AppShell
-      // @ts-ignore TODO
-      navbar={<StyledNavbar />}
+      navbar={{ width: 300, breakpoint: "xs" }}
       styles={{
         main: {
           display: "flex",
@@ -28,7 +34,31 @@ export default async function Layout({
       }}
       layout="alt"
     >
-      {children}
+      <StyledNavbar links={LINKS_OBJECT} />
+      <AppShellMain>{children}</AppShellMain>
     </AppShell>
   );
 }
+
+const LINKS_OBJECT = [
+  {
+    link: "/system/prijmout",
+    label: translations.systemNavbar.accept,
+    icon: <IconArrowDown stroke={1.5} />,
+  },
+  {
+    link: "/system/odeslat",
+    label: translations.systemNavbar.send,
+    icon: <IconArrowUp stroke={1.5} />,
+  },
+  {
+    link: "/system/navod",
+    label: translations.systemNavbar.faq,
+    icon: <IconQuestionMark stroke={1.5} />,
+  },
+  {
+    link: "/system/kontakt",
+    label: translations.systemNavbar.contact,
+    icon: <IconPhone stroke={1.5} />,
+  },
+];

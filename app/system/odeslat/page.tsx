@@ -4,13 +4,12 @@ import {
   Anchor,
   Button,
   Card,
+  Container,
   CopyButton,
-  Flex,
   Text,
   Title,
   Tooltip,
-  createStyles,
-  rem,
+  useMantineTheme,
 } from "@mantine/core";
 import {
   IconAsterisk,
@@ -22,25 +21,16 @@ import {
   IconNumber4,
 } from "@tabler/icons-react";
 import { RETURN_CODE } from "../../../data/const";
-
-const useStyles = createStyles((theme) => ({
-  cardTitle: {
-    "&::after": {
-      content: "\"\"",
-      display: "block",
-      backgroundColor: theme.fn.primaryColor(),
-      width: rem(80),
-      height: rem(2),
-      marginTop: theme.spacing.sm,
-    },
-  },
-}));
+import classes from "./classes.module.css";
 
 export default function SendMasterBoxPage() {
-  const { classes, theme } = useStyles();
+  const theme = useMantineTheme();
+
   const steps = mockdata.map((feature: any) => (
     <Card shadow="md" className="w-80" padding="lg" key={feature.title}>
-      <feature.icon size={rem(48)} stroke={2} color={theme.fn.primaryColor()} />
+      <feature.icon size="xxl" stroke={2} color={theme.primaryColor} />
+
+      {/* className={classes.cardTitle} */}
       <Text fz="lg" fw={500} className={classes.cardTitle} mt="md">
         {feature.title}
       </Text>
@@ -52,10 +42,12 @@ export default function SendMasterBoxPage() {
   return (
     <>
       <Title order={2}>Máte plnou přepravku?</Title>
-      <Text weight="bold" my="md">
-        Skvělá práce! Rádi Vás plné přepravky zbavíme. Zde je návod jak nám ji poslat:
+      <Text fw="bold" my="md">
+        Skvělá práce! Rádi Vás plné přepravky zbavíme. Zde je návod jak nám ji
+        poslat:
       </Text>
-      <Flex
+      {/* TODO: v7 flex component 
+      {/* <Flex
         direction={{ base: "column", md: "row" }}
         wrap="wrap"
         justify="center"
@@ -63,7 +55,13 @@ export default function SendMasterBoxPage() {
         mt={50}
       >
         {steps}
-      </Flex>
+      </Flex> */}
+      <Container
+        className="flex justify-center gap-xl flex-wrap flex-col md:flex-row"
+        mt={50}
+      >
+        {steps}
+      </Container>
     </>
   );
 }
@@ -79,12 +77,10 @@ const mockdata = [
     title: "Vratka Zásilkovně",
     description: (
       <>
-        V
-        {" "}
+        V{" "}
         <Anchor href="https://admin.packeta.com/sign/in" target="_blank">
           systému Zásilkovny
-        </Anchor>
-        {" "}
+        </Anchor>{" "}
         zadejte kód
         <span className="font-bold" />
         <CopyButton value={RETURN_CODE} timeout={2000}>
@@ -97,7 +93,7 @@ const mockdata = [
               <Button
                 variant="subtle"
                 color={copied ? "green" : "gray"}
-                rightIcon={
+                rightSection={
                   copied ? <IconCheck size="1rem" /> : <IconCopy size="1rem" />
                 }
                 onClick={copy}
