@@ -1,3 +1,5 @@
+"use server";
+
 import { AppShell, AppShellMain } from "@mantine/core";
 import {
   IconArrowDown,

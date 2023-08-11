@@ -1,15 +1,18 @@
+"use server";
+
 import "@mantine/core/styles.css";
 import "@mantine/notifications/styles.css";
 
 import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 import { Notifications } from "@mantine/notifications";
+import { Metadata } from "next";
 import React from "react";
 import GoogleScripts from "./_analytics/GoogleScripts";
 import GoogleTagsNoScript from "./_analytics/GoogleTagsNoScript";
 import "./global.css";
 import SupabaseProvider from "./supabase-provider";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "ReKrabice",
   description:
     "Nestav doma věže z kartonových krabic. Všechny ReKrabice můžeš vrátit a ušetřit tak našim lesům. A to zcela zdarma!",

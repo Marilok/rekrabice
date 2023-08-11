@@ -1,3 +1,5 @@
+"use server";
+
 import { Metadata } from "next";
 import React from "react";
 import Wrapper from "./_components/Wrapper";
