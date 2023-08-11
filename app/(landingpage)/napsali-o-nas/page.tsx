@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: "Podívej se co o ReKrabicích píšou v médiích.",
 };
 
-export default function ContactPage() {
+export default async function ContactPage() {
   const cards = data.map((article) => (
     <Card
       key={article.title}

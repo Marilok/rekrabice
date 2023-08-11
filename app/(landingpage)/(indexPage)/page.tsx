@@ -1,3 +1,5 @@
+"use server";
+
 import { Divider, Space } from "@mantine/core";
 import { Metadata } from "next";
 import BottomCta from "./_components/BottomCta";
@@ -12,7 +14,7 @@ export const metadata: Metadata = {
     "Nestav doma věže z kartonových krabic. Všechny ReKrabice můžeš vrátit a ušetřit tak našim lesům. A to zcela zdarma!",
 };
 
-export default function Page() {
+export default async function Page() {
   return (
     <>
       <Hero />

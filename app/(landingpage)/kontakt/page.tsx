@@ -6,6 +6,6 @@ export const metadata: Metadata = {
   description: "Kontaktujte nás a spojme síly pro lepší svět",
 };
 
-export default function Kontakt() {
+export default async function Kontakt() {
   return <Contact />;
 }

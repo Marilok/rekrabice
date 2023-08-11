@@ -1,3 +1,5 @@
+"use server";
+
 import {
   Container,
   Text,
@@ -15,7 +17,7 @@ export const metadata: Metadata = {
     "Dozvěď se více o vzniku projektu ReKrabice, který přináší koncept cirkulární ekonomiky do Česka.",
 };
 
-export default function Page() {
+export default async function Page() {
   return (
     <Container size="lg" p="lg" mt="xl">
       <TypographyStylesProvider>
