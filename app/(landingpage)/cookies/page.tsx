@@ -1,3 +1,5 @@
+"use server";
+
 import {
   Anchor,
   Container,
@@ -7,7 +9,7 @@ import {
   TypographyStylesProvider,
 } from "@mantine/core";
 
-export default function Cookies() {
+export default async function Cookies() {
   const rowsEssential = ESSENTIAL.map((element) => (
     <tr key={element.name}>
       <td>{element.name}</td>

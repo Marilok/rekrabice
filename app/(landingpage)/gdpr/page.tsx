@@ -1,3 +1,5 @@
+"use server";
+
 import {
   Container,
   Text,
@@ -6,7 +8,7 @@ import {
 } from "@mantine/core";
 import Link from "next/link";
 
-export default function Gdpr() {
+export default async function Gdpr() {
   return (
     <Container size="lg" p="lg">
       <TypographyStylesProvider>

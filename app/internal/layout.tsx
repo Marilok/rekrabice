@@ -10,6 +10,10 @@ export const metadata: Metadata = {
   robots: "none, noimageindex",
 };
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default async function Layout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return <Wrapper>{children}</Wrapper>;
 }
