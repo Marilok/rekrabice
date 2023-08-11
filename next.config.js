@@ -19,16 +19,16 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'api.paylibo.com',
-        port: '',
-        pathname: '/paylibo/generator/**',
+        protocol: "https",
+        hostname: "api.paylibo.com",
+        port: "",
+        pathname: "/paylibo/generator/**",
       },
     ],
   },
   experimental: {
     serverActions: true,
-  }
+  },
 };
 
 module.exports = nextConfig;
