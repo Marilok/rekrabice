@@ -1,4 +1,4 @@
-"use client";
+"use server";
 
 import {
   Anchor,
@@ -9,7 +9,6 @@ import {
   Text,
   Title,
   Tooltip,
-  useMantineTheme,
 } from "@mantine/core";
 import {
   IconAsterisk,
@@ -23,14 +22,10 @@ import {
 import { RETURN_CODE } from "../../../data/const";
 import classes from "./classes.module.css";
 
-export default function SendMasterBoxPage() {
-  const theme = useMantineTheme();
-
+export default async function SendMasterBoxPage() {
   const steps = mockdata.map((feature: any) => (
     <Card shadow="md" className="w-80" padding="lg" key={feature.title}>
-      <feature.icon size="xxl" stroke={2} color={theme.primaryColor} />
-
-      {/* className={classes.cardTitle} */}
+      <feature.icon size="xxl" stroke={2} color="green" />
       <Text fz="lg" fw={500} className={classes.cardTitle} mt="md">
         {feature.title}
       </Text>

@@ -1,5 +1,3 @@
-"use client";
-
 import { Button, ButtonProps, SimpleGrid, Stack, Text } from "@mantine/core";
 import { IconMail } from "@tabler/icons-react";
 import translations from "../../translations/translations";
@@ -24,6 +22,7 @@ export function GmailButton(props: ButtonProps) {
     />
   );
 }
+
 export function SeznamEmailButton(props: ButtonProps) {
   return (
     <Button
@@ -37,6 +36,7 @@ export function SeznamEmailButton(props: ButtonProps) {
     />
   );
 }
+
 export function ProtonmailButton(props: ButtonProps) {
   return (
     <Button
@@ -50,6 +50,7 @@ export function ProtonmailButton(props: ButtonProps) {
     />
   );
 }
+
 export function TutanotaButton(props: ButtonProps) {
   return (
     <Button

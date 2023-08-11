@@ -1,5 +1,3 @@
-"use client";
-
 import { Center, Modal as MantineModal } from "@mantine/core";
 import Image from "next/image";
 import EmailInput from "../EmailInput/EmailInput";

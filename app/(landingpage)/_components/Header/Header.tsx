@@ -7,6 +7,9 @@ import {
   Container,
   Group,
   Menu,
+  MenuDropdown,
+  MenuItem,
+  MenuTarget,
   useComputedColorScheme,
   useMantineColorScheme,
 } from "@mantine/core";
@@ -38,15 +41,15 @@ export default function HeaderAction({
 
   const items = links.map((link) => {
     const menuItems = link.links?.map((item) => (
-      <Menu.Item key={item.link} component={Link} href={item.link}>
+      <MenuItem key={item.link} component={Link} href={item.link}>
         {item.label}
-      </Menu.Item>
+      </MenuItem>
     ));
 
     if (menuItems) {
       return (
         <Menu key={link.label} trigger="hover">
-          <Menu.Target>
+          <MenuTarget>
             <Center>
               <Anchor
                 component={Link}
@@ -58,8 +61,8 @@ export default function HeaderAction({
                 <IconChevronDown size={12} stroke={1.5} />
               </Anchor>
             </Center>
-          </Menu.Target>
-          <Menu.Dropdown>{menuItems}</Menu.Dropdown>
+          </MenuTarget>
+          <MenuDropdown>{menuItems}</MenuDropdown>
         </Menu>
       );
     }

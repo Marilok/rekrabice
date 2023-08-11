@@ -1,17 +1,21 @@
-"use client";
-
-import { Accordion, Anchor } from "@mantine/core";
+import {
+  Accordion,
+  AccordionControl,
+  AccordionItem,
+  AccordionPanel,
+  Anchor,
+} from "@mantine/core";
 import Link from "next/link";
 import { ReactNode } from "react";
 import translations from "../../../translations/translations";
 
-type AccordionItem = {
+type AccordionItemProps = {
   value: string;
   control: string;
   panel: ReactNode | string;
 };
 
-const accordionData: AccordionItem[] = [
+const accordionData: AccordionItemProps[] = [
   {
     value: "own-purpose",
     control: translations.systemFaq.question1,
@@ -40,10 +44,10 @@ export default function QuestionsPage() {
   return (
     <Accordion variant="contained" className="w-1/3">
       {accordionData.map((item) => (
-        <Accordion.Item key={item.value} value={item.value} className="w-full">
-          <Accordion.Control>{item.control}</Accordion.Control>
-          <Accordion.Panel>{item.panel}</Accordion.Panel>
-        </Accordion.Item>
+        <AccordionItem key={item.value} value={item.value} className="w-full">
+          <AccordionControl>{item.control}</AccordionControl>
+          <AccordionPanel>{item.panel}</AccordionPanel>
+        </AccordionItem>
       ))}
     </Accordion>
   );
