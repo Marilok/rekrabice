@@ -1,4 +1,4 @@
-"use client";
+"use server";
 
 import {
   Button,
@@ -16,7 +16,7 @@ export const metadata = {
   description: "Tato stránka je prázdná...",
 };
 
-export default function NotFound() {
+export default async function NotFound() {
   return (
     <Container py={80}>
       <SimpleGrid spacing={{ base: 40, sm: 80 }} cols={{ base: 1, md: 2 }}>
