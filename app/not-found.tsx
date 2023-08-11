@@ -1,5 +1,3 @@
-"use server";
-
 import {
   Button,
   Container,
@@ -11,12 +9,15 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 
+// TODO: not yet supported by Nextjs
+// https://stackoverflow.com/questions/76542235/how-do-i-use-metadata-in-not-found-tsx-in-nextjs
+
 // export const metadata: Metadata = {
 //   title: "Nenalezeno | ReKrabice",
 //   description: "Tato stránka je prázdná...",
 // };
 
-export default async function NotFound() {
+export default function NotFound() {
   return (
     <Container py={80}>
       <SimpleGrid spacing={{ base: 40, sm: 80 }} cols={{ base: 1, md: 2 }}>
