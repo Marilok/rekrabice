@@ -1,4 +1,4 @@
-"use server";
+"use client";
 
 import {
   Anchor,
@@ -22,7 +22,7 @@ import {
 import { RETURN_CODE } from "../../../data/const";
 import classes from "./classes.module.css";
 
-export default async function Page() {
+export default function Page() {
   const steps = mockdata.map((feature: any) => (
     <Card shadow="md" className="w-80" padding="lg" key={feature.title}>
       <feature.icon size="xxl" stroke={2} color="green" />
@@ -42,16 +42,6 @@ export default async function Page() {
         Skvělá práce! Rádi Vás plné přepravky zbavíme. Zde je návod jak nám ji
         poslat:
       </Text>
-      {/* TODO: v7 flex component 
-      {/* <Flex
-        direction={{ base: "column", md: "row" }}
-        wrap="wrap"
-        justify="center"
-        gap="xl"
-        mt={50}
-      >
-        {steps}
-      </Flex> */}
       <Container
         className="flex justify-center gap-xl flex-wrap flex-col md:flex-row"
         mt={50}

@@ -1,7 +1,7 @@
 "use client";
 
 import { AppShell, Code, Divider, Group } from "@mantine/core";
-import { useSupabaseClient } from "@supabase/auth-helpers-react";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { IconLogout, IconSettings } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,9 +11,18 @@ import classes from "./Navbar.module.css";
 
 export default function StyledNavbar({ links }: { links: any[] }) {
   const pathname = usePathname();
-  const supabase = useSupabaseClient();
-  // const { data } = await supabase.auth.getSession();
+  const supabase = createClientComponentClient();
   const router = useRouter();
+
+  const handleSignout = async () => {
+    const { error } = await supabase.auth.signOut();
+    if (error) {
+      console.log(error);
+    } else {
+      router.push("/login");
+      router.refresh();
+    }
+  };
 
   const navLinks = links.map((item) => (
     <Link
@@ -51,16 +60,7 @@ export default function StyledNavbar({ links }: { links: any[] }) {
           <IconSettings stroke={1.5} />
           <span>Nastavení</span>
         </Link>
-        <Link
-          href="/login"
-          className={`${classes.link} ${
-            pathname === "/login" ? classes.linkActive : ""
-          }`}
-          onClick={() => {
-            supabase.auth.signOut();
-            router.refresh();
-          }}
-        >
+        <Link href="/login" className={classes.link} onClick={handleSignout}>
           <IconLogout stroke={1.5} />
           <span>{translations.systemNavbar.logout}</span>
         </Link>

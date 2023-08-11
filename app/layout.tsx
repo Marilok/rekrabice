@@ -1,5 +1,3 @@
-"use server";
-
 import "@mantine/core/styles.css";
 import "@mantine/notifications/styles.css";
 
@@ -10,6 +8,7 @@ import React from "react";
 import GoogleScripts from "./_analytics/GoogleScripts";
 import GoogleTagsNoScript from "./_analytics/GoogleTagsNoScript";
 import "./global.css";
+import SupabaseProvider from "./supabase-provider";
 
 export const metadata: Metadata = {
   title: "ReKrabice",
@@ -35,10 +34,12 @@ export default async function RootLayout({
       </head>
       <body>
         <GoogleTagsNoScript />
-        <MantineProvider theme={{ primaryColor: "green" }}>
-          <Notifications />
-          {children}
-        </MantineProvider>
+        <SupabaseProvider>
+          <MantineProvider theme={{ primaryColor: "green" }}>
+            <Notifications />
+            {children}
+          </MantineProvider>
+        </SupabaseProvider>
       </body>
       <GoogleScripts />
     </html>
