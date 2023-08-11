@@ -8,14 +8,13 @@ import {
   Text,
   Title,
 } from "@mantine/core";
-import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "Nenalezeno | ReKrabice",
-  description: "Tato stránka je prázdná...",
-};
+// export const metadata: Metadata = {
+//   title: "Nenalezeno | ReKrabice",
+//   description: "Tato stránka je prázdná...",
+// };
 
 export default async function NotFound() {
   return (
