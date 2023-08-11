@@ -22,7 +22,7 @@ import {
 import { RETURN_CODE } from "../../../data/const";
 import classes from "./classes.module.css";
 
-export default async function SendMasterBoxPage() {
+export default async function Page() {
   const steps = mockdata.map((feature: any) => (
     <Card shadow="md" className="w-80" padding="lg" key={feature.title}>
       <feature.icon size="xxl" stroke={2} color="green" />
@@ -34,6 +34,7 @@ export default async function SendMasterBoxPage() {
       </Text>
     </Card>
   ));
+
   return (
     <>
       <Title order={2}>Máte plnou přepravku?</Title>
