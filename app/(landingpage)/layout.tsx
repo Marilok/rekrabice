@@ -6,7 +6,7 @@ import Footer from "./_components/Footer/Footer";
 import HeaderAction from "./_components/Header/Header";
 import Navbar from "./_components/Navbar/Navbar";
 
-export default function LandingPageLayout({ children }: { children: any }) {
+export default function Layout({ children }: { children: any }) {
   const [isOpen, { toggle }] = useDisclosure(false);
 
   return (
@@ -54,6 +54,7 @@ const FOOTER_DATA = [
     ],
   },
 ];
+
 const HEADER_DATA = [
   {
     link: "/",

@@ -1,5 +1,3 @@
-"use server";
-
 import {
   Container,
   Text,
@@ -7,17 +5,16 @@ import {
   TypographyStylesProvider,
 } from "@mantine/core";
 import { IconArrowBarToDown, IconBulb, IconTree } from "@tabler/icons-react";
-import { Metadata } from "next";
 import FeaturesAsymmetrical from "./_components/FeaturesAsymmetrical/FeaturesAsymmetrical";
 import Team from "./_components/Team";
 
-export const metadata: Metadata = {
-  title: "O nás | ReKrabice",
-  description:
-    "Dozvěď se více o vzniku projektu ReKrabice, který přináší koncept cirkulární ekonomiky do Česka.",
-};
+// export const metadata: Metadata = {
+//   title: "O nás | ReKrabice",
+//   description:
+//     "Dozvěď se více o vzniku projektu ReKrabice, který přináší koncept cirkulární ekonomiky do Česka.",
+// };
 
-export default async function Page() {
+export default function Page() {
   return (
     <Container size="lg" p="lg" mt="xl">
       <TypographyStylesProvider>

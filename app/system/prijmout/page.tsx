@@ -4,7 +4,7 @@ import { Button, PinInput, Stack, Text } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import translations from "../../../translations/translations";
 
-export default function Obsluha() {
+export default function Page() {
   const form = useForm<FormValues>({
     initialValues: { packaging_id: "" },
 

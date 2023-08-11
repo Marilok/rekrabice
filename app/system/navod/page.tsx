@@ -15,6 +15,19 @@ type AccordionItemProps = {
   panel: ReactNode | string;
 };
 
+export default function Page() {
+  return (
+    <Accordion variant="contained" className="w-1/3">
+      {accordionData.map((item) => (
+        <AccordionItem key={item.value} value={item.value} className="w-full">
+          <AccordionControl>{item.control}</AccordionControl>
+          <AccordionPanel>{item.panel}</AccordionPanel>
+        </AccordionItem>
+      ))}
+    </Accordion>
+  );
+}
+
 const accordionData: AccordionItemProps[] = [
   {
     value: "own-purpose",
@@ -39,16 +52,3 @@ const accordionData: AccordionItemProps[] = [
     ),
   },
 ];
-
-export default function QuestionsPage() {
-  return (
-    <Accordion variant="contained" className="w-1/3">
-      {accordionData.map((item) => (
-        <AccordionItem key={item.value} value={item.value} className="w-full">
-          <AccordionControl>{item.control}</AccordionControl>
-          <AccordionPanel>{item.panel}</AccordionPanel>
-        </AccordionItem>
-      ))}
-    </Accordion>
-  );
-}

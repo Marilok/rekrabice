@@ -1,7 +1,7 @@
 import { Anchor, Space, Text } from "@mantine/core";
 import translations from "../../../translations/translations";
 
-export default function ContactPage() {
+export default function Page() {
   return (
     <>
       <Text fw="bold">{translations.systemContact.boldText1}</Text>

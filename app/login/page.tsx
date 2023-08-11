@@ -2,7 +2,7 @@ import { Container, Paper } from "@mantine/core";
 import LoginComponent from "./_components/LoginComponent";
 import UpperText from "./_components/UpperText";
 
-export default async function LoginPage() {
+export default async function Page() {
   return (
     <main className="flex flex-col h-screen relative top-1/4">
       <UpperText />

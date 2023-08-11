@@ -1,5 +1,5 @@
 import ColorThemeControl from "./_components/ColorThemeControl";
 
-export default function SettingsPage() {
+export default async function Page() {
   return <ColorThemeControl />;
 }
