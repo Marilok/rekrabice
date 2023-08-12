@@ -14,7 +14,7 @@ import classes from "./UserButton.module.css";
 
 interface UserButtonProps extends UnstyledButtonProps {
   image?: string;
-  name: string;
+  name?: string;
   icon?: React.ReactNode;
 }
 
