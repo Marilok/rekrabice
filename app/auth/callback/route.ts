@@ -21,5 +21,5 @@ export async function GET(request: NextRequest) {
 
   console.log(request.url, requestUrl.origin);
 
-  return NextResponse.redirect(new URL("/system/prijmout", request.url));
+  return NextResponse.redirect(new URL("/internal/scanner", request.url));
 }
