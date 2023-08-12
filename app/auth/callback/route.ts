@@ -19,5 +19,7 @@ export async function GET(request: NextRequest) {
   // URL to redirect to after sign in process completes
   // return NextResponse.redirect(requestUrl.origin);
 
-  return NextResponse.rewrite(new URL("/system/prijmout", request.url));
+  console.log(request.url, requestUrl.origin);
+
+  return NextResponse.redirect(new URL("/system/prijmout", request.url));
 }
