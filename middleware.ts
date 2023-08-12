@@ -8,14 +8,6 @@ import { NextResponse, type NextRequest } from "next/server";
 // const { pathname } = req.nextUrl;
 // // const { pathname, searchParams } = req.nextUrl;
 
-// if (pathname.startsWith("/system") && !data.session) {
-//   return NextResponse.redirect(new URL("/login", req.url));
-// }
-
-// if (pathname === "/system" && data.session) {
-//   return NextResponse.redirect(new URL("/system/prijmout", req.url));
-// }
-
 // if (pathname === "/login" && data.session) {
 //   return NextResponse.redirect(new URL("/system/prijmout", req.url));
 // }
@@ -29,21 +21,11 @@ import { NextResponse, type NextRequest } from "next/server";
 //   return res;
 // }
 
-// export const config = {
-//   matcher: [
-//     "/system/:path*",
-//     "/login/:path*",
-//     "/auth/:path*",
-//     "/internal/:path*",
-//   ],
-// };
-
 // eslint-disable-next-line import/prefer-default-export
 export async function middleware(req: NextRequest) {
   const res = NextResponse.next();
   const supabase = createMiddlewareClient({ req, res });
   await supabase.auth.getSession();
-  console.log(await supabase.auth.getSession());
 
   const { pathname } = req.nextUrl;
   const { data } = await supabase.auth.getSession();
@@ -70,3 +52,12 @@ export async function middleware(req: NextRequest) {
 
   return res;
 }
+
+export const config = {
+  matcher: [
+    "/login/:path*",
+    "/auth/:path*",
+    "/internal/:path*",
+    "/system/:path*",
+  ],
+};
