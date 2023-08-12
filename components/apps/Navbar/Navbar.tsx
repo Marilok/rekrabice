@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import translations from "../../../translations/translations";
+import UserButton from "../UserButton/UserButton";
 import classes from "./Navbar.module.css";
 
 export default function StyledNavbar({ links }: { links: any[] }) {
@@ -64,6 +65,10 @@ export default function StyledNavbar({ links }: { links: any[] }) {
           <IconLogout stroke={1.5} />
           <span>{translations.systemNavbar.logout}</span>
         </Link>
+      </AppShell.Section>
+      <Divider my="sm" />
+      <AppShell.Section>
+        <UserButton />
       </AppShell.Section>
     </AppShell.Navbar>
   );

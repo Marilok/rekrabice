@@ -1,0 +1,22 @@
+.user {
+  display: block;
+  width: 100%;
+  padding: var(--mantine-spacing-md);
+  @mixin dark {
+    color: var(--mantine-color-dark-0);
+  }
+
+  @mixin light {
+    color: var(--mantine-color-black);
+  }
+}
+
+.user:hover {
+  @mixin dark {
+    background-color: var(--mantine-color-dark-8);
+  }
+
+  @mixin light {
+    background-color: var(--mantine-color-gray-0);
+  }
+}
