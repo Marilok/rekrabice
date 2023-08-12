@@ -1,4 +1,4 @@
-"use server";
+"use client";
 
 import {
   Avatar,
@@ -7,9 +7,8 @@ import {
   UnstyledButton,
   UnstyledButtonProps,
 } from "@mantine/core";
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { IconChevronRight } from "@tabler/icons-react";
-import { cookies } from "next/headers";
 import React from "react";
 import classes from "./UserButton.module.css";
 
@@ -18,12 +17,12 @@ interface UserButtonProps extends UnstyledButtonProps {
   icon?: React.ReactNode;
 }
 
-export default async function UserButton({
+export default function UserButton({
   image,
   icon,
   ...others
 }: UserButtonProps) {
-  const supabase = createServerComponentClient({ cookies });
+  const supabase = createClientComponentClient();
 
   const {
     data: { user },
