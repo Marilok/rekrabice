@@ -107,7 +107,11 @@ export default function Contact() {
   return (
     <>
       <Container size="md" p={0} mt="xl" mx={{ base: "sm", md: "auto" }}>
-        <Container className={classes.wrapper}>
+        <Container
+          className={classes.wrapper}
+          px={{ base: "lg", md: "calc(var(--mantine-spacing-xl)*1.5)" }}
+          py={{ base: "xl", md: "calc(var(--mantine-spacing-xl)*1.5)" }}
+        >
           <SimpleGrid cols={{ base: 1, md: 2 }} spacing={50}>
             <div>
               <Title c="white" className="leading-none">
@@ -178,7 +182,11 @@ export default function Contact() {
         </Container>
       </Container>
       <Container p={0} mt="xl" size="md" mx={{ base: "sm", md: "auto" }}>
-        <div className={classes.wrapper2}>
+        <Container
+          className={classes.wrapper2}
+          px={{ base: "lg", md: "calc(var(--mantine-spacing-xl)*1.5)" }}
+          py={{ base: "lg", md: "xl" }}
+        >
           <Title>Informace o provozovateli</Title>
           <Group mt="md">
             <Avatar
@@ -204,7 +212,7 @@ export default function Contact() {
           </Group>
           <Space h="xl" />
           <LegalIconsList data={IMPRESSUM_DATA} />
-        </div>
+        </Container>
       </Container>
     </>
   );

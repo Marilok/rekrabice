@@ -18,6 +18,7 @@ export default function SupabaseProvider({
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange(() => {
+      console.log("Auth state change");
       router.refresh();
     });
 
