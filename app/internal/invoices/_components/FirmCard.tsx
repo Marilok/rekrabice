@@ -1,5 +1,5 @@
-import { Avatar, Card, Text } from "@mantine/core";
-import formatZipCode from "../../../utils/formatZipCode";
+import { Avatar, Card, Flex, Text } from "@mantine/core";
+import formatZipCode from "../../../../utils/formatZipCode";
 import classes from "./styles.module.css";
 
 interface StatsRingCardProps {
@@ -8,8 +8,8 @@ interface StatsRingCardProps {
   address: string;
   city: string;
   zip: string;
-  // ico: any;
-  // dic: any;
+  ico: any;
+  dic: any;
   subtitle: string;
 }
 
@@ -19,8 +19,8 @@ export default function StatsRingCard({
   address,
   city,
   zip,
-  // ico,
-  // dic,
+  ico,
+  dic,
   subtitle,
 }: StatsRingCardProps) {
   return (
@@ -43,7 +43,7 @@ export default function StatsRingCard({
           <Text>
             {formatZipCode(zip)}, {city}
           </Text>
-          {/* <Flex gap="sm" align="center" mt="xs">
+          <Flex gap="sm" align="center" mt="xs">
             <Text size="xs" c="dimmed">
               IČ&nbsp;&nbsp;
             </Text>
@@ -54,9 +54,8 @@ export default function StatsRingCard({
               DIČ
             </Text>
             <Text>{dic}</Text>
-          </Flex> */}
+          </Flex>
         </div>
-
         <Avatar size={100} src={favicon} />
       </div>
     </Card>
