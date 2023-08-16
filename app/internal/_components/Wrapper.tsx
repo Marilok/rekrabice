@@ -6,7 +6,6 @@ import {
   IconBarcode,
   IconCashBanknote,
   IconFileInvoice,
-  IconPlus,
   IconScan,
   IconSticker,
   IconTruckDelivery,
@@ -60,6 +59,11 @@ const LINKS = [
     icon: <IconCashBanknote stroke={1.5} />,
   },
   {
+    link: "/internal/orders",
+    label: "Objednávky",
+    icon: <IconTruckDelivery stroke={1.5} />,
+  },
+  {
     link: "/internal/invoices",
     label: "Faktury",
     icon: <IconFileInvoice stroke={1.5} />,
@@ -73,15 +77,5 @@ const LINKS = [
     link: "/internal/new-word",
     label: "Návrh nových slov",
     icon: <IconBarcode stroke={1.5} />,
-  },
-  {
-    link: "/internal/new-por",
-    label: "Přidání nového vratného místa",
-    icon: <IconPlus stroke={1.5} />,
-  },
-  {
-    link: "/internal/orders",
-    label: "Objednávky",
-    icon: <IconTruckDelivery stroke={1.5} />,
   },
 ];
