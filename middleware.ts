@@ -1,24 +1,12 @@
 import { createMiddlewareClient } from "@supabase/auth-helpers-nextjs";
 import { NextResponse, type NextRequest } from "next/server";
 
-// export async function middleware(req: NextRequest) {
-// const res = NextResponse.next();
-// const supabase = createMiddlewareClient({ req, res });
-// const { data } = await supabase.auth.getSession();
-// const { pathname } = req.nextUrl;
 // // const { pathname, searchParams } = req.nextUrl;
-
-// if (pathname === "/login" && data.session) {
-//   return NextResponse.redirect(new URL("/system/prijmout", req.url));
-// }
 
 // if (pathname === "/auth/callback" && searchParams.get("code")) {
 //   return NextResponse.redirect(
 //     new URL(`/login?code=${searchParams.get("code")}`, req.url),
 //   );
-// }
-
-//   return res;
 // }
 
 // eslint-disable-next-line import/prefer-default-export
