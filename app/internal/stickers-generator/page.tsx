@@ -1,62 +1,45 @@
 "use client";
 
-import { Button } from "@mantine/core";
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import { jsPDF } from "jspdf";
+import { Button, NumberInput, Stack } from "@mantine/core";
+import { useForm } from "@mantine/form";
+import { useState } from "react";
+import generatePdf from "./_functions/generatePdf";
+import getBatchBoxes from "./_functions/getBatchBoxes";
 
 export default function Page() {
-  const supabase = createClientComponentClient();
+  const [loading, setLoading] = useState(false);
 
-  const generatePdf = async (data: any) => {
-    // * The library constructor starts with lowercase, causing eslint error
-    // eslint-disable-next-line new-cap
-    const doc = new jsPDF({
-      orientation: "landscape",
-      format: "A9", // 52x37 mm
-    });
+  const form = useForm({
+    initialValues: {
+      batchId: 0,
+    },
+    validate: (values) => ({
+      batchId: values.batchId === 0 ? "Nesmí být prázdné" : null,
+    }),
+  });
 
-    data.forEach((item: any, index: any) => {
-      if (index !== 0) {
-        doc.addPage();
-      }
-
-      doc.text("NEODLEPOVAT", PAGE_WIDTH / 2, SAFE_ZONE * 1.8, {
-        align: "center",
-      }); //  Beware that it is in landscape mode
-
-      doc.addImage(
-        `https://barcodeapi.org/api/128/${item.tracking_id}?text=none`,
-        SAFE_ZONE,
-        SAFE_ZONE * 2.2,
-        PAGE_WIDTH - SAFE_ZONE * 2,
-        PAGE_HEIGHT / 2,
-      );
-
-      doc.text(
-        item.tracking_id,
-        PAGE_WIDTH / 2,
-        PAGE_HEIGHT - SAFE_ZONE * 0.8,
-        {
-          align: "center",
-        },
-      ); // Beware that it is in landscape mode
-    });
-
-    doc.save("stickers_to_print.pdf");
-  };
-
-  const handleClick = async () => {
-    const { data: boxes, error } = await supabase
-      .from("boxes")
-      .select("tracking_id")
-      .eq("batch_id", 1);
-
-    console.log(error || "Loaded data succesfully");
-    generatePdf(boxes);
-  };
-  return <Button onClick={handleClick}>Generovat etikety</Button>;
+  return (
+    <form
+      onSubmit={form.onSubmit(async (values) => {
+        try {
+          setLoading(true);
+          generatePdf(await getBatchBoxes(values.batchId));
+          setLoading(false);
+        } catch (error) {
+          console.log(error);
+          setLoading(false);
+        }
+      })}
+    >
+      <Stack gap="md">
+        <NumberInput
+          label="Zadej várku (batch_id)"
+          {...form.getInputProps("batchId")}
+        />
+        <Button fullWidth type="submit" loading={loading}>
+          Generovat etikety
+        </Button>
+      </Stack>
+    </form>
+  );
 }
-
-const PAGE_WIDTH = 52;
-const PAGE_HEIGHT = 37;
-const SAFE_ZONE = 4;
