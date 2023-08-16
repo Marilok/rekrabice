@@ -12,6 +12,9 @@ import {
 } from "@zxing/library";
 import handleScannedBox from "./handleScannedBox";
 
+// eslint-disable-next-line import/no-mutable-exports
+let controls: any = null;
+
 export default async function scan(
   palleteId: string | number,
   videoSrc: number,
@@ -23,7 +26,7 @@ export default async function scan(
   const selectedDeviceId = videoInputDevices[videoSrc].deviceId;
 
   // eslint-disable-next-line no-unused-vars
-  const controls = await codeReader.decodeFromVideoDevice(
+  controls = await codeReader.decodeFromVideoDevice(
     selectedDeviceId,
     // The id of the video element
     "video-preview",
@@ -36,14 +39,16 @@ export default async function scan(
       } else if (error && error instanceof ChecksumException) {
         notifications.show({
           title: "Chybná hodnota",
-          message: "A code was found, but it's read value was not valid.",
+          message:
+            "A code was found, but it's read value was not valid. ChecksumException",
           autoClose: 4000,
           color: "red",
         });
       } else if (error && error instanceof FormatException) {
         notifications.show({
           title: "Špatný formát",
-          message: "A code was found, but it was in a invalid format.",
+          message:
+            "A code was found, but it was in a invalid format. FormatException",
           autoClose: 4000,
           color: "red",
         });
@@ -57,4 +62,7 @@ export default async function scan(
       }
     },
   );
+  return controls;
 }
+
+export { controls };

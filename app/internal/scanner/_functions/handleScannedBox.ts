@@ -19,10 +19,11 @@ export default async function handleScannedBox(
     throw error;
   } else {
     const boxData = await getBoxFromTrackingName(trackingName, supabase);
+    console.log(boxData);
     const activeLoopId = boxData?.active_loop_id;
     const boxId = boxData?.box_id;
 
-    // Prevents double scanning of the same box
+    // if the box is already on the pallete, do nothing
     if (data?.boxes.includes(boxId)) {
       return;
     }

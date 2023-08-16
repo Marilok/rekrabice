@@ -4,7 +4,8 @@
 
 import { Button, NativeSelect, PinInput, Stack, Text } from "@mantine/core";
 import { isNotEmpty, useForm } from "@mantine/form";
-import scan from "./_functions/actions";
+import { useState } from "react";
+import scan, { controls } from "./_functions/actions";
 
 export default function Page() {
   const form = useForm({
@@ -23,12 +24,15 @@ export default function Page() {
     }),
   });
 
+  const [submitted, setSubmitted] = useState(false);
+
   // TODO: handle case of not existing palleteId or trackingName
 
   return (
     <form
-      onSubmit={form.onSubmit((values) => {
-        scan(values.pallete_id, values.videoSrc);
+      onSubmit={form.onSubmit(async (values) => {
+        setSubmitted(true);
+        await scan(values.pallete_id, values.videoSrc);
       })}
     >
       <Stack gap="md" maw={500} m="sm" mx="auto">
@@ -41,14 +45,27 @@ export default function Page() {
           type="number"
           {...form.getInputProps("pallete_id")}
         />
-        <Button type="submit" fullWidth>
-          Načíst paletu
+        <Button
+          onClick={() => {
+            controls.stop();
+            setSubmitted(false);
+            form.reset();
+          }}
+          variant="outline"
+          color="red"
+          className={submitted ? "" : "hidden"}
+        >
+          Zastavit skenování
         </Button>
         <NativeSelect
           label="Zdroj skenování"
           data={["0", "1", "2", "3", "4"]}
           {...form.getInputProps("videoSrc")}
+          className={!submitted ? "" : "hidden"}
         />
+        <Button type="submit" fullWidth className={!submitted ? "" : "hidden"}>
+          Načíst paletu
+        </Button>
         <video id="video-preview" className="w-full h-72" />
       </Stack>
     </form>
