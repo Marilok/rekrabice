@@ -1,14 +1,6 @@
 import { createMiddlewareClient } from "@supabase/auth-helpers-nextjs";
 import { NextResponse, type NextRequest } from "next/server";
 
-// // const { pathname, searchParams } = req.nextUrl;
-
-// if (pathname === "/auth/callback" && searchParams.get("code")) {
-//   return NextResponse.redirect(
-//     new URL(`/login?code=${searchParams.get("code")}`, req.url),
-//   );
-// }
-
 // eslint-disable-next-line import/prefer-default-export
 export async function middleware(req: NextRequest) {
   const res = NextResponse.next();
