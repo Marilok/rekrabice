@@ -51,7 +51,8 @@ export default function Page() {
           console.log(error);
           notifications.show({
             title: "Chyba",
-            message: "Slovo se nepodařilo vložit do databáze",
+            message:
+              "Slovo se nepodařilo vložit do databáze. Pravděpodobně už existuje.",
             color: "red",
             autoClose: 5000,
           });
@@ -62,11 +63,12 @@ export default function Page() {
       <Stack>
         <TextInput
           label="Nové slovo"
-          description="Pouze maximálně 8 písmen bez diakritiky."
+          description="Pouze 3-8 písmen bez diakritiky."
           type="text"
           size="lg"
           pattern="[A-Za-z]+"
           autoFocus
+          minLength={3}
           maxLength={8}
           {...form.getInputProps("word")}
           onChange={(event) => handlePinChange(event.target.value)}

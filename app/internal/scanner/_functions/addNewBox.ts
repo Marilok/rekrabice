@@ -29,8 +29,8 @@ export default async function addNewBox(
     }
 
     notifications.show({
-      title: `${newBox} přidána`,
-      message: `Krabice s označením ${newBox} byla přidána do palety`,
+      title: `${trackingName} přidána`,
+      message: `Krabice s označením ${trackingName} byla přidána do palety`,
       autoClose: 4000,
     });
   }

@@ -35,7 +35,7 @@ export default function Page() {
         await scan(values.pallete_id, values.videoSrc);
       })}
     >
-      <Stack gap="md" maw={500} m="sm" mx="auto">
+      <Stack gap="md" maw={500} m="sm" mx="auto" w="auto">
         <Text>Číslo palety</Text>
         <PinInput
           length={4}
@@ -43,6 +43,7 @@ export default function Page() {
           size="xl"
           mx="auto"
           type="number"
+          disabled={submitted}
           {...form.getInputProps("pallete_id")}
         />
         <Button
@@ -53,7 +54,7 @@ export default function Page() {
           }}
           variant="outline"
           color="red"
-          className={submitted ? "" : "hidden"}
+          className={!submitted ? "hidden" : ""}
         >
           Zastavit skenování
         </Button>
@@ -61,7 +62,7 @@ export default function Page() {
           label="Zdroj skenování"
           data={["0", "1", "2", "3", "4"]}
           {...form.getInputProps("videoSrc")}
-          className={!submitted ? "" : "hidden"}
+          className={submitted ? "hidden" : ""}
         />
         <Button type="submit" fullWidth className={!submitted ? "" : "hidden"}>
           Načíst paletu

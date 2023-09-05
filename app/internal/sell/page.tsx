@@ -13,7 +13,6 @@ export default async function Page() {
   const supabase = createServerComponentClient({ cookies });
   const palletes = await getPalletes(supabase);
 
-  // This transformation is needed because of mandatory value prop in Select component of Mantine
   const palletesWithMetadata = await palletes.map(async (item: any) => {
     const {
       size_id: { width, depth, height },
@@ -41,7 +40,7 @@ export default async function Page() {
 
   return (
     <UI
-      allPalletes={await Promise.all(palletesWithMetadata)}
+      avaiablePalletes={await Promise.all(palletesWithMetadata)}
       retailers={formattedRetailers}
     />
   );

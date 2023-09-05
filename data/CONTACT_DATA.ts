@@ -2,7 +2,6 @@ import {
   IconAt,
   IconGavel,
   IconMapPin,
-  IconPhone,
   IconReceipt,
   IconSectionSign,
 } from "@tabler/icons-react";
@@ -14,10 +13,13 @@ export const CONTACT = {
   legalName: "Awoxo s.r.o.",
   zip: "60200",
   city: "Brno",
-  ico: 3000,
-  dic: 3000,
+  ico: 19633122,
+  dic: "",
   address: "Nové sady 988/2",
   faviconUrl: "https://rekrabice.cz/favicon.svg",
+  vlozka:
+    "Společnost Awoxo s.r.o. je zapsána v OR vedeném Krajským soudem v Brně, oddíl C, vložka 135251.",
+  platce: "Neplátce DPH",
 };
 
 export const CONTACT_US_DATA = [
@@ -27,12 +29,12 @@ export const CONTACT_US_DATA = [
     link: "mailto:ahoj@rekrabice.cz",
     icon: IconAt,
   },
-  {
-    title: "Telefon",
-    description: "+420 777 777 777",
-    link: "tel:+420777777777",
-    icon: IconPhone,
-  },
+  // {
+  //   title: "Telefon",
+  //   description: "+420 777 777 777",
+  //   link: "tel:+420777777777",
+  //   icon: IconPhone,
+  // },
   {
     title: "Sídlo",
     description: "Nové sady 988/2, Brno",
@@ -50,7 +52,7 @@ export const IMPRESSUM_DATA = [
   },
   {
     title: "IČ",
-    description: "0000000",
+    description: "19633122",
     link: "https://goo.gl/maps/re79poptwbFYxczBA",
     icon: IconSectionSign,
   },
@@ -64,7 +66,7 @@ export const IMPRESSUM_DATA = [
     title: "Zápis do OR",
     link: "https://goo.gl/maps/re79poptwbFYxczBA",
     description:
-      "Společnost Awoxo s.r.o. je zapsána v OR vedeném Krajským soudem v Brně, oddíl A, vložka 00000.",
+      "Společnost Awoxo s.r.o. je zapsána v OR vedeném Krajským soudem v Brně, oddíl C, vložka 135251.",
     icon: IconGavel,
   },
 ];

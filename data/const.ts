@@ -1,3 +1,3 @@
-export const RETURN_CODE = "970 32 390";
+export const RETURN_CODE = "948 906 82";
 
 export const DOMAIN = "https://rekrabice.cz";

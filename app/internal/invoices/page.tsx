@@ -12,7 +12,7 @@ import { useForm } from "@mantine/form";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useState } from "react";
 import UI from "./_components/UI";
-import getOrder from "./getOrder";
+import getOrder from "./_functions/getOrder";
 
 export default function Page() {
   const supabase = createClientComponentClient();

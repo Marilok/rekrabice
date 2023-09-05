@@ -1,7 +1,8 @@
+import { notifications } from "@mantine/notifications";
+import getBoxFromTrackingName from "../../../../utils/getBoxFromTrackingName";
 import createLoopUpdate from "../../_functions/createLoopUpdate";
 import addNewBox from "./addNewBox";
 import createNewLoop from "./createNewLoop";
-import getBoxFromTrackingName from "./getBoxFromTrackingName";
 import updateActiveLoopId from "./updateActiveLoopId";
 
 export default async function handleScannedBox(
@@ -19,12 +20,17 @@ export default async function handleScannedBox(
     throw error;
   } else {
     const boxData = await getBoxFromTrackingName(trackingName, supabase);
-    console.log(boxData);
     const activeLoopId = boxData?.active_loop_id;
     const boxId = boxData?.box_id;
 
     // if the box is already on the pallete, do nothing
     if (data?.boxes.includes(boxId)) {
+      notifications.show({
+        title: `${trackingName} už je v paletě`,
+        message: `Krabice s označením ${trackingName} už byla přidána do palety`,
+        autoClose: 4000,
+        color: "red",
+      });
       return;
     }
 
@@ -42,9 +48,6 @@ export default async function handleScannedBox(
 
     // add the box to the pallete
     await addNewBox(palleteId, data?.boxes, boxId, trackingName, supabase);
-
-    // Loop update of the box being somewhere in our warehouse
-    await createLoopUpdate(newLoopId, 101, supabase);
 
     // Loop update of the box being loaded on a pallete
     await createLoopUpdate(newLoopId, 102, supabase);

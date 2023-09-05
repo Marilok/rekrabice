@@ -9,6 +9,7 @@ import {
   IconScan,
   IconSticker,
   IconTruckDelivery,
+  IconX,
 } from "@tabler/icons-react";
 import React from "react";
 import StyledNavbar from "../../../components/apps/Navbar/Navbar";
@@ -52,6 +53,11 @@ const LINKS = [
     link: "/internal/scanner",
     label: "Skenování",
     icon: <IconScan stroke={1.5} />,
+  },
+  {
+    link: "/internal/pallete",
+    label: "Označit plnou paletu",
+    icon: <IconX stroke={1.5} />,
   },
   {
     link: "/internal/sell",

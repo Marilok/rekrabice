@@ -25,9 +25,9 @@ import classes from "./styles.module.css";
 export default function UI({ data }: any) {
   const rows = data.products.map((product: any) => (
     //   TODO: change the key
-    <TableTr key={product.width}>
+    <TableTr key={product.dimensions}>
       <TableTd>{product.count}</TableTd>
-      <TableTd>{`ReKrabice (${product.width} x ${product.depth} x ${product.height} mm)`}</TableTd>
+      <TableTd>{`ReKrabice (${product.dimensions} mm)`}</TableTd>
       <TableTd>{product.price} Kč</TableTd>
       <TableTd>{product.price * product.count} Kč</TableTd>
     </TableTr>
@@ -66,10 +66,7 @@ export default function UI({ data }: any) {
                 {data.total_price} Kč
               </Text>
             </Grid.Col>
-            <Grid.Col
-              span="auto"
-              className="flex justify-center items-center"
-            >
+            <Grid.Col span="auto" className="flex justify-center items-center">
               <Image
                 alt="QR payment code"
                 width="150"
@@ -202,10 +199,9 @@ export default function UI({ data }: any) {
         c="dimmed"
         ta="center"
       >
-        Neplátce DPH
+        {CONTACT.platce}
         <br />
-        Společnost je zapsána v obchodním rejstříku u Městského soudu v Brně,
-        oddíl C, vložka 187755
+        {CONTACT.vlozka}
       </Text>
     </div>
   );

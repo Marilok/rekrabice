@@ -20,13 +20,11 @@ import {
   IconNumber4,
 } from "@tabler/icons-react";
 import { RETURN_CODE } from "../../../data/const";
-import classes from "./classes.module.css";
 
 export default function Page() {
   const steps = mockdata.map((feature: any) => (
     <Card shadow="md" className="w-80" padding="lg" key={feature.title}>
-      <feature.icon size="xxl" stroke={2} color="green" />
-      <Text fz="lg" fw={500} className={classes.cardTitle} mt="md">
+      <Text fz="lg" fw={500} mt="md">
         {feature.title}
       </Text>
       <Text fz="sm" c="dimmed" mt="sm">
@@ -54,13 +52,13 @@ export default function Page() {
 
 const mockdata = [
   {
-    title: "Zavřete přepravku",
+    title: "1. Zavřete přepravku",
     description:
       "Ujistěte se, že přepravka je plná a už žádná další ReKrabice se do ní nevleze.",
     icon: IconNumber1,
   },
   {
-    title: "Vratka Zásilkovně",
+    title: "2. Vratka Zásilkovně",
     description: (
       <>
         V{" "}
@@ -94,18 +92,19 @@ const mockdata = [
     icon: IconNumber2,
   },
   {
-    title: "Nalepte štítek na přepravku",
-    description: "Adresní štítek prosím nalepte na přepravku",
+    title: "3. Nalepte štítek na přepravku",
+    description:
+      "Adresní štítek vygenerovaný od Zásilkovny prosím nalepte na přepravku",
     icon: IconNumber3,
   },
   {
-    title: "Nová přepravka",
+    title: "4. Nová přepravka",
     description:
       "Plnou přepravku vyměňte za prázdnou a můžete znovu přijímat ReKrabice.",
     icon: IconNumber4,
   },
   {
-    title: "Odměny",
+    title: "* Odměny",
     description:
       "Odměny za sesbírané ReKrabice a vyplacené zálohy Vám zpravidla odešleme jednou za 2 týdny.",
     icon: IconAsterisk,

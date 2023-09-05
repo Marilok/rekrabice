@@ -4,95 +4,65 @@
 
 import { Button, Container } from "@mantine/core";
 import { isNotEmpty, useForm } from "@mantine/form";
-import { useRouter } from "next/navigation";
+import { notifications } from "@mantine/notifications";
+import sellPalletes from "../_functions/actions";
 import CustomSelect from "./CustomSelect";
 import TransferList from "./TransferList";
 
 export default function UI({
-  allPalletes,
+  avaiablePalletes,
   retailers,
 }: {
-  allPalletes: any;
+  avaiablePalletes: any;
   retailers: any;
 }) {
   const form = useForm({
     initialValues: {
-      transferListData: [[], allPalletes],
+      transferListData: [[], avaiablePalletes],
       retailerId: "",
       products: [],
     },
 
     transformValues: (values) => ({
       ...values,
-      palletesIds: values.transferListData[0].map((item: any) => item.value),
+      palletesIds: values.transferListData[0].map(
+        (item: any) => item.palleteId,
+      ),
       products: values.transferListData[0].map((item: any) => ({
         price: item.price,
         count: item.count,
-        width: item.width,
-        depth: item.depth,
-        height: item.height,
+        dimensions: item.dimensions,
         color: item.color,
       })),
     }),
 
     validate: {
-      transferListData: (value) =>
-        value[0].length === 0 ? "Vyber alespoň 1 paletu k prodeji" : null,
       retailerId: isNotEmpty("Vyber komu se palety odešlou"),
     },
   });
 
-  const router = useRouter();
-
   return (
     <form
       onSubmit={form.onSubmit((values) => {
-        console.log(values.retailerId);
-        // console.log(values.transferListData[0]);
-
-        // sellPalletes(
-        //   parseInt(values.retailerId, 10),
-        //   values.palletesIds,
-        //   values.products,
-        // );
+        sellPalletes(
+          parseInt(values.retailerId, 10),
+          values.palletesIds,
+          values.products,
+        );
         form.reset();
-        router.refresh(); // TODO: doesnt refresh the data in the transfer list
-        // notifications.show({
-        //   title: "Palety byly prodány",
-        //   message: "Faktura byla poslána do mailu.",
-        //   color: "green",
-        //   autoClose: 8000,
-        // });
+        notifications.show({
+          title: "Palety byly prodány",
+          message: "Teď je potřeba odeslat fakturu, zaplatit a odeslat palety.",
+          color: "green",
+          autoClose: 10000,
+        });
       })}
     >
       <Container className="flex flex-col gap-md">
-        <TransferList />
-        {/* <TransferList palletes={allPalletes} form={form} /> */}
+        <TransferList palletes={avaiablePalletes} form={form} />
         <CustomSelect retailers={retailers} form={form} />
         <Button type="submit">Prodat palety</Button>
       </Container>
     </form>
   );
 }
-
-// function ItemComponent({ data, selected }: TransferListItemComponentProps) {
-//   return (
-//     <Group wrap="nowrap" key={data.value}>
-//       <div style={{ flex: 1 }}>
-//         <Text size="sm" fw={500}>
-//           Paleta {data.value}
-//         </Text>
-//         <Text size="xs" c="dimmed" fw={400}>
-//           Počet krabic: {data.count}
-//         </Text>
-//         <Text size="xs" c="dimmed" fw={400}>
-//           Rozměr: {data.dimensions}
-//         </Text>
-//         <Text size="xs" c="dimmed" fw={400}>
-//           Barva: {data.color}
-//         </Text>
-//       </div>
-//       <Checkbox checked={selected} onChange={() => {}} tabIndex={-1} />
-//     </Group>
-//   );
-// }

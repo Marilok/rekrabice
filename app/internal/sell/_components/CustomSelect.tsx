@@ -12,7 +12,11 @@ export default function CustomSelect({
   retailers,
   form,
 }: {
-  retailers: any[];
+  retailers: {
+    brandName: string;
+    favicon: string;
+    retailerId: string | number;
+  }[];
   form: any;
 }) {
   const combobox = useCombobox({
@@ -22,7 +26,9 @@ export default function CustomSelect({
   const [value, setValue] = useState<string | null>(null);
   const [search, setSearch] = useState("");
 
-  const shouldFilterOptions = retailers.every((item) => item.label !== search);
+  const shouldFilterOptions = retailers.every(
+    (item) => item.brandName !== search,
+  );
 
   // TODO: implement limit
   // TODO: implement logo display of selected retailer
@@ -34,8 +40,8 @@ export default function CustomSelect({
       )
     : retailers;
 
-  const getRetailerId = (label: string) => {
-    const retailer = retailers.find((item) => item.label === label);
+  const getRetailerId = (brandName: string) => {
+    const retailer = retailers.find((item) => item.brandName === brandName);
     return retailer?.retailerId;
   };
 
@@ -52,10 +58,10 @@ export default function CustomSelect({
     <Combobox
       store={combobox}
       withinPortal={false}
-      onOptionSubmit={(val) => {
-        setValue(val);
-        setSearch(val);
-        form.setFieldValue("retailerId", getRetailerId(val));
+      onOptionSubmit={(brandName) => {
+        setValue(brandName);
+        setSearch(brandName);
+        form.setFieldValue("retailerId", getRetailerId(brandName));
         combobox.closeDropdown();
       }}
     >
