@@ -1,10 +1,11 @@
 import { AspectRatio, Card, Container, SimpleGrid, Text } from "@mantine/core";
+import { Metadata } from "next";
 import Image from "next/image";
 
-// export const metadata: Metadata = {
-//   title: "Napsali o ReKrabicích | ReKrabice",
-//   description: "Podívej se co o ReKrabicích píšou v médiích.",
-// };
+export const metadata: Metadata = {
+  title: "Napsali o ReKrabicích | ReKrabice",
+  description: "Podívej se co o ReKrabicích píšou v médiích.",
+};
 
 export default function Page() {
   const cards = data.map((article) => (
