@@ -1,4 +1,5 @@
-import { Card, Container, Text, Title } from "@mantine/core";
+import { Anchor, Card, Container, Text, Title } from "@mantine/core";
+import Link from "next/link";
 import EmailInput from "./EmailInput/EmailInput";
 
 export default function BottomCta() {
@@ -13,6 +14,17 @@ export default function BottomCta() {
           ozveme, jak se nám daří. 😉
         </Text>
         <EmailInput id="signup_bottom_submit" />
+        <Anchor
+          component={Link}
+          href="/gdpr-newsletter"
+          size="xs"
+          c={"dimmed"}
+          target="_blank"
+          mt={"4"}
+          ml={"2"}
+        >
+          Podmínky zpracování osobních údajů
+        </Anchor>
       </Card>
     </Container>
   );

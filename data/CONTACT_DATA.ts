@@ -13,7 +13,7 @@ export const CONTACT = {
   legalName: "Awoxo s.r.o.",
   zip: "60200",
   city: "Brno",
-  ico: 19633122,
+  ico: "196 33 122",
   dic: "",
   address: "Nové sady 988/2",
   faviconUrl: "https://rekrabice.cz/favicon.svg",
