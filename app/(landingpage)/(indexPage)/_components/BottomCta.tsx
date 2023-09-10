@@ -18,10 +18,10 @@ export default function BottomCta() {
           component={Link}
           href="/gdpr-newsletter"
           size="xs"
-          c={"dimmed"}
+          c="dimmed"
           target="_blank"
-          mt={"4"}
-          ml={"2"}
+          mt="4"
+          ml="2"
         >
           Podmínky zpracování osobních údajů
         </Anchor>

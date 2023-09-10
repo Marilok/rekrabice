@@ -2,6 +2,7 @@ import { Anchor, Center, Modal as MantineModal } from "@mantine/core";
 import Image from "next/image";
 import Link from "next/link";
 import EmailInput from "../EmailInput/EmailInput";
+
 export default function Modal({
   opened,
   setOpened,
@@ -31,10 +32,10 @@ export default function Modal({
         component={Link}
         href="/gdpr-newsletter"
         size="xs"
-        c={"dimmed"}
+        c="dimmed"
         target="_blank"
-        mt={"4"}
-        ml={"2"}
+        mt="4"
+        ml="2"
       >
         Podmínky zpracování osobních údajů
       </Anchor>
