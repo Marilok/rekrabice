@@ -1,7 +1,9 @@
 "use client";
 
-import { Button, Highlight, PinInput, Stack } from "@mantine/core";
-import { isNotEmpty, useForm } from "@mantine/form";
+import { Button, Stack, TextInput } from "@mantine/core";
+import { useForm } from "@mantine/form";
+import { notifications } from "@mantine/notifications";
+import insertWord from "./insertWord";
 
 export default function Page() {
   const form = useForm({
@@ -9,15 +11,24 @@ export default function Page() {
       word: "",
     },
 
-    validate: {
-      word: (value: string) =>
-        isNotEmpty("Nesmí být prázdné") || typeof value === "string"
-          ? "Označení ms."
+    // TODO: get rif of ternary operator
+    /* eslint no-nested-ternary: 0 */ // --> OFF
+    validate: (values) => ({
+      word:
+        values.word === ""
+          ? "Nesmí být prázdné"
+          : values.word.length > 8
+          ? "Musí být maximálně 8 znaků dlouhé"
+          : typeof values.word !== "string"
+          ? "Musí být slovo"
+          : // CHECK if it has letter such as ěščřžýáíé
+          values.word.match(/[ěščřžýáíéóúůťďň]/gi)
+          ? "Nesmí obsahovat diakritiku"
           : null,
-    },
+    }),
 
     transformValues: (values) => ({
-      pallete_id: values.word.toUpperCase(),
+      word: values.word.toUpperCase().trim(),
     }),
   });
 
@@ -27,23 +38,42 @@ export default function Page() {
 
   return (
     <form
-      onSubmit={form.onSubmit((values) => {
-        console.log(values);
+      onSubmit={form.onSubmit(async (values) => {
+        try {
+          await insertWord(values.word);
+          notifications.show({
+            title: "Úspěch",
+            message: "Slovo bylo úspěšně vloženo do databáze",
+            color: "green",
+            autoClose: 5000,
+          });
+        } catch (error) {
+          console.log(error);
+          notifications.show({
+            title: "Chyba",
+            message:
+              "Slovo se nepodařilo vložit do databáze. Pravděpodobně už existuje.",
+            color: "red",
+            autoClose: 5000,
+          });
+        }
         form.reset();
       })}
     >
       <Stack>
-        <Highlight highlight="prosím nevkládej číslice">
-          Zadej návrh nového slova, prosím nevkládej číslice
-        </Highlight>
-        <PinInput
+        <TextInput
+          label="Nové slovo"
+          description="Pouze 3-8 písmen bez diakritiky."
+          type="text"
+          size="lg"
+          pattern="[A-Za-z]+"
           autoFocus
-          size="xl"
-          length={8}
+          minLength={3}
+          maxLength={8}
           {...form.getInputProps("word")}
-          onChange={(event) => handlePinChange(event)}
+          onChange={(event) => handlePinChange(event.target.value)}
         />
-        <Button type="submit">Zkontrolovat slovo</Button>
+        <Button type="submit">Zkontrolovat a vložit do databáze</Button>
       </Stack>
     </form>
   );

@@ -11,11 +11,13 @@ import React from "react";
 import StyledNavbar from "../../components/apps/Navbar/Navbar";
 import translations from "../../translations/translations";
 
-// export const metadata: Metadata = {
-//   title: "Systém ReKrabice",
-//   description: "Interní systém pro trasování ReKrabic.",
-//   robots: "none, noimageindex",
-// };
+// export async function generateMetadata() {
+//   return {
+//     title: "Systém ReKrabice",
+//     description: "Interní systém pro trasování ReKrabic.",
+//     robots: "none, noimageindex",
+//   };
+// }
 
 export default async function Layout({
   children,

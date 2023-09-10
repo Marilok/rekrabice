@@ -12,6 +12,9 @@ import {
 } from "@zxing/library";
 import handleScannedBox from "./handleScannedBox";
 
+// eslint-disable-next-line import/no-mutable-exports
+let controls: any = null;
+
 export default async function scan(
   palleteId: string | number,
   videoSrc: number,
@@ -21,29 +24,45 @@ export default async function scan(
   const codeReader = new BrowserQRCodeReader();
   const videoInputDevices = await BrowserQRCodeReader.listVideoInputDevices();
   const selectedDeviceId = videoInputDevices[videoSrc].deviceId;
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  let lastResult: any = null;
 
   // eslint-disable-next-line no-unused-vars
-  const controls = await codeReader.decodeFromVideoDevice(
+  controls = await codeReader.decodeFromVideoDevice(
     selectedDeviceId,
     // The id of the video element
     "video-preview",
     // eslint-disable-next-line no-shadow
-    (result: any, error: any) => {
+    async (result: any, error: any) => {
       if (result) {
-        handleScannedBox(palleteId, result.getText(), supabase);
+        try {
+          // prevent double scan
+          if (lastResult === result.getText()) return;
+          await handleScannedBox(palleteId, result.getText(), supabase);
+          lastResult = result.getText();
+        } catch (error2: any) {
+          notifications.show({
+            title: "Chyba",
+            message: error2.message,
+            autoClose: 4000,
+            color: "red",
+          });
+        }
       } else if (error && error instanceof NotFoundException) {
         // console.log("Not found any code");
       } else if (error && error instanceof ChecksumException) {
-        notifications.show({
-          title: "Chybná hodnota",
-          message: "A code was found, but it's read value was not valid.",
-          autoClose: 4000,
-          color: "red",
-        });
+        // notifications.show({
+        //   title: "Chybná hodnota",
+        //   message:
+        //     "A code was found, but it's read value was not valid. ChecksumException",
+        //   autoClose: 4000,
+        //   color: "red",
+        // });
       } else if (error && error instanceof FormatException) {
         notifications.show({
           title: "Špatný formát",
-          message: "A code was found, but it was in a invalid format.",
+          message:
+            "A code was found, but it was in a invalid format. FormatException",
           autoClose: 4000,
           color: "red",
         });
@@ -57,4 +76,7 @@ export default async function scan(
       }
     },
   );
+  return controls;
 }
+
+export { controls };

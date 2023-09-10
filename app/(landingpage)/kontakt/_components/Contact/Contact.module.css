@@ -2,7 +2,6 @@
   min-height: 400px;
   box-sizing: border-box;
   border-radius: var(--mantine-radius-md);
-  padding: calc(var(--mantine-spacing-xl) * 1.5);
   background-image: linear-gradient(
     -60deg,
     var(--mantine-color-green-4) 0%,
@@ -14,10 +13,7 @@
   min-height: 400px;
   box-sizing: border-box;
   border-radius: var(--mantine-radius-md);
-  padding-left: calc(var(--mantine-spacing-xl) * 1.5);
-  padding-right: calc(var(--mantine-spacing-xl) * 1.5);
-  padding-top: var(--mantine-spacing-xl);
-  padding-bottom: var(--mantine-spacing-xl);
+
   border-style: solid;
   border-width: 1px;
 

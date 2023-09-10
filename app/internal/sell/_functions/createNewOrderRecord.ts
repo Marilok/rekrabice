@@ -12,6 +12,7 @@ export default async function createNewOrderRecord(
       invoice_number: invoiceNumber,
       products,
       total_price: totalPrice,
+      status_id: 1,
     })
     .select("order_id")
     .single();

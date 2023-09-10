@@ -11,10 +11,13 @@ export default function StepperComponent() {
   const [active, setActive] = useState(0);
   const { width } = useViewportSize();
   const numberOfSteps = 4;
+
   const nextStep = () =>
     setActive((current) => (current < numberOfSteps ? current + 1 : current));
+
   const prevStep = () =>
     setActive((current) => (current > 0 ? current - 1 : current));
+
   useHotkeys([
     ["ArrowDown", nextStep],
     ["ArrowUp", prevStep],
@@ -31,6 +34,7 @@ export default function StepperComponent() {
     // This line is important. It's what prevents server-side render
     ssr: false,
   });
+
   const { scrollIntoView, targetRef } = useScrollIntoView<HTMLDivElement>({
     offset: 60,
   });
@@ -65,7 +69,7 @@ export default function StepperComponent() {
             mt="lg"
             onClick={() => scrollIntoView({ alignment: "center" })}
             classNames={{
-              stepBody: "mantine-md:hidden",
+              stepBody: "hidden sm:block",
             }}
             ref={targetRef}
             id="top"

@@ -3,8 +3,8 @@
 .wrapper {
   background-image: linear-gradient(
     -60deg,
-    var(--mantine-colors-cyan-7) 0%,
-    var(--mantine-colors-lime-9) 100%
+    var(--mantine-color-cyan-7) 0%,
+    var(--mantine-color-lime-9) 100%
   );
 }
 
@@ -27,7 +27,7 @@
 
 .card {
   background-color: light-dark(
-    var(--mantine-color-dark-7),
-    var(--mantine-color-white)
+    var(--mantine-color-white),
+    var(--mantine-color-dark-7)
   );
 }

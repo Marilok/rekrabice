@@ -45,8 +45,8 @@ export default function Faq() {
           <AccordionPanel>
             ReKrabice jsou z recyklovaného plastu. Možná si teď říkáš, co je na
             tom ekologického. Kartonové krabice s trochou štěstí přežijí 4
-            cesty, ReKrabice jich zvládne až 100. Celkový dopad jedné ReKrabice
-            po 100 použitích (včetně cesty zpátky na sklad) je o 70 % nižší, než
+            cesty, ReKrabice jich zvládne až 60. Celkový dopad jedné ReKrabice
+            po 60 použitích (včetně cesty zpátky na sklad) je o 70 % nižší, než
             kdyby byly použity jen ty obyčejné kartonové.
           </AccordionPanel>
         </AccordionItem>
@@ -63,8 +63,8 @@ export default function Faq() {
             Kdy budu moct ReKrabice začít používat?
           </AccordionControl>
           <AccordionPanel>
-            Spuštění plánujeme na druhou půlku letošního roku. Nemůžeš se toho
-            dočkat? Spuštění můžeš urychlit projevením zájmu na konci stránky!
+            Spuštění plánujeme na začátek roku 2024. Nemůžeš se toho dočkat?
+            Spuštění můžeš urychlit projevením zájmu na konci stránky!
           </AccordionPanel>
         </AccordionItem>
         <AccordionItem className={classes.item} value="last">

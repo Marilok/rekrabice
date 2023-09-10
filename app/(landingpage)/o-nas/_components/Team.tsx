@@ -18,7 +18,7 @@ export default function Team() {
       />
       <TeamMember
         avatar=""
-        title="CFO/COO..."
+        title=""
         name="Ty? 🤔"
         email="Chceš pomoci redukovat množství odpadu? Ozvi se nám!"
       />

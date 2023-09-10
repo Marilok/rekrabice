@@ -8,7 +8,7 @@ export default async function getBoxMetadataFromPallete(
 
   const { data, error } = await supabase
     .from("boxes")
-    .select("design_id(color), size_id(width, height, depth)")
+    .select("design_id(color), size_id(width, height, depth), price_id(price)")
     .eq("box_id", boxes[0])
     .single();
 

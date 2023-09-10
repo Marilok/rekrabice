@@ -6,10 +6,10 @@ import {
   IconBarcode,
   IconCashBanknote,
   IconFileInvoice,
-  IconPlus,
   IconScan,
   IconSticker,
   IconTruckDelivery,
+  IconX,
 } from "@tabler/icons-react";
 import React from "react";
 import StyledNavbar from "../../../components/apps/Navbar/Navbar";
@@ -55,9 +55,19 @@ const LINKS = [
     icon: <IconScan stroke={1.5} />,
   },
   {
+    link: "/internal/pallete",
+    label: "Označit plnou paletu",
+    icon: <IconX stroke={1.5} />,
+  },
+  {
     link: "/internal/sell",
     label: "Prodat paletu",
     icon: <IconCashBanknote stroke={1.5} />,
+  },
+  {
+    link: "/internal/orders",
+    label: "Objednávky",
+    icon: <IconTruckDelivery stroke={1.5} />,
   },
   {
     link: "/internal/invoices",
@@ -73,15 +83,5 @@ const LINKS = [
     link: "/internal/new-word",
     label: "Návrh nových slov",
     icon: <IconBarcode stroke={1.5} />,
-  },
-  {
-    link: "/internal/new-por",
-    label: "Přidání nového vratného místa",
-    icon: <IconPlus stroke={1.5} />,
-  },
-  {
-    link: "/internal/orders",
-    label: "Objednávky",
-    icon: <IconTruckDelivery stroke={1.5} />,
   },
 ];

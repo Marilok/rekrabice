@@ -9,7 +9,13 @@ export default function Page() {
     <main className="flex flex-col h-3/4 relative top-1/4">
       <UpperText />
       <Container size="sm" className="self-center">
-        <Paper withBorder shadow="md" p="xl" mt="xl" miw={400}>
+        <Paper
+          withBorder
+          shadow="md"
+          p={{ base: "md", md: "xl" }}
+          mt="xl"
+          miw={{ base: "90vw", md: 400 }}
+        >
           <LoginComponent />
         </Paper>
       </Container>
