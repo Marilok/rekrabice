@@ -27,7 +27,7 @@ export default function Faq() {
         <AccordionItem className={classes.item} value="second">
           <AccordionControl>Jak mohu ReKrabici vrátit?</AccordionControl>
           <AccordionPanel>
-            Stačí ji přinést na tvou nejbližší pobočku Zásilkovny. Pokud hoříš
+            Stačí ji přinést na tvou nejbližší sběrné místo. Pokud hoříš
             nedočkavostí, můžeš balíček rozbalit taky přímo na výdejně a
             ReKrabici tam rovnou nechat. Nebo se ti ReKrabice natolik zalíbila,
             že ji vracet nechceš. V takovém případě ti akorát nevrátíme zálohu.
