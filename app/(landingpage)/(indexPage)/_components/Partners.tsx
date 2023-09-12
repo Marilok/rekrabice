@@ -13,14 +13,6 @@ export default function Partners() {
       >
         <div className="w-60 h-14 relative rounded-sm">
           <Image
-            src="/images/logos/decathlon.png"
-            fill
-            alt="Decathlong logo"
-            className="object-contain opacity-80 hover:scale-110 hover:opacity-100 transition-all"
-          />
-        </div>
-        <div className="w-60 h-14 relative rounded-sm">
-          <Image
             src="/images/logos/tmobile.jpg"
             fill
             alt="Tmobile logo"
