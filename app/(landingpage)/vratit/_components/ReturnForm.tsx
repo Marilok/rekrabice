@@ -17,7 +17,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import translations from "../../../../translations/translations";
 import getBoxFromTrackingName from "../../../../utils/getBoxFromTrackingName";
-import insertData from "./../_functions/insertData";
+import insertData from "../_functions/insertData";
 
 export default function ReturnForm() {
   const searchParams = useSearchParams();
@@ -46,6 +46,7 @@ export default function ReturnForm() {
     <form
       onSubmit={form.onSubmit(async (values: any) => {
         try {
+          // eslint-disable-next-line camelcase
           const { active_loop_id } = await getBoxFromTrackingName(
             values.trackingName,
             supabase,
@@ -80,7 +81,7 @@ export default function ReturnForm() {
         legend="Formulář pro poslání zálohy na účet"
         w={{ base: "full", md: "600" }}
         mx="auto"
-        mt={"md"}
+        mt="md"
       >
         <Stack gap="sm" w={{ base: "full", md: "600" }}>
           <TextInput

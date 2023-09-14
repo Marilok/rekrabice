@@ -38,8 +38,8 @@ export default function CustomMap({ apiKey }: { apiKey: string }) {
       ratio={16 / 9}
       mah={400}
       className="rounded overflow-hidden"
-      mt={"xl"}
-      mx={"md"}
+      mt="xl"
+      mx="md"
     >
       <MapContainer id="map" center={[49.1930642, 16.6099019]} zoom={13}>
         <TileLayer

@@ -36,7 +36,7 @@ export default function CustomPopup({
         href={link}
         variant="outline"
         target="_blank"
-        c={"green"}
+        c="green"
         rightSection={<IconExternalLink size={14} />}
         mt="sm"
         fullWidth
