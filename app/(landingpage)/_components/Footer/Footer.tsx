@@ -78,7 +78,7 @@ export default function Footer({ data }: FooterLinksProps) {
           className="flex items-center justify-between flex-col mantine-sm:flex-row gap-2 mantine-md:gap-0"
         >
           <Text c="dimmed" size="sm">
-            &copy;
+            &copy;&nbsp;
             <span>{new Date().getFullYear()}&nbsp;</span>
             <span>{CONTACT.legalName}</span>
           </Text>

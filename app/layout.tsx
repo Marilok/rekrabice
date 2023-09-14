@@ -8,7 +8,10 @@ import React from "react";
 import "./global.css";
 
 export const metadata: Metadata = {
-  title: "ReKrabice",
+  title: {
+    template: "%s | ReKrabice",
+    default: "ReKrabice", // a default is required when creating a template
+  },
   description:
     "Nestav doma věže z kartonových krabic. Všechny ReKrabice můžeš vrátit a ušetřit tak našim lesům. A to zcela zdarma!",
   robots: "none, noimageindex",

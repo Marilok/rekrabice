@@ -5,7 +5,7 @@ import FeaturesAsymmetrical from "./_components/FeaturesAsymmetrical/FeaturesAsy
 import Team from "./_components/Team";
 
 export const metadata: Metadata = {
-  title: "O nás | ReKrabice",
+  title: "O nás",
   description:
     "Dozvěď se více o vzniku projektu ReKrabice, který přináší koncept cirkulární ekonomiky do Česka.",
 };

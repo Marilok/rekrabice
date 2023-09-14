@@ -60,6 +60,11 @@ const translations = {
     closeEmail: "zavri@me.prosim",
     closeSubject: "Zavři mě prosím",
   },
+  error: {
+    genericTitle: "Jejda, něco se pokazilo.😕",
+    genericMsg:
+      "Zkus to prosím znovu. Kdyžtak nás prosím kontaktuj na podpora@rekrabice.cz",
+  },
 };
 
 export default translations;
