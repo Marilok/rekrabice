@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Napsali o ReKrabicích | ReKrabice",
+  title: "Napsali o ReKrabicích",
   description: "Podívej se co o ReKrabicích píšou v médiích.",
 };
 
