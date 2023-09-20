@@ -7,7 +7,6 @@ import Partners from "./_components/Partners";
 import StepperComponent from "./_components/StepperComponent";
 
 export const metadata: Metadata = {
-  title: "ReKrabice",
   description:
     "Nestav doma věže z kartonových krabic. Všechny ReKrabice můžeš vrátit a ušetřit tak našim lesům. A to zcela zdarma!",
 };
