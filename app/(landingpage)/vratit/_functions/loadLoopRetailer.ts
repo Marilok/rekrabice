@@ -7,7 +7,7 @@ import getBoxFromTrackingName from "../../../../utils/getBoxFromTrackingName";
 export default async function loadLoopRetailer(trackingName: string) {
   const supabase = createServerComponentClient({ cookies });
 
-  const boxId = await getBoxFromTrackingName(trackingName, supabase);
+  const boxId = await getBoxFromTrackingName(trackingName);
 
   const { data, error } = await supabase
     .from("loops")

@@ -14,7 +14,6 @@ import {
   Text,
   Tooltip,
 } from "@mantine/core";
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { IconCheck } from "@tabler/icons-react";
 import { useRouter } from "next/navigation";
 import markPallete from "../_functions/markPallete";
@@ -35,12 +34,10 @@ const statusColors: Record<string, string> = {
 };
 
 export default function PalletesTable({ palletes }: PalleteTableProps) {
-  const supabase = createClientComponentClient();
-
   const router = useRouter();
 
   const markPalleteAsFull = async (palleteId: number) => {
-    await markPallete(palleteId, 2, supabase);
+    await markPallete(palleteId, 2);
     router.refresh();
   };
 

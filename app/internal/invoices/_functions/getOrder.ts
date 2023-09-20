@@ -1,4 +1,10 @@
-export default async function gerOrder(orderId: number, supabase: any) {
+"use server";
+
+import { createServerActionClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
+
+export default async function gerOrder(orderId: number) {
+  const supabase = createServerActionClient({ cookies });
   const { data, error } = await supabase
     .from("retailers_orders")
     .select(

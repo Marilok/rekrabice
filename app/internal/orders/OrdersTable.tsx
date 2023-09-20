@@ -15,7 +15,6 @@ import {
   Text,
   Tooltip,
 } from "@mantine/core";
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { IconMoneybag, IconTruckDelivery } from "@tabler/icons-react";
 import { useRouter } from "next/navigation";
 import formatDate from "../../../utils/formatDate";
@@ -41,17 +40,15 @@ const statusColors: Record<string, string> = {
 };
 
 export default function OrdersTable({ orders }: OrdersTableProps) {
-  const supabase = createClientComponentClient();
-
   const router = useRouter();
 
   const markOrderAsPaid = async (orderId: number) => {
-    await markOrder(orderId, 2, supabase);
+    await markOrder(orderId, 2);
     router.refresh();
   };
 
   const markOrderAsSent = async (orderId: number) => {
-    await markOrder(orderId, 3, supabase);
+    await markOrder(orderId, 3);
     router.refresh();
   };
 

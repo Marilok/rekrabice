@@ -2,23 +2,23 @@
 
 /* eslint-disable camelcase */
 
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
 import UI from "./_components/ui";
 import getBoxMetadataFromPallete from "./_functions/getBoxMetadataFromPallete";
 import getPalletes from "./_functions/getPalletes";
 import getRetailers from "./_functions/getRetailers";
 
 export default async function Page() {
-  const supabase = createServerComponentClient({ cookies });
-  const palletes = await getPalletes(supabase);
+  const palletes = await getPalletes();
 
   const palletesWithMetadata = await palletes.map(async (item: any) => {
     const {
+      // @ts-ignore
       size_id: { width, depth, height },
+      // @ts-ignore
       design_id: { color },
+      // @ts-ignore
       price_id: { price },
-    } = await getBoxMetadataFromPallete(item.pallete_id, supabase);
+    } = await getBoxMetadataFromPallete(item.pallete_id);
     return {
       palleteId: item.pallete_id,
       dimensions: `${width} x ${depth} x ${height}`,
@@ -29,7 +29,7 @@ export default async function Page() {
     };
   });
 
-  const retailers = await getRetailers(supabase);
+  const retailers = await getRetailers();
 
   // This transformation is needed because of mandatory value prop in Select component of Mantine
   const formattedRetailers = retailers.map((item: any) => ({

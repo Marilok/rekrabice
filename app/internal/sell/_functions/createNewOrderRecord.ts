@@ -1,10 +1,16 @@
+"use server";
+
+import { createServerActionClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
+
 export default async function createNewOrderRecord(
   retailerId: number,
   invoiceNumber: string,
   totalPrice: number,
   products: any,
-  supabase: any,
 ) {
+  const supabase = createServerActionClient({ cookies });
+
   const { data, error } = await supabase
     .from("retailers_orders")
     .insert({
