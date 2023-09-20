@@ -4,23 +4,12 @@ import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 
-const nodemailer = require("nodemailer");
-
+import transporter from "../../../utils/nodemailer/transporter";
 // eslint-disable-next-line import/prefer-default-export
 export async function POST(req: NextRequest) {
   const supabase = createRouteHandlerClient({ cookies });
 
   const { mail: reqMail }: { mail: string } = await req.json();
-
-  const transporter = nodemailer.createTransport({
-    port: 465,
-    host: process.env.EMAIL_HOST,
-    auth: {
-      user: process.env.EMAIL_USERNAME,
-      pass: process.env.EMAIL_PASSWORD,
-    },
-    secure: true,
-  });
 
   const confirmationData = {
     from: `Robot z ReKrabice <${process.env.EMAIL_USERNAME}>`,
@@ -31,15 +20,15 @@ export async function POST(req: NextRequest) {
     attachments: [
       {
         filename: "První štěnátko.jpg",
-        path: `${process.env.URL}/mail_images/puppy_1.jpg`,
+        path: `${process.env.NEXT_PUBLIC_URL}/mail_images/puppy_1.jpg`,
       },
       {
         filename: "Druhé štěnátko.jpg",
-        path: `${process.env.URL}/mail_images/puppy_2.jpg`,
+        path: `${process.env.NEXT_PUBLIC_URL}/mail_images/puppy_2.jpg`,
       },
       {
         filename: "Třetí štěnátko.jpg",
-        path: `${process.env.URL}/mail_images/puppy_3.jpg`,
+        path: `${process.env.NEXT_PUBLIC_URL}/mail_images/puppy_3.jpg`,
       },
     ],
   };
