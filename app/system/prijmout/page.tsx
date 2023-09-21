@@ -24,8 +24,6 @@ import updatePorId from "./_functions/updatePorId";
 import coin from "./_images/50czk.jpg";
 import check from "./_images/check.png";
 
-export const dynamic = "force-dynamic";
-
 export default function Page() {
   const [openedCash, handlersCash] = useDisclosure(false);
   const [openedBank, handlersBank] = useDisclosure(false);
