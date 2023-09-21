@@ -1,14 +1,11 @@
 "use server";
 
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
 import OrdersTable from "./OrdersTable";
-import loadOrders from "./loadOrders";
+import getOrders from "./getOrders";
 
 export default async function Page() {
-  const supabase = createServerComponentClient({ cookies });
+  const orders = await getOrders();
 
-  const orders = await loadOrders(supabase);
-
+  // @ts-ignore
   return <OrdersTable orders={orders} />;
 }
