@@ -6,7 +6,7 @@ export default function manifest(): MetadataRoute.Manifest {
     short_name: "ReKrabice",
     description:
       "Toto je aplikace pro evidenci a trasování vrácených ReKrabic.",
-    start_url: "/login/",
+    start_url: "/internal/",
     display: "standalone",
     background_color: "#000",
     theme_color: "#168523",
