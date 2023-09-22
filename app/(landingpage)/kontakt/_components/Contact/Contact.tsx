@@ -16,12 +16,9 @@ import {
 import { useForm } from "@mantine/form";
 import { showNotification, updateNotification } from "@mantine/notifications";
 import { IconCheck, IconSend, IconX } from "@tabler/icons-react";
+import { CONTACT_US_DATA, IMPRESSUM_DATA } from "data/CONTACT_DATA";
+import SOCIALS from "data/SOCIALS";
 import { useState } from "react";
-import {
-  CONTACT_US_DATA,
-  IMPRESSUM_DATA,
-} from "../../../../../data/CONTACT_DATA";
-import SOCIALS from "../../../../../data/SOCIALS";
 import ContactIconsList from "../ContactIconsList/ContactIconsList";
 import LegalIconsList from "../LegalIconsList/LegalIconsList";
 import classes from "./Contact.module.css";

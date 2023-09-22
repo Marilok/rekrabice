@@ -7,7 +7,7 @@ import {
   useMantineColorScheme,
 } from "@mantine/core";
 import { IconMoon, IconSun, IconTool } from "@tabler/icons-react";
-import translations from "../../../../translations/translations";
+import translations from "translations/translations";
 
 export default function ColorThemeControl() {
   const { colorScheme, setColorScheme } = useMantineColorScheme();

@@ -7,7 +7,7 @@ import {
 } from "@mantine/core";
 import Link from "next/link";
 import { ReactNode } from "react";
-import translations from "../../../translations/translations";
+import translations from "translations/translations";
 
 type AccordionItemProps = {
   value: string;

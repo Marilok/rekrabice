@@ -11,6 +11,7 @@ import {
 import { useForm } from "@mantine/form";
 import { useState } from "react";
 import UI from "./_components/UI";
+import "./_components/print.css";
 import getOrder from "./_functions/getOrder";
 
 export default function Page() {

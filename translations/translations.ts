@@ -1,16 +1,5 @@
 const translations = {
   // * This is just a temporary solution for the translation of the app. It will be replaced by a better solution in the future.
-  login: {
-    rememberMe: "Zapamatuj si mě pro příště",
-    email: "Email",
-    emailPlaceholder: "petr@skvelafirma.cz",
-    cannotLogin: "Nemůžete se přihlásit?",
-    login: "Přihlásit se",
-    wrongEmailFormat: "Chybný formát emailové adresy",
-    contactUs: "Ozvěte se nám",
-    dontAccept: "Nesbírá Vaše firma zatím ReKrabice?",
-    heading: "Brána do systému pro sběr ReKrabic",
-  },
   systemReceive: {
     code: "Zadejte 8-ciferné jméno ReKrabice:",
     button: "Potvrdit přijmutí ReKrabice od zákazníka",
@@ -25,13 +14,9 @@ const translations = {
   },
   systemNavbar: {
     version: "verze",
-
     accept: "Přijmout ReKrabici od zákazníka",
-
     send: "Odeslat plnou přepravku",
-
     faq: "Návod a časté dotazy",
-
     contact: "Kontakt",
     settings: "Nastavení",
     logout: "Odhlásit se",

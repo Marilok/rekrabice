@@ -1,7 +1,7 @@
 "use client";
 
+import { EmailButtons } from "components/EmailButtons/EmailButtons";
 import { useState } from "react";
-import { EmailButtons } from "../../../components/EmailButtons/EmailButtons";
 import Form from "./Form";
 
 export default function LoginComponent() {
