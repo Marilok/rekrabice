@@ -3,7 +3,6 @@
 import { createServerActionClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 
-/* eslint-disable camelcase */
 export default async function createPorReturn(
   location_id: string,
   loop_id: string,

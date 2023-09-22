@@ -1,5 +1,3 @@
-/* eslint-disable camelcase */
-
 "use client";
 
 import { Button, Container } from "@mantine/core";

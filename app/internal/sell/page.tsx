@@ -1,5 +1,3 @@
-/* eslint-disable camelcase */
-
 import UI from "./_components/ui";
 import getBoxMetadataFromPallete from "./_functions/getBoxMetadataFromPallete";
 import getPalletes from "./_functions/getPalletes";

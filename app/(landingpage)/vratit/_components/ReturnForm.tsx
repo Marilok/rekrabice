@@ -41,7 +41,6 @@ export default function ReturnForm() {
     <form
       onSubmit={form.onSubmit(async (values: any) => {
         try {
-          // eslint-disable-next-line camelcase
           const { active_loop_id } = await getBoxFromTrackingName(
             values.trackingName,
           );

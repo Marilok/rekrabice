@@ -52,6 +52,8 @@
         "no-console": "off",
         "react/no-unused-prop-types": "warn",
         "react/no-unstable-nested-components": "warn",
-        "no-shadow": "warn"
+        "no-shadow": "warn",
+        "camelcase": "off" //since we use supabase and it uses snake_case   
+
     }
 }
