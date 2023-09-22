@@ -13,7 +13,7 @@ import { IconBuildingBank } from "@tabler/icons-react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import translations from "../../../../translations/translations";
-import getBoxFromTrackingName from "../../../../utils/getBoxFromTrackingName";
+import getBoxFromTrackingName from "../../../../utils/supabase_helpers/getBoxFromTrackingName";
 import insertData from "../_functions/insertData";
 
 export default function ReturnForm() {

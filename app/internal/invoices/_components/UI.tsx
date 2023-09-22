@@ -17,8 +17,8 @@ import {
 import Image from "next/image";
 import { CONTACT } from "../../../../data/CONTACT_DATA";
 import logoSrc from "../../../../public/logo_text.svg";
-import formatDate from "../../../../utils/formatDate";
-import formatInvoiceNumber from "../../../../utils/formatInvoiceNumber";
+import formatDate from "../../../../utils/formatters/formatDate";
+import formatInvoiceNumber from "../../../../utils/formatters/formatInvoiceNumber";
 import StatsRingCard from "./FirmCard";
 import classes from "./styles.module.css";
 

@@ -17,8 +17,8 @@ import {
 } from "@mantine/core";
 import { IconMoneybag, IconTruckDelivery } from "@tabler/icons-react";
 import { useRouter } from "next/navigation";
-import formatDate from "../../../utils/formatDate";
-import formatInvoiceNumber from "../../../utils/formatInvoiceNumber";
+import formatDate from "../../../utils/formatters/formatDate";
+import formatInvoiceNumber from "../../../utils/formatters/formatInvoiceNumber";
 import markOrder from "./_functions/markOrder";
 
 interface OrdersTableProps {
