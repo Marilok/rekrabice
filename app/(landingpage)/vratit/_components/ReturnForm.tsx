@@ -1,5 +1,3 @@
-"use client";
-
 import {
   Anchor,
   Button,
@@ -17,8 +15,6 @@ import { useSearchParams } from "next/navigation";
 import translations from "../../../../translations/translations";
 import getBoxFromTrackingName from "../../../../utils/getBoxFromTrackingName";
 import insertData from "../_functions/insertData";
-
-export const dynamic = "dynamic";
 
 export default function ReturnForm() {
   const searchParams = useSearchParams();
