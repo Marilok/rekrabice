@@ -31,6 +31,7 @@ export default async function RootLayout({
         />
         <meta name="robots" content="noimageindex" />
         <ColorSchemeScript />
+        <link rel="manifest" href="manifest.json" />
       </head>
       <body>
         {/* <GoogleTagsNoScript /> */}
