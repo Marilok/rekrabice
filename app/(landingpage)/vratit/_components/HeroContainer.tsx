@@ -5,8 +5,6 @@ import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import boxImgSrc from "../../../../public/prototype.png";
 
-export const dynamic = "dynamic";
-
 export default function HeroContainer() {
   const searchParams = useSearchParams();
 

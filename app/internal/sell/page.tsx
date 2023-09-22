@@ -1,11 +1,11 @@
-"use server";
-
 /* eslint-disable camelcase */
 
 import UI from "./_components/ui";
 import getBoxMetadataFromPallete from "./_functions/getBoxMetadataFromPallete";
 import getPalletes from "./_functions/getPalletes";
 import getRetailers from "./_functions/getRetailers";
+
+export const dynamic = "force-dynamic";
 
 export default async function Page() {
   const palletes = await getPalletes();

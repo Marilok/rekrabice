@@ -8,6 +8,8 @@ export const metadata: Metadata = {
   description: "Vrátit ReKrabici",
 };
 
+export const dynamic = "force-dynamic";
+
 export default function Page() {
   return (
     <>
