@@ -2,10 +2,11 @@ import { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "ReKrabice applikace",
+    name: "ReKrabice - systém pro správu vraných krabic",
     short_name: "ReKrabice",
-    description: "Aplikace pro správu ReKrabicí",
-    start_url: "/login/",
+    description:
+      "Toto je aplikace pro evidenci a trasování vrácených ReKrabic.",
+    start_url: "/internal/",
     display: "standalone",
     background_color: "#000",
     theme_color: "#168523",
