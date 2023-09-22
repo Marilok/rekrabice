@@ -9,23 +9,20 @@ import {
   useMantineColorScheme,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useState } from "react";
 import UI from "./_components/UI";
 import getOrder from "./_functions/getOrder";
 
 export default function Page() {
-  const supabase = createClientComponentClient();
-
   const form = useForm({});
 
   const { colorScheme, setColorScheme } = useMantineColorScheme();
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<any>(null);
   return (
     <>
       <form
         onSubmit={form.onSubmit(async (values: any) => {
-          setData(await getOrder(values.orderId, supabase));
+          setData(await getOrder(values.orderId));
         })}
         className="print:hidden"
       >

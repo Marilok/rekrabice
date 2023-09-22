@@ -1,3 +1,8 @@
+"use server";
+
+import { createServerActionClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
+
 function getPaddedMonth(month: number) {
   if (month < 10) {
     return `0${month}`;
@@ -18,7 +23,9 @@ function getPaddedSequence(sequence: number) {
   return sequence;
 }
 
-export async function getLastInvoiceNumber(supabase: any) {
+export async function getLastInvoiceNumber() {
+  const supabase = createServerActionClient({ cookies });
+
   const { data, error } = await supabase
     .from("retailers_orders")
     .select("invoice_number")
@@ -34,7 +41,7 @@ export async function getLastInvoiceNumber(supabase: any) {
   return data.invoice_number;
 }
 
-export function createInvoiceNumber(lastInvoiceNumber: number) {
+export async function createInvoiceNumber(lastInvoiceNumber: number) {
   const now = new Date();
   const currentYear = now.getFullYear();
   const currentMonth = now.getMonth() + 1; // getMonth() returns 0-based month, so add 1 to get the actual month.

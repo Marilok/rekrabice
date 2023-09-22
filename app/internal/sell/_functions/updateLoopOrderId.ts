@@ -1,8 +1,14 @@
+"use server";
+
+import { createServerActionClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
+
 export default async function updateLoopOrderId(
   loopId: number,
   orderId: number,
-  supabase: any,
 ) {
+  const supabase = createServerActionClient({ cookies });
+
   const { error } = await supabase
     .from("loops")
     .update({

@@ -3,16 +3,26 @@
 import { createServerActionClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 
-export default async function getRetailers() {
+export default async function createPorReturn(
+  location_id: string,
+  loop_id: string,
+  cash_paid: number | null,
+) {
   const supabase = createServerActionClient({ cookies });
 
   const { data, error } = await supabase
-    .from("retailers")
-    .select("retailer_id, brand_name, favicon_url");
+    .from("por_returns")
+    .insert([
+      {
+        loop_id,
+        location_id,
+        cash_paid: cash_paid || null,
+      },
+    ])
+    .select();
 
   if (error) {
     throw error;
   }
-
   return data;
 }

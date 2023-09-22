@@ -1,10 +1,9 @@
-"use server";
-
 import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
+import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 
-import type { NextRequest } from "next/server";
+export const dynamic = "force-dynamic";
 
 // eslint-disable-next-line import/prefer-default-export
 export async function GET(request: NextRequest) {

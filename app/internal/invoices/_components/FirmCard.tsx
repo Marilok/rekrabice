@@ -1,5 +1,5 @@
 import { Avatar, Card, Flex, Text } from "@mantine/core";
-import formatZipCode from "../../../../utils/formatZipCode";
+import formatZipCode from "../../../../utils/formatters/formatZipCode";
 import classes from "./styles.module.css";
 
 interface StatsRingCardProps {

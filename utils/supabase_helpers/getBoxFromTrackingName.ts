@@ -3,20 +3,18 @@
 import { createServerActionClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 
-export default async function updateActiveLoopId(
-  boxId: number,
-  loopId: number,
-) {
+export default async function getBoxFromTrackingName(boxTrackingName: string) {
   const supabase = createServerActionClient({ cookies });
 
-  const { error } = await supabase
+  const { data, error } = await supabase
     .from("boxes")
-    .update({
-      active_loop_id: loopId,
-    })
-    .eq("box_id", boxId);
+    .select("box_id, active_loop_id")
+    .eq("tracking_id", boxTrackingName)
+    .single();
 
   if (error) {
     throw error;
   }
+
+  return data;
 }

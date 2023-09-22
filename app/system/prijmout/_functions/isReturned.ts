@@ -3,18 +3,21 @@
 import { createServerActionClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 
-export default async function createNewLoop(boxId: string) {
+export default async function isReturned(activeLoopId: string) {
   const supabase = createServerActionClient({ cookies });
 
-  const { data, error } = await supabase
+  const { data: loop, error } = await supabase
     .from("loops")
-    .insert([{ box_id: boxId }])
-    .select("loop_id")
+    .select("return_location_id")
+    .eq("loop_id", activeLoopId)
     .single();
 
   if (error) {
     throw error;
   }
 
-  return data.loop_id;
+  if (loop.return_location_id !== null) {
+    return true;
+  }
+  return false;
 }

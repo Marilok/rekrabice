@@ -3,16 +3,21 @@
 import { createServerActionClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 
-export default async function getRetailers() {
+export default async function getLocationId() {
   const supabase = createServerActionClient({ cookies });
 
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   const { data, error } = await supabase
-    .from("retailers")
-    .select("retailer_id, brand_name, favicon_url");
+    .from("por_employees")
+    .select("location_id")
+    .eq("id", user!.id)
+    .single();
 
   if (error) {
     throw error;
   }
-
-  return data;
+  return data.location_id;
 }

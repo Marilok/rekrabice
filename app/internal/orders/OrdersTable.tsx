@@ -15,12 +15,11 @@ import {
   Text,
   Tooltip,
 } from "@mantine/core";
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { IconMoneybag, IconTruckDelivery } from "@tabler/icons-react";
 import { useRouter } from "next/navigation";
-import formatDate from "../../../utils/formatDate";
-import formatInvoiceNumber from "../../../utils/formatInvoiceNumber";
-import markOrder from "./markOrder";
+import formatDate from "../../../utils/formatters/formatDate";
+import formatInvoiceNumber from "../../../utils/formatters/formatInvoiceNumber";
+import markOrder from "./_functions/markOrder";
 
 interface OrdersTableProps {
   orders: {
@@ -41,17 +40,15 @@ const statusColors: Record<string, string> = {
 };
 
 export default function OrdersTable({ orders }: OrdersTableProps) {
-  const supabase = createClientComponentClient();
-
   const router = useRouter();
 
   const markOrderAsPaid = async (orderId: number) => {
-    await markOrder(orderId, 2, supabase);
+    await markOrder(orderId, 2);
     router.refresh();
   };
 
   const markOrderAsSent = async (orderId: number) => {
-    await markOrder(orderId, 3, supabase);
+    await markOrder(orderId, 3);
     router.refresh();
   };
 

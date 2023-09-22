@@ -1,6 +1,9 @@
+"use client";
+
 import { notifications } from "@mantine/notifications";
-import getBoxFromTrackingName from "../../../../utils/getBoxFromTrackingName";
-import createLoopUpdate from "../../_functions/createLoopUpdate";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import createLoopUpdate from "../../../../utils/supabase_helpers/createLoopUpdate";
+import getBoxFromTrackingName from "../../../../utils/supabase_helpers/getBoxFromTrackingName";
 import addNewBox from "./addNewBox";
 import createNewLoop from "./createNewLoop";
 import updateActiveLoopId from "./updateActiveLoopId";
@@ -8,8 +11,9 @@ import updateActiveLoopId from "./updateActiveLoopId";
 export default async function handleScannedBox(
   palleteId: number | string,
   trackingName: string,
-  supabase: any,
 ) {
+  const supabase = createClientComponentClient();
+
   const { data, error } = await supabase
     .from("palletes")
     .select("boxes")
@@ -19,7 +23,7 @@ export default async function handleScannedBox(
   if (error) {
     throw error;
   } else {
-    const boxData = await getBoxFromTrackingName(trackingName, supabase);
+    const boxData = await getBoxFromTrackingName(trackingName);
     const activeLoopId = boxData?.active_loop_id;
     const boxId = boxData?.box_id;
 
@@ -35,21 +39,21 @@ export default async function handleScannedBox(
     }
 
     // loop update of receiving at our warehouse from point of return
-    await createLoopUpdate(activeLoopId, 701, supabase);
+    await createLoopUpdate(activeLoopId, 701);
 
     // loop update of the box being washed
-    await createLoopUpdate(activeLoopId, 801, supabase);
+    await createLoopUpdate(activeLoopId, 801);
 
     // Creates a new loop for the box, since the 801 loop update is the last one
-    const newLoopId = await createNewLoop(boxId, supabase);
+    const newLoopId = await createNewLoop(boxId);
 
     // Updates the box with the new active loop id
-    await updateActiveLoopId(boxId, newLoopId, supabase);
+    await updateActiveLoopId(boxId, newLoopId);
 
     // add the box to the pallete
-    await addNewBox(palleteId, data?.boxes, boxId, trackingName, supabase);
+    await addNewBox(palleteId, data?.boxes, boxId, trackingName);
 
     // Loop update of the box being loaded on a pallete
-    await createLoopUpdate(newLoopId, 102, supabase);
+    await createLoopUpdate(newLoopId, 102);
   }
 }

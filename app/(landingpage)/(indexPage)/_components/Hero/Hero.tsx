@@ -14,6 +14,7 @@ export default function Hero() {
       <Container
         className={classes.wrapper}
         py="calc(var(--mantine-spacing-xl) * 3)"
+        fluid
       >
         <Container
           className="flex justify-between flex-col mantine-md:flex-col flex-1 mantine-md:ml-[16vw]"

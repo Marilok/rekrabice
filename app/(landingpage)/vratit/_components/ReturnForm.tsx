@@ -11,12 +11,11 @@ import {
 } from "@mantine/core";
 import { isEmail, isNotEmpty, useForm } from "@mantine/form";
 import { notifications } from "@mantine/notifications";
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { IconBuildingBank } from "@tabler/icons-react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import translations from "../../../../translations/translations";
-import getBoxFromTrackingName from "../../../../utils/getBoxFromTrackingName";
+import getBoxFromTrackingName from "../../../../utils/supabase_helpers/getBoxFromTrackingName";
 import insertData from "../_functions/insertData";
 
 export default function ReturnForm() {
@@ -40,16 +39,12 @@ export default function ReturnForm() {
     form.setValues({ trackingName: value.toUpperCase() });
   };
 
-  const supabase = createClientComponentClient();
-
   return (
     <form
       onSubmit={form.onSubmit(async (values: any) => {
         try {
-          // eslint-disable-next-line camelcase
           const { active_loop_id } = await getBoxFromTrackingName(
             values.trackingName,
-            supabase,
           );
 
           await insertData(
@@ -58,7 +53,6 @@ export default function ReturnForm() {
             values.bankAccountPrefix,
             values.bankAccountNumber,
             values.bankCode,
-            supabase,
           );
           form.reset();
           notifications.show({

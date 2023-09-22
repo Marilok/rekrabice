@@ -1,11 +1,16 @@
+"use server";
+
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
+
 export default async function insertData(
   loopId: number,
   email: string,
   bankAccountPrefix: string,
   bankAccountNumber: string,
   bankCode: string,
-  supabase: any,
 ) {
+  const supabase = createServerComponentClient({ cookies });
   console.log(loopId, email, bankAccountPrefix, bankAccountNumber, bankCode);
 
   const { data, error } = await supabase.from("loops_pairings").insert([

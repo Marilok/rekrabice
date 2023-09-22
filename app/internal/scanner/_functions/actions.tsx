@@ -3,7 +3,6 @@
 // * For some reason this library is producing an error when importing it
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { notifications } from "@mantine/notifications";
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { BrowserQRCodeReader } from "@zxing/browser";
 import {
   ChecksumException,
@@ -19,8 +18,6 @@ export default async function scan(
   palleteId: string | number,
   videoSrc: number,
 ) {
-  const supabase = createClientComponentClient();
-
   const codeReader = new BrowserQRCodeReader();
   const videoInputDevices = await BrowserQRCodeReader.listVideoInputDevices();
   const selectedDeviceId = videoInputDevices[videoSrc].deviceId;
@@ -38,7 +35,7 @@ export default async function scan(
         try {
           // prevent double scan
           if (lastResult === result.getText()) return;
-          await handleScannedBox(palleteId, result.getText(), supabase);
+          await handleScannedBox(palleteId, result.getText());
           lastResult = result.getText();
         } catch (error2: any) {
           notifications.show({
