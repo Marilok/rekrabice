@@ -14,8 +14,8 @@ import { notifications } from "@mantine/notifications";
 import { IconBuildingBank } from "@tabler/icons-react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import translations from "../../../../translations/translations";
-import getBoxFromTrackingName from "../../../../utils/supabase_helpers/getBoxFromTrackingName";
+import translations from "translations/translations";
+import getBoxFromTrackingName from "utils/supabase_helpers/getBoxFromTrackingName";
 import insertData from "../_functions/insertData";
 
 export default function ReturnForm() {

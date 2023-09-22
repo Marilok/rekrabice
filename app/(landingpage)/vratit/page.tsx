@@ -1,5 +1,5 @@
+import DynamicMap from "components/Map/Map/DynamicMap";
 import { Metadata } from "next";
-import DynamicMap from "../../../components/Map/Map/DynamicMap";
 import HeroContainer from "./_components/HeroContainer";
 import ReturnForm from "./_components/ReturnForm";
 

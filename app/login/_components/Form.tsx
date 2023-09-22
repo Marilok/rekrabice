@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 
 import { Anchor, Button, Group, TextInput } from "@mantine/core";
 import { useFocusTrap } from "@mantine/hooks";
-import translations from "../../../translations/translations";
+import translations from "translations/login";
 
 interface FormValues {
   email: string;
@@ -34,7 +34,7 @@ export default function Form({ setSubmitted }: any) {
     },
 
     validate: {
-      email: isEmail(translations.login.wrongEmailFormat),
+      email: isEmail(translations.wrongEmailFormat),
     },
 
     transformValues: (values) => ({
@@ -58,18 +58,18 @@ export default function Form({ setSubmitted }: any) {
       })}
     >
       <TextInput
-        label={translations.login.email}
-        placeholder={translations.login.emailPlaceholder}
+        label={translations.email}
+        placeholder={translations.emailPlaceholder}
         required
         ref={focusTrapRef}
         {...form.getInputProps("email")}
       />
       <Button fullWidth mt="sm" type="submit">
-        {translations.login.login}
+        {translations.login}
       </Button>
       <Group justify="space-between" mt="sm">
         <Anchor href="/kontakt" component={Link} size="sm">
-          {translations.login.cannotLogin}
+          {translations.cannotLogin}
         </Anchor>
       </Group>
     </form>

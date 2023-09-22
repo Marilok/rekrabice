@@ -3,7 +3,6 @@
 import { Container, List, Text, Title } from "@mantine/core";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
-import boxImgSrc from "../../../../public/prototype.png";
 
 export default function HeroContainer() {
   const searchParams = useSearchParams();
@@ -38,7 +37,7 @@ export default function HeroContainer() {
         </List>
       </div>
       <div>
-        <Image src={boxImgSrc} width={200} height={200} alt="ReKrabice" />
+        <Image src="/prototype.png" width={200} height={200} alt="ReKrabice" />
       </div>
     </Container>
   );

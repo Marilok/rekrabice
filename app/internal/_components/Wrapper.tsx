@@ -11,8 +11,8 @@ import {
   IconTruckDelivery,
   IconX,
 } from "@tabler/icons-react";
+import StyledNavbar from "components/apps/Navbar/Navbar";
 import React from "react";
-import StyledNavbar from "../../../components/apps/Navbar/Navbar";
 import StyledHeader from "./Header";
 
 export default function Wrapper({ children }: { children: React.ReactNode }) {

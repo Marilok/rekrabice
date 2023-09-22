@@ -5,9 +5,9 @@ import {
   IconPhone,
   IconQuestionMark,
 } from "@tabler/icons-react";
+import StyledNavbar from "components/apps/Navbar/Navbar";
 import React from "react";
-import StyledNavbar from "../../components/apps/Navbar/Navbar";
-import translations from "../../translations/translations";
+import translations from "translations/translations";
 
 export async function generateMetadata() {
   return {

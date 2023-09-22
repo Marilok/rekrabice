@@ -19,7 +19,7 @@ import {
   IconNumber3,
   IconNumber4,
 } from "@tabler/icons-react";
-import { RETURN_CODE } from "../../../data/const";
+import { RETURN_CODE } from "data/const";
 
 export default function Page() {
   const steps = mockdata.map((feature: any) => (
