@@ -1,13 +1,5 @@
-import { AppShell, AppShellMain } from "@mantine/core";
-import {
-  IconArrowDown,
-  IconArrowUp,
-  IconPhone,
-  IconQuestionMark,
-} from "@tabler/icons-react";
-import StyledNavbar from "components/apps/Navbar/Navbar";
 import React from "react";
-import translations from "translations/translations";
+import Wrapper from "./_components/Wrapper";
 
 export async function generateMetadata() {
   return {
@@ -22,44 +14,5 @@ export default async function Layout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <AppShell
-      navbar={{ width: 300, breakpoint: "xs" }}
-      styles={{
-        main: {
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          flexDirection: "column",
-        },
-      }}
-      layout="alt"
-    >
-      <StyledNavbar links={LINKS_OBJECT} />
-      <AppShellMain>{children}</AppShellMain>
-    </AppShell>
-  );
+  return <Wrapper>{children}</Wrapper>;
 }
-
-const LINKS_OBJECT = [
-  {
-    link: "/system/prijmout",
-    label: translations.systemNavbar.accept,
-    icon: <IconArrowDown stroke={1.5} />,
-  },
-  {
-    link: "/system/odeslat",
-    label: translations.systemNavbar.send,
-    icon: <IconArrowUp stroke={1.5} />,
-  },
-  {
-    link: "/system/navod",
-    label: translations.systemNavbar.faq,
-    icon: <IconQuestionMark stroke={1.5} />,
-  },
-  {
-    link: "/system/kontakt",
-    label: translations.systemNavbar.contact,
-    icon: <IconPhone stroke={1.5} />,
-  },
-];
