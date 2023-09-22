@@ -19,7 +19,7 @@ import { IconMoneybag, IconTruckDelivery } from "@tabler/icons-react";
 import { useRouter } from "next/navigation";
 import formatDate from "../../../utils/formatDate";
 import formatInvoiceNumber from "../../../utils/formatInvoiceNumber";
-import markOrder from "./markOrder";
+import markOrder from "./_functions/markOrder";
 
 interface OrdersTableProps {
   orders: {
