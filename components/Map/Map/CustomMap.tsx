@@ -6,12 +6,13 @@ import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import "leaflet/dist/leaflet.css";
 import { useState } from "react";
 import { MapContainer, TileLayer, useMapEvents } from "react-leaflet";
+import { Database } from "types/supabase";
 import EasterEggShapes from "../EasterEgg/EasterEggShapes";
 import Markers from "../Marker/Markers";
 import MapyLogo from "./MapyLogo";
 
-export default function CustomMap({ apiKey }: { apiKey: string }) {
-  const supabase = createClientComponentClient();
+export default function CustomMap() {
+  const supabase = createClientComponentClient<Database>();
   const [locations, setLocations] = useState<any>([]);
 
   function LocationsProvider() {
@@ -44,7 +45,7 @@ export default function CustomMap({ apiKey }: { apiKey: string }) {
       <MapContainer id="map" center={[49.1930642, 16.6099019]} zoom={13}>
         <TileLayer
           attribution='<a href="https://licence.mapy.cz/?doc=mapy_pu#api" target="_blank">&copy; Seznam.cz a.s. a další</a>'
-          url={`https://api.mapy.cz/v1/maptiles/basic/256/{z}/{x}/{y}?apikey=${apiKey}&lang=cs`}
+          url={`https://api.mapy.cz/v1/maptiles/basic/256/{z}/{x}/{y}?apikey=${process.env.NEXT_PUBLIC_MAPY_API_KEY}&lang=cs`}
           className="color-red decoration-none hoaver:color-blue"
         />
         <LocationsProvider />

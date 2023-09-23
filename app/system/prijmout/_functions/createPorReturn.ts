@@ -2,13 +2,14 @@
 
 import { createServerActionClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
+import { Database } from "types/supabase";
 
 export default async function createPorReturn(
-  location_id: string,
-  loop_id: string,
+  location_id: number,
+  loop_id: number,
   cash_paid: number | null,
 ) {
-  const supabase = createServerActionClient({ cookies });
+  const supabase = createServerActionClient<Database>({ cookies });
 
   const { data, error } = await supabase
     .from("por_returns")

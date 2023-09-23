@@ -13,6 +13,7 @@
       "@/components/*": ["components/*"],
       "@/public/*": ["public/*"],
       "@/data/*": ["data/*"],
+      "@/types/*": ["types/*"],
     },
     "allowJs": true,
     "skipLibCheck": true,

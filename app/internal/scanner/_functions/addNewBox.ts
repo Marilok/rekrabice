@@ -2,6 +2,7 @@
 
 import { notifications } from "@mantine/notifications";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import { Database } from "types/supabase";
 
 export default async function addNewBox(
   palleteId: any,
@@ -9,7 +10,7 @@ export default async function addNewBox(
   newBox: any,
   trackingName: string,
 ) {
-  const supabase = createClientComponentClient();
+  const supabase = createClientComponentClient<Database>();
   if (existingArray.includes(newBox)) {
     notifications.show({
       title: `${trackingName} už je v paletě`,

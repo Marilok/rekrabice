@@ -1,3 +1,4 @@
+import bankString from "@/utils/formatters/bankString";
 import { NextRequest } from "next/server";
 import transporter from "utils/nodemailer/transporter";
 
@@ -12,13 +13,6 @@ export async function POST(req: NextRequest) {
     });
   }
 
-  const bankString = () => {
-    if (bankPrefix) {
-      return `${bankPrefix}-${bankAccount}/${bankCode}`;
-    }
-    return `${bankAccount}/${bankCode}`;
-  };
-
   const mailData = {
     from: `Robot z ReKrabice <${process.env.EMAIL_USERNAME}>`,
     to: email,
@@ -28,7 +22,11 @@ export async function POST(req: NextRequest) {
     subject: "Potvrzení přijmutí ReKrabice",
     html: `<div>Dobrý den, <br/><br/>
     potvrzujeme přijetí ReKrabice na sběrném místě.
-    Do 2 pracovních dní odešleme zálohu na zadaný bankovní účet (${bankString()})
+    Do 2 pracovních dní odešleme zálohu na zadaný bankovní účet (${bankString(
+      bankPrefix,
+      bankAccount,
+      bankCode,
+    )}).
     <br/><br/> 
     V případě dotazů nebo problémů se neváhejte nás kontkatovat 
     (třeba formou odpovědi na tento mail).

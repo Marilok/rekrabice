@@ -1,5 +1,7 @@
 "use client";
 
+import bankString from "@/utils/formatters/bankString";
+import transporter from "@/utils/nodemailer/transporter";
 import {
   Anchor,
   Button,
@@ -54,13 +56,30 @@ export default function ReturnForm() {
             values.bankAccountNumber,
             values.bankCode,
           );
+
+          const mailData = {
+            from: `Robot z ReKrabice <${process.env.EMAIL_USERNAME}>`,
+            to: values.email,
+            replyTo: "podpora@rekrabice.cz",
+            priority: "normal",
+            subject: "Potvrzení o změně způsobu vyplacení zálohy na účet",
+            html: `<div>Dobrý den, <br/><br/>
+    potvrzujeme přijetí požadavku o vyplacení zálohy na bankovní účet.
+    Po vrácení ReKrabice na sběrném místě Vám
+    do 2 pracovních dnů odešleme zálohu na zadaný bankovní účet (${bankString(
+      values.bankAccountPrefix,
+      values.bankAccountNumber,
+      values.bankCode,
+    )})
+    <br/><br/> 
+    V případě dotazů nebo problémů se neváhejte nás kontkatovat 
+    (třeba formou odpovědi na tento mail).
+    <br/> Hezký den,
+    <br/><br/>
+    tým ReKrabice</div>`,
+          };
+          transporter.sendMail(mailData);
           form.reset();
-          notifications.show({
-            title: "Podařilo se!",
-            message:
-              "Zapsali jsme si tvé údaje, teď už jen stačí přinést ReKrabici na jedno ze sběrných míst.",
-            color: "green",
-          });
         } catch (error) {
           notifications.show({
             title: translations.error.genericTitle,

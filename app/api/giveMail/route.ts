@@ -3,11 +3,12 @@
 import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
+import { Database } from "types/supabase";
 
 import transporter from "utils/nodemailer/transporter";
 // eslint-disable-next-line import/prefer-default-export
 export async function POST(req: NextRequest) {
-  const supabase = createRouteHandlerClient({ cookies });
+  const supabase = createRouteHandlerClient<Database>({ cookies });
 
   const { mail: reqMail }: { mail: string } = await req.json();
 

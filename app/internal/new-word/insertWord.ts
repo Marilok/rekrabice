@@ -2,9 +2,10 @@
 
 import { createServerActionClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
+import { Database } from "types/supabase";
 
 export default async function insertWord(word: string) {
-  const supabase = createServerActionClient({ cookies });
+  const supabase = createServerActionClient<Database>({ cookies });
 
   // see https://app.clickup.com/14356223/v/dc/dp3qz-2061 for documentation and explanation
   function getMaxFrequency(length: number) {
