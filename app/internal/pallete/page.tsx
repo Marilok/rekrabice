@@ -1,11 +1,20 @@
+// @ts-nocheck
+
+import AddBatchForm from "./_components/AddBatchForm";
+import AddButton from "./_components/AddButton";
 import PalletesTable from "./_components/PalletesTable";
-import loadPalletes from "./_functions/loadPalletes";
+import getPalletes from "./_functions/getPalletes";
 
 export const dynamic = "force-dynamic";
 
 export default async function Page() {
-  const palletes = await loadPalletes();
+  const palletes = await getPalletes();
 
-  // @ts-ignore
-  return <PalletesTable palletes={palletes} />;
+  return (
+    <>
+      <PalletesTable palletes={palletes} />
+      <AddButton palletes={palletes} />
+      <AddBatchForm />
+    </>
+  );
 }
