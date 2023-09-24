@@ -1,5 +1,5 @@
-import bankString from "@/utils/formatters/bankString";
 import { NextRequest } from "next/server";
+import bankString from "utils/formatters/bankString";
 import transporter from "utils/nodemailer/transporter";
 
 // eslint-disable-next-line import/prefer-default-export
@@ -18,7 +18,6 @@ export async function POST(req: NextRequest) {
     to: email,
     bcc: "faktury@rekrabice.cz",
     replyTo: "podpora@rekrabice.cz",
-    priority: "normal",
     subject: "Potvrzení přijmutí ReKrabice",
     html: `<div>Dobrý den, <br/><br/>
     potvrzujeme přijetí ReKrabice na sběrném místě.

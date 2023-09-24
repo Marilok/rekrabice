@@ -9,6 +9,7 @@ import {
   useMantineColorScheme,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
+import { IconDownload, IconRefresh } from "@tabler/icons-react";
 import { useState } from "react";
 import UI from "./_components/UI";
 import "./_components/print.css";
@@ -32,7 +33,12 @@ export default function Page() {
             {...form.getInputProps("orderId")}
             label="Číslo faktury"
           />
-          <Button type="submit">Načíst fakturu</Button>
+          <Button
+            type="submit"
+            leftSection={<IconRefresh stroke={1.5} size="1rem" />}
+          >
+            Načíst fakturu
+          </Button>
         </Stack>
       </form>
       {data && (
@@ -45,6 +51,7 @@ export default function Page() {
               setColorScheme(temp);
             }}
             className="print:hidden"
+            leftSection={<IconDownload stroke={1.5} size="1rem" />}
           >
             Stáhnout
           </Button>

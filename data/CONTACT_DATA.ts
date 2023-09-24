@@ -7,14 +7,14 @@ import {
 } from "@tabler/icons-react";
 
 export const CONTACT = {
-  bankAccountFull: "200200/5300",
-  bankAccountNumber: 123456796,
-  bankAccountBank: 5500,
+  bankAccountFull: "109741785/2250",
+  bankAccountNumber: 109741785,
+  bankAccountBank: 2250,
   legalName: "Awoxo s.r.o.",
   zip: "60200",
   city: "Brno",
   ico: "196 33 122",
-  dic: "",
+  dic: "CZ19633122",
   address: "Nové sady 988/2",
   faviconUrl: "https://rekrabice.cz/favicon.svg",
   vlozka:

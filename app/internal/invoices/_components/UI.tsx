@@ -36,7 +36,7 @@ export default function UI({ data }: any) {
   return (
     <div className="w-full h-auto">
       <Flex align="center" justify="space-between" h="60" px="md" my="md">
-        <Image alt="logo" src="logo_text.svg" height="50" />
+        <Image alt="logo" src="/logo_text.svg" height="50" width="160" />
         <Text fw="bold" size="xl">
           {data.status_id === 1 ? "PROFORMA FAKTURA " : "VYÚČTOVACÍ FAKTURA "}
           {formatInvoiceNumber(data.invoice_number)}
@@ -66,7 +66,11 @@ export default function UI({ data }: any) {
                 {data.total_price} Kč
               </Text>
             </Grid.Col>
-            <Grid.Col span="auto" className="flex justify-center items-center">
+            <Grid.Col
+              span="auto"
+              className="flex justify-center items-center"
+              maw="max-content"
+            >
               <Image
                 alt="QR payment code"
                 width="150"

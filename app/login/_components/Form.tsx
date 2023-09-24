@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 import { Anchor, Button, Group, TextInput } from "@mantine/core";
 import { useFocusTrap } from "@mantine/hooks";
 import translations from "translations/login";
-import { Database } from "types/supabase";
+import type { Database } from "types/supabase";
 
 interface FormValues {
   email: string;

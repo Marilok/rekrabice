@@ -2,7 +2,7 @@
 
 import { createServerActionClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
-import { Database } from "types/supabase";
+import type { Database } from "types/supabase";
 
 function getPaddedMonth(month: number) {
   if (month < 10) {

@@ -2,15 +2,15 @@
 
 import { createServerActionClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
-import { Database } from "types/supabase";
+import type { Database } from "types/supabase";
 
-export default async function loadPalletes() {
+export default async function getBoxesFromBatch(batchId: number) {
   const supabase = createServerActionClient<Database>({ cookies });
 
   const { data, error } = await supabase
-    .from("palletes")
-    .select("pallete_id, status(status_id, description), count")
-    .order("pallete_id", { ascending: true });
+    .from("boxes")
+    .select("box_id")
+    .eq("batch_id", batchId);
 
   if (error) {
     throw error;

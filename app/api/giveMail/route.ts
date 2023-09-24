@@ -3,7 +3,7 @@
 import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
-import { Database } from "types/supabase";
+import type { Database } from "types/supabase";
 
 import transporter from "utils/nodemailer/transporter";
 // eslint-disable-next-line import/prefer-default-export

@@ -6,13 +6,13 @@ import type { Database } from "types/supabase";
 
 export default async function updatePalleteStatus(
   palleteId: number,
-  statusId: number,
+  status: number,
 ) {
   const supabase = createServerActionClient<Database>({ cookies });
 
   const { error } = await supabase
     .from("palletes")
-    .update({ status: statusId })
+    .update({ status })
     .eq("pallete_id", palleteId);
 
   if (error) {

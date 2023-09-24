@@ -2,7 +2,7 @@
 
 import { notifications } from "@mantine/notifications";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import { Database } from "types/supabase";
+import type { Database } from "types/supabase";
 
 export default async function addNewBox(
   palleteId: any,

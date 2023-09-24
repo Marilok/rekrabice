@@ -2,12 +2,12 @@
 
 import { notifications } from "@mantine/notifications";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import { Database } from "types/supabase";
+import type { Database } from "types/supabase";
+import assignLoopToBox from "utils/supabase_helpers/assignLoopToBox";
 import createLoopUpdate from "utils/supabase_helpers/createLoopUpdate";
+import createNewLoop from "utils/supabase_helpers/createNewLoop";
 import getBoxFromTrackingName from "utils/supabase_helpers/getBoxFromTrackingName";
 import addNewBox from "./addNewBox";
-import createNewLoop from "./createNewLoop";
-import updateActiveLoopId from "./updateActiveLoopId";
 
 export default async function handleScannedBox(
   palleteId: number | string,
@@ -48,7 +48,7 @@ export default async function handleScannedBox(
       const newLoopId = await createNewLoop(boxId);
 
       // Updates the box with the new active loop id
-      await updateActiveLoopId(boxId, newLoopId);
+      await assignLoopToBox(boxId, newLoopId);
 
       // add the box to the pallete
       await addNewBox(palleteId, data?.boxes, boxId, trackingName);

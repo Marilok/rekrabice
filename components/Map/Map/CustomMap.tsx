@@ -6,7 +6,7 @@ import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import "leaflet/dist/leaflet.css";
 import { useState } from "react";
 import { MapContainer, TileLayer, useMapEvents } from "react-leaflet";
-import { Database } from "types/supabase";
+import type { Database } from "types/supabase";
 import EasterEggShapes from "../EasterEgg/EasterEggShapes";
 import Markers from "../Marker/Markers";
 import MapyLogo from "./MapyLogo";
@@ -26,7 +26,6 @@ export default function CustomMap() {
           max_lat: southWest.lng,
           max_long: southWest.lat,
         });
-        console.log(data || error);
         if (error) throw error;
         setLocations(data);
       },
