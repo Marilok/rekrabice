@@ -60,6 +60,16 @@ export default function Page() {
           values.packaging_id,
         );
 
+        if (!activeLoopId) {
+          notifications.show({
+            title: "Krabice neexistuje",
+            message:
+              "Tato krabice neexistuje. Pokud to nesedí, prosím kontaktujte nás.",
+            color: "red",
+          });
+          return;
+        }
+
         if (await isReturned(activeLoopId)) {
           notifications.show({
             title: "Krabice už byla vrácena",
@@ -70,13 +80,13 @@ export default function Page() {
         } else {
           const locationId = await getLocationId();
           await createLoopUpdate(activeLoopId, 301);
-          await updatePorId(activeLoopId, locationId);
+          await updatePorId(activeLoopId, locationId!);
 
           const pairing = await getPairing(activeLoopId);
 
           if (pairing) {
             handlersBank.open();
-            await createPorReturn(locationId, activeLoopId, null);
+            await createPorReturn(locationId!, activeLoopId, null);
             await createLoopUpdate(activeLoopId, 402);
             const paymentResult = await fetch(
               `${process.env.NEXT_PUBLIC_URL}/api/create-payment`,
@@ -95,11 +105,10 @@ export default function Page() {
                 }),
               },
             );
-
             console.log(paymentResult);
           } else {
             handlersCash.open();
-            createPorReturn(locationId, activeLoopId, 50);
+            createPorReturn(locationId!, activeLoopId, 50);
             await createLoopUpdate(activeLoopId, 401);
           }
         }

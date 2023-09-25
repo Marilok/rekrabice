@@ -4,7 +4,7 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { Database } from "types/supabase";
 
-export default async function insertData(
+export default async function insertPairing(
   loopId: number,
   email: string,
   bankAccountPrefix: string,

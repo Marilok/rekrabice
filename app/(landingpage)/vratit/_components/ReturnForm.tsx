@@ -1,7 +1,5 @@
 "use client";
 
-import bankString from "@/utils/formatters/bankString";
-import transporter from "@/utils/nodemailer/transporter";
 import {
   Anchor,
   Button,
@@ -13,12 +11,12 @@ import {
 } from "@mantine/core";
 import { isEmail, isNotEmpty, useForm } from "@mantine/form";
 import { notifications } from "@mantine/notifications";
-import { IconBuildingBank } from "@tabler/icons-react";
+import { IconBuildingBank, IconCheck } from "@tabler/icons-react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import translations from "translations/translations";
 import getBoxFromTrackingName from "utils/supabase_helpers/getBoxFromTrackingName";
-import insertData from "../_functions/insertData";
+import insertPairing from "../_functions/insertPairing";
 
 export default function ReturnForm() {
   const searchParams = useSearchParams();
@@ -49,36 +47,36 @@ export default function ReturnForm() {
             values.trackingName,
           );
 
-          await insertData(
-            active_loop_id,
+          console.log(active_loop_id);
+
+          await insertPairing(
+            active_loop_id!,
             values.email,
             values.bankAccountPrefix,
             values.bankAccountNumber,
             values.bankCode,
           );
 
-          const mailData = {
-            from: `Robot z ReKrabice <${process.env.EMAIL_USERNAME}>`,
-            to: values.email,
-            replyTo: "podpora@rekrabice.cz",
-            priority: "normal",
-            subject: "Potvrzení o změně způsobu vyplacení zálohy na účet",
-            html: `<div>Dobrý den, <br/><br/>
-    potvrzujeme přijetí požadavku o vyplacení zálohy na bankovní účet.
-    Po vrácení ReKrabice na sběrném místě Vám
-    do 2 pracovních dnů odešleme zálohu na zadaný bankovní účet (${bankString(
-      values.bankAccountPrefix,
-      values.bankAccountNumber,
-      values.bankCode,
-    )})
-    <br/><br/> 
-    V případě dotazů nebo problémů se neváhejte nás kontkatovat 
-    (třeba formou odpovědi na tento mail).
-    <br/> Hezký den,
-    <br/><br/>
-    tým ReKrabice</div>`,
-          };
-          transporter.sendMail(mailData);
+          await fetch("/api/confirm-mail", {
+            method: "POST",
+            headers: {
+              Accept: "application/json, text/plain, */*",
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(values),
+          }).then((res) => {
+            if (res.status === 200) {
+              notifications.show({
+                id: "notification-message",
+                color: "green",
+                title: "Hurá, povedlo se. 🥳",
+                message: "Do pošty jsme ti poslali potvzení.",
+                icon: <IconCheck size={16} />,
+              });
+            } else {
+              throw new Error(res.statusText);
+            }
+          });
           form.reset();
         } catch (error) {
           notifications.show({
