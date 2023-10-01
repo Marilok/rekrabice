@@ -6,10 +6,10 @@ import {
   IconBarcode,
   IconCashBanknote,
   IconFileInvoice,
+  IconPackage,
   IconScan,
   IconSticker,
   IconTruckDelivery,
-  IconX,
 } from "@tabler/icons-react";
 import StyledNavbar from "components/apps/Navbar/Navbar";
 import React from "react";
@@ -56,8 +56,8 @@ const LINKS = [
   },
   {
     link: "/internal/pallete",
-    label: "Označit plnou paletu",
-    icon: <IconX stroke={1.5} />,
+    label: "Palety",
+    icon: <IconPackage stroke={1.5} />,
   },
   {
     link: "/internal/sell",

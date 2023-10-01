@@ -2,9 +2,10 @@
 
 import { createServerActionClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
+import type { Database } from "types/supabase";
 
-export default async function loadPalletes() {
-  const supabase = createServerActionClient({ cookies });
+export default async function getPalletes() {
+  const supabase = createServerActionClient<Database>({ cookies });
 
   const { data, error } = await supabase
     .from("palletes")

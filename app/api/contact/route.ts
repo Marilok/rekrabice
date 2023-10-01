@@ -1,8 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
-import transporter from "utils/nodemailer/transporter";
-
+import nodemailer from "nodemailer";
 // eslint-disable-next-line import/prefer-default-export
 export async function POST(req: NextRequest) {
+  const transporter = nodemailer.createTransport({
+    port: 465,
+    host: process.env.EMAIL_HOST,
+    auth: {
+      user: process.env.EMAIL_USERNAME,
+      pass: process.env.EMAIL_PASSWORD,
+    },
+    secure: true,
+  });
+
   const {
     mail: reqMail,
     name: reqName,
@@ -13,7 +22,6 @@ export async function POST(req: NextRequest) {
     from: `Robot z ReKrabice <${process.env.EMAIL_USERNAME}>`,
     to: process.env.EMAIL_TESTER_USERNAME,
     replyTo: reqMail ? `${reqName} <${reqMail}>` : reqMail,
-    priority: "high",
     subject: `Zpráva ${reqName ? `od ${reqName}` : ""} z kontaktního formuláře`,
 
     text: reqMsg,
@@ -23,7 +31,6 @@ export async function POST(req: NextRequest) {
   const confirmationData = {
     from: `Robot z ReKrabice <${process.env.EMAIL_USERNAME}>`,
     to: reqMail,
-    priority: "high",
     subject: "Potvrzení o odeslání zprávy z kontaktního formuláře",
     html: "<p>Hurá! Tvoje zpráva, kterou si nám (týmu za ReKrabicí) poslal skrze kontaktní formulář na našem webu (ReKrabice.cz) nám dorazila do schránky! Na zprávu ti odpovíme do 24 hodin. <br/><br/> PS: V mezičase se můžeš rozjímat nad pěknými štěnátky, které na tebe koukají v příloze. ;) </p>",
     attachments: [

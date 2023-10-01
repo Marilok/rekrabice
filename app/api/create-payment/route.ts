@@ -1,6 +1,6 @@
 import { NextRequest } from "next/server";
-import transporter from "utils/nodemailer/transporter";
-
+import nodemailer from "nodemailer";
+import bankString from "utils/formatters/bankString";
 // eslint-disable-next-line import/prefer-default-export
 export async function POST(req: NextRequest) {
   const { bankAccount, bankPrefix, bankCode, pairingId, loopId, email } =
@@ -12,23 +12,29 @@ export async function POST(req: NextRequest) {
     });
   }
 
-  const bankString = () => {
-    if (bankPrefix) {
-      return `${bankPrefix}-${bankAccount}/${bankCode}`;
-    }
-    return `${bankAccount}/${bankCode}`;
-  };
+  const transporter = nodemailer.createTransport({
+    port: 465,
+    host: process.env.EMAIL_HOST,
+    auth: {
+      user: process.env.EMAIL_USERNAME,
+      pass: process.env.EMAIL_PASSWORD,
+    },
+    secure: true,
+  });
 
   const mailData = {
     from: `Robot z ReKrabice <${process.env.EMAIL_USERNAME}>`,
     to: email,
     bcc: "faktury@rekrabice.cz",
     replyTo: "podpora@rekrabice.cz",
-    priority: "normal",
     subject: "Potvrzení přijmutí ReKrabice",
     html: `<div>Dobrý den, <br/><br/>
     potvrzujeme přijetí ReKrabice na sběrném místě.
-    Do 2 pracovních dní odešleme zálohu na zadaný bankovní účet (${bankString()})
+    Do 2 pracovních dní odešleme zálohu na zadaný bankovní účet (${bankString(
+      bankPrefix,
+      bankAccount,
+      bankCode,
+    )}).
     <br/><br/> 
     V případě dotazů nebo problémů se neváhejte nás kontkatovat 
     (třeba formou odpovědi na tento mail).
@@ -40,7 +46,6 @@ export async function POST(req: NextRequest) {
   const info = await transporter.sendMail(mailData);
 
   console.log("Message sent: ", info.messageId);
-
   const paymentBankRequest = await fetch(
     "https://api.creditas.cz/oam/v1/payment/domestic/create",
     {
@@ -70,10 +75,15 @@ export async function POST(req: NextRequest) {
       }),
     },
   );
+  console.log(getClosestWorkingDay());
+  console.log(await paymentBankRequest.json());
+
+  console.log("Payment request sent: ", paymentBankRequest.status);
 
   if (paymentBankRequest.status !== 200) {
     return new Response("Payment not created", {
       status: 500,
+      // body: paymentBankRequest.json(),
     });
   }
 
@@ -87,10 +97,8 @@ const getClosestWorkingDay = () => {
   const day = date.getDay();
 
   // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
-  if (day === 6) {
-    date.setDate(1);
-  } else if (day === 0) {
-    date.setDate(1);
+  if (day === 0) {
+    date.setDate(date.getDate() + 2);
   } else {
     date.setDate(date.getDate() + 1);
   }

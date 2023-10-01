@@ -13,9 +13,6 @@ export default function Page() {
     initialValues: {
       batchId: 0,
     },
-    validate: (values) => ({
-      batchId: values.batchId === 0 ? "Nesmí být prázdné" : null,
-    }),
   });
 
   return (

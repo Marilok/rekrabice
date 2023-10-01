@@ -2,9 +2,10 @@
 
 import { createServerActionClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
+import type { Database } from "types/supabase";
 
-export default async function isReturned(activeLoopId: string) {
-  const supabase = createServerActionClient({ cookies });
+export default async function isReturned(activeLoopId: number) {
+  const supabase = createServerActionClient<Database>({ cookies });
 
   const { data: loop, error } = await supabase
     .from("loops")

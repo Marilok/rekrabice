@@ -7,11 +7,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import translations from "translations/translations";
+import type { Database } from "types/supabase";
 import classes from "./Navbar.module.css";
 
 export default function StyledNavbar({ links }: { links: any[] }) {
   const pathname = usePathname();
-  const supabase = createClientComponentClient();
+  const supabase = createClientComponentClient<Database>();
   const router = useRouter();
 
   const handleSignout = async () => {
