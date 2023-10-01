@@ -11,7 +11,6 @@ export default async function insertData(
   bankCode: string,
 ) {
   const supabase = createServerComponentClient({ cookies });
-  console.log(loopId, email, bankAccountPrefix, bankAccountNumber, bankCode);
 
   const { data, error } = await supabase.from("loops_pairings").insert([
     {

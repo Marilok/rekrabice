@@ -34,14 +34,12 @@ export async function POST(req: NextRequest) {
   };
 
   try {
-    const confirmationMail = await transporter.sendMail(confirmationData);
+    await transporter.sendMail(confirmationData);
 
-    const signup = await supabase.rpc("landingpagesignup", {
+    await supabase.rpc("landingpagesignup", {
       usermail: reqMail,
     });
 
-    console.log("Confirmation giveMail mail info: ", confirmationMail);
-    console.log("Signup request: ", signup);
     return new NextResponse(null, { status: 200 });
   } catch (error) {
     console.log(error);

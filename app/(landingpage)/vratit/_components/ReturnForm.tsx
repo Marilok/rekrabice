@@ -54,6 +54,21 @@ export default function ReturnForm() {
             values.bankAccountNumber,
             values.bankCode,
           );
+
+          await fetch(`${process.env.NEXT_PUBLIC_URL}/api/create-pairing`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              bankAccountNumber: values.bankAccountNumber,
+              bankAccountPrefix: values.bankAccountPrefix,
+              bankCode: values.bankCode,
+              email: values.email,
+            }),
+          });
+
+          // TODO: make this insertion on the server using api, also disable RLS for inserting to public
           form.reset();
           notifications.show({
             title: "Podařilo se!",

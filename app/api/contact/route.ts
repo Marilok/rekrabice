@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
 
   const mailData = {
     from: `Robot z ReKrabice <${process.env.EMAIL_USERNAME}>`,
-    to: process.env.EMAIL_TESTER_USERNAME,
+    to: "ahoj@rekrabice.cz",
     replyTo: reqMail ? `${reqName} <${reqMail}>` : reqMail,
     priority: "high",
     subject: `Zpráva ${reqName ? `od ${reqName}` : ""} z kontaktního formuláře`,
@@ -43,11 +43,9 @@ export async function POST(req: NextRequest) {
   };
 
   try {
-    const msgMail = await transporter.sendMail(mailData);
-    const confirmationMail = await transporter.sendMail(confirmationData);
+    await transporter.sendMail(mailData);
+    await transporter.sendMail(confirmationData);
 
-    console.log("Message mail info: ", msgMail);
-    console.log("Confirmation mail info: ", confirmationMail);
     return new NextResponse(null, { status: 200 });
   } catch (error) {
     console.log(error);

@@ -1,6 +1,7 @@
+import ConfirmReturnEmail from "@/emails/ConfirmReturnEmail";
+import transporter from "@/utils/nodemailer/transporterResend";
+import { render } from "@react-email/render";
 import { NextRequest } from "next/server";
-import transporter from "utils/nodemailer/transporter";
-
 // eslint-disable-next-line import/prefer-default-export
 export async function POST(req: NextRequest) {
   const { bankAccount, bankPrefix, bankCode, pairingId, loopId, email } =
@@ -12,34 +13,25 @@ export async function POST(req: NextRequest) {
     });
   }
 
-  const bankString = () => {
-    if (bankPrefix) {
-      return `${bankPrefix}-${bankAccount}/${bankCode}`;
-    }
-    return `${bankAccount}/${bankCode}`;
-  };
+  const emailHtml = render(
+    ConfirmReturnEmail({
+      bankAccountNumber: bankAccount,
+      bankCode,
+      bankAccountPrefix: bankPrefix,
+    }),
+  );
 
   const mailData = {
-    from: `Robot z ReKrabice <${process.env.EMAIL_USERNAME}>`,
+    from: "Robot z ReKrabice <robot@notifications.rekrabice.cz>",
     to: email,
     bcc: "faktury@rekrabice.cz",
     replyTo: "podpora@rekrabice.cz",
     priority: "normal",
-    subject: "Potvrzení přijmutí ReKrabice",
-    html: `<div>Dobrý den, <br/><br/>
-    potvrzujeme přijetí ReKrabice na sběrném místě.
-    Do 2 pracovních dní odešleme zálohu na zadaný bankovní účet (${bankString()})
-    <br/><br/> 
-    V případě dotazů nebo problémů se neváhejte nás kontkatovat 
-    (třeba formou odpovědi na tento mail).
-    <br/> Hezký den,
-    <br/><br/>
-    tým ReKrabice</div>`,
+    subject: "Potvrzení převzetí ReKrabice",
+    html: emailHtml,
   };
 
-  const info = await transporter.sendMail(mailData);
-
-  console.log("Message sent: ", info.messageId);
+  await transporter.sendMail(mailData);
 
   const paymentBankRequest = await fetch(
     "https://api.creditas.cz/oam/v1/payment/domestic/create",
