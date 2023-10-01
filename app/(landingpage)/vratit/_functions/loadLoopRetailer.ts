@@ -2,7 +2,7 @@
 
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
-import getBoxFromTrackingName from "../../../../utils/supabase_helpers/getBoxFromTrackingName";
+import getBoxFromTrackingName from "utils/supabase_helpers/getBoxFromTrackingName";
 
 export default async function loadLoopRetailer(trackingName: string) {
   const supabase = createServerComponentClient({ cookies });

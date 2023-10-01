@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import transporter from "../../../utils/nodemailer/transporter";
+import transporter from "utils/nodemailer/transporter";
 
 // eslint-disable-next-line import/prefer-default-export
 export async function POST(req: NextRequest) {

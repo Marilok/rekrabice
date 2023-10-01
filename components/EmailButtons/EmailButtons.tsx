@@ -1,6 +1,6 @@
 import { Button, ButtonProps, SimpleGrid, Stack, Text } from "@mantine/core";
 import { IconMail } from "@tabler/icons-react";
-import translations from "../../translations/translations";
+import translations from "translations/translations";
 import {
   GmailIcon,
   OutlookIcon,

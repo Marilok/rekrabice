@@ -12,6 +12,14 @@ Disallow: /internal/
 # Allow all crawlers
 User-agent: *
 Allow: /
+Allow: /o-nas
+Allow: /o-nas/
+Allow: /kontakt
+Allow: /kontakt/
+Allow: /napsali-o-nas
+Allow: /napsali-o-nas/
+Allow: /vratit
+Allow: /vratit/
 Allow: /login
 Allow: /login/
 

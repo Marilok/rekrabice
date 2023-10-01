@@ -1,7 +1,7 @@
 "use server";
 
-import createLoopUpdate from "../../../../utils/supabase_helpers/createLoopUpdate";
-import getBoxActiveLoopId from "../../../../utils/supabase_helpers/getBoxActiveLoopId";
+import createLoopUpdate from "utils/supabase_helpers/createLoopUpdate";
+import getBoxActiveLoopId from "utils/supabase_helpers/getBoxActiveLoopId";
 import {
   createInvoiceNumber,
   getLastInvoiceNumber,

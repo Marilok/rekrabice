@@ -14,12 +14,12 @@ import {
   TableTr,
   Text,
 } from "@mantine/core";
+import { CONTACT } from "data/CONTACT_DATA";
 import Image from "next/image";
-import { CONTACT } from "../../../../data/CONTACT_DATA";
-import logoSrc from "../../../../public/logo_text.svg";
-import formatDate from "../../../../utils/formatters/formatDate";
-import formatInvoiceNumber from "../../../../utils/formatters/formatInvoiceNumber";
+import formatDate from "utils/formatters/formatDate";
+import formatInvoiceNumber from "utils/formatters/formatInvoiceNumber";
 import StatsRingCard from "./FirmCard";
+import "./print.css";
 import classes from "./styles.module.css";
 
 export default function UI({ data }: any) {
@@ -36,7 +36,7 @@ export default function UI({ data }: any) {
   return (
     <div className="w-full h-auto">
       <Flex align="center" justify="space-between" h="60" px="md" my="md">
-        <Image alt="logo" src={logoSrc} height="50" />
+        <Image alt="logo" src="logo_text.svg" height="50" />
         <Text fw="bold" size="xl">
           {data.status_id === 1 ? "PROFORMA FAKTURA " : "VYÚČTOVACÍ FAKTURA "}
           {formatInvoiceNumber(data.invoice_number)}

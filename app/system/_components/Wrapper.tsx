@@ -3,16 +3,14 @@
 import { AppShell, AppShellMain } from "@mantine/core";
 import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import {
-  IconBarcode,
-  IconCashBanknote,
-  IconFileInvoice,
-  IconScan,
-  IconSticker,
-  IconTruckDelivery,
-  IconX,
+  IconArrowDown,
+  IconArrowUp,
+  IconPhone,
+  IconQuestionMark,
 } from "@tabler/icons-react";
 import StyledNavbar from "components/apps/Navbar/Navbar";
 import React from "react";
+import translations from "translations/translations";
 import StyledHeader from "./Header";
 
 export default function Wrapper({ children }: { children: React.ReactNode }) {
@@ -50,38 +48,23 @@ export default function Wrapper({ children }: { children: React.ReactNode }) {
 
 const LINKS = [
   {
-    link: "/internal/scanner",
-    label: "Skenování",
-    icon: <IconScan stroke={1.5} />,
+    link: "/system/prijmout",
+    label: translations.systemNavbar.accept,
+    icon: <IconArrowDown stroke={1.5} />,
   },
   {
-    link: "/internal/pallete",
-    label: "Označit plnou paletu",
-    icon: <IconX stroke={1.5} />,
+    link: "/system/odeslat",
+    label: translations.systemNavbar.send,
+    icon: <IconArrowUp stroke={1.5} />,
   },
   {
-    link: "/internal/sell",
-    label: "Prodat paletu",
-    icon: <IconCashBanknote stroke={1.5} />,
+    link: "/system/navod",
+    label: translations.systemNavbar.faq,
+    icon: <IconQuestionMark stroke={1.5} />,
   },
   {
-    link: "/internal/orders",
-    label: "Objednávky",
-    icon: <IconTruckDelivery stroke={1.5} />,
-  },
-  {
-    link: "/internal/invoices",
-    label: "Faktury",
-    icon: <IconFileInvoice stroke={1.5} />,
-  },
-  {
-    link: "/internal/stickers-generator",
-    label: "Generátor štítků",
-    icon: <IconSticker stroke={1.5} />,
-  },
-  {
-    link: "/internal/new-word",
-    label: "Návrh nových slov",
-    icon: <IconBarcode stroke={1.5} />,
+    link: "/system/kontakt",
+    label: translations.systemNavbar.contact,
+    icon: <IconPhone stroke={1.5} />,
   },
 ];

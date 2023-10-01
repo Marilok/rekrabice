@@ -6,7 +6,7 @@ import { IconLogout, IconSettings } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import translations from "../../../translations/translations";
+import translations from "translations/translations";
 import classes from "./Navbar.module.css";
 
 export default function StyledNavbar({ links }: { links: any[] }) {

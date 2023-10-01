@@ -1,5 +1,5 @@
 import { Anchor, Space, Text } from "@mantine/core";
-import translations from "../../../translations/translations";
+import translations from "translations/translations";
 
 export default function Page() {
   return (

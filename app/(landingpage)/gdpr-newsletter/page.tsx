@@ -6,7 +6,7 @@ import {
   Title,
   TypographyStylesProvider,
 } from "@mantine/core";
-import { CONTACT } from "../../../data/CONTACT_DATA";
+import { CONTACT } from "data/CONTACT_DATA";
 
 export default function Gdpr() {
   return (

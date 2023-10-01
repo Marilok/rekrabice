@@ -2,8 +2,8 @@
 
 import { notifications } from "@mantine/notifications";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import createLoopUpdate from "../../../../utils/supabase_helpers/createLoopUpdate";
-import getBoxFromTrackingName from "../../../../utils/supabase_helpers/getBoxFromTrackingName";
+import createLoopUpdate from "utils/supabase_helpers/createLoopUpdate";
+import getBoxFromTrackingName from "utils/supabase_helpers/getBoxFromTrackingName";
 import addNewBox from "./addNewBox";
 import createNewLoop from "./createNewLoop";
 import updateActiveLoopId from "./updateActiveLoopId";

@@ -8,9 +8,9 @@ import {
   Group,
   Text,
 } from "@mantine/core";
+import { CONTACT } from "data/CONTACT_DATA";
+import SOCIALS from "data/SOCIALS";
 import Link from "next/link";
-import { CONTACT } from "../../../../data/CONTACT_DATA";
-import SOCIALS from "../../../../data/SOCIALS";
 import classes from "./footer.module.css";
 
 interface FooterLinksProps {
