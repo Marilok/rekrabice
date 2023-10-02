@@ -10,18 +10,17 @@ export async function POST(req: NextRequest) {
   }: { mail: string; name: string; msg: string } = await req.json();
 
   const mailData = {
-    from: `Robot z ReKrabice <${process.env.EMAIL_USERNAME}>`,
+    from: "Robot z ReKrabice <robot@notifications.rekrabice.cz>",
     to: "ahoj@rekrabice.cz",
-    replyTo: reqMail ? `${reqName} <${reqMail}>` : reqMail,
+    replyTo: reqMail,
     priority: "high",
     subject: `Zpráva ${reqName ? `od ${reqName}` : ""} z kontaktního formuláře`,
-
     text: reqMsg,
     html: `<div>${reqMsg}</div>`,
   };
 
   const confirmationData = {
-    from: `Robot z ReKrabice <${process.env.EMAIL_USERNAME}>`,
+    from: "Robot z ReKrabice <robot@notifications.rekrabice.cz>",
     to: reqMail,
     priority: "high",
     subject: "Potvrzení o odeslání zprávy z kontaktního formuláře",
