@@ -26,7 +26,7 @@ const formattedBankAccountNumber = (
   return `${bankCode}-${bankAccountPrefix}/${bankAccountNumber}`;
 };
 
-export function ConfirmReturnEmail({
+export default function ConfirmReturnEmail({
   bankAccountPrefix,
   bankAccountNumber = 20304112,
   bankCode = "0100",
@@ -74,8 +74,6 @@ export function ConfirmReturnEmail({
     </Html>
   );
 }
-
-export default ConfirmReturnEmail;
 
 const main = {
   backgroundColor: "#ffffff",
