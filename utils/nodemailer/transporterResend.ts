@@ -7,6 +7,7 @@ const transporter = nodemailer.createTransport({
     user: "resend",
     pass: process.env.RESEND_API_KEY,
   },
+  secure: true,
 });
 
 export default transporter;
