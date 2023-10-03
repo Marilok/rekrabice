@@ -16,7 +16,7 @@ import {
 } from "@mantine/core";
 import { IconCheck } from "@tabler/icons-react";
 import { useRouter } from "next/navigation";
-import markPallete from "../_functions/markPallete";
+import updatePalleteStatus from "../_functions/updatePalleteStatus";
 
 interface PalleteTableProps {
   palletes: {
@@ -37,7 +37,7 @@ export default function PalletesTable({ palletes }: PalleteTableProps) {
   const router = useRouter();
 
   const markPalleteAsFull = async (palleteId: number) => {
-    await markPallete(palleteId, 2);
+    await updatePalleteStatus(palleteId, 2);
     router.refresh();
   };
 

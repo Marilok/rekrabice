@@ -5,5 +5,5 @@ const CustomMap = dynamic(() => import("./CustomMap"), {
 });
 
 export default function DynamicMap() {
-  return <CustomMap apiKey={process.env.MAPY_API_KEY!} />;
+  return <CustomMap />;
 }

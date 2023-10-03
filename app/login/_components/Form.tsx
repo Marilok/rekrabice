@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import { Anchor, Button, Group, TextInput } from "@mantine/core";
 import { useFocusTrap } from "@mantine/hooks";
 import translations from "translations/login";
+import type { Database } from "types/supabase";
 
 interface FormValues {
   email: string;
@@ -16,7 +17,7 @@ interface FormValues {
 
 export default function Form({ setSubmitted }: any) {
   const router = useRouter();
-  const supabase = createClientComponentClient();
+  const supabase = createClientComponentClient<Database>();
   async function signIn(emailProp: string) {
     await supabase.auth.signInWithOtp({
       email: emailProp,

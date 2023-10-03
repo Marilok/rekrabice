@@ -34,6 +34,12 @@ git config --global user.email "UNIQUE_MAIL@users.noreply.github.com"
 git commit --amend --reset-author --no-edit
 ```
 
+### Generating Supabase types
+```bash
+npx supabase init
+npx supabase link --project-ref PROJECT_ID
+npx supabase gen types typescript --linked --schema public > types/supabase.ts
+```
 
 ## License
 This repo is (for now) licensed under the [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/) license.

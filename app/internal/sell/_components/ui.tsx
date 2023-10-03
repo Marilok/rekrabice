@@ -3,6 +3,7 @@
 import { Button, Container } from "@mantine/core";
 import { isNotEmpty, useForm } from "@mantine/form";
 import { notifications } from "@mantine/notifications";
+import { useRouter } from "next/navigation";
 import sellPalletes from "../_functions/actions";
 import CustomSelect from "./CustomSelect";
 import TransferList from "./TransferList";
@@ -39,6 +40,8 @@ export default function UI({
     },
   });
 
+  const router = useRouter();
+
   return (
     <form
       onSubmit={form.onSubmit((values) => {
@@ -47,13 +50,13 @@ export default function UI({
           values.palletesIds,
           values.products,
         );
-        form.reset();
         notifications.show({
           title: "Palety byly prodány",
           message: "Teď je potřeba odeslat fakturu, zaplatit a odeslat palety.",
           color: "green",
-          autoClose: 10000,
         });
+        form.reset();
+        router.refresh();
       })}
     >
       <Container className="flex flex-col gap-md">

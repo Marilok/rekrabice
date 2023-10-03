@@ -35,10 +35,10 @@ export default async function sellPalletes(
       try {
         await updatePalleteStatus(palleteId, 3); // Marks the pallete as sold
         const boxes = await getBoxesOnPallete(palleteId); // Gets array of box_id from a pallete
-        boxes.forEach(async (box: any) => {
+        boxes!.forEach(async (box: any) => {
           const loopId = await getBoxActiveLoopId(box); // Gets the active loop_id from a box
-          await updateLoopOrderId(loopId, orderId); // Updates the order_id in the loop
-          await createLoopUpdate(loopId, 201); // Creates a new loop_update record with status 401 - sold to eshop/retailer
+          await updateLoopOrderId(loopId!, orderId); // Updates the order_id in the loop
+          await createLoopUpdate(loopId!, 201); // Creates a new loop_update record with status 401 - sold to eshop/retailer
         });
       } catch (error: any) {
         console.log(error);

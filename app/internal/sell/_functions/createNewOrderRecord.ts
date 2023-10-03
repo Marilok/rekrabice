@@ -2,14 +2,15 @@
 
 import { createServerActionClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
+import type { Database } from "types/supabase";
 
 export default async function createNewOrderRecord(
   retailerId: number,
-  invoiceNumber: string,
+  invoiceNumber: number,
   totalPrice: number,
   products: any,
 ) {
-  const supabase = createServerActionClient({ cookies });
+  const supabase = createServerActionClient<Database>({ cookies });
 
   const { data, error } = await supabase
     .from("retailers_orders")

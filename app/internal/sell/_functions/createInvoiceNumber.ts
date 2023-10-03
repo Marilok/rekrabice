@@ -2,6 +2,7 @@
 
 import { createServerActionClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
+import type { Database } from "types/supabase";
 
 function getPaddedMonth(month: number) {
   if (month < 10) {
@@ -24,7 +25,7 @@ function getPaddedSequence(sequence: number) {
 }
 
 export async function getLastInvoiceNumber() {
-  const supabase = createServerActionClient({ cookies });
+  const supabase = createServerActionClient<Database>({ cookies });
 
   const { data, error } = await supabase
     .from("retailers_orders")
@@ -59,12 +60,16 @@ export async function createInvoiceNumber(lastInvoiceNumber: number) {
     const newSequence = getPaddedSequence(
       parseInt(lastInvoiceSequence, 10) + 1,
     );
+
     const newInvoiceNumber = `${currentYear}${getPaddedMonth(
       currentMonth,
     )}${newSequence}`;
-    return newInvoiceNumber;
+    return parseInt(newInvoiceNumber, 10);
   }
 
-  const newInvoiceNumber = `${currentYear}${getPaddedMonth(currentMonth)}0001`;
+  const newInvoiceNumber = parseInt(
+    `${currentYear}${getPaddedMonth(currentMonth)}0001`,
+    10,
+  );
   return newInvoiceNumber;
 }

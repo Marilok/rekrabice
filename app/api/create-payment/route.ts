@@ -62,10 +62,15 @@ export async function POST(req: NextRequest) {
       }),
     },
   );
+  console.log(getClosestWorkingDay());
+  console.log(await paymentBankRequest.json());
+
+  console.log("Payment request sent: ", paymentBankRequest.status);
 
   if (paymentBankRequest.status !== 200) {
     return new Response("Payment not created", {
       status: 500,
+      // body: paymentBankRequest.json(),
     });
   }
 
@@ -79,10 +84,8 @@ const getClosestWorkingDay = () => {
   const day = date.getDay();
 
   // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
-  if (day === 6) {
-    date.setDate(1);
-  } else if (day === 0) {
-    date.setDate(1);
+  if (day === 0) {
+    date.setDate(date.getDate() + 2);
   } else {
     date.setDate(date.getDate() + 1);
   }

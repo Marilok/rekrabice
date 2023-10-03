@@ -16,7 +16,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import translations from "translations/translations";
 import getBoxFromTrackingName from "utils/supabase_helpers/getBoxFromTrackingName";
-import insertData from "../_functions/insertData";
+import insertPairing from "../_functions/insertPairing";
 
 export default function ReturnForm() {
   const searchParams = useSearchParams();
@@ -47,8 +47,10 @@ export default function ReturnForm() {
             values.trackingName,
           );
 
-          await insertData(
-            active_loop_id,
+          console.log(active_loop_id);
+
+          await insertPairing(
+            active_loop_id!,
             values.email,
             values.bankAccountPrefix,
             values.bankAccountNumber,
@@ -76,6 +78,7 @@ export default function ReturnForm() {
               "Zapsali jsme si tvé údaje, teď už jen stačí přinést ReKrabici na jedno ze sběrných míst.",
             color: "green",
           });
+          form.reset();
         } catch (error) {
           notifications.show({
             title: translations.error.genericTitle,

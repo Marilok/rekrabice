@@ -2,17 +2,18 @@
 
 import { notifications } from "@mantine/notifications";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import type { Database } from "types/supabase";
+import assignLoopToBox from "utils/supabase_helpers/assignLoopToBox";
 import createLoopUpdate from "utils/supabase_helpers/createLoopUpdate";
+import createNewLoop from "utils/supabase_helpers/createNewLoop";
 import getBoxFromTrackingName from "utils/supabase_helpers/getBoxFromTrackingName";
 import addNewBox from "./addNewBox";
-import createNewLoop from "./createNewLoop";
-import updateActiveLoopId from "./updateActiveLoopId";
 
 export default async function handleScannedBox(
   palleteId: number | string,
   trackingName: string,
 ) {
-  const supabase = createClientComponentClient();
+  const supabase = createClientComponentClient<Database>();
 
   const { data, error } = await supabase
     .from("palletes")
@@ -28,7 +29,7 @@ export default async function handleScannedBox(
     const boxId = boxData?.box_id;
 
     // if the box is already on the pallete, do nothing
-    if (data?.boxes.includes(boxId)) {
+    if (data?.boxes && data.boxes.includes(boxId)) {
       notifications.show({
         title: `${trackingName} už je v paletě`,
         message: `Krabice s označením ${trackingName} už byla přidána do palety`,
@@ -38,22 +39,22 @@ export default async function handleScannedBox(
       return;
     }
 
-    // loop update of receiving at our warehouse from point of return
-    await createLoopUpdate(activeLoopId, 701);
+    if (activeLoopId !== null) {
+      // loop update of receiving at our warehouse from point of return
+      await createLoopUpdate(activeLoopId, 701);
+      // loop update of the box being washed
+      await createLoopUpdate(activeLoopId, 801);
+      // Creates a new loop for the box, since the 801 loop update is the last one
+      const newLoopId = await createNewLoop(boxId);
 
-    // loop update of the box being washed
-    await createLoopUpdate(activeLoopId, 801);
+      // Updates the box with the new active loop id
+      await assignLoopToBox(boxId, newLoopId);
 
-    // Creates a new loop for the box, since the 801 loop update is the last one
-    const newLoopId = await createNewLoop(boxId);
+      // add the box to the pallete
+      await addNewBox(palleteId, data?.boxes, boxId, trackingName);
 
-    // Updates the box with the new active loop id
-    await updateActiveLoopId(boxId, newLoopId);
-
-    // add the box to the pallete
-    await addNewBox(palleteId, data?.boxes, boxId, trackingName);
-
-    // Loop update of the box being loaded on a pallete
-    await createLoopUpdate(newLoopId, 102);
+      // Loop update of the box being loaded on a pallete
+      await createLoopUpdate(newLoopId, 102);
+    }
   }
 }
