@@ -1,6 +1,7 @@
+import ConfirmReturnEmail from "@/emails/ConfirmReturnEmail";
+import transporter from "@/utils/nodemailer/transporterResend";
+import { render } from "@react-email/render";
 import { NextRequest } from "next/server";
-import nodemailer from "nodemailer";
-import bankString from "utils/formatters/bankString";
 // eslint-disable-next-line import/prefer-default-export
 export async function POST(req: NextRequest) {
   const { bankAccount, bankPrefix, bankCode, pairingId, loopId, email } =
@@ -12,40 +13,26 @@ export async function POST(req: NextRequest) {
     });
   }
 
-  const transporter = nodemailer.createTransport({
-    port: 465,
-    host: process.env.EMAIL_HOST,
-    auth: {
-      user: process.env.EMAIL_USERNAME,
-      pass: process.env.EMAIL_PASSWORD,
-    },
-    secure: true,
-  });
+  const emailHtml = render(
+    ConfirmReturnEmail({
+      bankAccountNumber: bankAccount,
+      bankCode,
+      bankAccountPrefix: bankPrefix,
+    }),
+  );
 
   const mailData = {
-    from: `Robot z ReKrabice <${process.env.EMAIL_USERNAME}>`,
+    from: "Robot z ReKrabice <robot@notifications.rekrabice.cz>",
     to: email,
     bcc: "faktury@rekrabice.cz",
     replyTo: "podpora@rekrabice.cz",
-    subject: "Potvrzení přijmutí ReKrabice",
-    html: `<div>Dobrý den, <br/><br/>
-    potvrzujeme přijetí ReKrabice na sběrném místě.
-    Do 2 pracovních dní odešleme zálohu na zadaný bankovní účet (${bankString(
-      bankPrefix,
-      bankAccount,
-      bankCode,
-    )}).
-    <br/><br/> 
-    V případě dotazů nebo problémů se neváhejte nás kontkatovat 
-    (třeba formou odpovědi na tento mail).
-    <br/> Hezký den,
-    <br/><br/>
-    tým ReKrabice</div>`,
+    priority: "normal",
+    subject: "Potvrzení převzetí ReKrabice",
+    html: emailHtml,
   };
 
-  const info = await transporter.sendMail(mailData);
+  await transporter.sendMail(mailData);
 
-  console.log("Message sent: ", info.messageId);
   const paymentBankRequest = await fetch(
     "https://api.creditas.cz/oam/v1/payment/domestic/create",
     {

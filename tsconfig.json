@@ -13,6 +13,7 @@
       "@/components/*": ["components/*"],
       "@/public/*": ["public/*"],
       "@/data/*": ["data/*"],
+      "@/emails/*": ["react-email-starter/emails/*"],
       "@/types/*": ["types/*"],
     },
     "allowJs": true,
