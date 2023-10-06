@@ -11,7 +11,7 @@ import {
 } from "@mantine/core";
 import { isEmail, isNotEmpty, useForm } from "@mantine/form";
 import { notifications } from "@mantine/notifications";
-import { IconBuildingBank, IconCheck } from "@tabler/icons-react";
+import { IconBuildingBank } from "@tabler/icons-react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import translations from "translations/translations";
@@ -57,25 +57,26 @@ export default function ReturnForm() {
             values.bankCode,
           );
 
-          await fetch("/api/confirm-mail", {
+          await fetch(`${process.env.NEXT_PUBLIC_URL}/api/create-pairing`, {
             method: "POST",
             headers: {
-              Accept: "application/json, text/plain, */*",
               "Content-Type": "application/json",
             },
-            body: JSON.stringify(values),
-          }).then((res) => {
-            if (res.status === 200) {
-              notifications.show({
-                id: "notification-message",
-                color: "green",
-                title: "Hurá, povedlo se. 🥳",
-                message: "Do pošty jsme ti poslali potvzení.",
-                icon: <IconCheck size={16} />,
-              });
-            } else {
-              throw new Error(res.statusText);
-            }
+            body: JSON.stringify({
+              bankAccountNumber: values.bankAccountNumber,
+              bankAccountPrefix: values.bankAccountPrefix,
+              bankCode: values.bankCode,
+              email: values.email,
+            }),
+          });
+
+          // TODO: make this insertion on the server using api, also disable RLS for inserting to public
+          form.reset();
+          notifications.show({
+            title: "Podařilo se!",
+            message:
+              "Zapsali jsme si tvé údaje, teď už jen stačí přinést ReKrabici na jedno ze sběrných míst.",
+            color: "green",
           });
           form.reset();
         } catch (error) {

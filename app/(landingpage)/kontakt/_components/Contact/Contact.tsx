@@ -142,8 +142,9 @@ export default function Contact() {
                   {...form.getInputProps("mail")}
                 />
                 <TextInput
-                  label="Tvoje jméno či název firmy, za kterou píšeš"
+                  label="Tvoje jméno nebo název firmy"
                   placeholder="Petr nebo Skvělá firma"
+                  required
                   mt="md"
                   classNames={{
                     input: classes.input,

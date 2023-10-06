@@ -21,7 +21,7 @@ export default function Gdpr() {
           </Text>
           <Text component="p">
             Kontaktní údaje správce jsou následující: adresa elektronické pošty{" "}
-            <b>gdpr@rekrabice.cz</b> (dále jen „Kontaktní údaje Správce“).
+            <b>info@rekrabice.cz</b> (dále jen „Kontaktní údaje Správce“).
           </Text>
           <Text>Správce nejmenoval pověřence pro ochranu osobních údajů.</Text>
         </div>
