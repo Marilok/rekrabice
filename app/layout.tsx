@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   },
   description:
     "Nestav doma věže z kartonových krabic. Všechny ReKrabice můžeš vrátit a ušetřit tak našim lesům. A to zcela zdarma!",
-  robots: "none, noimageindex",
+  robots: "noimageindex",
 };
 
 export default async function RootLayout({
