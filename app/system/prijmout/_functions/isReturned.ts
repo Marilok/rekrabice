@@ -17,8 +17,5 @@ export default async function isReturned(activeLoopId: number) {
     throw error;
   }
 
-  if (loop.return_location_id !== null) {
-    return true;
-  }
-  return false;
+  return Boolean(loop.return_location_id !== null);
 }
