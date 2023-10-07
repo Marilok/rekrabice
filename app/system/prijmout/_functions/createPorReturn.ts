@@ -17,7 +17,7 @@ export default async function createPorReturn(
       {
         loop_id,
         location_id,
-        cash_paid: cash_paid || null,
+        cash_paid: cash_paid ?? null,
       },
     ])
     .select();
