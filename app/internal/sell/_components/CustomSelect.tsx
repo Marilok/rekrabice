@@ -78,7 +78,7 @@ export default function CustomSelect({
           onFocus={() => combobox.openDropdown()}
           onBlur={() => {
             combobox.closeDropdown();
-            setSearch(value || "");
+            setSearch(value ?? "");
           }}
           placeholder="Eshop"
           rightSectionPointerEvents="none"

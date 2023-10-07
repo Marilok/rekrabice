@@ -18,7 +18,7 @@ export default function HeroContainer() {
     >
       <div>
         <Title order={1}>
-          Ahoj! Jmenuji se {searchParams.get("trackingName") || "ReKrabice"} a
+          Ahoj! Jmenuji se {searchParams.get("trackingName") ?? "ReKrabice"} a
           nepatřím do koše.
         </Title>
         <Text mt="md">
