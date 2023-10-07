@@ -10,11 +10,11 @@ export default async function Page() {
 
   const palletesWithMetadata = await palletes.map(async (item: any) => {
     const {
-      // @ts-ignore
+      // @ts-expect-error
       size_id: { width, depth, height },
-      // @ts-ignore
+      // @ts-expect-error
       design_id: { color },
-      // @ts-ignore
+      // @ts-expect-error
       price_id: { price },
     } = await getBoxMetadataFromPallete(item.pallete_id);
     return {
