@@ -9,13 +9,7 @@ interface FeatureProps extends React.ComponentPropsWithoutRef<"div"> {
   description: string;
 }
 
-function Feature({
-  icon: Icon,
-  title,
-  description,
-  className,
-  ...others
-}: FeatureProps) {
+function Feature({ icon: Icon, title, description, ...others }: FeatureProps) {
   return (
     <div className={classes.feature} {...others}>
       <div className={classes.overlay} />

@@ -33,13 +33,11 @@ export default async function RootLayout({
         <ColorSchemeScript />
       </head>
       <body>
-        {/* <GoogleTagsNoScript /> */}
         <MantineProvider theme={{ primaryColor: "green" }}>
           <Notifications />
           {children}
         </MantineProvider>
       </body>
-      {/* <GoogleScripts /> */}
     </html>
   );
 }
