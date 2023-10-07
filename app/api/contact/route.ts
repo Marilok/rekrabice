@@ -26,6 +26,7 @@ export async function POST(req: NextRequest) {
     html: "<p>Hurá! Tvoje zpráva, kterou si nám (týmu za ReKrabicí) poslal skrze kontaktní formulář na našem webu (ReKrabice.cz) nám dorazila do schránky! Na zprávu ti odpovíme do 24 hodin. <br/><br/> PS: V mezičase se můžeš rozjímat nad pěknými štěnátky, které na tebe koukají v příloze. ;) </p>",
     attachments: [
       {
+        // TODO: transorm to file path instead of URL
         filename: "První štěnátko.jpg",
         path: `${process.env.NEXT_PUBLIC_URL}/mail_images/puppy_1.jpg`,
       },

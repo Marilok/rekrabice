@@ -7,6 +7,9 @@ const transporter = nodemailer.createTransport({
     user: "resend",
     pass: process.env.RESEND_API_KEY,
   },
+  pooled: true,
+  maxMessages: Infinity,
+  maxConnections: 10,
   secure: true,
 });
 
