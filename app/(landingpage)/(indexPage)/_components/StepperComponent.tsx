@@ -55,7 +55,7 @@ export default function StepperComponent() {
             x: 0,
             y: 800,
             w: width,
-            // @ts-ignore
+            // @ts-expect-error
             height: 100,
           }}
         />
