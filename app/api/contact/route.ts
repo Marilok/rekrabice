@@ -42,6 +42,7 @@ export async function POST(req: NextRequest) {
   };
 
   try {
+    // @ts-expect-error the priority is not in the types
     await transporter.sendMail(mailData);
     await transporter.sendMail(confirmationData);
 
