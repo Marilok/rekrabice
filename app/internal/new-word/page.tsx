@@ -22,7 +22,7 @@ export default function Page() {
           : typeof values.word !== "string"
           ? "Musí být slovo"
           : // CHECK if it has letter such as ěščřžýáíé
-          values.word.match(/[ěščřžýáíéóúůťďň]/gi)
+          !/^[^ěščřžýáíéóúůťďň]+$/.test(values.word)
           ? "Nesmí obsahovat diakritiku"
           : null,
     }),
