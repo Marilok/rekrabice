@@ -67,6 +67,7 @@ export default function Page() {
         <Button type="submit" fullWidth className={!submitted ? "" : "hidden"}>
           Načíst paletu
         </Button>
+        {/* skipcq: JS-0754 */}
         <video id="video-preview" className="w-full h-72" />
       </Stack>
     </form>
