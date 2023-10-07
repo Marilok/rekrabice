@@ -56,7 +56,7 @@ export default function Contact() {
             loading: false,
           });
         } else {
-          console.log(res);
+          // console.log(res);
         }
       });
     } catch (error: any) {

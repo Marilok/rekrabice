@@ -40,7 +40,7 @@ export default function EmailInput({ id }: { id: string }) {
             loading: false,
           });
         } else {
-          console.log(res);
+          // console.log(res);
         }
       });
     } catch (error: any) {

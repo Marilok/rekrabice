@@ -63,9 +63,9 @@ export async function POST(req: NextRequest) {
     },
   );
   console.log(getClosestWorkingDay());
-  console.log(await paymentBankRequest.json());
+  // console.log(await paymentBankRequest.json());
 
-  console.log("Payment request sent: ", paymentBankRequest.status);
+  // console.log("Payment request sent: ", paymentBankRequest.status);
 
   if (paymentBankRequest.status !== 200) {
     return new Response("Payment not created", {

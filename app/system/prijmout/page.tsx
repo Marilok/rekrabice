@@ -105,7 +105,7 @@ export default function Page() {
                 }),
               },
             );
-            console.log(paymentResult);
+            // console.log(paymentResult);
           } else {
             handlersCash.open();
             createPorReturn(locationId!, activeLoopId, 50);
