@@ -24,7 +24,7 @@ export default function ReturnForm() {
   const form = useForm({
     initialValues: {
       email: "",
-      trackingName: searchParams.get("trackingName") || "",
+      trackingName: searchParams.get("trackingName") ?? "",
       bankAccountPrefix: "",
       bankAccountNumber: "",
       bankCode: "",

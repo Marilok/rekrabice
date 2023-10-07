@@ -88,24 +88,21 @@ export default function Page() {
             handlersBank.open();
             await createPorReturn(locationId!, activeLoopId, null);
             await createLoopUpdate(activeLoopId, 402);
-            const paymentResult = await fetch(
-              `${process.env.NEXT_PUBLIC_URL}/api/create-payment`,
-              {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                  bankAccount: pairing.bank_account_number,
-                  bankPrefix: pairing.bank_account_prefix,
-                  bankCode: pairing.bank_code,
-                  pairingId: pairing.pairing_id,
-                  loopId: pairing.loop_id,
-                  email: pairing.email,
-                }),
+            await fetch(`${process.env.NEXT_PUBLIC_URL}/api/create-payment`, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
               },
-            );
-            console.log(paymentResult);
+              body: JSON.stringify({
+                bankAccount: pairing.bank_account_number,
+                bankPrefix: pairing.bank_account_prefix,
+                bankCode: pairing.bank_code,
+                pairingId: pairing.pairing_id,
+                loopId: pairing.loop_id,
+                email: pairing.email,
+              }),
+            });
+            // console.log(paymentResult);
           } else {
             handlersCash.open();
             createPorReturn(locationId!, activeLoopId, 50);

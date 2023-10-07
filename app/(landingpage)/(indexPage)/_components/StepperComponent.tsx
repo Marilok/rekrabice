@@ -55,7 +55,7 @@ export default function StepperComponent() {
             x: 0,
             y: 800,
             w: width,
-            // @ts-expect-error
+            // @ts-expect-error number is not assignable to type iract
             height: 100,
           }}
         />

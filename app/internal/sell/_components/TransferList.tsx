@@ -58,7 +58,6 @@ function RenderList({ options, onTransfer, type }: RenderListProps) {
         <Group gap="sm">
           <Checkbox
             checked={value.includes(item.palleteId)}
-            onChange={() => {}}
             aria-hidden
             tabIndex={-1}
             style={{ pointerEvents: "none" }}

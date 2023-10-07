@@ -1,4 +1,5 @@
-// @ts-nocheck
+// @ts-nocheck mismartch between palletes table and palletes
+// TODO: fix typescript error
 
 import AddBatchForm from "./_components/AddBatchForm";
 import AddButton from "./_components/AddButton";

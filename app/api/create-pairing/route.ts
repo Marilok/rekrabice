@@ -31,6 +31,7 @@ export async function POST(req: NextRequest) {
     html: emailHtml,
   };
 
+  // @ts-expect-error the priority is not in the types
   await transporter.sendMail(mailData);
 
   return new Response("Pairing created", {
