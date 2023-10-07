@@ -3,8 +3,8 @@ import React from "react";
 import classes from "./FeaturesAsymmetrical.module.css";
 
 interface FeatureProps extends React.ComponentPropsWithoutRef<"div"> {
-  // icon: TablerIcon;
-  icon: any;
+  // skipcq: JS-0323
+  icon: React.FC<any>;
   title: string;
   description: string;
 }
@@ -26,7 +26,18 @@ function Feature({ icon: Icon, title, description, ...others }: FeatureProps) {
   );
 }
 
-export default function FeaturesAsymmetrical({ data }: { data: any }) {
+interface FeaturesAsymmetricalProps {
+  // skipcq: JS-0323
+  icon: React.FC<any>;
+  title: string;
+  description: string;
+}
+
+export default function FeaturesAsymmetrical({
+  data,
+}: {
+  data: FeaturesAsymmetricalProps[];
+}) {
   const items = data.map((item: any) => <Feature {...item} key={item.title} />);
 
   return (
