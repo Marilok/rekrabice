@@ -1,6 +1,5 @@
 "use client";
 
-// @ts-nocheck
 import { AspectRatio } from "@mantine/core";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import "leaflet/dist/leaflet.css";
