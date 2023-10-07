@@ -6,6 +6,6 @@ export const dynamic = "force-dynamic";
 export default async function Page() {
   const orders = await getOrders();
 
-  // @ts-ignore
+  // @ts-expect-error
   return <OrdersTable orders={orders} />;
 }
