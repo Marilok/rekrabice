@@ -10,11 +10,11 @@ export default async function Page() {
 
   const palletesWithMetadata = await palletes.map(async (item: any) => {
     const {
-      // @ts-expect-error
+      // @ts-expect-error does not exist on type, but it does in db
       size_id: { width, depth, height },
-      // @ts-expect-error
+      // @ts-expect-error does not exist on type, but it does in db
       design_id: { color },
-      // @ts-expect-error
+      // @ts-expect-error does not exist on type, but it does in db
       price_id: { price },
     } = await getBoxMetadataFromPallete(item.pallete_id);
     return {
