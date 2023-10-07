@@ -1,6 +1,7 @@
-const nodemailer = require("nodemailer");
+import nodemailer from "nodemailer";
 
 const transporter = nodemailer.createTransport({
+  // @ts-expect-error the advanced options are not in the types
   port: 465,
   host: "smtp.resend.com",
   auth: {
