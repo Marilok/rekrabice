@@ -4,6 +4,7 @@ import "@mantine/notifications/styles.css";
 import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 import { Notifications } from "@mantine/notifications";
 import { Metadata } from "next";
+import { Lexend } from "next/font/google";
 import React from "react";
 import "./global.css";
 
@@ -17,13 +18,18 @@ export const metadata: Metadata = {
   robots: "noimageindex",
 };
 
+const lexend = Lexend({
+  subsets: ["latin"],
+  display: "swap",
+});
+
 export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="cs">
+    <html lang="cs" className={lexend.className}>
       <head>
         <meta
           name="viewport"
@@ -33,7 +39,29 @@ export default async function RootLayout({
         <ColorSchemeScript />
       </head>
       <body>
-        <MantineProvider theme={{ primaryColor: "green" }}>
+        <MantineProvider
+          theme={{
+            colors: {
+              brand: [
+                "#e7ffe9",
+                "#d0fed2",
+                "#9ffea2",
+                "#6bfc6f",
+                "#43fc45",
+                "#2dfc2d",
+                "#22fc1f",
+                "#15e114",
+                "#02c70a",
+                "#00ad00",
+                "#02BA09",
+              ],
+            },
+            // fontFamily: "Lexend, sans-serif",
+            fontFamilyMonospace: "Lexend, monospace",
+            headings: { fontFamily: "Lexend, sans-serif" },
+            primaryColor: "green",
+          }}
+        >
           <Notifications />
           {children}
         </MantineProvider>

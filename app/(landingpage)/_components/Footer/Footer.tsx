@@ -83,7 +83,7 @@ export default function Footer({ data }: FooterLinksProps) {
             <span>{CONTACT.legalName}</span>
           </Text>
           <Text c="dimmed" size="sm">
-            Vytvořeno s ❤️ ke 🌲 v Česku.
+            Vytvořeno s 💚 ke 🌲 v Česku.
           </Text>
 
           <Group gap={0} justify="right" wrap="nowrap">

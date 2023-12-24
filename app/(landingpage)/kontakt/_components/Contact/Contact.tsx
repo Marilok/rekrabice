@@ -194,13 +194,7 @@ export default function Contact() {
               src="/favicon.svg"
             />
             <Title order={2}>
-              <Text
-                fz={28}
-                fw={900}
-                variant="gradient"
-                gradient={{ from: "green", to: "teal", deg: 45 }}
-                component="span"
-              >
+              <Text fz={28} fw={900} c="brand.10" component="span">
                 Avoxo&nbsp;
               </Text>
               <Text fz="md" fw={700} component="span">
