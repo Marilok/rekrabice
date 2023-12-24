@@ -53,18 +53,15 @@ export const IMPRESSUM_DATA = [
   {
     title: "IČ",
     description: "19633122",
-    link: "https://goo.gl/maps/re79poptwbFYxczBA",
     icon: IconSectionSign,
   },
   {
     title: "DIČ",
     description: "0000000",
-    link: "https://goo.gl/maps/re79poptwbFYxczBA",
     icon: IconReceipt,
   },
   {
     title: "Zápis do OR",
-    link: "https://goo.gl/maps/re79poptwbFYxczBA",
     description:
       "Společnost Awoxo s.r.o. je zapsána v OR vedeném Krajským soudem v Brně, oddíl C, vložka 135251.",
     icon: IconGavel,
