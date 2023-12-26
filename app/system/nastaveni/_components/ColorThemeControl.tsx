@@ -10,12 +10,12 @@ import { IconMoon, IconSun, IconTool } from "@tabler/icons-react";
 import translations from "translations/translations";
 
 export default function ColorThemeControl() {
-  const { colorScheme, setColorScheme } = useMantineColorScheme();
+  const { colorScheme } = useMantineColorScheme();
 
   return (
     <SegmentedControl
       value={colorScheme}
-      onChange={(value: "light" | "dark" | "auto") => setColorScheme(value)}
+      // onChange={(value: "light" | "dark" | "auto") => setColorScheme(value)}
       data={[
         {
           value: "light",

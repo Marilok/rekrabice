@@ -360,9 +360,9 @@ export default function Page() {
           <List type="ordered" mx="md" mb={0}>
             <List.Item>Zkopíruj do nastavení podpisu</List.Item>
             <List.Item>Změň jméno</List.Item>
-            <List.Item>Změň velikost u jména na "Velké"</List.Item>
+            <List.Item>Změň velikost u jména na &quot;Velké&quot;</List.Item>
             <List.Item>Zmeň údaje u odrážek, telefon je volitelný</List.Item>
-            <List.Item>Zmeň velikost odrážek na "Malá"</List.Item>
+            <List.Item>Zmeň velikost odrážek na &quot;Malá&quot;</List.Item>
           </List>
           <Paper shadow="md" withBorder p="md" mt="sm" className="w-80">
             <p>
