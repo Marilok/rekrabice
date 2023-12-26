@@ -6,7 +6,7 @@ export default function Team() {
     <Container className="flex gap-2 flex-wrap">
       <TeamMember
         avatar="/images/avatars/marek.jpeg"
-        title="Exekutiva a technologie"
+        title="Technologie a strategie"
         name="Marek Svitek"
         email="marek.svitek@rekrabice.cz"
       />
@@ -18,9 +18,9 @@ export default function Team() {
       />
       <TeamMember
         avatar=""
-        title=""
-        name="Ty? 🤔"
-        email="Chceš pomoci redukovat množství odpadu? Ozvi se nám!"
+        title="Tvůj dream job"
+        name=""
+        email="Chceš měnit svět s námi k lepšímu? Ozvi se nám!"
       />
     </Container>
   );
