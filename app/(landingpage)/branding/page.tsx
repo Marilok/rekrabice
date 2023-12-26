@@ -356,9 +356,57 @@ export default function Page() {
         </div>
         <div>
           <Title order={3}>Podpis</Title>
-          <Text>
-            O podpis napiš Markovi. Těžko se kopíruje formátování na web. 😅
-          </Text>
+          <Text>Návod na implementaci:</Text>
+          <List type="ordered" mx="md" mb={0}>
+            <List.Item>Zkopíruj do nastavení podpisu</List.Item>
+            <List.Item>Změň jméno</List.Item>
+            <List.Item>Změň velikost u jména na "Velké"</List.Item>
+            <List.Item>Zmeň údaje u odrážek, telefon je volitelný</List.Item>
+            <List.Item>Zmeň velikost odrážek na "Malá"</List.Item>
+          </List>
+          <Paper shadow="md" withBorder p="md" mt="sm" className="w-80">
+            <p>
+              <span className="font-bold text-lg font-sans text-bold leading-snug">
+                Jméno Příjmení
+              </span>
+              <br />
+              <span className="leading-normal text-sm">
+                👋 Pozice{" "}
+                <a
+                  className="font-bold"
+                  style={{ color: "rgb(22,133,35)" }}
+                  href="https://www.rekrabice.cz/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  @ReKrabice
+                </a>
+              </span>
+              <br />
+              <span className="leading-normal text-sm">
+                🔗{" "}
+                <a
+                  className="font-bold"
+                  style={{ color: "rgb(22,133,35)" }}
+                  href="https://www.linkedin.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  LinkedIn
+                </a>
+              </span>
+              <br />
+              <span className="leading-normal text-sm">
+                📞{" "}
+                <a
+                  style={{ color: "rgb(22,133,35)" }}
+                  href="tel:+420 123 456 789"
+                >
+                  +420 123 456 789
+                </a>
+              </span>
+            </p>
+          </Paper>
         </div>
       </Stack>
 
@@ -370,6 +418,9 @@ export default function Page() {
         >
           Šablona pro online písemnosti.
         </Anchor>
+      </div>
+      <div>
+        <Title order={2}>Assets</Title>
       </div>
     </Stack>
   );
