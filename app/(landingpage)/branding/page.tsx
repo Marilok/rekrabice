@@ -28,7 +28,7 @@ import Link from "next/link";
 
 const colors = [
   {
-    hex: "#168523",
+    hex: "#02BA09",
     name: "Leafy Green",
     description:
       "Leafy green je barva naší značky, kterou si s námi svět spojuje.",
