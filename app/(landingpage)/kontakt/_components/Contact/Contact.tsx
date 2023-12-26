@@ -2,12 +2,10 @@
 
 import {
   ActionIcon,
-  Avatar,
   Button,
   Container,
   Group,
   SimpleGrid,
-  Space,
   Text,
   Textarea,
   TextInput,
@@ -185,24 +183,9 @@ export default function Contact() {
           px={{ base: "lg", md: "calc(var(--mantine-spacing-xl)*1.5)" }}
           py={{ base: "lg", md: "xl" }}
         >
-          <Title>Informace o provozovateli</Title>
-          <Group mt="md">
-            <Avatar
-              radius="xl"
-              size="md"
-              alt="avatar image"
-              src="/favicon.svg"
-            />
-            <Title order={2}>
-              <Text fz={28} fw={900} c="brand.10" component="span">
-                Avoxo&nbsp;
-              </Text>
-              <Text fz="md" fw={700} component="span">
-                s.r.o.
-              </Text>
-            </Title>
-          </Group>
-          <Space h="xl" />
+          <Title order={2} mb="lg">
+            Avoxo&nbsp;s.r.o.
+          </Title>
           <LegalIconsList data={IMPRESSUM_DATA} />
         </Container>
       </Container>

@@ -1,5 +1,4 @@
 .wrapper {
-  min-height: 400px;
   box-sizing: border-box;
   border-radius: var(--mantine-radius-md);
   background-image: linear-gradient(
@@ -10,7 +9,6 @@
 }
 
 .wrapper2 {
-  min-height: 400px;
   box-sizing: border-box;
   border-radius: var(--mantine-radius-md);
 
