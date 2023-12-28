@@ -19,6 +19,9 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://rekrabice.cz"),
   openGraph: {
     images: "/opengraph-image.png.png",
+    title: "ReKrabice",
+    description:
+      "Znovupoužitelná krabice, ze které budete mít radost. 📦♻️",
   },
 };
 
