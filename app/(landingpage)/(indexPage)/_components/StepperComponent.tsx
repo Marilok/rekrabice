@@ -180,10 +180,6 @@ export default function StepperComponent() {
                 onClick={prevStep}
                 variant="outline"
                 fullWidth
-                className={`max-w-80 ${
-                  active === 0 ? "max-w-96 !rounded" : ""
-                }`}
-                color="green"
                 id="stepper_prev"
                 leftSection={<IconArrowLeft size={14} />}
               >
@@ -193,16 +189,12 @@ export default function StepperComponent() {
             {active !== numberOfSteps && (
               <Button
                 size="xl"
-                color="green"
                 onClick={nextStep}
                 fullWidth
-                className={`max-w-80 ${
-                  active === 0 ? "max-w-96 !rounded" : ""
-                }`}
                 rightSection={<IconArrowRight size={14} />}
                 id="stepper_next"
               >
-                {active === 0 ? "Začít" : "Další krok"}
+                {active === 0 ? "Ukaž mi jak fungují ReKrabice!" : "A co dál?"}
               </Button>
             )}
           </Button.Group>

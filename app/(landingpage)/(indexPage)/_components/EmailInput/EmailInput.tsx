@@ -82,8 +82,6 @@ export default function EmailInput({ id }: { id: string }) {
         rightSection={
           <Button
             type="submit"
-            variant="gradient"
-            gradient={{ from: "green", to: "lime" }}
             rightSection={<IconSend size={16} />}
             id={id}
             loading={loading}
@@ -100,8 +98,6 @@ export default function EmailInput({ id }: { id: string }) {
       />
       <Button
         type="submit"
-        variant="gradient"
-        gradient={{ from: "green", to: "lime" }}
         rightSection={<IconSend size={16} />}
         id={id}
         mt="xs"

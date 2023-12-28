@@ -51,20 +51,21 @@ export default function Page() {
       <Stack>
         <Title order={2}>Logotyp</Title>
         <Flex gap="sm">
-          <Center className="relative w-96" bg="gray.0">
+          <Center className="relative w-96 " bg="brand.10">
             <Image
-              src="/brand/logo_colored.svg"
+              src="/branding/logo_white.svg"
               width="200"
               height="200"
               alt="logo"
             />
             <Link
-              href="/brand/logo_colored.svg"
-              download="logo_colored"
+              download="logo_white.svg"
+              href="/branding/logo_white.svg"
               target="_top"
             >
               <ActionIcon
                 variant="outline"
+                color="white"
                 size="xl"
                 className="!absolute bottom-0 right-0"
                 m="sm"
@@ -73,21 +74,20 @@ export default function Page() {
               </ActionIcon>
             </Link>
           </Center>
-          <Center className="relative w-96 " bg="brand.10">
+          <Center className="relative w-96" bg="gray.0">
             <Image
-              src="/brand/logo_white.svg"
+              src="/branding/logo_colored.svg"
               width="200"
               height="200"
               alt="logo"
             />
             <Link
-              download="logo_white.svg"
-              href="/brand/logo_white.svg"
+              href="/branding/logo_colored.svg"
+              download="logo_colored"
               target="_top"
             >
               <ActionIcon
                 variant="outline"
-                color="white"
                 size="xl"
                 className="!absolute bottom-0 right-0"
                 m="sm"
@@ -177,10 +177,17 @@ export default function Page() {
         <div>
           <Title order={3}>Doplňkové písmo</Title>
           <Text>
-            Tento font se primárně používá pro offline i online materiály, které
-            jsou obsáhlé a jejich informace mají zejména informační charakter.
-            Zcela jednoduše - používáme ho pro texty, které nejsou titulky ani
-            věci, které jsou výrazné a mají upoutat pozornost.
+            <Anchor
+              href="https://fonts.google.com/specimen/Inter"
+              target="_blank"
+              inline
+            >
+              Inter
+            </Anchor>{" "}
+            je font, který se primárně používá pro offline i online materiály,
+            které jsou obsáhlé a jejich informace mají zejména informační
+            charakter. Zcela jednoduše - používáme ho pro texty, které nejsou
+            titulky ani věci, které jsou výrazné a mají upoutat pozornost.
           </Text>
         </div>
         <Flex gap="sm">
@@ -191,19 +198,20 @@ export default function Page() {
             p="xl"
             c="brand.10"
             bg="gray.0"
+            ff="Inter"
           >
-            <Text fw="bold" key="1" fz="xl">
+            <Text key="1" fz="xl">
               ABCDEFGHIJKLMNOPQRSTUVWXYZ
             </Text>
-            <Text fw="bold" key="2" fz="xl">
+            <Text key="2" fz="xl">
               abcdefghijklmnopqrstuvwxyz
             </Text>
 
-            <Text fw="bold" key="3" fz="xl">
+            <Text key="3" fz="xl">
               0123456789
             </Text>
 
-            <Text fw="bold" key="4" fz="xl">
+            <Text key="4" fz="xl">
               {"-«+»!?.*\\/()£€$¥¢+−±×÷=≠≈<>≤"}
             </Text>
           </Stack>
@@ -214,19 +222,20 @@ export default function Page() {
             p="xl"
             bg="brand.10"
             c="white"
+            ff="Inter"
           >
-            <Text fw="bold" key="1" fz="xl">
+            <Text key="1" fz="xl">
               ABCDEFGHIJKLMNOPQRSTUVWXYZ
             </Text>
-            <Text fw="bold" key="2" fz="xl">
+            <Text key="2" fz="xl">
               abcdefghijklmnopqrstuvwxyz
             </Text>
 
-            <Text fw="bold" key="3" fz="xl">
+            <Text key="3" fz="xl">
               0123456789
             </Text>
 
-            <Text fw="bold" key="4" fz="xl">
+            <Text key="4" fz="xl">
               {"-«+»!?.*\\/()£€$¥¢+−±×÷=≠≈<>≤"}
             </Text>
           </Stack>
@@ -371,7 +380,7 @@ export default function Page() {
               </span>
               <br />
               <span className="leading-normal text-sm">
-                👋 Pozice{" "}
+                📦 Pozice{" "}
                 <a
                   className="font-bold"
                   style={{ color: "rgb(22,133,35)" }}

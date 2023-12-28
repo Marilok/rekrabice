@@ -70,10 +70,10 @@ export default function Faq() {
         <AccordionItem className={classes.item} value="last">
           <AccordionControl>Mám další dotaz!</AccordionControl>
           <AccordionPanel>
-            Všechny otázky ti moc rádi zodpovíme. Ozvi se nám v sekci
+            Všechny otázky ti moc rádi zodpovíme. Ozvi se nám v sekci{" "}
             <Anchor component="span">
-              <Link href="/kontakt"> Kontakty </Link>
-            </Anchor>
+              <Link href="/kontakt">Kontakty</Link>
+            </Anchor>{" "}
             nebo na našich sociálních sítích.
           </AccordionPanel>
         </AccordionItem>

@@ -102,7 +102,7 @@ function drawInstructions(doc: any) {
   );
 
   doc.addImage(
-    "http://localhost:3000/brand/pilot_logo.png",
+    "http://localhost:3000/branding/pilot_logo.png",
     PAGE_WIDTH / 4 - 292 / 10 / 2,
     START + 34,
     292 / 10,

@@ -54,8 +54,6 @@ export default function Hero() {
           </Text>
           <Button
             component="button"
-            variant="gradient"
-            gradient={{ from: "green", to: "teal" }}
             size="xl"
             ff="Greycliff CF, var(--mantine-font-family}"
             w={{ xs: "100%", md: "max-content" }}
