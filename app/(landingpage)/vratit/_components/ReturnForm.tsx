@@ -95,7 +95,7 @@ export default function ReturnForm() {
         mx="auto"
         mt="md"
       >
-        <Stack gap="sm" w={{ base: "full", md: "600" }}>
+        <Stack gap="sm">
           <TextInput
             label="Jméno ReKrabice"
             placeholder="SMOULA77"

@@ -2,7 +2,6 @@ import {
   ActionIcon,
   Anchor,
   AppShell,
-  Avatar,
   Container,
   Divider,
   Group,
@@ -10,6 +9,7 @@ import {
 } from "@mantine/core";
 import { CONTACT } from "data/CONTACT_DATA";
 import SOCIALS from "data/SOCIALS";
+import Image from "next/image";
 import Link from "next/link";
 import classes from "./footer.module.css";
 
@@ -53,22 +53,28 @@ export default function Footer({ data }: FooterLinksProps) {
   });
 
   return (
-    <AppShell.Footer mt="xl" p="lg" className={classes.footer} withBorder>
+    <AppShell.Footer
+      mt="xl"
+      p="lg"
+      className={classes.footer}
+      withBorder
+      pos="static"
+    >
       <Container maw={1000}>
         <Container
           className="flex justify-between flex-col items-center mantine-sm:flex-row mantine-md:items-left"
           py="lg"
         >
           <div className=" flex justify-between flex-col items-center">
-            <Avatar src="/favicon.svg" size={30} alt="logo icon" />
-            <Text
-              size="xs"
-              c="dimmed"
-              ta={{ base: "center", md: "left" }}
-              mt="xs"
-            >
-              Přestaňme si posílat odpad.
-            </Text>
+            <Link href="/" className="contents">
+              <Image
+                src="/branding/logo_colored.svg"
+                width={120}
+                height={100}
+                className="cursor-pointer relative"
+                alt="Logo"
+              />
+            </Link>
           </div>
           <div className="hidden flex-nowrap mantine-sm:flex">{groups}</div>
         </Container>

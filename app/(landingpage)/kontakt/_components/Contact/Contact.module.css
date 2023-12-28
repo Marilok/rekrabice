@@ -50,7 +50,3 @@
 .inputLabel {
   color: var(--mantine-color-black);
 }
-
-.control {
-  background-color: var(--mantine-color-green-6);
-}

@@ -56,7 +56,6 @@ export default async function RootLayout({
                 "#02BA09",
               ],
             },
-            // fontFamily: "Lexend, sans-serif",
             fontFamilyMonospace: "Lexend, monospace",
             headings: { fontFamily: "Lexend, sans-serif" },
             primaryColor: "green",

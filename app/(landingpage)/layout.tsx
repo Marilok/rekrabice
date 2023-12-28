@@ -35,8 +35,8 @@ const FOOTER_DATA = [
         link: "/",
       },
       {
-        label: "Napsali o nás",
-        link: "napsali-o-nas",
+        label: "Kde ji vrátit?",
+        link: "/vratit",
       },
     ],
   },
@@ -63,10 +63,6 @@ const HEADER_DATA = [
   {
     link: "/o-nas",
     label: "O nás",
-  },
-  {
-    link: "/napsali-o-nas",
-    label: "Napsali o nás",
   },
   {
     link: "/kontakt",
