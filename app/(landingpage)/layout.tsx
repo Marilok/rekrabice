@@ -18,7 +18,8 @@ export default function Layout({ children }: { children: any }) {
         collapsed: { desktop: true, mobile: !isOpen },
       }}
     >
-      <HeaderAction links={HEADER_DATA} isOpen={isOpen} toggle={toggle} />
+      <HeaderAction isOpen={isOpen} toggle={toggle} />
+            {/* <HeaderAction links={HEADER_DATA} isOpen={isOpen} toggle={toggle} /> */}
       <Navbar links={HEADER_DATA} toggle={toggle} />
       <AppShellMain>{children}</AppShellMain>
       <Footer data={FOOTER_DATA} />
