@@ -90,7 +90,7 @@ export default function EmailInput({ id }: { id: string }) {
             <span id={id}>Dejte mi vědět</span>
           </Button>
         }
-        rightSectionWidth="auto"
+        rightSectionWidth="150"
         placeholder="petr@seznam.cz"
         width="xl"
         pt="md"
