@@ -36,10 +36,11 @@ export default async function RootLayout({
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
         <meta name="robots" content="noimageindex" />
-        <ColorSchemeScript />
+        <ColorSchemeScript defaultColorScheme="auto" />
       </head>
       <body>
         <MantineProvider
+          defaultColorScheme="auto"
           theme={{
             colors: {
               brand: [
