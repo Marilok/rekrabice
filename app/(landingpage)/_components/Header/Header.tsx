@@ -16,17 +16,17 @@ import Link from "next/link";
 import classes from "./Header.module.css";
 
 interface HeaderActionProps {
-  links: {
-    link: string;
-    label: string;
-    links?: { link: string; label: string }[];
-  }[];
+  // links: {
+  //   link: string;
+  //   label: string;
+  //   links?: { link: string; label: string }[];
+  // }[];
   isOpen: boolean;
   toggle: () => void;
 }
 
 export default function HeaderAction({
-  links,
+  // links,
   isOpen,
   toggle,
 }: HeaderActionProps) {

@@ -29,11 +29,6 @@ const data = [
     url: "https://www.novinky.cz/clanek/domaci-vratne-mohou-byt-i-krabice-tvrdi-mladi-vynalezci-z-moravy-ta-jejich-vydrzi-az-60-cest-40426658",
   },
   {
-    title: "Výherní projekt E-Commerce Summitu",
-    image: "/images/media/e15.svg",
-    url: "https://www.ecommercesummit.cz/validation-contest-technologic-festival-2023/",
-  },
-  {
     title:
       "ReKrabice. Studenti ukázali projekt přepravních obalů na Validation Campu v Brně",
     image: "/images/media/brnan.svg",

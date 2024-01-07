@@ -1,7 +1,8 @@
 import {
   IconBrandFacebook,
   IconBrandInstagram,
-  IconBrandLinkedin
+  IconBrandLinkedin,
+  IconBrandTiktok
 } from "@tabler/icons-react";
 
 const SOCIALS = [
@@ -11,7 +12,9 @@ const SOCIALS = [
     label: "LinkedIn"
   },
   { icon: IconBrandInstagram, url: "https://www.instagram.com/rekrabice.cz/", label: "Instagram" },
-  { icon: IconBrandFacebook, url: "https://www.facebook.com/rekrabice/", label: "Facebook" },
+  { icon: IconBrandTiktok, url: "https://www.tiktok.com/@rekrabice.cz", label: "TikTok" },
+    { icon: IconBrandFacebook, url: "https://www.facebook.com/rekrabice/", label: "Facebook" },
+
 ];
 
 export default SOCIALS;

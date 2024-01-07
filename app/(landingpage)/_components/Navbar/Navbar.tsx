@@ -26,9 +26,12 @@ export default function Navbar({
   return (
     <AppShell.Navbar py="md" px={4}>
       {items}
-      <Button leftSection={<IconRecycle size="16" />} py="xs" px="md">
-        Vrátit ReKrabici
-      </Button>
+      <Link href="/vratit" className="w-full no-underline">
+        <Button leftSection={<IconRecycle size="16" />} py="xs" px="md" fullWidth       onClick={toggle}
+>
+          Vrátit ReKrabici
+        </Button>
+      </Link>
     </AppShell.Navbar>
   );
 }

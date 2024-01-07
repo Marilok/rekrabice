@@ -130,7 +130,7 @@ export default function ReturnForm() {
               minLength={2}
               maxLength={10}
               required
-              w="250"
+              w={{ base: "80", md: "250" }}
               hideControls
               {...form.getInputProps("bankAccountNumber")}
             />
@@ -145,7 +145,7 @@ export default function ReturnForm() {
               {...form.getInputProps("bankCode")}
             />{" "}
           </Flex>
-          <Button type="submit" fullWidth rightSection={<IconBuildingBank />}>
+          <Button type="submit" size="md" fullWidth rightSection={<IconBuildingBank />}>
             Chci vyplatit zálohu na účet
           </Button>
           <Anchor

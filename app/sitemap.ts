@@ -22,12 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.8,
     },
-    {
-      url: `${process.env.NEXT_PUBLIC_URL}/napsali-o-nas`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
+    
     {
       url: `${process.env.NEXT_PUBLIC_URL}/vratit`,
       lastModified: new Date(),

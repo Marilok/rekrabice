@@ -1,6 +1,6 @@
 "use client";
 
-import { Container, List, Text, Title } from "@mantine/core";
+import { Container, Flex, List, Text, Title } from "@mantine/core";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 
@@ -8,14 +8,18 @@ export default function HeroContainer() {
   const searchParams = useSearchParams();
 
   return (
-    <Container
+    <Flex
       p="lg"
       w="full"
       mx="auto"
-      maw="800"
-      className="flex flex-row gap-12 "
-      mt="md"
+      maw="1000"
+      gap={{ base: "sm", md: "xl" }}
+      my={{ base: "sm", md: "xl" }}
+      direction={{ base: "column", md: "row" }}
     >
+       <Container hiddenFrom="md">
+      <Image src="/prototype.png" width={200} height={200} alt="ReKrabice" />
+      </Container>
       <div>
         <Title order={1}>
           Ahoj! Jmenuji se {searchParams.get("trackingName") ?? "ReKrabice"} a
@@ -36,9 +40,9 @@ export default function HeroContainer() {
           </List.Item>
         </List>
       </div>
-      <div>
-        <Image src="/prototype.png" width={200} height={200} alt="ReKrabice" />
-      </div>
-    </Container>
+      <Container visibleFrom="md">
+      <Image src="/prototype.png" width={200} height={200} alt="ReKrabice" />
+      </Container>
+    </Flex>
   );
 }
