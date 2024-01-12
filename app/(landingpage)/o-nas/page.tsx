@@ -27,16 +27,17 @@ export default function Page() {
         který do Česka přináší koncept cirkulární ekonomiky, aby naši přírodu
         zatěžovalo zase o trochu míň zbytečného odpadu.
       </Text>
+      <Title order={2}>Poslání</Title>
+      <Text>
+        Věříme, že společně můžeme pomoci našemu životnímu prostředí. Tím, že vyměníme jednorázové obaly za znovupoužitelné, snížíme množství odpadu a vyprodukovaného CO2. Společně se skvělými lidmi a firmami, kterým stejně jako nám není lhostejná naše budoucnost, tvoříme lepší svět.
+      </Text>
       <Title order={2}>Vize</Title>
       <Text>
-        Představ si svět, kde při nakupování online nevzniká žádný odpad. Svět,
-        kde po každém nákupu nemusíš vyhazovat krabici a starat se o hromadu
-        výplně, u které nikdy nevíš, co s ní.
+Rádi bychom zákazníkům ukázali, že krabici nemusí hned po otevření balíčku vyhodit. Snažíme se posunout společnost do fáze, kdy bude doručování balíčků ve znovupoužitelných krabicích vnímáno jako nový standard. Podobně funguje například systém vratných lahví – i u těch je opakované využití ekologičtější variantou než recyklace.
       </Text>
-      <Title order={2}>Mise</Title>
+       <Title order={2}>Mise</Title>
       <Text>
-        Naší bezodpadové vize chceme docílit prostřednictvím poskytování
-        znovupoužitelných obalů e-shopům.
+Dáváme firmám možnost nabízet svým zákazníkům vratnou krabici, ze které budou mít radost nejen samotní zákazníci, ale i naše planeta.
       </Text>
       <Title order={2}>Hodnoty</Title>
       <Text>
