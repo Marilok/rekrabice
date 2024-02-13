@@ -89,12 +89,7 @@ export default function ReturnForm() {
         }
       })}
     >
-      <Fieldset
-        legend="Formulář pro poslání zálohy na účet"
-        w={{ base: "full", md: "600" }}
-        mx="auto"
-        mt="md"
-      >
+      <Fieldset w={{ base: "full", md: "600" }} mx="auto" mt="md">
         <Stack gap="sm">
           <TextInput
             label="Jméno ReKrabice"
@@ -145,8 +140,13 @@ export default function ReturnForm() {
               {...form.getInputProps("bankCode")}
             />{" "}
           </Flex>
-          <Button type="submit" size="md" fullWidth rightSection={<IconBuildingBank />}>
-            Chci vyplatit zálohu na účet
+          <Button
+            type="submit"
+            size="md"
+            fullWidth
+            rightSection={<IconBuildingBank />}
+          >
+            Spárovat ReKrabici
           </Button>
           <Anchor
             component={Link}
