@@ -14,14 +14,13 @@ export const metadata: Metadata = {
     default: "ReKrabice", // a default is required when creating a template
   },
   description:
-  "Nestav doma věže z kartonových krabic. Všechny ReKrabice můžeš vrátit a ušetřit tak našim lesům. A to zcela zdarma!",
+    "Nestav doma věže z kartonových krabic. Všechny ReKrabice můžeš vrátit a ušetřit tak našim lesům. A to zcela zdarma!",
   robots: "noimageindex",
   metadataBase: new URL("https://rekrabice.cz"),
   openGraph: {
     images: "/opengraph-image.png.png",
     title: "ReKrabice",
-    description:
-      "Znovupoužitelná krabice, ze které budete mít radost. 📦♻️",
+    description: "Znovupoužitelná krabice, ze které budete mít radost. 📦♻️",
   },
 };
 

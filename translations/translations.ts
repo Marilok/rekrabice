@@ -1,8 +1,9 @@
+// * This is just a temporary solution for the translation of the app. It will be replaced by a better solution in the future.
+
 const translations = {
-  // * This is just a temporary solution for the translation of the app. It will be replaced by a better solution in the future.
   systemReceive: {
-    code: "Zadejte 8-ciferné jméno ReKrabice:",
-    button: "Potvrdit přijmutí ReKrabice od zákazníka",
+    code: "8-ciferné jméno ReKrabice, kterou přebíráte",
+    button: "Příbírám ReKrabici od zákazníka",
   },
   systemContact: {
     boldText1: "Spěchá to hodně?",
@@ -14,7 +15,8 @@ const translations = {
   },
   systemNavbar: {
     version: "verze",
-    accept: "Přijmout ReKrabici od zákazníka",
+    accept: "Převzít ReKrabici od zákazníka",
+    history: "Historie",
     send: "Odeslat plnou přepravku",
     faq: "Návod a časté dotazy",
     contact: "Kontakt",
@@ -40,7 +42,7 @@ const translations = {
     answer3B: "stránce kontakty",
   },
   emailButtons: {
-    title: "Do pošty Vám jsme Vám poslali odkaz pro vstup do systému.",
+    title: "Do pošty jsme Vám poslali odkaz pro vstup do systému.",
     subtitle: "Rychlé odkazy na populární emaily:",
     closeEmail: "zavri@me.prosim",
     closeSubject: "Zavři mě prosím",

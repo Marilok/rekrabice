@@ -42,7 +42,12 @@ export default function StyledNavbar({ links }: { links: any[] }) {
     <AppShell.Navbar p="md">
       <AppShell.Section grow>
         <Group justify="space-between">
-          <Image src="/logo_text.svg" height={30} width="100" alt="logo icon" />
+          <Image
+            src="/branding/logo_colored.svg"
+            height={30}
+            width="100"
+            alt="logo icon"
+          />
           <Code>{translations.systemNavbar.version} Alpha 0.8</Code>
         </Group>
         <Divider my="sm" />

@@ -104,11 +104,10 @@ export function EmailButtons({
 }) {
   return (
     <Stack>
-      <Text ta="center">
-        <span className="font-bold text-lg">{title}</span>
-        <br />
-        {subtitle}
+      <Text fw="bold" fz="lg">
+        {title}
       </Text>
+      <Text>{subtitle}</Text>
       <SimpleGrid cols={2}>
         <SeznamEmailButton>Email.cz</SeznamEmailButton>
         <GmailButton>Gmail</GmailButton>

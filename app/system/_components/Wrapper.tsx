@@ -5,6 +5,7 @@ import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import {
   IconArrowDown,
   IconArrowUp,
+  IconHistory,
   IconPhone,
   IconQuestionMark,
 } from "@tabler/icons-react";
@@ -52,10 +53,16 @@ const LINKS = [
     label: translations.systemNavbar.accept,
     icon: <IconArrowDown stroke={1.5} />,
   },
+
   {
     link: "/system/odeslat",
     label: translations.systemNavbar.send,
     icon: <IconArrowUp stroke={1.5} />,
+  },
+  {
+    link: "/system/historie",
+    label: translations.systemNavbar.history,
+    icon: <IconHistory stroke={1.5} />,
   },
   {
     link: "/system/navod",

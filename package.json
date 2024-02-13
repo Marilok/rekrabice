@@ -13,10 +13,10 @@
   },
   "dependencies": {
     "@mantine/core": "^7.0.0",
-    "@mantine/form": "^7.0.0",
+    "@mantine/form": "^7.5.2",
     "@mantine/hooks": "^7.0.0",
     "@mantine/modals": "^7.0.0",
-    "@mantine/notifications": "^7.0.0",
+    "@mantine/notifications": "^7.5.2",
     "@react-email/components": "^0.0.12",
     "@react-email/render": "^0.0.7",
     "@react-leaflet/core": "^2.1.0",

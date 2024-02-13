@@ -106,7 +106,7 @@ const mockdata = [
   {
     title: "* Odměny",
     description:
-      "Odměny za sesbírané ReKrabice a vyplacené zálohy Vám zpravidla odešleme jednou za 2 týdny.",
+      "Odměny za sesbírané ReKrabice odesíláme nejpozději 15. den následujícího měsíce na Váš bankovní účet.",
     icon: IconAsterisk,
   },
 ];

@@ -7,15 +7,6 @@ const nextConfig = {
     locales: ["cs"],
     defaultLocale: "cs",
   },
-  async redirects() {
-    return [
-      {
-        source: "/impressum",
-        destination: "/kontakt",
-        permanent: true,
-      },
-    ];
-  },
   images: {
     remotePatterns: [
       {
