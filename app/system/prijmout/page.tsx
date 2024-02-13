@@ -66,9 +66,18 @@ export default function Page() {
             values.packaging_id,
           );
 
-          if (active_loop_id) {
+          if (active_loop_id !== null) {
             // @ts-expect-error
             setActiveLoopId(active_loop_id);
+          } else {
+            notifications.show({
+              title: "Krabice už byla vrácena ✅",
+              message:
+                "Tato krabice už byla vrácena. Pokud to nesedí s historií, ozvěte se nám.",
+              color: "red",
+              autoClose: false,
+            });
+            return;
           }
         } catch (error) {
           console.error(error);
