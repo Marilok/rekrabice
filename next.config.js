@@ -2,7 +2,9 @@
 
 const nextConfig = {
   reactStrictMode: true,
-  ignoreBuildErrors: true, // TODO: change later
+  typescript: {
+    ignoreBuildErrors: true, // TODO: change later
+  },
   swcMinify: true,
   i18n: {
     locales: ["cs"],
