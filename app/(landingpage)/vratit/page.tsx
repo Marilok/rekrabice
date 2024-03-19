@@ -1,7 +1,5 @@
-import DynamicMap from "components/Map/Map/DynamicMap";
 import { Metadata } from "next";
 import HeroContainer from "./_components/HeroContainer";
-import ReturnForm from "./_components/ReturnForm";
 
 export const metadata: Metadata = {
   title: "Vrátit",
@@ -14,8 +12,7 @@ export default function Page() {
   return (
     <>
       <HeroContainer />
-      <ReturnForm />
-      <DynamicMap />
+      {/* <DynamicMap /> */}
     </>
   );
 }

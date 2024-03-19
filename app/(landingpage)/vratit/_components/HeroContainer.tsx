@@ -26,8 +26,8 @@ export default function HeroContainer() {
           nepatřím do koše.
         </Title>
         <Text mt="md">
-          Vyplň prosím následující formulář, abychom věděli, kam ti vyplatit
-          Tvou zálohu.
+          Vrať ji prosím na kteroukoliv pobočku Balíkovny, kde jim nadiktuj
+          následující kód: TBA
         </Text>
       </div>
       <Container visibleFrom="md">
