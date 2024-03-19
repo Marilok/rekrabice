@@ -84,7 +84,7 @@ export default function StepperComponent() {
               </Text>
               <div className="m-auto flex justify-center mt-5 w-full h-72 relative">
                 <Image
-                  src="/prototype.png"
+                  src="/prototype.jpg"
                   fill
                   alt="Jak to funguje"
                   className="m-auto rounded shadow object-contain"
