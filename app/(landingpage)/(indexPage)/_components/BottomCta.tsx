@@ -8,10 +8,8 @@ export default function BottomCta() {
       <Card p="xl" withBorder shadow="md" maw={900}>
         <Title order={2}>Co dál?</Title>
         <Text mt="sm">
-          Aby se tento projekt mohl stát realitou, potřebujeme dopravcům a
-          prodejcům dokázat, že je o ReKrabice zájem. Ten můžeš snadno projevit
-          tak, že nám tu zanecháš svoji mailovou adresu. V budoucnu se ti
-          ozveme, jak se nám daří. 😉
+          Zajímá tě o ReKrabicích více? Zanech nám svůj email a my se ti ozveme,
+          jakmile budeme mít novinky. 📩
         </Text>
         <EmailInput id="signup_bottom_submit" />
         <Anchor
