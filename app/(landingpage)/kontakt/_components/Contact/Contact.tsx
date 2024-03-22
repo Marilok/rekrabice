@@ -14,7 +14,7 @@ import {
 import { useForm } from "@mantine/form";
 import { showNotification, updateNotification } from "@mantine/notifications";
 import { IconCheck, IconSend, IconX } from "@tabler/icons-react";
-import { CONTACT_US_DATA, IMPRESSUM_DATA } from "data/CONTACT_DATA";
+import { CONTACT, CONTACT_US_DATA, IMPRESSUM_DATA } from "data/CONTACT_DATA";
 import SOCIALS from "data/SOCIALS";
 import { useState } from "react";
 import ContactIconsList from "../ContactIconsList/ContactIconsList";
@@ -31,8 +31,7 @@ export default function Contact() {
         id: "notification-message",
         loading: true,
         message: "Odesílání",
-        autoClose: false,
-        radius: "xs",
+        autoClose: 10000,
         withCloseButton: false,
       });
       await fetch("/api/contact", {
@@ -51,10 +50,21 @@ export default function Contact() {
             message: "Do pošty jsme ti poslali potvzení o odeslání.",
             icon: <IconCheck size={16} />,
             autoClose: 10000,
+            radius: "xs",
             loading: false,
           });
         } else {
-          // console.log(res);
+          updateNotification({
+            id: "notification-message",
+            title: "Něco se pokazilo. 😥",
+            message:
+              "Zkus to prosím znovu nebo využij klasický mail. Promiň za nepříjemnosti.",
+            color: "red",
+            icon: <IconX />,
+            autoClose: true,
+            radius: "xs",
+            loading: false,
+          });
         }
       });
     } catch (error: any) {
@@ -86,7 +96,7 @@ export default function Contact() {
   });
   const icons = SOCIALS.map((item: any) => (
     <ActionIcon
-      size="lg"
+      size="xl"
       color="white"
       className="hover:text-[var(--mantine-color-green-3)]"
       variant="transparent"
@@ -95,7 +105,7 @@ export default function Contact() {
       href={item.url}
       target="_blank"
     >
-      <item.icon stroke={1.5} />
+      <item.icon stroke={1.5} size="28" />
     </ActionIcon>
   ));
 
@@ -108,17 +118,21 @@ export default function Contact() {
           py={{ base: "xl", md: "calc(var(--mantine-spacing-xl)*1.5)" }}
         >
           <SimpleGrid cols={{ base: 1, md: 2 }} spacing={50}>
-            <div>
-              <Title c="white" className="leading-none">
-                Kontaktujte nás
-              </Title>
-              <Text maw={300} mt="sm" mb={30} c="white" ta="justify">
-                Pojďme spojit síly! 😎 Ať už ve formě firemní spolupráce nebo
-                jako parťáka do týmu. Zanech nám svůj email a my se ti ozveme co
-                nejdříve. 😉
-              </Text>
+            <div className="flex flex-col justify-start gap-12">
+              <div>
+                <Title c="white" className="leading-none">
+                  Kontaktujte nás
+                </Title>
+                <Text maw={300} mt="sm" c="white" ta="justify">
+                  Pojďme spojit síly! 😎 Ať už ve formě firemní spolupráce nebo
+                  jako parťáka do týmu. Zanech nám svůj email a my se ti ozveme
+                  co nejdříve. 😉
+                </Text>
+              </div>
               <ContactIconsList data={CONTACT_US_DATA} />
-              <Group mt="xl">{icons}</Group>
+              <Group className="mt-full" gap="sm">
+                {icons}
+              </Group>
             </div>
             <form onSubmit={form.onSubmit((values) => sendMsg(values))}>
               <Container
@@ -184,7 +198,7 @@ export default function Contact() {
           py={{ base: "lg", md: "xl" }}
         >
           <Title order={2} mb="lg">
-            Avoxo&nbsp;s.r.o.
+            {CONTACT.legalName}
           </Title>
           <LegalIconsList data={IMPRESSUM_DATA} />
         </Container>

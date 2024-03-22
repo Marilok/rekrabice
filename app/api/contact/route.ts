@@ -12,6 +12,7 @@ export async function POST(req: NextRequest) {
   const mailData = {
     from: "Robot z ReKrabice <robot@notifications.rekrabice.cz>",
     to: "ahoj@rekrabice.cz",
+    cc: reqMail,
     replyTo: reqMail,
     priority: "high",
     subject: `Zpráva ${reqName ? `od ${reqName}` : ""} z kontaktního formuláře`,
@@ -19,32 +20,10 @@ export async function POST(req: NextRequest) {
     html: `<div>${reqMsg}</div>`,
   };
 
-  const confirmationData = {
-    from: "Robot z ReKrabice <robot@notifications.rekrabice.cz>",
-    to: reqMail,
-    subject: "Potvrzení o odeslání zprávy z kontaktního formuláře",
-    html: "<p>Hurá! Tvoje zpráva, kterou si nám (týmu za ReKrabicí) poslal skrze kontaktní formulář na našem webu (ReKrabice.cz) nám dorazila do schránky! Na zprávu ti odpovíme do 24 hodin. <br/><br/> PS: V mezičase se můžeš rozjímat nad pěknými štěnátky, které na tebe koukají v příloze. ;) </p>",
-    attachments: [
-      {
-        // TODO: transorm to file path instead of URL
-        filename: "První štěnátko.jpg",
-        path: `${process.env.NEXT_PUBLIC_URL}/mail_images/puppy_1.jpg`,
-      },
-      {
-        filename: "Druhé štěnátko.jpg",
-        path: `${process.env.NEXT_PUBLIC_URL}/mail_images/puppy_2.jpg`,
-      },
-      {
-        filename: "Třetí štěnátko.jpg",
-        path: `${process.env.NEXT_PUBLIC_URL}/mail_images/puppy_3.jpg`,
-      },
-    ],
-  };
 
   try {
     // @ts-expect-error the priority is not in the types
     await transporter.sendMail(mailData);
-    await transporter.sendMail(confirmationData);
 
     return new NextResponse(null, { status: 200 });
   } catch (error) {
