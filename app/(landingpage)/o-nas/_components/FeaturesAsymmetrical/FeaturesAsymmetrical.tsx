@@ -3,7 +3,6 @@ import React from "react";
 import classes from "./FeaturesAsymmetrical.module.css";
 
 interface FeatureProps extends React.ComponentPropsWithoutRef<"div"> {
-  // skipcq: JS-0323
   icon: React.FC<any>;
   title: string;
   description: string;
@@ -27,7 +26,6 @@ function Feature({ icon: Icon, title, description, ...others }: FeatureProps) {
 }
 
 interface FeaturesAsymmetricalProps {
-  // skipcq: JS-0323
   icon: React.FC<any>;
   title: string;
   description: string;
