@@ -17,13 +17,21 @@ export default function Faq() {
         Často kladené dotazy
       </Title>
       <Accordion variant="separated">
-        <AccordionItem className={classes.item} value="second">
-          <AccordionControl>Jak mohu ReKrabici vrátit?</AccordionControl>
+        <AccordionItem className={classes.item} value="karton">
+          <AccordionControl>
+            Mají pro mě ReKrabice smysl, když už využívám kartonové krabice z
+            druhé ruky?
+          </AccordionControl>
           <AccordionPanel>
-            Stačí ji přinést na tvou nejbližší Balíkovnu. Pokud hoříš
-            nedočkavostí, můžeš balíček rozbalit taky přímo na Balíkovně a
-            ReKrabici tam rovnou nechat. Nebo se ti ReKrabice natolik zalíbila,
-            že ji vracet nechceš.
+            Ano! Je super, že používáte kartonové krabice z druhé ruky a
+            chráníte tak přírodu aspoň o něco víc, než ostatní e-shopy. Bohužel
+            kartonová krabice zvládne těch cest jenom pár a v tom koši skončí
+            stejně poměrně brzy. <br />
+            <br />
+            ReKrabice oproti kartonové krabici vydrží mnohonásobně víc cest,
+            takže se ve výsledku ušetří více odpadu. Pro porovnání - při 15
+            posláních kartonových krabic se vyprodukuje asi 7 kg odpadu, při 15
+            použitích ReKrabice je to neustále pouze 250 g.
           </AccordionPanel>
         </AccordionItem>
         <AccordionItem className={classes.item} value="fourth">

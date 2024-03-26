@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Container, Text, Title } from "@mantine/core";
+import { Container, Text, Title } from "@mantine/core";
 import { useState } from "react";
 import classes from "./Hero.module.css";
 import Modal from "./Modal";
@@ -50,21 +50,8 @@ export default function Hero() {
             mt={30}
           >
             Nestav doma věže z kartonových krabic. Všechny ReKrabice můžeš
-            vrátit a ušetřit tak našim lesům.&nbsp;A to zcela zdarma! 🌲
+            vrátit a ušetřit tak našim lesům a předejít vzniku nového odpadu. 🌲
           </Text>
-          <Button
-            component="button"
-            size="xl"
-            ff="Greycliff CF, var(--mantine-font-family}"
-            w={{ xs: "100%", md: "max-content" }}
-            px={50}
-            fz={22}
-            mt={40}
-            onClick={() => setOpened(true)}
-            id="signup_hero_open"
-          >
-            <span id="signup_hero_open">Vyzkoušet ReKrabice</span>
-          </Button>
         </Container>
       </Container>
     </>

@@ -25,57 +25,10 @@ interface HeaderActionProps {
   toggle: () => void;
 }
 
-export default function HeaderAction({
-  // links,
-  isOpen,
-  toggle,
-}: HeaderActionProps) {
+export default function HeaderAction({ isOpen, toggle }: HeaderActionProps) {
   const { setColorScheme } = useMantineColorScheme();
 
-  const computedColorScheme = useComputedColorScheme("light", {
-    getInitialValueInEffect: true,
-  });
-
-  // const items = links.map((link) => {
-  //   const menuItems = link.links?.map((item) => (
-  //     <MenuItem key={item.link} component={Link} href={item.link}>
-  //       {item.label}
-  //     </MenuItem>
-  //   ));
-
-  //   if (menuItems) {
-  //     return (
-  //       <Menu key={link.label} trigger="hover">
-  //         <MenuTarget>
-  //           <Center>
-  //             <Anchor
-  //               component={Link}
-  //               href={link.link}
-  //               // eslint-disable-next-line max-len
-  //               className={`block leading-none px-3 py-2 rounded no-underline font-semibold text-sm ${classes.link}`}
-  //             >
-  //               <span className="mr-1">{link.label}</span>
-  //               <IconChevronDown size={12} stroke={1.5} />
-  //             </Anchor>
-  //           </Center>
-  //         </MenuTarget>
-  //         <MenuDropdown>{menuItems}</MenuDropdown>
-  //       </Menu>
-  //     );
-  //   }
-
-  //   return (
-  //     <Anchor
-  //       component={Link}
-  //       key={link.label}
-  //       href={link.link}
-  //       // eslint-disable-next-line max-len
-  //       className={`block leading-none px-3 py-2 rounded no-underline font-semibold text-sm ${classes.link}`}
-  //     >
-  //       {link.label}
-  //     </Anchor>
-  //   );
-  // });
+  const computedColorScheme = useComputedColorScheme("light");
 
   return (
     <AppShell.Header className="!mb-0">

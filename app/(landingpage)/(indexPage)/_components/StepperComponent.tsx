@@ -99,7 +99,7 @@ export default function StepperComponent() {
               <Text mt="sm">
                 Při objednávaní na svém oblíbeném e-shopu zaškrtni v košíku
                 možnost zabalení do ReKrabice. K ceně objednávky ti bude
-                přičteno 50 Kč, ze kterých zaplatíme zpětnou dopravu. 😉
+                přičteno 50 Kč (z těch pak zaplatíme zpětnou dopravu). 😉
               </Text>
               <div className="m-auto flex justify-center relative mt-5 w-full h-72">
                 <Image
@@ -120,7 +120,7 @@ export default function StepperComponent() {
                 Konečně ti dorazil balíček? Rozbal ho jako normálně a užívej si
                 jeho obsah. Nebo to třeba tentokrát nebyla trefa do černého, i
                 to se stane. V každém případě teď už jen zbývá ReKrabici vrátit.
-                Jak na to?
+                Jak na to? 🤔
               </Text>
               <div className="m-auto flex justify-center relative mt-5 w-full h-72">
                 <Image
@@ -137,9 +137,10 @@ export default function StepperComponent() {
                 Vrať nám ReKrabici
               </Title>
               <Text mt="sm">
-                Prázdnou ReKrabici vrať na kterékoliv Balíkovně. Vrátit ji můžeš
-                hned nebo ji tam můžeš zanést i později. Hodláš-li nějakou část
-                objednávky vracet, zabal zboží do ReKrabice a vrať ji eshopu.
+                Prázdnou ReKrabici můžeš vrátit na kterékoliv Balíkovně. A můžeš
+                to udělat hned nebo si s tím klidně počkat. Pokud jsi něco z
+                objednávky vrátil/a, zabal zboží zpět do ReKrabice a vrať ji
+                eshopu. 📦
               </Text>
               <div className="m-auto flex justify-center relative mt-5 w-full h-72">
                 <Image
@@ -156,9 +157,10 @@ export default function StepperComponent() {
                 Wohoooo! 🥳
               </Title>
               <Text mt="sm">
-                ReKrabici vyčistíme a opět poskytneme zapojeným e-shopům. Díky
-                tomu, že sis ji zvolil/a místo té kartonové, se ušetřil kus
-                stromu! 😎🌲
+                Gratulujeme, zvládl jsi to! Teď ReKrabici už jen vyčistíme a
+                opět poskytneme zapojeným e-shopům pro další nákup. Díky tomu,
+                že sis ReKrabici zvolil/a místo té kartonové si ušetřil kus
+                stromu. Děkujeme, že jsi v tom s námi! 😎🌲
               </Text>
               <div className="m-auto flex justify-center relative mt-5 w-full h-72">
                 <Image
@@ -192,7 +194,7 @@ export default function StepperComponent() {
                 rightSection={<IconArrowRight size={14} />}
                 id="stepper_next"
               >
-                {active === 0 ? "Ukaž mi jak fungují ReKrabice!" : "A co dál?"}
+                {active === 0 ? "Ukaž mi, jak fungují ReKrabice!" : "A co dál?"}
               </Button>
             )}
           </Button.Group>
