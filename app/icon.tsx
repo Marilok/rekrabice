@@ -16,47 +16,18 @@ export default function Icon() {
     (
       // ImageResponse JSX element
       <svg
+        xmlns="http://www.w3.org/2000/svg"
         width="64"
         height="64"
         viewBox="0 0 64 64"
         fill="none"
-        xmlns="http://www.w3.org/2000/svg"
       >
-        <rect width="64" height="64" rx="32" fill="#168523" />
+        <rect width="64" height="64" rx="2.5" fill="#02BA09" />
         <path
-          d="M32.0002 13.25L48.6668 22.625V41.375L32.0002 50.75L15.3335 41.375V22.625L32.0002 13.25Z"
-          stroke="#F4F7F8"
-          strokeWidth="3"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M32 32L48.6667 22.625"
-          stroke="#F4F7F8"
-          strokeWidth="3"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M32 32V50.75"
-          stroke="#F4F7F8"
-          strokeWidth="3"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M32.0002 32L15.3335 22.625"
-          stroke="#F4F7F8"
-          strokeWidth="3"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M40.3332 17.9375L23.6665 27.3125"
-          stroke="#F4F7F8"
-          strokeWidth="3"
-          strokeLinecap="round"
-          strokeLinejoin="round"
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d="M55.25 19L31.875 6L8.5 19V45L31.875 58L55.25 45V19ZM32.7429 10.5341C32.1436 10.197 31.4118 10.197 30.8125 10.5341L13.257 20.4091C12.6371 20.7578 12.2534 21.4137 12.2534 22.125V41.875C12.2534 42.5862 12.6371 43.2422 13.257 43.5909L30.8125 53.4659C30.8292 53.4753 30.846 53.4844 30.8629 53.4933C31.1077 53.6218 31.373 53.6954 31.6412 53.714C31.6866 53.7171 31.7322 53.7187 31.7777 53.7187L31.7786 53.7187C32.1487 53.7187 32.4949 53.6166 32.7906 53.439L50.2984 43.5909C50.9184 43.2422 51.302 42.5862 51.302 41.875V22.1927C51.3143 21.8435 51.2339 21.4866 51.05 21.1598C50.8575 20.8175 50.5779 20.555 50.2547 20.3845L41.5612 15.4944C41.5358 15.4793 41.5101 15.4649 41.4841 15.451L32.7429 10.5341ZM47.3645 40.7236L33.7473 48.3832V33.1514L47.3645 25.4918V40.7236ZM45.318 22.1252L31.7781 29.7414L27.0159 27.0626L40.5557 19.4465L45.318 22.1252ZM22.0482 28.786L22.0186 28.7694L16.1909 25.4913V40.7236L29.8098 48.3842V33.1519L22.0482 28.786ZM36.54 17.1876L23.0002 24.8038L18.2379 22.125L31.7777 14.5088L36.54 17.1876Z"
+          fill="white"
         />
       </svg>
     ),

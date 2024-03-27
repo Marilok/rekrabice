@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     default: "ReKrabice", // a default is required when creating a template
   },
   description:
-    "Nestav doma věže z kartonových krabic. Všechny ReKrabice můžeš vrátit a ušetřit tak našim lesům. A to zcela zdarma!",
+    "Nestav doma věže z kartonových krabic. Všechny ReKrabice můžeš vrátit a ušetřit tak našim lesům a předejít vzniku nového odpadu.",
   robots: "noimageindex",
   metadataBase: new URL("https://rekrabice.cz"),
   openGraph: {
@@ -56,7 +56,7 @@ export default async function RootLayout({
                 "#6bfc6f",
                 "#43fc45",
                 "#2dfc2d",
-                "#22fc1f",
+                "#02BA09",
                 "#15e114",
                 "#02c70a",
                 "#00ad00",
@@ -65,7 +65,7 @@ export default async function RootLayout({
             },
             fontFamilyMonospace: "Lexend, monospace",
             headings: { fontFamily: "Lexend, sans-serif" },
-            primaryColor: "green",
+            primaryColor: "brand",
           }}
         >
           <Notifications />
