@@ -43,6 +43,7 @@ export default function CustomMap() {
       <MapContainer id="map" center={[49.1930642, 16.6099019]} zoom={13}>
         <TileLayer
           attribution='<a href="https://licence.mapy.cz/?doc=mapy_pu#api" target="_blank">&copy; Seznam.cz a.s. a další</a>'
+          // eslint-disable-next-line max-len
           url={`https://api.mapy.cz/v1/maptiles/basic/256/{z}/{x}/{y}?apikey=${process.env.NEXT_PUBLIC_MAPY_API_KEY}&lang=cs`}
           className="color-red decoration-none hoaver:color-blue"
         />
