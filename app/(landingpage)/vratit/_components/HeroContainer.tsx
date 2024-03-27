@@ -1,6 +1,6 @@
 "use client";
 
-import { Container, Flex, Text, Title } from "@mantine/core";
+import { Container, Flex, Title } from "@mantine/core";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 
@@ -21,14 +21,15 @@ export default function HeroContainer() {
         <Image src="/prototype.png" width={200} height={200} alt="ReKrabice" />
       </Container>
       <div>
-        <Title order={1}>
+        <Title order={1}>Tato stránka je zatím v přípravě.. 🏗️</Title>
+        {/* <Title order={1}>
           Ahoj! Jmenuji se {searchParams.get("trackingName") ?? "ReKrabice"} a
           nepatřím do koše.
         </Title>
         <Text mt="md">
           Vrať ji prosím na kteroukoliv pobočku Balíkovny, kde jim nadiktuj
           následující kód: TBA
-        </Text>
+        </Text> */}
       </div>
       <Container visibleFrom="md">
         <Image src="/prototype.png" width={200} height={200} alt="ReKrabice" />
