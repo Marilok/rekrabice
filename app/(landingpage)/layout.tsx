@@ -19,7 +19,6 @@ export default function Layout({ children }: { children: any }) {
       }}
     >
       <HeaderAction isOpen={isOpen} toggle={toggle} />
-            {/* <HeaderAction links={HEADER_DATA} isOpen={isOpen} toggle={toggle} /> */}
       <Navbar links={HEADER_DATA} toggle={toggle} />
       <AppShellMain>{children}</AppShellMain>
       <Footer data={FOOTER_DATA} />
@@ -36,8 +35,12 @@ const FOOTER_DATA = [
         link: "/",
       },
       {
-        label: "Kde ji vrátit?",
+        label: "Jak ji vrátit?",
         link: "/vratit",
+      },
+      {
+        label: "Pro eshopy",
+        link: "/pro-eshopy",
       },
     ],
   },
@@ -45,7 +48,7 @@ const FOOTER_DATA = [
     title: "O nás",
     links: [
       {
-        label: "O projektu",
+        label: "Náš tým a příběh",
         link: "o-nas",
       },
       {
@@ -63,7 +66,7 @@ const HEADER_DATA = [
   },
   {
     link: "/o-nas",
-    label: "O nás",
+    label: "Náš tým a příběh",
   },
   {
     link: "/kontakt",
