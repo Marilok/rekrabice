@@ -2,10 +2,10 @@
 
 import { Container, Flex, Title } from "@mantine/core";
 import Image from "next/image";
-import { useSearchParams } from "next/navigation";
+// import { useSearchParams } from "next/navigation";
 
 export default function HeroContainer() {
-  const searchParams = useSearchParams();
+  // const searchParams = useSearchParams();
 
   return (
     <Flex
