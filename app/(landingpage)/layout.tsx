@@ -38,10 +38,10 @@ const FOOTER_DATA = [
         label: "Jak ji vrátit?",
         link: "/vratit",
       },
-      {
-        label: "Pro eshopy",
-        link: "/pro-eshopy",
-      },
+      // {
+      //   label: "Pro eshopy",
+      //   link: "/pro-eshopy",
+      // },
     ],
   },
   {
