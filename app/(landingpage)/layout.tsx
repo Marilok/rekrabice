@@ -34,14 +34,14 @@ const FOOTER_DATA = [
         label: "O ReKrabicích",
         link: "/",
       },
-      {
-        label: "Jak ji vrátit?",
-        link: "/vratit",
-      },
-      {
-        label: "Pro eshopy",
-        link: "/pro-eshopy",
-      },
+      // {
+      //   label: "Jak ji vrátit?",
+      //   link: "/vratit",
+      // },
+      // {
+      //   label: "Pro eshopy",
+      //   link: "/pro-eshopy",
+      // },
     ],
   },
   {
