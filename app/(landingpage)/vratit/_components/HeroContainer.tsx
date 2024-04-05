@@ -1,39 +1,44 @@
 "use client";
 
-import { Container, Flex, Title } from "@mantine/core";
-import Image from "next/image";
-// import { useSearchParams } from "next/navigation";
+import { AspectRatio, Card, Flex, Paper, Text, Title } from "@mantine/core";
 
-export default function HeroContainer() {
-  // const searchParams = useSearchParams();
+// export const metadata: Metadata = {
+//   title: "Vrátit",
+//   description: "Vrátit ReKrabici",
+// };
 
+export default function Page() {
   return (
-    <Flex
-      p="lg"
-      w="full"
-      mx="auto"
-      maw="1000"
-      gap={{ base: "sm", md: "xl" }}
-      my={{ base: "sm", md: "xl" }}
-      direction={{ base: "column", md: "row" }}
-    >
-      <Container hiddenFrom="md">
-        <Image src="/prototype.png" width={200} height={200} alt="ReKrabice" />
-      </Container>
+    <Flex gap="xl" justify="flex-start" direction="column">
+      Vrať mě prosím, abychom mohla šetřit naše lesy dál. 🌲
+      <Text size="lg" mt="lg">
+        Vrať ji prosím na kteroukoliv pobočku Balíkovny, kde jim nadiktuj
+        následující kód:
+      </Text>
+      <Title order={2}>Jak mě vrátit?</Title>
       <div>
-        <Title order={1}>Tato stránka je zatím v přípravě.. 🏗️</Title>
-        {/* <Title order={1}>
-          Ahoj! Jmenuji se {searchParams.get("trackingName") ?? "ReKrabice"} a
-          nepatřím do koše.
-        </Title>
-        <Text mt="md">
-          Vrať ji prosím na kteroukoliv pobočku Balíkovny, kde jim nadiktuj
-          následující kód: TBA
-        </Text> */}
+        <Card>
+          <Card.Section>Obrázek</Card.Section>
+          <Card.Section>1. Vybal nákup</Card.Section>
+          <Card.Section>Bla bla bla</Card.Section>
+        </Card>
+        <Card>2. Dones mě na jakkoukoliv Balíkovnu</Card>
+        Mrkni kdyžtak na mapku dole.
+        <Card>
+          Sděl jim, že by si chtěl vrátit zásilku a nadiktuj jim kouzelný kód{" "}
+          <span className="font-bold">0788b8bb</span>
+          </Card>
       </div>
-      <Container visibleFrom="md">
-        <Image src="/prototype.png" width={200} height={200} alt="ReKrabice" />
-      </Container>
+      <Title order={2}>Mapa Balíkoven</Title>
+      <Paper shadow="md" radius="md" maw={800} className="overflow-hidden">
+        <AspectRatio ratio={16 / 9} maw={800} className="overflow-hidden">
+          <iframe
+            src="https://b2c.cpost.cz/locations/"
+            title="Mapa Balíkoven"
+            style={{ border: 0 }}
+          />
+        </AspectRatio>
+      </Paper>
     </Flex>
   );
 }

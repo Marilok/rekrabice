@@ -31,17 +31,17 @@ const FOOTER_DATA = [
     title: "Rozcestník",
     links: [
       {
-        label: "Jak to funguje?",
+        label: "O ReKrabicích",
         link: "/",
       },
       {
         label: "Jak ji vrátit?",
         link: "/vratit",
       },
-      // {
-      //   label: "Pro eshopy",
-      //   link: "/pro-eshopy",
-      // },
+      {
+        label: "Pro eshopy",
+        link: "/pro-eshopy",
+      },
     ],
   },
   {

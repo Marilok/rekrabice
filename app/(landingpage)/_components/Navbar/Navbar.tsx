@@ -1,5 +1,4 @@
-import { AppShell, Button, UnstyledButton } from "@mantine/core";
-import { IconRecycle } from "@tabler/icons-react";
+import { AppShell, UnstyledButton } from "@mantine/core";
 import Link from "next/link";
 import classes from "./Navbar.module.css";
 
@@ -26,12 +25,12 @@ export default function Navbar({
   return (
     <AppShell.Navbar py="md" px={4}>
       {items}
-      <Link href="/vratit" className="w-full no-underline">
+      {/* <Link href="/vratit" className="w-full no-underline">
         <Button leftSection={<IconRecycle size="16" />} py="xs" px="md" fullWidth       onClick={toggle}
 >
           Vrátit ReKrabici
         </Button>
-      </Link>
+      </Link> */}
     </AppShell.Navbar>
   );
 }
