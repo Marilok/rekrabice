@@ -34,6 +34,7 @@ const FOOTER_DATA = [
         label: "O ReKrabicích",
         link: "/",
       },
+
       // {
       //   label: "Jak ji vrátit?",
       //   link: "/vratit",
