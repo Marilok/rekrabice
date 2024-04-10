@@ -28,10 +28,12 @@ import Link from "next/link";
 
 const colors = [
   {
-    hex: "#02BA09",
+    hex: "#008A19",
+    pantone: "2426 C",
+    ral: "6037",
     name: "Leafy Green",
     description:
-      "Leafy green je barva naší značky, kterou si s námi svět spojuje.",
+      "Leafy green je barva naší značky. Je to barva, kterou si s námi každý spojí, když se řeknou ReKrabice.",
   },
   {
     hex: "#FFFF",
@@ -40,7 +42,7 @@ const colors = [
   },
   {
     hex: "#000",
-    name: "Pitch Black",
+    name: "Black",
     description: "Primární barva pro pozadí.",
   },
 ];
@@ -468,13 +470,29 @@ function ExamplesList({ items }: { items: ExampleListProps[] }) {
 function ColorCard({ color }: any) {
   const clipboard = useClipboard();
   return (
-    <Paper withBorder p="md" className="max-w-max">
+    <Paper withBorder p="md" w="220">
       <Group>
-        <ColorSwatch radius="xs" size="80" color={color.hex} />
+        <ColorSwatch radius="xs" h="80" w="100%" color={color.hex} />
         <Stack gap="0" className="w-60">
-          <Text fw="bold">{color.name}</Text>
-          <Text c="dimmed">{color.hex}</Text>
-          <Text>{color.description}</Text>
+          <Text fw="bold" fz="lg">
+            {color.name}
+          </Text>
+          <div className="my-2 h-16">
+            <Text c="dimmed" fz="sm">
+              {color.hex}
+            </Text>
+            {color.pantone && (
+              <Text c="dimmed" fz="sm">
+                Pantone {color.pantone}
+              </Text>
+            )}
+            {color.ral && (
+              <Text c="dimmed" fz="sm">
+                Ral {color.ral}
+              </Text>
+            )}
+          </div>
+          <Text ta="justify">{color.description}</Text>
         </Stack>
         <Tooltip
           label="Color copied!"

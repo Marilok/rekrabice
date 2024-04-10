@@ -22,7 +22,7 @@ export default function Icon() {
         viewBox="0 0 64 64"
         fill="none"
       >
-        <rect width="64" height="64" rx="2.5" fill="#02BA09" />
+        <rect width="64" height="64" rx="2.5" fill="#008A19" />
         <path
           fillRule="evenodd"
           clipRule="evenodd"
