@@ -118,9 +118,7 @@ export default function StepperComponent() {
               </Title>
               <Text mt="sm">
                 Konečně ti dorazil balíček? Rozbal ho jako normálně a užívej si
-                jeho obsah. Nebo to třeba tentokrát nebyla trefa do černého, i
-                to se stane. V každém případě teď už jen zbývá ReKrabici vrátit.
-                Jak na to? 🤔
+                jeho obsah. ReKrabici stačí už jen vrátit. Jak na to? 🤔
               </Text>
               <div className="m-auto flex justify-center relative mt-5 w-full h-72">
                 <Image
