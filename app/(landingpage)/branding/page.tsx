@@ -42,8 +42,8 @@ const colors = [
   },
   {
     hex: "#000",
-    name: "Black",
-    description: "Primární barva pro pozadí.",
+    name: "Onyx Black",
+    description: "Barva používaná pro text.",
   },
 ];
 
@@ -55,14 +55,14 @@ export default function Page() {
         <Flex gap="sm">
           <Center className="relative w-96 " bg="brand.10">
             <Image
-              src="/branding/logo_white.svg"
+              src="/branding/ReKrabice_logo_white.svg"
               width="200"
               height="200"
               alt="logo"
             />
             <Link
-              download="logo_white.svg"
-              href="/branding/logo_white.svg"
+              download="ReKrabice_logo_white.svg"
+              href="/branding/ReKrabice_logo_white.svg"
               target="_top"
             >
               <ActionIcon
@@ -78,14 +78,14 @@ export default function Page() {
           </Center>
           <Center className="relative w-96" bg="gray.0">
             <Image
-              src="/branding/logo_colored.svg"
+              src="/branding/ReKrabice_logo_colored.svg"
               width="200"
               height="200"
               alt="logo"
             />
             <Link
-              href="/branding/logo_colored.svg"
-              download="logo_colored"
+              href="/branding/ReKrabice_logo_colored.svg"
+              download="ReKrabice_logo_colored"
               target="_top"
             >
               <ActionIcon

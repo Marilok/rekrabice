@@ -68,7 +68,7 @@ export default function Footer({ data }: FooterLinksProps) {
           <div className=" flex justify-between flex-col items-center">
             <Link href="/" className="contents">
               <Image
-                src="/branding/logo_colored.svg"
+                src="/branding/ReKrabice_logo_colored.svg"
                 width={120}
                 height={100}
                 className="cursor-pointer relative"

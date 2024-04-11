@@ -43,7 +43,7 @@ export default function StyledNavbar({ links }: { links: any[] }) {
       <AppShell.Section grow>
         <Group justify="space-between">
           <Image
-            src="/branding/logo_colored.svg"
+            src="/branding/ReKrabice_logo_colored.svg"
             height={30}
             width="100"
             alt="logo icon"

@@ -2,6 +2,7 @@ import {
   ActionIcon,
   AppShell,
   Burger,
+  Button,
   Center,
   Container,
   Group,
@@ -9,7 +10,7 @@ import {
   useComputedColorScheme,
   useMantineColorScheme,
 } from "@mantine/core";
-import { IconMoonStars, IconSun } from "@tabler/icons-react";
+import { IconMoonStars, IconRecycle, IconSun } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
 import classes from "./Header.module.css";
@@ -47,7 +48,7 @@ export default function HeaderAction({ isOpen, toggle }: HeaderActionProps) {
               pos="relative"
             >
               <Image
-                src="/branding/logo_colored.svg"
+                src="/branding/ReKrabice_logo_colored.svg"
                 fill
                 className="cursor-pointer"
                 alt="Logo"
@@ -74,7 +75,7 @@ export default function HeaderAction({ isOpen, toggle }: HeaderActionProps) {
           </ActionIcon>
         </Group>
 
-        {/* <Link href="/vratit">
+        <Link href="/vratit">
           <Button
             size="md"
             leftSection={<IconRecycle size="16" />}
@@ -82,7 +83,7 @@ export default function HeaderAction({ isOpen, toggle }: HeaderActionProps) {
           >
             Vrátit ReKrabici
           </Button>
-        </Link> */}
+        </Link>
         <Group
           gap="xs"
           onClick={toggle}
