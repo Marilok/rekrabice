@@ -1,24 +1,102 @@
 "use client";
 
-import { AspectRatio, Card, Flex, Paper, Text, Title } from "@mantine/core";
+import {
+  Anchor,
+  AspectRatio,
+  Card,
+  Flex,
+  Paper,
+  Text,
+  Title,
+} from "@mantine/core";
+import Image from "next/image";
+import Link from "next/link";
+import DeliveryTruck from "../_images/delivery_truck.png";
+import ManTechnologist from "../_images/man_technologist.png";
+import Package from "../_images/package.png";
+import WritingHand from "../_images/writing_hand.png";
 
-// export const metadata: Metadata = {
-//   title: "Vrátit",
-//   description: "Vrátit ReKrabici",
-// };
+const steps = [
+  {
+    text: "1. Klikni na kouzelný odkaz",
+    image: ManTechnologist,
+    description: (
+      <>
+        Přejdi prosím na stránku{" "}
+        <Anchor
+          component={Link}
+          target="_blank"
+          href="https://www.balikovna.cz/cs/poslat-balik/vratit-balik?returnCode=0788b8bb"
+        >
+          pro vrácení balíčku přes Balíkovnu
+        </Anchor>{" "}
+        a vyplň zbytek formuláře. 📝
+      </>
+    ),
+  },
+  {
+    text: "2. Opiš podací kód",
+    image: WritingHand,
+    description:
+      "Na ReKrabici je přednalepený štítek. Na ten prosím napiš podací kód, který ti přišel do mailu. 📩",
+  },
+  {
+    text: "3. Slož ji",
+    image: Package,
+    description:
+      "Slož prosím ReKrabici na plocho, aby šetřila místo a ohyb prosím přelep izolepou (třeba tou, kterou byla přelepena zásilka). 💪",
+  },
+  {
+    text: "4. Zajdi na Balíkovnu",
+    image: DeliveryTruck,
+    description: (
+      <>
+        Vrať ji prosím na kteroukoliv pobočku Balíkovny (<b>kromě boxů</b>).
+        Nevíš, kde je ta nejbližší? Mapku najdeš dole! 🤗
+      </>
+    ),
+  },
+];
 
 export default function Page() {
   return (
-    <Flex gap="xl" justify="flex-start" direction="column">
-      Vrať mě prosím, abychom mohla šetřit naše lesy dál. 🌲
-      <Text size="lg" mt="lg">
-        Vrať ji prosím na kteroukoliv pobočku Balíkovny, kde jim nadiktuj
-        následující kód:
-      </Text>
-      <Title order={2}>Jak mě vrátit?</Title>
-      <div>
-        <Card>
-          <Card.Section>Obrázek</Card.Section>
+    <Flex
+      gap="xl"
+      justify="flex-start"
+      direction="column"
+      align="center"
+      mt="xl"
+    >
+      <Title order={2}>Jak mě vrátíš?</Title>
+      <Flex direction={{ base: "column", md: "row" }} gap="md" wrap="wrap">
+        {steps.map((step) => (
+          <Card
+            key={step.text}
+            p="xl"
+            miw={240}
+            maw={300}
+            withBorder
+            shadow="sm"
+          >
+            <Card.Section>
+              {step.image && (
+                <Image src={step.image} width={60} height={60} alt="Image" />
+              )}
+            </Card.Section>
+            <Card.Section mt="md">
+              <Text fw="bold" fz="lg">
+                {step.text}
+              </Text>
+            </Card.Section>
+            <Card.Section mt={4}>
+              <Text>{step.description}</Text>
+            </Card.Section>
+          </Card>
+        ))}
+        {/* <Card>
+          <Card.Section>
+            <Image src={Unboxing} width={400} height={400} />
+          </Card.Section>
           <Card.Section>1. Vybal nákup</Card.Section>
           <Card.Section>Bla bla bla</Card.Section>
         </Card>
@@ -27,13 +105,20 @@ export default function Page() {
         <Card>
           Sděl jim, že by si chtěl vrátit zásilku a nadiktuj jim kouzelný kód{" "}
           <span className="font-bold">0788b8bb</span>
-          </Card>
-      </div>
+        </Card> */}
+      </Flex>
       <Title order={2}>Mapa Balíkoven</Title>
-      <Paper shadow="md" radius="md" maw={800} className="overflow-hidden">
+      <Paper
+        shadow="lg"
+        radius="md"
+        maw={800}
+        className="overflow-hidden"
+        w="100%"
+      >
         <AspectRatio ratio={16 / 9} maw={800} className="overflow-hidden">
           <iframe
-            src="https://b2c.cpost.cz/locations/"
+            allow="geolocation"
+            src="https://b2c.cpost.cz/locations/?type=BALIKOVNY"
             title="Mapa Balíkoven"
             style={{ border: 0 }}
           />
