@@ -13,7 +13,6 @@ import {
   Text,
   ThemeIcon,
   Title,
-  Tooltip,
   rem,
 } from "@mantine/core";
 import { useClipboard } from "@mantine/hooks";
@@ -34,6 +33,15 @@ const colors = [
     name: "Leafy Green",
     description:
       "Leafy green je barva naší značky. Je to barva, kterou si s námi každý spojí, když se řeknou ReKrabice.",
+  },
+  {
+    hex: "#007c16",
+    name: "Dark Leafy Green (+10 %)",
+  },
+
+  {
+    hex: "#006111",
+    name: "Darker Leafy Green (+30 %)",
   },
   {
     hex: "#FFFF",
@@ -101,7 +109,7 @@ export default function Page() {
         </Flex>
       </Stack>
       <Stack>
-        <Title order={2}>Paleta barev</Title>
+        <Title order={2}>Barvy</Title>
         <Flex gap="sm">
           {colors.map((color) => (
             <ColorCard color={color} />
@@ -251,7 +259,25 @@ export default function Page() {
           <Anchor href="https://tablericons.com/" target="_blank" inline>
             Tabler Icons
           </Anchor>
-          . Barva ikonek je buď leafy green nebo snow white.
+          . Barva ikonek je buď Leafy Green nebo bílá.
+        </Text>
+      </Stack>
+
+      <Stack>
+        <Title order={2}>Emotikony</Title>
+        <Text>
+          Používáme{" "}
+          <Anchor href="https://fluentemoji.com/" target="_blank" inline>
+            Fluent Emoji
+          </Anchor>{" "}
+          a pokud to jde, tak jejich{" "}
+          <Anchor
+            href="https://animated-fluent-emoji.vercel.app/"
+            target="_blank"
+            inline
+          >
+            animovanou verzi.
+          </Anchor>
         </Text>
       </Stack>
 
@@ -470,17 +496,28 @@ function ExamplesList({ items }: { items: ExampleListProps[] }) {
 function ColorCard({ color }: any) {
   const clipboard = useClipboard();
   return (
-    <Paper withBorder p="md" w="220">
+    <Paper withBorder p="md" w="260">
       <Group>
         <ColorSwatch radius="xs" h="80" w="100%" color={color.hex} />
         <Stack gap="0" className="w-60">
-          <Text fw="bold" fz="lg">
+          <Text fw="bold" fz="md">
             {color.name}
           </Text>
           <div className="my-2 h-16">
-            <Text c="dimmed" fz="sm">
-              {color.hex}
-            </Text>
+            <span className="flex gap-2 flex-row">
+              <Text c="dimmed" fz="sm">
+                {color.hex}
+              </Text>
+              <ActionIcon
+                variant="subtle"
+                color="gray"
+                size="sm"
+                onClick={() => clipboard.copy(color.hex)}
+              >
+                <IconCopy />
+              </ActionIcon>
+            </span>
+
             {color.pantone && (
               <Text c="dimmed" fz="sm">
                 Pantone {color.pantone}
@@ -494,20 +531,6 @@ function ColorCard({ color }: any) {
           </div>
           <Text ta="justify">{color.description}</Text>
         </Stack>
-        <Tooltip
-          label="Color copied!"
-          position="bottom"
-          opened={clipboard.copied}
-        >
-          <ActionIcon
-            variant="light"
-            color={color.hex}
-            size="xl"
-            onClick={() => clipboard.copy(color.hex)}
-          >
-            <IconCopy />
-          </ActionIcon>
-        </Tooltip>
       </Group>
     </Paper>
   );
