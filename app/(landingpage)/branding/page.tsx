@@ -136,12 +136,11 @@ export default function Page() {
         </div>
         <Flex gap="sm">
           <Stack
-            className="relative max-w-max"
+            className="relative max-w-max font-headings"
             justify="center"
             gap="0"
             p="xl"
             c="brand.10"
-            ff="Lexend"
             bg="gray.0"
           >
             <Text fw="bold" key="1" fz="xl">
@@ -160,13 +159,12 @@ export default function Page() {
             </Text>
           </Stack>
           <Stack
-            className="relative max-w-max"
+            className="relative max-w-max font-headings"
             justify="center"
             gap="0"
             p="xl"
             bg="brand.10"
             c="white"
-            ff="Lexend"
           >
             <Text fw="bold" key="1" fz="xl">
               ABCDEFGHIJKLMNOPQRSTUVWXYZ

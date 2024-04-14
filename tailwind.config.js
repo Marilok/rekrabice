@@ -7,6 +7,21 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    fontFamily: {
+      headings: [
+        "Lexend",
+        "-apple-system",
+        "BlinkMacSystemFont",
+        "Segoe UI",
+        "Roboto",
+        "Helvetica Neue",
+        "Arial",
+        "sans-serif",
+        "Apple Color Emoji",
+        "Segoe UI Emoji",
+      ],
+      body: ["Inter", "sans-serif"],
+    },
     extend: {
       screens: {
         "mantine-xs": "30em",
