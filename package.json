@@ -29,7 +29,7 @@
     "@zxing/library": "^0.20.0",
     "autoprefixer": "^10.4.15",
     "cssnano": "^6.0.1",
-    "embla-carousel-react": "^7.1.0",
+    "embla-carousel-react": "^8.0.2",
     "jspdf": "^2.5.1",
     "leaflet": "^1.9.4",
     "leaflet.markercluster": "^1.5.3",
