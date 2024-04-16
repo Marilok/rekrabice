@@ -63,7 +63,7 @@ const FOOTER_DATA = [
 const HEADER_DATA = [
   {
     link: "/",
-    label: "Jak to funguje?",
+    label: "Jak fungují ReKrabice?",
   },
   {
     link: "/o-nas",

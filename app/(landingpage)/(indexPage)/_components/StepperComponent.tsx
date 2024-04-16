@@ -1,10 +1,20 @@
 "use client";
 
-import { Button, Container, Portal, Stepper, Text, Title } from "@mantine/core";
+import {
+  Anchor,
+  AspectRatio,
+  Button,
+  Container,
+  Portal,
+  Stepper,
+  Text,
+  Title,
+} from "@mantine/core";
 import { useHotkeys, useScrollIntoView, useViewportSize } from "@mantine/hooks";
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function StepperComponent() {
@@ -39,6 +49,91 @@ export default function StepperComponent() {
     offset: 60,
   });
 
+  const steps = [
+    {
+      label: "Jak fungují ReKrabice?",
+      id: "stepper_0",
+      title: "Jak fungují ReKrabice?",
+      decription: (
+        <>
+          <br />
+          <br />
+        </>
+      ),
+      image: (
+        <Image
+          src="/prototype.jpg"
+          fill
+          alt="Jak to funguje"
+          className="m-auto rounded shadow object-contain"
+          priority
+        />
+      ),
+    },
+    {
+      label: "Zvol ReKrabici",
+      id: "stepper_1",
+      title: "Vyměň karton za ReKrabici",
+      description: (
+        <>
+          Vše to začíná volbou. V košíku zaškrtni, že by sis přál/a ReKrabici
+          jako způsob balení. K ceně objednávky ti bude přičteno 49&nbsp;Kč (z
+          těch pak zaplatíme zpětnou dopravu). 😉
+        </>
+      ),
+      image: (
+        <Image
+          src="/otoc_button.png"
+          fill
+          alt="Vybrat balení do vratné krabice z e-shopu"
+          className="m-auto rounded shadow object-contain"
+          priority
+        />
+      ),
+    },
+    {
+      label: "Rozbal balíček",
+      id: "stepper_2",
+      title: "Rozbal svůj balíček a raduj se ze svého nákupu",
+      description:
+        "Konečně ti dorazil balíček? Rozbal ho jako normálně a užívej si svůj nákup. Teď už jen stačí ReKrabici vrátit. Jak ale na to? 🤔 ",
+      image: (
+        <Image
+          src="/gifs/open.gif"
+          fill
+          alt="Box opening gif"
+          className="m-auto rounded shadow object-contain"
+          priority
+        />
+      ),
+    },
+    {
+      label: "Vrať nám ReKrabici",
+      id: "stepper_3",
+      title: "Vrať nám ReKrabici",
+      description: (
+        <>
+          Prázdnou ReKrabici můžeš vrátit na kterékoliv Balíkovně (kromě boxů).
+          Podrobné instrukce k vrácení najdeš na{" "}
+          <Link href="/vratit">
+            <Anchor component="span">samostatné stránce </Anchor>
+          </Link>
+          . A pokud si přeješ něco z objednávky vrátit, zabal zboží zpět do
+          ReKrabice a vrať ji eshopu. 📦
+        </>
+      ),
+      image: (
+        <AspectRatio ratio={16 / 9} className="w-full h-full">
+          <iframe
+            src="https://b2c.cpost.cz/locations/?type=BALIKOVNY"
+            title="Mapa Balíkoven"
+            style={{ border: 0, width: "100%", height: "100%" }}
+          />
+        </AspectRatio>
+      ),
+    },
+  ];
+
   return (
     <>
       <Portal>
@@ -65,7 +160,6 @@ export default function StepperComponent() {
           <Stepper
             active={active}
             onStepClick={setActive}
-            color="green"
             mt="lg"
             onClick={() => scrollIntoView({ alignment: "center" })}
             classNames={{
@@ -74,82 +168,17 @@ export default function StepperComponent() {
             ref={targetRef}
             id="top"
           >
-            <Stepper.Step label="Jak to funguje?" id="stepper_0">
-              <Title order={2} mt="xl">
-                Jak to funguje?
-              </Title>
-              <Text mt="sm">
-                <br />
-                <br />
-              </Text>
-              <div className="m-auto flex justify-center mt-5 w-full h-72 relative">
-                <Image
-                  src="/prototype.jpg"
-                  fill
-                  alt="Jak to funguje"
-                  className="m-auto rounded shadow object-contain"
-                  priority
-                />
-              </div>
-            </Stepper.Step>
-            <Stepper.Step label="Zvol ReKrabici" id="stepper_1">
-              <Title order={2} mt="xl">
-                Vyměň karton za ReKrabici
-              </Title>
-              <Text mt="sm">
-                Při objednávaní na svém oblíbeném e-shopu zaškrtni v košíku
-                možnost zabalení do ReKrabice. K ceně objednávky ti bude
-                přičteno 50 Kč (z těch pak zaplatíme zpětnou dopravu). 😉
-              </Text>
-              <div className="m-auto flex justify-center relative mt-5 w-full h-72">
-                <Image
-                  src="/otoc_button.png"
-                  fill
-                  alt="Vybrat balení do vratné krabice z e-shopu"
-                  className="m-auto rounded shadow object-contain"
-                  priority
-                />
-              </div>
-            </Stepper.Step>
-
-            <Stepper.Step label="Rozbal balíček" id="stepper_2">
-              <Title order={2} mt="xl">
-                Rozbal svůj balíček a raduj se ze svého nákupu
-              </Title>
-              <Text mt="sm">
-                Konečně ti dorazil balíček? Rozbal ho jako normálně a užívej si
-                jeho obsah. ReKrabici stačí už jen vrátit. Jak na to? 🤔
-              </Text>
-              <div className="m-auto flex justify-center relative mt-5 w-full h-72">
-                <Image
-                  src="/gifs/open.gif"
-                  fill
-                  alt="Box opening gif"
-                  className="m-auto rounded shadow object-contain"
-                  priority
-                />
-              </div>
-            </Stepper.Step>
-            <Stepper.Step label="Vrať nám ReKrabici" id="stepper_3">
-              <Title order={2} mt="xl">
-                Vrať nám ReKrabici
-              </Title>
-              <Text mt="sm">
-                Prázdnou ReKrabici můžeš vrátit na kterékoliv Balíkovně. A můžeš
-                to udělat hned nebo si s tím klidně počkat. Pokud jsi něco z
-                objednávky vrátil/a, zabal zboží zpět do ReKrabice a vrať ji
-                eshopu. 📦
-              </Text>
-              <div className="m-auto flex justify-center relative mt-5 w-full h-72">
-                <Image
-                  src="/images/mapa.png"
-                  fill
-                  alt="Box opening gif"
-                  className="m-auto rounded shadow object-contain"
-                  priority
-                />
-              </div>
-            </Stepper.Step>
+            {steps.map((step) => (
+              <Stepper.Step key={step.id} id={step.id} title={step.title}>
+                <Title order={2} mt="xl">
+                  {step.title}
+                </Title>
+                <Text mt="sm">{step.description}</Text>
+                <div className="m-auto flex justify-center relative mt-5 w-full h-72 overflow-hidden">
+                  {step.image}
+                </div>
+              </Stepper.Step>
+            ))}
             <Stepper.Completed>
               <Title order={2} mt="xl">
                 Wohoooo! 🥳
@@ -165,7 +194,7 @@ export default function StepperComponent() {
                   src="/images/logs.jpg"
                   fill
                   alt="A tree in misty cloud"
-                  className="m-auto rounded shadow object-contain"
+                  className="m-auto rounded  object-contain"
                   priority
                 />
               </div>
@@ -192,7 +221,7 @@ export default function StepperComponent() {
                 rightSection={<IconArrowRight size={14} />}
                 id="stepper_next"
               >
-                {active === 0 ? "Ukaž mi, jak fungují ReKrabice!" : "A co dál?"}
+                {active === 0 ? "Ukaž mi to!" : "A co dál?"}
               </Button>
             )}
           </Button.Group>
