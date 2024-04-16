@@ -364,6 +364,7 @@ export default function Page() {
           <Paper p="xl" withBorder>
             <Grid grow>
               {icons.map((Icon, index) => (
+                // eslint-disable-next-line react/no-array-index-key
                 <Grid.Col span={4} className="flex justify-center " key={index}>
                   <Icon size={48} color="var(--mantine-color-brand-9)" />
                 </Grid.Col>
