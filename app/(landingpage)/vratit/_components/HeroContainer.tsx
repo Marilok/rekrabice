@@ -11,15 +11,11 @@ import {
 } from "@mantine/core";
 import Image from "next/image";
 import Link from "next/link";
-import DeliveryTruck from "../_images/delivery_truck.png";
-import ManTechnologist from "../_images/man_technologist.png";
-import Package from "../_images/package.png";
-import WritingHand from "../_images/writing_hand.png";
 
 const steps = [
   {
     text: "1. Klikni na kouzelný odkaz",
-    image: ManTechnologist,
+    image: "/emojis/animated/man_technologist.png",
     description: (
       <>
         Přejdi prosím na stránku{" "}
@@ -36,19 +32,19 @@ const steps = [
   },
   {
     text: "2. Opiš podací kód",
-    image: WritingHand,
+    image: "/emojis/animated/writing_hand.png",
     description:
       "Na ReKrabici je přednalepený štítek. Na ten prosím napiš podací kód, který ti přišel do mailu. 📩",
   },
   {
     text: "3. Slož ji",
-    image: Package,
+    image: "/emojis/animated/package.png",
     description:
       "Slož prosím ReKrabici na plocho, aby šetřila místo a ohyb prosím přelep izolepou (třeba tou, kterou byla přelepena zásilka). 💪",
   },
   {
     text: "4. Zajdi na Balíkovnu",
-    image: DeliveryTruck,
+    image: "/emojis/animated/delivery_truck.png",
     description: (
       <>
         Vrať ji prosím na kteroukoliv pobočku Balíkovny (<b>kromě boxů</b>).
