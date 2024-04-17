@@ -4,7 +4,9 @@ import Link from "next/link";
 import classes from "./Navigation.module.css";
 
 const links = [
-  { label: "Logotyp", link: "#logotyp", order: 1 },
+  { label: "Loga", link: "#loga", order: 1 },
+  { label: "Logotyp", link: "#logotyp", order: 2 },
+  { label: "Ikonka", link: "#ikonka", order: 2 },
   { label: "Barvy", link: "#barvy", order: 1 },
   { label: "Primární barvy", link: "#primarni-barvy", order: 1 },
   { label: "Sekundární barvy", link: "#sekundarni-barvy", order: 1 },

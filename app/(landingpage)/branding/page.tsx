@@ -129,7 +129,10 @@ export default function Page() {
       </div>
       <Stack m="lg">
         <Stack>
-          <Title order={2} id="logotyp">
+          <Title order={2} id="loga">
+            Loga
+          </Title>
+          <Title order={3} id="logotyp">
             Logotyp
           </Title>
           <Flex gap="sm">
@@ -179,6 +182,36 @@ export default function Page() {
               </Link>
             </Center>
           </Flex>
+          <Title order={3} id="ikonka">
+            Ikonka
+          </Title>
+          <Text>
+            S naší ikonkou se setkáme především jako profilovou fotkou na
+            sociální sítě, nebo jako ikonkou v prohlížeči. Ikonka je
+            zjednodušeným zobrazením našeho loga. 🎭
+          </Text>
+          <Center className="relative  " p="xl" bg="gray.0">
+            <Image
+              src="/branding/ReKrabice_icon.svg"
+              width="128"
+              height="128"
+              alt="ReKrabice icon"
+            />
+            <Link
+              download="ReKrabice_icon.svg"
+              href="/branding/ReKrabice_icon.svg"
+              target="_top"
+            >
+              <ActionIcon
+                variant="outline"
+                size="xl"
+                className="!absolute bottom-0 right-0"
+                m="sm"
+              >
+                <IconDownload />
+              </ActionIcon>
+            </Link>
+          </Center>
         </Stack>
         <Stack>
           <Title order={2} id="barvy">
