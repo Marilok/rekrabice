@@ -16,7 +16,9 @@ const links = [
   { label: "Správné psaní názvů", link: "#spravne-psani-nazvu", order: 1 },
   { label: "Assets", link: "#assets", order: 1 },
 ];
-const active = "#overlays";
+
+// TODO: fix active link
+// const active = "#overlays";
 
 export default function Navigation() {
   const items = links.map((item) => (
