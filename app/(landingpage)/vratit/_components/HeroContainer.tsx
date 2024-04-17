@@ -112,7 +112,25 @@ export default function Page() {
         className="overflow-hidden"
         w="100%"
       >
-        <AspectRatio ratio={16 / 9} maw={800} className="overflow-hidden">
+        <AspectRatio
+          ratio={16 / 9}
+          maw={800}
+          className="overflow-hidden"
+          visibleFrom="md"
+        >
+          <iframe
+            allow="geolocation"
+            src="https://b2c.cpost.cz/locations/?type=BALIKOVNY"
+            title="Mapa Balíkoven"
+            style={{ border: 0 }}
+          />
+        </AspectRatio>
+        <AspectRatio
+          ratio={4 / 3}
+          maw={800}
+          className="overflow-hidden"
+          hiddenFrom="md"
+        >
           <iframe
             allow="geolocation"
             src="https://b2c.cpost.cz/locations/?type=BALIKOVNY"
