@@ -3,6 +3,7 @@
 import {
   Anchor,
   AspectRatio,
+  Button,
   Card,
   Flex,
   Paper,
@@ -119,6 +120,47 @@ export default function Page() {
             style={{ border: 0 }}
           />
         </AspectRatio>
+      </Paper>
+      <Paper mt="md" p="xl" shadow="md" withBorder>
+        <Flex
+          direction={{ base: "column", md: "row" }}
+          display="flex"
+          maw={600}
+          gap={{ base: "xl", md: "80" }}
+          justify="center"
+          align="center"
+        >
+          <Image
+            src="/emojis/animated/green_heart.png"
+            width={180}
+            height={180}
+            alt="Green heart"
+            className="md:hidden"
+          />
+          <Flex direction="column">
+            <Title order={2}>Zanech nám svůj názor</Title>
+            <Text mt="sm">
+              Využil si ReKrabici a chtěl by si nám k tomu něco říct? Budeme
+              rádi za každý podnět, ať už pozitivní nebo negativní. 🙏
+            </Text>
+            <Button
+              mt="md"
+              component="a"
+              size="md"
+              target="_blank"
+              href="https://forms.gle/V8SSfMxcT9sLeTd9A"
+            >
+              Sděl nám ho!
+            </Button>
+          </Flex>
+          <Image
+            src="/emojis/animated/green_heart.png"
+            width={180}
+            height={180}
+            alt="Green heart"
+            className="md:block hidden"
+          />
+        </Flex>
       </Paper>
     </Flex>
   );
