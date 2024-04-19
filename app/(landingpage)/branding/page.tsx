@@ -21,7 +21,6 @@ import { useClipboard } from "@mantine/hooks";
 import {
   IconCheck,
   IconCopy,
-  IconDownload,
   IconDroplet,
   IconLeaf,
   IconPin,
@@ -31,7 +30,7 @@ import {
 } from "@tabler/icons-react";
 // import { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import DownloadMenu from "./_components/DownloadMenu/DownloadMenu";
 import Navigation from "./_components/Navigation";
 // export const metadata: Metadata = {
 //   title: "Brand",
@@ -143,21 +142,11 @@ export default function Page() {
                 height="200"
                 alt="logo"
               />
-              <Link
-                download="ReKrabice_logo_white.svg"
-                href="/branding/ReKrabice_logo_white.svg"
-                target="_top"
-              >
-                <ActionIcon
-                  variant="outline"
-                  color="white"
-                  size="xl"
-                  className="!absolute bottom-0 right-0"
-                  m="sm"
-                >
-                  <IconDownload />
-                </ActionIcon>
-              </Link>
+              <DownloadMenu
+                svg="ReKrabice_logo_white.svg"
+                png="ReKrabice_logo_white.png"
+                isWhite
+              />
             </Center>
             <Center className="relative w-96" bg="gray.0">
               <Image
@@ -166,20 +155,10 @@ export default function Page() {
                 height="200"
                 alt="logo"
               />
-              <Link
-                href="/branding/ReKrabice_logo_colored.svg"
-                download="ReKrabice_logo_colored"
-                target="_top"
-              >
-                <ActionIcon
-                  variant="outline"
-                  size="xl"
-                  className="!absolute bottom-0 right-0"
-                  m="sm"
-                >
-                  <IconDownload />
-                </ActionIcon>
-              </Link>
+              <DownloadMenu
+                svg="ReKrabice_logo_colored.svg"
+                png="ReKrabice_logo_colored.png"
+              />
             </Center>
           </Flex>
           <Title order={3} id="ikonka">
@@ -197,20 +176,7 @@ export default function Page() {
               height="128"
               alt="ReKrabice icon"
             />
-            <Link
-              download="ReKrabice_icon.svg"
-              href="/branding/ReKrabice_icon.svg"
-              target="_top"
-            >
-              <ActionIcon
-                variant="outline"
-                size="xl"
-                className="!absolute bottom-0 right-0"
-                m="sm"
-              >
-                <IconDownload />
-              </ActionIcon>
-            </Link>
+            <DownloadMenu svg="ReKrabice_icon.svg" png="ReKrabice_icon.png" />
           </Center>
         </Stack>
         <Stack>
