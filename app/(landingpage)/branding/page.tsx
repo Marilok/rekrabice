@@ -134,6 +134,15 @@ export default function Page() {
           <Title order={3} id="logotyp">
             Logotyp
           </Title>
+          <Text>
+            Logotyp je základním prvkem naší identity. Používáme ho na všech
+            oficiálních dokumentech, webových stránkách a všude tam, kde chceme
+            zviditelnit naši značku. 📦
+          </Text>
+          <Text>
+            Preferujeme SVG formát (který při zvětšování a zmenšování neztrácí
+            kvalitu), ale pro potřeby offline tisku můžeme použít i PNG. 🖼️
+          </Text>
           <Flex gap="sm">
             <Center className="relative w-96 " bg="brand.10">
               <Image
