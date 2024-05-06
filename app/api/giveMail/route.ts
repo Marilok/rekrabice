@@ -1,15 +1,10 @@
 "use server";
 
-import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
-import type { Database } from "types/supabase";
-
 import transporter from "utils/nodemailer/transporterResend";
+
 // eslint-disable-next-line import/prefer-default-export
 export async function POST(req: NextRequest) {
-  const supabase = createRouteHandlerClient<Database>({ cookies });
-
   const { mail: reqMail }: { mail: string } = await req.json();
 
   const confirmationData = {
@@ -37,9 +32,29 @@ export async function POST(req: NextRequest) {
   try {
     await transporter.sendMail(confirmationData);
 
-    await supabase.rpc("landingpagesignup", {
-      usermail: reqMail,
-    });
+    const response = await fetch(
+      "https://api2.ecomailapp.cz/lists/3/subscribe",
+      {
+        method: "POST",
+        // @ts-expect-error
+        headers: {
+          "Content-Type": "application/json",
+          key: process.env.ECOMAIL_API_KEY,
+        },
+        body: JSON.stringify({
+          subscriber_data: {
+            email: reqMail,
+          },
+        }),
+      },
+    );
+
+    if (response.ok) {
+      console.log("Email subscribed successfully");
+    } else {
+      console.log(response.status, response.statusText);
+      console.log("Failed to subscribe email");
+    }
 
     return new NextResponse(null, { status: 200 });
   } catch (error) {
