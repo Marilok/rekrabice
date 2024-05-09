@@ -34,20 +34,21 @@ export default function TeamMember({
         >
           {name}
         </Text>
-
-        <Group
-          mt={3}
-          className="flex flex-row flex-nowrap justify-center items-start"
-          gap={4}
-          mb={0}
-        >
-          <IconAt stroke={1.5} size={16} className={classes.icon} />
-          <Anchor component={Link} href={`mailto:${email}`}>
-            <Text size="xs" c="dimmed">
-              {email}
-            </Text>
-          </Anchor>
-        </Group>
+        {email && (
+          <Group
+            mt={3}
+            className="flex flex-row flex-nowrap justify-center items-start"
+            gap={4}
+            mb={0}
+          >
+            <IconAt stroke={1.5} size={16} className={classes.icon} />
+            <Anchor component={Link} href={`mailto:${email}`}>
+              <Text size="xs" c="dimmed">
+                {email}
+              </Text>
+            </Anchor>
+          </Group>
+        )}
 
         {phone && (
           <Group wrap="nowrap" gap={10} mt={5}>

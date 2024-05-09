@@ -3,7 +3,7 @@ import TeamMember from "./TeamMember/TeamMember";
 
 export default function Team() {
   return (
-    <Container className="flex gap-2 flex-wrap">
+    <Container className="flex gap-2 flex-wrap" maw="1200">
       <TeamMember
         avatar="/images/avatars/marek.jpeg"
         title="Technologie a strategie"
@@ -15,6 +15,12 @@ export default function Team() {
         title="Marketing a sales"
         name="Tadeáš Bíbr"
         email="tadeas.bibr@rekrabice.cz"
+      />
+      <TeamMember
+        avatar="/images/avatars/barca.jpeg"
+        title="Marketing"
+        name="Barbora Valariková"
+        email=""
       />
       <TeamMember
         avatar=""
