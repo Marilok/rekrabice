@@ -5,13 +5,13 @@ export default function Team() {
   return (
     <Container className="flex gap-2 flex-wrap" maw="1200">
       <TeamMember
-        avatar="/images/avatars/marek.jpeg"
-        title="Technologie a strategie"
+        avatar="/images/avatars/marek.png"
+        title="Produkt a vývoj"
         name="Marek Svitek"
         email="marek.svitek@rekrabice.cz"
       />
       <TeamMember
-        avatar="/images/avatars/tadeas.jpeg"
+        avatar="/images/avatars/tadeas.png"
         title="Marketing a sales"
         name="Tadeáš Bíbr"
         email="tadeas.bibr@rekrabice.cz"
