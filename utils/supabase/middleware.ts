@@ -37,17 +37,15 @@ export default async function updateSession(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  if (
-    !user &&
-    !request.nextUrl.pathname.startsWith("/login") &&
-    !request.nextUrl.pathname.startsWith("/auth") &&
-    !request.nextUrl.pathname.startsWith("/eshop")
-  ) {
-    // no user, potentially respond by redirecting the user to the login page
-    // const url = request.nextUrl.clone();
-    // url.pathname = "/login";
-    // return NextResponse.redirect(url);
-  }
+  // if (request.nextUrl.pathname === "/eshop") {
+  //   const url = request.nextUrl.clone();
+  //   url.pathname = "/eshop/login";
+  //   return NextResponse.redirect(url);
+  //   // no user, potentially respond by redirecting the user to the login page
+  //   // const url = request.nextUrl.clone();
+  //   // url.pathname = "/login";
+  //   // return NextResponse.redirect(url);
+  // }
 
   // IMPORTANT: You *must* return the supabaseResponse object as it is. If you're
   // creating a new response object with NextResponse.next() make sure to:
