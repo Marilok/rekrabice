@@ -47,7 +47,7 @@ export default function StyledNavbar({ links }: { links: any[] }) {
             width="100"
             alt="logo icon"
           />
-          <Code>{translations.systemNavbar.version} Alpha 0.8</Code>
+          <Code>{translations.systemNavbar.version} 0.2.1</Code>
         </Group>
         <Divider my="sm" />
         {navLinks}

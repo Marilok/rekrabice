@@ -57,11 +57,11 @@ export default function StyledNavbar({
         <Group justify="space-between">
           <Image
             src="/branding/ReKrabice_logo_colored.svg"
-            height={30}
-            width="100"
+            height={40}
+            width="120"
             alt="logo icon"
           />
-          <Code>{translations.systemNavbar.version} Alpha 0.8</Code>
+          <Code>{translations.systemNavbar.version} 0.2.1</Code>
         </Group>
         <Divider my="sm" />
         {navLinks}
