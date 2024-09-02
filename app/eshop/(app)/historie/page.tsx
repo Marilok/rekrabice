@@ -10,10 +10,22 @@ import {
   TableThead,
   TableTr,
 } from "@mantine/core";
+import { redirect } from "next/navigation";
 import getEshopId from "../_functions/getEshopId";
 import MonthPick from "./_components/month";
 
 export default async function Page({ searchParams }: { searchParams: any }) {
+  if (!searchParams.month || !searchParams.year) {
+    const currentDate = new Date();
+    const currentMonth = currentDate.getMonth();
+    const currentYear = currentDate.getFullYear();
+
+    const searchParams = new URLSearchParams();
+    searchParams.set("month", (currentMonth + 1).toString());
+    searchParams.set("year", currentYear.toString());
+
+    redirect(`?${searchParams.toString()}`);
+  }
   const supabase = createClientServer();
 
   const eshopId = await getEshopId();
@@ -21,29 +33,17 @@ export default async function Page({ searchParams }: { searchParams: any }) {
   const pickedMonth = searchParams.month;
   const pickedYear = searchParams.year;
 
-  const currentDate = new Date();
-  const currentMonth = currentDate.getMonth();
-  const currentYear = currentDate.getFullYear();
-
   const startOfMonth = new Date(
-    Number(pickedYear) || currentYear,
-    Number(pickedMonth) !== undefined && !Number.isNaN(Number(pickedMonth))
-      ? Number(pickedMonth) - 1
-      : currentMonth,
+    parseInt(pickedYear),
+    parseInt(pickedMonth) - 1,
     1,
   );
 
-  const endOfMonth = new Date(
-    Number(pickedYear) || currentYear,
-    Number(pickedMonth) !== undefined && !Number.isNaN(Number(pickedMonth))
-      ? Number(pickedMonth)
-      : currentMonth + 1,
-    0,
-  );
+  const endOfMonth = new Date(parseInt(pickedYear), parseInt(pickedMonth), 0);
 
   const { data: eshops_sent, error } = await supabase
     .from("eshops_sent")
-    .select("box_id(tracking_id), shipped_at")
+    .select("id, box_id(tracking_id), shipped_at")
     .eq("eshop_id", eshopId)
     .order("shipped_at", { ascending: false })
     .gte("shipped_at", startOfMonth.toISOString())
@@ -60,7 +60,7 @@ export default async function Page({ searchParams }: { searchParams: any }) {
 
   const rows = eshops_sent?.map((element) => (
     // @ts-expect-error
-    <TableTr key={element.box_id.tracking_id}>
+    <TableTr key={element.box_id.id}>
       <TableTd>{transformTimestamp(element.shipped_at)}</TableTd>
       {/* @ts-expect-error} */}
       <TableTd>{element.box_id?.tracking_id}</TableTd>
