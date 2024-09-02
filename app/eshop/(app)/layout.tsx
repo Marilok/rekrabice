@@ -8,7 +8,7 @@ import Wrapper from "./_components/Wrapper";
 export async function generateMetadata() {
   return {
     title: "Systém ReKrabice",
-    description: "Interní systém pro sběrná místa ReKrabic",
+    description: "Interní systém pro eshopy využívající ReKrabice",
     robots: "none, noimageindex",
   };
 }
