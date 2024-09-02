@@ -1,8 +1,6 @@
 "use server";
 
-import { createServerActionClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
-import type { Database } from "types/supabase";
+import createClientServer from "@/utils/supabase/server";
 
 export default async function createNewOrderRecord(
   retailerId: number,
@@ -10,7 +8,7 @@ export default async function createNewOrderRecord(
   totalPrice: number,
   products: any,
 ) {
-  const supabase = createServerActionClient<Database>({ cookies });
+  const supabase = createClientServer();
 
   const { data, error } = await supabase
     .from("retailers_orders")

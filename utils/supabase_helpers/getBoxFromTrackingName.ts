@@ -1,12 +1,13 @@
 "use server";
 
-import { Box } from "@/types/index";
-import { createServerActionClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
-import type { Database } from "types/supabase";
+import createClientServer from "@/utils/supabase/server";
 
-export default async function getBoxFromTrackingName( boxTrackingName: Box["tracking_id"]) {
-  const supabase = createServerActionClient<Database>({ cookies });
+import { Box } from "@/types/index";
+
+export default async function getBoxFromTrackingName(
+  boxTrackingName: Box["tracking_id"],
+) {
+  const supabase = createClientServer();
 
   const { data, error } = await supabase
     .from("boxes")

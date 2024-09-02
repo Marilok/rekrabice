@@ -1,12 +1,10 @@
 "use server";
 
-import { createServerActionClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
-import type { Database } from "types/supabase";
+import createClientServer from "@/utils/supabase/server";
 import getBoxesOnPallete from "./getBoxesOnPallete";
 
 export default async function getBoxMetadataFromPallete(palleteId: any) {
-  const supabase = createServerActionClient<Database>({ cookies });
+  const supabase = createClientServer();
 
   const boxes = await getBoxesOnPallete(palleteId);
 

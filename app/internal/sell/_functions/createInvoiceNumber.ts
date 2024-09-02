@@ -1,8 +1,6 @@
 "use server";
 
-import { createServerActionClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
-import type { Database } from "types/supabase";
+import createClientServer from "@/utils/supabase/server";
 
 function getPaddedMonth(month: number) {
   if (month < 10) {
@@ -25,7 +23,7 @@ function getPaddedSequence(sequence: number) {
 }
 
 export async function getLastInvoiceNumber() {
-  const supabase = createServerActionClient<Database>({ cookies });
+  const supabase = createClientServer();
 
   const { data, error } = await supabase
     .from("retailers_orders")

@@ -18,6 +18,12 @@ const nextConfig = {
         port: "",
         pathname: "/paylibo/generator/**",
       },
+      {
+        protocol: "https",
+        hostname: "vlzmneddlwojekmklqnf.supabase.co",
+        port: "",
+        pathname: "/storage/**",
+      },
     ],
   },
 };

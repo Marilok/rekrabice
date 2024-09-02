@@ -1,17 +1,16 @@
 "use client";
 
+import createClientBrowser from "@/utils/supabase/client";
 import { AspectRatio } from "@mantine/core";
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import "leaflet/dist/leaflet.css";
 import { useState } from "react";
 import { MapContainer, TileLayer, useMapEvents } from "react-leaflet";
-import type { Database } from "types/supabase";
 import EasterEggShapes from "../EasterEgg/EasterEggShapes";
 import Markers from "../Marker/Markers";
 import MapyLogo from "./MapyLogo";
 
 export default function CustomMap() {
-  const supabase = createClientComponentClient<Database>();
+  const supabase = createClientBrowser();
   const [locations, setLocations] = useState<any>([]);
 
   function LocationsProvider() {

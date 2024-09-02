@@ -1,8 +1,7 @@
 "use client";
 
+import createClientBrowser from "@/utils/supabase/client";
 import { notifications } from "@mantine/notifications";
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import type { Database } from "types/supabase";
 import assignLoopToBox from "utils/supabase_helpers/assignLoopToBox";
 import createLoopUpdate from "utils/supabase_helpers/createLoopUpdate";
 import createNewLoop from "utils/supabase_helpers/createNewLoop";
@@ -13,7 +12,7 @@ export default async function handleScannedBox(
   palleteId: number | string,
   trackingName: string,
 ) {
-  const supabase = createClientComponentClient<Database>();
+  const supabase = createClientBrowser();
 
   const { data, error } = await supabase
     .from("palletes")

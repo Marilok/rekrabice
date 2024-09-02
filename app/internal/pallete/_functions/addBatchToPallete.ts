@@ -1,14 +1,12 @@
 "use server";
 
-import { createServerActionClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
-import type { Database } from "types/supabase";
+import createClientServer from "@/utils/supabase/server";
 
 export default async function addBatchToPallete(
   palleteId: number,
   batchId: number,
 ) {
-  const supabase = createServerActionClient<Database>({ cookies });
+  const supabase = createClientServer();
 
   const { error } = await supabase.rpc("update_palletes_boxes", {
     selected_pallete_id: palleteId,

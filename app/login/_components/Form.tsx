@@ -3,13 +3,12 @@
 import { isEmail, useForm } from "@mantine/form";
 import Link from "next/link";
 // import { useState } from "react";
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 
+import createClientBrowser from "@/utils/supabase/client";
 import { Anchor, Button, Group, TextInput } from "@mantine/core";
 import { useFocusTrap } from "@mantine/hooks";
 import translations from "translations/login";
-import type { Database } from "types/supabase";
 
 interface FormValues {
   email: string;
@@ -17,7 +16,7 @@ interface FormValues {
 
 export default function Form({ setSubmitted }: any) {
   const router = useRouter();
-  const supabase = createClientComponentClient<Database>();
+  const supabase = createClientBrowser();
   async function signIn(emailProp: string) {
     await supabase.auth.signInWithOtp({
       email: emailProp,

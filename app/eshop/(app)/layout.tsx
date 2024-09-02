@@ -1,3 +1,7 @@
+// "use server";
+
+import createClientServer from "@/utils/supabase/server";
+import { redirect } from "next/navigation";
 import React from "react";
 import Wrapper from "./_components/Wrapper";
 
@@ -14,5 +18,12 @@ export default async function Layout({
 }: {
   children: React.ReactNode;
 }) {
+  const supabase = createClientServer();
+  const { data, error } = await supabase.auth.getUser();
+
+  if (error || !data) {
+    redirect("login");
+  }
+
   return <Wrapper>{children}</Wrapper>;
 }

@@ -6,6 +6,8 @@ Disallow: /system
 Disallow: /system/
 Disallow: /internal
 Disallow: /internal/
+Disallow: /eshop
+Disallow: /eshop/
 
 
 

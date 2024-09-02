@@ -1,8 +1,6 @@
-import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
+import createClientServer from "@/utils/supabase/server";
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
-import type { Database } from "types/supabase";
 
 export const dynamic = "force-dynamic";
 
@@ -12,11 +10,11 @@ export async function GET(request: NextRequest) {
   const code = requestUrl.searchParams.get("code");
 
   if (code) {
-    const supabase = createRouteHandlerClient<Database>({ cookies });
+    const supabase = createClientServer();
     await supabase.auth.exchangeCodeForSession(code);
   }
 
   // URL to redirect to after sign in process completes
   // return NextResponse.redirect(requestUrl.origin);
-  return NextResponse.redirect(new URL("/system/prijmout", request.url));
+  return NextResponse.redirect(new URL("/eshop/odeslat", request.url));
 }

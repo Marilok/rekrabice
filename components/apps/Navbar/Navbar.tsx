@@ -1,18 +1,17 @@
 "use client";
 
+import createClientBrowser from "@/utils/supabase/client";
 import { AppShell, Code, Divider, Group } from "@mantine/core";
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { IconLogout, IconSettings } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import translations from "translations/translations";
-import type { Database } from "types/supabase";
 import classes from "./Navbar.module.css";
 
 export default function StyledNavbar({ links }: { links: any[] }) {
   const pathname = usePathname();
-  const supabase = createClientComponentClient<Database>();
+  const supabase = createClientBrowser();
   const router = useRouter();
 
   const handleSignout = async () => {

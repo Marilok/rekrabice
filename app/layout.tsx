@@ -1,10 +1,12 @@
 import "@mantine/core/styles.css";
+import "@mantine/dates/styles.css";
 import "@mantine/notifications/styles.css";
 
 import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 import { Notifications } from "@mantine/notifications";
 import { Metadata } from "next";
-import { Lexend } from "next/font/google";
+import { Inter, Lexend } from "next/font/google";
+
 import React from "react";
 import "./global.css";
 
@@ -27,6 +29,13 @@ export const metadata: Metadata = {
 const lexend = Lexend({
   subsets: ["latin"],
   display: "swap",
+  variable: "--font-lexend",
+});
+
+export const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
 });
 
 export default async function RootLayout({
