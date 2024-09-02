@@ -20,11 +20,11 @@ export default async function Page({ searchParams }: { searchParams: any }) {
     const currentMonth = currentDate.getMonth();
     const currentYear = currentDate.getFullYear();
 
-    const searchParams = new URLSearchParams();
-    searchParams.set("month", (currentMonth + 1).toString());
-    searchParams.set("year", currentYear.toString());
+    const newSearchParams = new URLSearchParams();
+    newSearchParams.set("month", (currentMonth + 1).toString());
+    newSearchParams.set("year", currentYear.toString());
 
-    redirect(`?${searchParams.toString()}`);
+    redirect(`?${newSearchParams.toString()}`);
   }
   const supabase = createClientServer();
 
@@ -34,12 +34,16 @@ export default async function Page({ searchParams }: { searchParams: any }) {
   const pickedYear = searchParams.year;
 
   const startOfMonth = new Date(
-    parseInt(pickedYear),
-    parseInt(pickedMonth) - 1,
+    parseInt(pickedYear, 10),
+    parseInt(pickedMonth, 10) - 1,
     1,
   );
 
-  const endOfMonth = new Date(parseInt(pickedYear), parseInt(pickedMonth), 0);
+  const endOfMonth = new Date(
+    parseInt(pickedYear, 10),
+    parseInt(pickedMonth, 10),
+    0,
+  );
 
   const { data: eshops_sent, error } = await supabase
     .from("eshops_sent")

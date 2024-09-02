@@ -13,15 +13,17 @@ export default function MonthPick() {
   const router = useRouter();
 
   const [value, setValue] = useState<DateValue | null>(
-    month && year ? new Date(parseInt(year), parseInt(month) - 1) : null,
+    month && year
+      ? new Date(parseInt(year, 10), parseInt(month, 10) - 1)
+      : null,
   );
 
-  const onChange = (value: DateValue) => {
-    setValue(value);
-    const searchParams = new URLSearchParams();
-    searchParams.set("month", (value!.getMonth() + 1).toString());
-    searchParams.set("year", value!.getFullYear().toString());
-    router.replace(`?${searchParams.toString()}`);
+  const onChange = (dateValue: DateValue) => {
+    setValue(dateValue);
+    const newSearchParams = new URLSearchParams();
+    newSearchParams.set("month", (dateValue!.getMonth() + 1).toString());
+    newSearchParams.set("year", dateValue!.getFullYear().toString());
+    router.replace(`?${newSearchParams.toString()}`);
     router.refresh();
   };
 
