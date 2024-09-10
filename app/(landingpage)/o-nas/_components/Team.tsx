@@ -17,10 +17,10 @@ export default function Team() {
         email="tadeas.bibr@rekrabice.cz"
       />
       <TeamMember
-        avatar="/images/avatars/barca.jpeg"
+        avatar="/images/avatars/barca.png"
         title="Marketing"
         name="Barbora Valariková"
-        email=""
+        email="barbora.valarikova@rekrabice.cz"
       />
       <TeamMember
         avatar=""
