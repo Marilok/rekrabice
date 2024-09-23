@@ -1,6 +1,11 @@
 import createClientServer from "@/utils/supabase/server";
 import { AppShell, AppShellMain } from "@mantine/core";
-import { IconCubeSend, IconHistory, IconPhone } from "@tabler/icons-react";
+import {
+  IconCubeSend,
+  IconHistory,
+  IconPhone,
+  IconServer,
+} from "@tabler/icons-react";
 import React from "react";
 import StyledNavbar from "./Navbar/Navbar";
 
@@ -49,11 +54,15 @@ const LINKS = [
     label: "Odeslat krabici",
     icon: <IconCubeSend stroke={1.5} />,
   },
-
   {
     link: "/eshop/historie",
     label: "Historie pohybů",
     icon: <IconHistory stroke={1.5} />,
+  },
+  {
+    link: "/eshop/api",
+    label: "API dokumentace",
+    icon: <IconServer stroke={1.5} />,
   },
   {
     link: "/eshop/kontakt",
