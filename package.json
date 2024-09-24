@@ -2,6 +2,9 @@
   "name": "rekrabice",
   "version": "0.1.1",
   "private": true,
+  "workspaces":[
+    "./packages/*"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",

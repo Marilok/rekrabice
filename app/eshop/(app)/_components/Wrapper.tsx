@@ -1,4 +1,4 @@
-import createClientServer from "@/utils/supabase/server";
+import createClientServerCache from "@/utils/supabase/serverCache";
 import { AppShell, AppShellMain } from "@mantine/core";
 import {
   IconChartBar,
@@ -15,7 +15,7 @@ export default async function Wrapper({
 }: {
   children: React.ReactNode;
 }) {
-  const supabase = createClientServer();
+  const supabase = createClientServerCache();
 
   const { data, error } = await supabase
     .from("eshops_users")

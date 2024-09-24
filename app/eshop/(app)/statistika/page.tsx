@@ -1,4 +1,4 @@
-import createClientServer from "@/utils/supabase/server";
+import createClientServerCache from "@/utils/supabase/serverCache";
 import { Group, Paper, Stack, Text } from "@mantine/core";
 import Image from "next/image";
 import Tree from "public/emojis/animated/deciduous_tree.png";
@@ -6,7 +6,7 @@ import Package from "public/emojis/animated/package.png";
 import getEshopId from "../_functions/getEshopId";
 
 export default async function Page() {
-  const supabase = createClientServer();
+  const supabase = createClientServerCache();
   const eshopId = await getEshopId();
   // get count of boxes used by this eshop
   const { count, error } = await supabase

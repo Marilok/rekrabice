@@ -1,5 +1,5 @@
 import { Box, Eshop } from "@/types/index";
-import createClientRouter from "@/utils/supabase/router";
+import createClientServerService from "@/utils/supabase/serverService";
 
 // eslint-disable-next-line import/prefer-default-export
 export async function POST(request: Request) {
@@ -27,7 +27,7 @@ export async function POST(request: Request) {
       });
     }
 
-    const supabase = createClientRouter();
+    const supabase = createClientServerService();
     const boxIdResponse = await getBoxFromTrackingName(supabase, tracking_name);
 
     if (boxIdResponse instanceof Response) {
