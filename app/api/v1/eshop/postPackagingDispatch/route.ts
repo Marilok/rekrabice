@@ -4,7 +4,8 @@ import createClientServerService from "@/utils/supabase/serverService";
 // eslint-disable-next-line import/prefer-default-export
 export async function POST(request: Request) {
   try {
-    const { tracking_name } = await request.json();
+    const { dataString } = await request.json();
+
     const apiKey = request.headers.get("api-key");
 
     if (!apiKey) {
@@ -13,6 +14,14 @@ export async function POST(request: Request) {
 
     if (!isApiKeyValid(apiKey)) {
       return new Response("Unauthorized", { status: 401 });
+    }
+
+    let tracking_name;
+    if (dataString.includes("tracking_name")) {
+      const url = new URL(dataString);
+      tracking_name = url.searchParams.get("tracking_name");
+    } else {
+      tracking_name = dataString;
     }
 
     if (!tracking_name) {
