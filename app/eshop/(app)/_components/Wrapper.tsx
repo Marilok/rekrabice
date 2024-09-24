@@ -1,6 +1,7 @@
 import createClientServer from "@/utils/supabase/server";
 import { AppShell, AppShellMain } from "@mantine/core";
 import {
+  IconChartBar,
   IconCubeSend,
   IconHistory,
   IconPhone,
@@ -58,6 +59,11 @@ const LINKS = [
     link: "/eshop/historie",
     label: "Historie pohybů",
     icon: <IconHistory stroke={1.5} />,
+  },
+  {
+    link: "/eshop/statistika",
+    label: "Statistika",
+    icon: <IconChartBar stroke={1.5} />,
   },
   {
     link: "/eshop/api",

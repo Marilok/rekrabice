@@ -61,7 +61,7 @@ export default function StyledNavbar({
             width="120"
             alt="logo icon"
           />
-          <Code>{translations.systemNavbar.version} 0.2.1</Code>
+          <Code>{translations.systemNavbar.version} 0.3.0</Code>
         </Group>
         <Divider my="sm" />
         {navLinks}
