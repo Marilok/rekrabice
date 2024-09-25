@@ -47,7 +47,7 @@ export default async function Page({ searchParams }: { searchParams: any }) {
 
   const { data: eshops_sent, error } = await supabase
     .from("eshops_sent")
-    .select("id, box_id(tracking_id), shipped_at")
+    .select("id, box_id(alias), shipped_at")
     .eq("eshop_id", eshopId)
     .order("shipped_at", { ascending: false })
     .gte("shipped_at", startOfMonth.toISOString())
@@ -67,7 +67,7 @@ export default async function Page({ searchParams }: { searchParams: any }) {
     <TableTr key={element.box_id.id}>
       <TableTd>{transformTimestamp(element.shipped_at)}</TableTd>
       {/* @ts-expect-error} */}
-      <TableTd>{element.box_id?.tracking_id}</TableTd>
+      <TableTd>{element.box_id?.alias}</TableTd>
     </TableTr>
   ));
 

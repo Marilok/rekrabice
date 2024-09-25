@@ -16,28 +16,28 @@ export async function POST(request: Request) {
       return new Response("Unauthorized", { status: 401 });
     }
 
-    let tracking_id;
-    if (dataString.includes("tracking_id")) {
+    let alias;
+    if (dataString.includes("alias")) {
       const url = new URL(dataString);
-      tracking_id = url.searchParams.get("tracking_id");
+      alias = url.searchParams.get("alias");
     } else {
-      tracking_id = dataString;
+      alias = dataString;
     }
 
-    if (!tracking_id) {
-      return new Response("Bad Request - missing tracking_id", {
+    if (!alias) {
+      return new Response("Bad Request - missing alias", {
         status: 400,
       });
     }
 
-    if (!/^[A-Z0-9]{8}$/.test(tracking_id)) {
-      return new Response("Bad Request - invalid structure of tracking_id", {
+    if (!/^[A-Z0-9]{8}$/.test(alias)) {
+      return new Response("Bad Request - invalid structure of alias", {
         status: 400,
       });
     }
 
     const supabase = createClientServerService();
-    const boxIdResponse = await getBoxFromTrackingName(supabase, tracking_id);
+    const boxIdResponse = await getBoxFromTrackingName(supabase, alias);
 
     if (boxIdResponse instanceof Response) {
       return boxIdResponse;
@@ -61,12 +61,12 @@ export async function POST(request: Request) {
 
 async function getBoxFromTrackingName(
   supabase: any,
-  trackingName: Box["tracking_id"],
+  trackingName: Box["alias"],
 ) {
   const { data, error } = await supabase
     .from("boxes")
     .select("box_id")
-    .eq("tracking_id", trackingName)
+    .eq("alias", trackingName)
     .single();
 
   if (error) {

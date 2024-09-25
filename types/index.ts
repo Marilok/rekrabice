@@ -1,6 +1,6 @@
 export interface Box {
   box_id: string;
-  tracking_id: string;
+  alias: string;
 }
 
 export interface Eshop {

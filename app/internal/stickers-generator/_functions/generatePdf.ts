@@ -14,7 +14,7 @@ export default async function generatePdf(data: any) {
     }
 
     drawBackground(doc);
-    drawTextAndQRCode(doc, item.tracking_id);
+    drawTextAndQRCode(doc, item.alias);
     drawInstructions(doc);
   });
 

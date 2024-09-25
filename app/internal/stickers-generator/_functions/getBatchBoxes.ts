@@ -6,7 +6,7 @@ export default async function getBatchBoxes(batchId: number) {
   const supabase = createClientServer();
   const { data: boxes, error } = await supabase
     .from("boxes")
-    .select("tracking_id")
+    .select("alias")
     .eq("batch_id", batchId)
     .order("box_id", { ascending: true });
 

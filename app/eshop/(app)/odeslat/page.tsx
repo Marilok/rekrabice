@@ -43,7 +43,7 @@ export default function Page() {
     const { data, error } = await supabase
       .from("boxes")
       .select("box_id")
-      .eq("tracking_id", trackingName)
+      .eq("alias", trackingName)
       .single();
 
     if (data?.box_id == null) {
