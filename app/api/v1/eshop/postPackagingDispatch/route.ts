@@ -16,28 +16,28 @@ export async function POST(request: Request) {
       return new Response("Unauthorized", { status: 401 });
     }
 
-    let tracking_name;
-    if (dataString.includes("tracking_name")) {
+    let tracking_id;
+    if (dataString.includes("tracking_id")) {
       const url = new URL(dataString);
-      tracking_name = url.searchParams.get("tracking_name");
+      tracking_id = url.searchParams.get("tracking_id");
     } else {
-      tracking_name = dataString;
+      tracking_id = dataString;
     }
 
-    if (!tracking_name) {
-      return new Response("Bad Request - missing tracking_name", {
+    if (!tracking_id) {
+      return new Response("Bad Request - missing tracking_id", {
         status: 400,
       });
     }
 
-    if (!/^[A-Z0-9]{8}$/.test(tracking_name)) {
-      return new Response("Bad Request - invalid structure of tracking_name", {
+    if (!/^[A-Z0-9]{8}$/.test(tracking_id)) {
+      return new Response("Bad Request - invalid structure of tracking_id", {
         status: 400,
       });
     }
 
     const supabase = createClientServerService();
-    const boxIdResponse = await getBoxFromTrackingName(supabase, tracking_name);
+    const boxIdResponse = await getBoxFromTrackingName(supabase, tracking_id);
 
     if (boxIdResponse instanceof Response) {
       return boxIdResponse;
