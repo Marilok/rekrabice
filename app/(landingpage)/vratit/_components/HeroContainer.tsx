@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  Affix,
   AspectRatio,
   Button,
   Card,
@@ -8,9 +9,13 @@ import {
   Paper,
   Text,
   Title,
+  Transition,
+  rem,
 } from "@mantine/core";
+import { useScrollIntoView, useWindowScroll } from "@mantine/hooks";
 import Image from "next/image";
-import AffixHint from "./AffixHint";
+
+import { IconArrowDown } from "@tabler/icons-react";
 
 const steps = [
   {
@@ -45,6 +50,12 @@ const steps = [
 ];
 
 export default function Page() {
+  const { scrollIntoView, targetRef } = useScrollIntoView<HTMLDivElement>({
+    offset: 60,
+  });
+
+  const [scroll, scrollTo] = useWindowScroll();
+
   return (
     <Flex
       gap="xl"
@@ -115,9 +126,24 @@ export default function Page() {
           />
         </AspectRatio>
       </Paper>
-      <AffixHint />
+      <Affix position={{ bottom: 20, right: 20 }} visibleFrom="md">
+        <Transition transition="slide-up" mounted={scroll.y === 0}>
+          {(transitionStyles) => (
+            <Button
+              leftSection={
+                <IconArrowDown style={{ width: rem(16), height: rem(16) }} />
+              }
+              style={transitionStyles}
+              onClick={() => scrollIntoView()}
+              size="lg"
+            >
+              Rádi uslyšíme tvůj názor
+            </Button>
+          )}
+        </Transition>
+      </Affix>
 
-      <Paper mt="md" p="xl" shadow="md" withBorder>
+      <Paper mt="md" p="xl" shadow="md" withBorder ref={targetRef}>
         <Flex
           direction={{ base: "column", md: "row" }}
           display="flex"
