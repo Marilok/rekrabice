@@ -54,7 +54,7 @@ export default function Page() {
     offset: 60,
   });
 
-  const [scroll, scrollTo] = useWindowScroll();
+  const [scroll] = useWindowScroll();
 
   return (
     <Flex
