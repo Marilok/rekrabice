@@ -37,10 +37,10 @@ const steps = [
       "Obsluze sděl, že by si chtěl vrátit zásilku, nadiktuj podací kód a předej ReKrabici. 📦",
   },
   {
-    text: "* Teď už je to na nás",
+    text: "Teď už je to na nás",
     image: "/emojis/animated/deciduous_tree.png",
     description:
-      "Teď už se o všechno postaráme my! Krabici zkontrolujeme, vyčistíme a poskytneme dalšímu e-shopu na použití. Děkujeme, že s námi šetříš naše lesy. ♻️",
+      "Teď už se o všechno postaráme my! Krabici zkontrolujeme, vyčistíme a poskytneme dalšímu e-shopu. Děkujeme, že s námi šetříš naše lesy. ♻️",
   },
 ];
 
