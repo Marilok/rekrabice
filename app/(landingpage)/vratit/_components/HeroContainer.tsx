@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  Anchor,
   AspectRatio,
   Button,
   Card,
@@ -11,47 +10,37 @@ import {
   Title,
 } from "@mantine/core";
 import Image from "next/image";
-import Link from "next/link";
+import AffixHint from "./AffixHint";
 
 const steps = [
   {
-    text: "1. Klikni na kouzelný odkaz",
-    image: "/emojis/animated/man_technologist.png",
-    description: (
-      <>
-        Přejdi prosím na stránku{" "}
-        <Anchor
-          component={Link}
-          target="_blank"
-          href="https://www.balikovna.cz/cs/poslat-balik/vratit-balik?returnCode=0788b8bb"
-        >
-          pro vrácení balíčku přes Balíkovnu
-        </Anchor>{" "}
-        a vyplň zbytek formuláře. 📝
-      </>
-    ),
-  },
-  {
-    text: "2. Opiš podací kód",
-    image: "/emojis/animated/writing_hand.png",
-    description:
-      "Na ReKrabici je přednalepený štítek. Na ten prosím napiš podací kód, který ti přišel do mailu. 📩",
-  },
-  {
-    text: "3. Slož ji",
+    text: "1. Rozlož ji na plocho",
     image: "/emojis/animated/package.png",
     description:
-      "Slož prosím ReKrabici na plocho, aby šetřila místo a ohyb prosím přelep izolepou (třeba tou, kterou byla přelepena zásilka). 💪",
+      "Slož ReKrabici na plocho, aby šetřila místo a nepřepravoval se zbytečný vzduch. Ohyb zajisti izolepou (ideálně tou, kterou byla zalepena zásilka). 📦",
   },
   {
-    text: "4. Zajdi na Balíkovnu",
-    image: "/emojis/animated/delivery_truck.png",
+    text: "2. Zajdi na Balíkovnu",
+    image: "/emojis/animated/writing_hand.png",
     description: (
       <>
-        Vrať ji prosím na kteroukoliv pobočku Balíkovny (<b>kromě boxů</b>).
-        Nevíš, kde je ta nejbližší? Mapku najdeš dole! 🤗
+        ReKrabice už má předem nalepený štítek, na kterém by měl být podací kód.
+        Pokud tam není, napiš na krabici tento kód: <strong>0788b8bb</strong>.
+        🙏
       </>
     ),
+  },
+  {
+    text: "3. Odevzdej ji",
+    image: "/emojis/animated/delivery_truck.png",
+    description:
+      "Obsluze sděl, že by si chtěl vrátit zásilku, nadiktuj podací kód a předej ReKrabici. 📦",
+  },
+  {
+    text: "* Teď už je to na nás",
+    image: "/emojis/animated/deciduous_tree.png",
+    description:
+      "Teď už se o všechno postaráme my! Krabici zkontrolujeme, vyčistíme a poskytneme dalšímu e-shopu na použití. Děkujeme, že s námi šetříš naše lesy. ♻️",
   },
 ];
 
@@ -90,19 +79,6 @@ export default function Page() {
             </Card.Section>
           </Card>
         ))}
-        {/* <Card>
-          <Card.Section>
-            <Image src={Unboxing} width={400} height={400} />
-          </Card.Section>
-          <Card.Section>1. Vybal nákup</Card.Section>
-          <Card.Section>Bla bla bla</Card.Section>
-        </Card>
-        <Card>2. Dones mě na jakkoukoliv Balíkovnu</Card>
-        Mrkni kdyžtak na mapku dole.
-        <Card>
-          Sděl jim, že by si chtěl vrátit zásilku a nadiktuj jim kouzelný kód{" "}
-          <span className="font-bold">0788b8bb</span>
-        </Card> */}
       </Flex>
       <Title order={2}>Mapa Balíkoven</Title>
       <Paper
@@ -139,6 +115,8 @@ export default function Page() {
           />
         </AspectRatio>
       </Paper>
+      <AffixHint />
+
       <Paper mt="md" p="xl" shadow="md" withBorder>
         <Flex
           direction={{ base: "column", md: "row" }}
