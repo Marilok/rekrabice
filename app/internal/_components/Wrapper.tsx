@@ -5,6 +5,7 @@ import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import {
   IconBarcode,
   IconCashBanknote,
+  IconChartArea,
   IconFileInvoice,
   IconPackage,
   IconScan,
@@ -54,6 +55,7 @@ const LINKS = [
     label: "Skenování",
     icon: <IconScan stroke={1.5} />,
   },
+
   {
     link: "/internal/pallete",
     label: "Palety",
@@ -83,5 +85,10 @@ const LINKS = [
     link: "/internal/new-word",
     label: "Návrh nových slov",
     icon: <IconBarcode stroke={1.5} />,
+  },
+  {
+    link: "/internal/dashboard",
+    label: "Metriky",
+    icon: <IconChartArea stroke={1.5} />,
   },
 ];

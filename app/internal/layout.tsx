@@ -1,3 +1,4 @@
+import "@mantine/charts/styles.css";
 import React from "react";
 import Wrapper from "./_components/Wrapper";
 
