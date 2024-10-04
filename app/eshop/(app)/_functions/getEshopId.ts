@@ -11,7 +11,7 @@ export default async function getEshopId() {
     .single();
 
   if (error) {
-    throw error;
+    throw new Error(error.message);
   }
 
   return eshop.eshop_id;
