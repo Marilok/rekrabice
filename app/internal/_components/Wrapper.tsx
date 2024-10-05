@@ -87,7 +87,7 @@ const LINKS = [
     icon: <IconBarcode stroke={1.5} />,
   },
   {
-    link: "/internal/dashboard",
+    link: "/internal/metrics",
     label: "Metriky",
     icon: <IconChartArea stroke={1.5} />,
   },
