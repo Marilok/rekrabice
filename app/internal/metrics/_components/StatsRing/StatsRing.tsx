@@ -1,6 +1,7 @@
 import { Group, Paper, SimpleGrid, Text } from "@mantine/core";
 import { data as MonthlyUsed } from "../../_data/monthly_used";
 
+import { BOXES_FROM_TREE } from "@/data/const";
 import Image from "next/image";
 import Tree from "public/emojis/animated/deciduous_tree.png";
 import Package from "public/emojis/animated/package.png";
@@ -31,7 +32,7 @@ const dataStats = [
   {
     label: "Zachráněných stromů",
     description: "Přibližný počet stromů, které nemusely být pokáceny.",
-    stats: (count! / 400).toFixed(2).toString(),
+    stats: (count! / BOXES_FROM_TREE).toFixed(2).toString(),
     image: Tree,
   },
 ] as const;

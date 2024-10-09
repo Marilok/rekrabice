@@ -1,3 +1,4 @@
+import { BOXES_FROM_TREE } from "@/data/const";
 import createClientServerCache from "@/utils/supabase/serverCache";
 import { Group, Paper, Stack, Text } from "@mantine/core";
 import Image from "next/image";
@@ -28,7 +29,7 @@ export default async function Page() {
     {
       label: "Zachráněných stromů",
       description: "Přibližný počet stromů, které nemusely být pokáceny.",
-      stats: (count! / 400).toFixed(2).toString(),
+      stats: (count! / BOXES_FROM_TREE).toFixed(2).toString(),
       image: Tree,
     },
   ] as const;
