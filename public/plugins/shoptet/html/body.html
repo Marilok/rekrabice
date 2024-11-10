@@ -1,0 +1,185 @@
+    
+    <dialog class="rekrabice_dialog" id="rekrabice_dialog">
+      <button
+        data-modal-close
+        onclick="closePopup();"
+        class="rekrabice_dialog_close"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="icon icon-tabler icon-tabler-x"
+          width="44"
+          height="44"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="#2c3e50"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M18 6l-12 12" />
+          <path d="M6 6l12 12" />
+        </svg>
+      </button>
+      <img
+        src="https://rekrabice.cz/plugins/shoptet/trash2.jpg"
+        alt="Foto ReKrabice"
+      />
+      <p class="rekrabice_dialog_text_div">
+      <strong>
+      	Už tě nebaví pořád vyhazovat kartonové krabice po každé objednávce?
+        </strong>
+<span>
+Nyní můžeš snížit množství odpadu a chránit naše lesy, když si necháš nákup zabalit do znovupoužitelné a odolné ReKrabice.
+Tu pak místo do koše můžeš vrátit na kterékoliv Balíkovnu, kterou máš ve svém okolí a ReKrabice se tak dostane zpátky do oběhu.
+Tvoji zásluhou tak nemusí být pokácen další strom a my i příroda ti za to budeme moc vděční.</span>
+         </p>
+            
+     
+
+      <div class="rekrabice_dialog_buttons">
+        <button onclick="addRekrabice();closePopup();">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="44"
+            height="44"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="#2c3e50"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M12 17l-2 2l2 2" />
+            <path d="M10 19h9a2 2 0 0 0 1.75 -2.75l-.55 -1" />
+            <path d="M8.536 11l-.732 -2.732l-2.732 .732" />
+            <path d="M7.804 8.268l-4.5 7.794a2 2 0 0 0 1.506 2.89l1.141 .024" />
+            <path d="M15.464 11l2.732 .732l.732 -2.732" />
+            <path
+              d="M18.196 11.732l-4.5 -7.794a2 2 0 0 0 -3.256 -.14l-.591 .976"
+            />
+          </svg>
+          <span>Vyzkouším to!</span>
+        </button>
+                </div>
+
+    </dialog>
+    
+    <script>
+const ITEM_CODE = "REKRABICE";
+
+function toggleReKrabice() {
+  const productInCart = getProductInCart();
+
+  if (productInCart) {
+    shoptet.cartShared.removeFromCart({ itemId: productInCart.itemId });
+  } else {
+    shoptet.cartShared.addToCart({ productCode: ITEM_CODE });
+  }
+
+  setTimeout(() => {
+    window.location.reload();
+  }, 150);
+}
+
+function addRekrabice() {
+  const productInCart = getProductInCart();
+
+  if (!productInCart) {
+    shoptet.cartShared.addToCart({ productCode: ITEM_CODE });
+  } 
+
+  setTimeout(() => {
+    window.location.reload();
+  }, 150);
+}
+
+function getProductInCart() {
+  const productInCart = dataLayer[0].shoptet.cart.find(
+    (item) => item.code === ITEM_CODE
+  );
+
+  return productInCart;
+}
+
+function openPopup() {
+  document.getElementById("rekrabice_dialog").showModal();
+}
+
+function closePopup() {
+  document.getElementById("rekrabice_dialog").close();
+}
+
+function insertReKrabiceButton() {
+  const path = window.location.pathname;
+
+  if (path.startsWith("/kosik")) {
+    const cartContent = document.querySelector(".cart-content");
+    const cartSummary = document.querySelector(".cart-summary");
+
+    const rekrabiceButton = document.createElement("div");
+    rekrabiceButton.innerHTML = `<div class="rekrabice_wrapper">
+        <h4>
+          Balení
+        </h4>
+        <button
+          id="rekrabice_button"
+          class="rekrabice_button rekrabice_transition"
+        >
+          <input
+            type="checkbox"
+            id="rekrabice_checkbox"
+            class="rekrabice_checkbox"
+            onclick="toggleReKrabice();"
+          />
+          <img
+            src="https://www.rekrabice.cz/plugins/shoptet/favicon.svg"
+            width="40px"
+            height="40px"
+            alt="Ikonka ReKrabice na zeleném pozadí"
+          />
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+            "
+          >
+            <strong>Zabalit do vratné ReKrabice</strong>
+            <a onclick="openPopup();" href="#"> Co je to ReKrabice? </a>
+          </div>
+          <p>+49 Kč</p>
+        </button>
+      </div>`;
+    cartContent.insertBefore(rekrabiceButton, cartSummary);
+  }
+}
+
+function checkReKrabice() {
+  const productInCart = getProductInCart();
+  if (productInCart) {
+    document.getElementById("rekrabice_checkbox").checked = true;
+  }
+}
+
+document.addEventListener("ShoptetDOMCartCountUpdated", function () {
+	setTimeout(() => {
+     callback();
+  }, 150);
+ 
+});
+
+
+function callback() {
+  insertReKrabiceButton();
+  checkReKrabice();
+}
+
+
+
+(function () {
+  callback();
+})();
+</script>

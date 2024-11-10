@@ -1,0 +1,142 @@
+<style>
+  .dialog_primary {
+    background-color: #008a19;
+    color: #fff;
+  }
+
+  .rekrabice_checkbox {
+    /* fallback for browsers that don't support accent-color */
+    width: 20px !important;
+    height: 20px !important;
+    background-color: #008a19; /* Fallback */
+    accent-color: #008a19; /* Modern browsers */
+    position: static !important;
+    -webkit-appearance: checkbox !important; /* Old WebKit */
+    appearance: auto !important;
+    cursor: pointer;
+  }
+
+  @media (max-width: 991px) {
+    .rekrabice_wrapper {
+      padding: 10px 10px 20px;
+    }
+  }
+
+  .rekrabice_button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    border: 1px solid #71717a;
+    cursor: default;
+    border-radius: 2px;
+    gap: 16px;
+    padding: 10px;
+  }
+
+  .rekrabice_transition * {
+    -webkit-transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1); /* Safari */
+    transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1); /* Modern */
+  }
+
+  .rekrabice_button p:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  .rekrabice_dialog {
+    max-width: 500px;
+    border-radius: 2px;
+    border: none;
+    -webkit-transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1); /* Safari */
+    transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1); /* Modern */
+
+    img {
+      width: 100%;
+      height: 250px;
+      object-fit: contain;
+    }
+
+    p {
+      margin: 24px 0;
+    }
+  }
+
+  .rekrabice_dialog_close {
+    margin-left: auto;
+    cursor: pointer;
+    color: #64748b;
+    border-radius: 50%;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: transparent;
+
+    &:hover,
+    &:active {
+      background-color: #f9fafb;
+    }
+
+    svg {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+
+  .rekrabice_dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.2);
+    /* Fallback for older browsers */
+    background-color: rgba(0, 0, 0, 0.8);
+    -webkit-backdrop-filter: blur(10px); /* Safari */
+    backdrop-filter: blur(10px); /* Modern */
+  }
+
+  .rekrabice_dialog_buttons button {
+    padding: 12px 24px;
+    border: none;
+    width: 100%;
+    border-radius: 2px;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 8px;
+
+    svg {
+      height: 18px;
+      stroke-width: 2;
+      width: auto;
+    }
+  }
+
+  .rekrabice_dialog_text_div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    span {
+      text-align: justify;
+      padding: 0 10px 0 0;
+    }
+
+    strong {
+      font-size: 15px;
+    }
+  }
+
+  .rekrabice_dialog_buttons button:nth-child(1) {
+    background-color: #008a19;
+    color: #fff;
+    svg {
+      stroke: #fff;
+    }
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+</style>
