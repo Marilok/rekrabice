@@ -1,15 +1,13 @@
 "use client";
 
 import { DateValue, MonthPickerInput } from "@mantine/dates";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 import "dayjs/locale/cs";
 
-export default function MonthPick() {
-  const searchParams = useSearchParams();
-  const month = searchParams.get("month");
-  const year = searchParams.get("year");
+export default function MonthPick(searchParams: any) {
+  const { month, year } = searchParams;
   const router = useRouter();
 
   const [value, setValue] = useState<DateValue | null>(

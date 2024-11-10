@@ -11,6 +11,7 @@ export async function GET(request: NextRequest) {
 
   if (code) {
     const supabase = createClientServer();
+    // @ts-expect-error
     await supabase.auth.exchangeCodeForSession(code);
   }
 

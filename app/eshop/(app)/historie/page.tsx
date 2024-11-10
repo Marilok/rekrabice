@@ -14,7 +14,9 @@ import { redirect } from "next/navigation";
 import getEshopId from "../_functions/getEshopId";
 import MonthPick from "./_components/month";
 
-export default async function Page({ searchParams }: { searchParams: any }) {
+export default async function Page(props: { searchParams: Promise<any> }) {
+  // eslint-disable-next-line
+  const searchParams = await props.searchParams;
   if (!searchParams.month || !searchParams.year) {
     const currentDate = new Date();
     const currentMonth = currentDate.getMonth();
@@ -62,18 +64,16 @@ export default async function Page({ searchParams }: { searchParams: any }) {
     return date.toLocaleString("cs-CZ", { timeZone: "UTC" });
   };
 
-  const rows = eshops_sent?.map((element) => (
-    // @ts-expect-error
+  const rows = eshops_sent?.map((element: any) => (
     <TableTr key={element.box_id.id}>
       <TableTd>{transformTimestamp(element.shipped_at)}</TableTd>
-      {/* @ts-expect-error} */}
       <TableTd>{element.box_id?.alias}</TableTd>
     </TableTr>
   ));
 
   return (
     <Flex dir="row" gap="200">
-      <MonthPick />
+      <MonthPick searchParams={searchParams} />
       <ScrollArea h={400} type="auto" styles={{ scrollbar: { top: 40 } }}>
         <Table maw={400} stickyHeader>
           <TableThead>

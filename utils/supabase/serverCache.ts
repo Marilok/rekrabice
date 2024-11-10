@@ -1,6 +1,6 @@
 import { Database } from "@/types/supabase";
 import { createServerClient } from "@supabase/ssr";
-import { cookies } from "next/headers";
+import { cookies, UnsafeUnwrappedCookies } from "next/headers";
 
 // ! This is different fron server client, because it replacec the supabase fetch() function with the nextjs one
 // To be used when needed to store cache
@@ -14,7 +14,7 @@ export const createFetch =
     });
 
 export default function createClientServerCache() {
-  const cookieStore = cookies();
+  const cookieStore = cookies() as unknown as UnsafeUnwrappedCookies;
 
   return createServerClient<Database>(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,

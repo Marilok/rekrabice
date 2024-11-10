@@ -55,7 +55,7 @@ export async function POST(request: Request) {
 
     return new Response("OK", { status: 200 });
   } catch (error) {
-    console.log(error);
+    console.error(error);
     return new Response("Internal Server Error", { status: 500 });
   }
 }
