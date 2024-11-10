@@ -50,7 +50,7 @@ export async function POST(req: NextRequest) {
 
   try {
     const insertionResponse = await fetch(
-      `https://api.myshoptet.com/api/products`,
+      "https://api.myshoptet.com/api/products",
       {
         method: "POST",
         headers: {
@@ -93,6 +93,7 @@ export async function POST(req: NextRequest) {
       status: 201,
     });
   } catch (error) {
+    console.log(error);
     return new Response("Internal Server Error", {
       status: 500,
     });

@@ -5,7 +5,6 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true, // TODO: change later
   },
-  swcMinify: true,
   i18n: {
     locales: ["cs"],
     defaultLocale: "cs",

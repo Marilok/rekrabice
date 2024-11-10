@@ -7,7 +7,7 @@ async function insertTemplate(
   location: "common-header" | "common-footer",
 ) {
   const response = await fetch(
-    `https://api.myshoptet.com/api/template-include`,
+    "https://api.myshoptet.com/api/template-include",
     {
       method: "POST",
       headers: {
@@ -18,8 +18,8 @@ async function insertTemplate(
         data: {
           snippets: [
             {
-              location: location,
-              html: html,
+              location,
+              html,
             },
           ],
         },

@@ -1,7 +1,7 @@
 import { data as monthlyLostRetailers } from "./monthly_lost_retailers";
 import { data as monthlyNewRetailers } from "./monthly_new_reatailers";
 
-let totalRetailers: { [year: string]: number } = {};
+const totalRetailers: { [year: string]: number } = {};
 export const data = monthlyNewRetailers.map((newRetailers, index) => {
   const lostRetailers = monthlyLostRetailers[index];
   // @ts-expect-error

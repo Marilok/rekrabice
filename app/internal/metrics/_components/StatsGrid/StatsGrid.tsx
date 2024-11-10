@@ -24,12 +24,14 @@ const getCurrentDateData = () => {
 
   const currentData = financialData.find((item: FinancialRecord) => {
     const [, itemMonth, itemYear] = item.date.split(".");
-    return month === parseInt(itemMonth) && year === parseInt(itemYear);
+    return month === parseInt(itemMonth, 10) && year === parseInt(itemYear, 10);
   });
 
   const previousData = financialData.find((item: FinancialRecord) => {
     const [, itemMonth, itemYear] = item.date.split(".");
-    return month - 1 === parseInt(itemMonth) && year === parseInt(itemYear);
+    return (
+      month - 1 === parseInt(itemMonth, 10) && year === parseInt(itemYear, 10)
+    );
   });
 
   return { currentData, previousData };
@@ -52,14 +54,14 @@ if (!currentData || !previousData) {
   throw new Error("Data for the current or previous month is missing.");
 }
 
-const income = currentData.income;
-const expenses = currentData.expenses;
-const liabilities = currentData.liabilities;
+const { income, expenses, liabilities } = currentData;
 const profit = income - expenses;
 
-const previousIncome = previousData.income;
-const previousExpenses = previousData.expenses;
-const previousLiabilities = previousData.liabilities;
+const {
+  income: previousIncome,
+  expenses: previousExpenses,
+  liabilities: previousLiabilities,
+} = previousData;
 const previousProfit = previousIncome - previousExpenses;
 
 const incomeDiff = calculateDiff(income, previousIncome);

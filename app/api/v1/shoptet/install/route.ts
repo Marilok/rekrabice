@@ -1,5 +1,5 @@
+import { SupabaseClient } from "@/types/index";
 import createClientServerService from "@/utils/supabase/serverService";
-import { SupabaseClient } from "@supabase/supabase-js";
 import { CONFIG } from "../variables";
 
 const redirectUri = `${CONFIG.baseUrl}/api/v1/shoptet/install`;
@@ -49,7 +49,7 @@ async function insertEshopDetails(supabase: SupabaseClient): Promise<string> {
       address: "TBA",
     })
     .select()
-    .single<{ eshop_id: string }>();
+    .single();
 
   if (error) {
     console.error("Error inserting into Supabase:", error);
@@ -171,7 +171,7 @@ async function getTemporaryAccessToken(accessToken: string): Promise<string> {
 }
 
 async function getWebhooks(token: any) {
-  const resp = await fetch(`https://api.myshoptet.com/api/webhooks`, {
+  const resp = await fetch("https://api.myshoptet.com/api/webhooks", {
     headers: {
       "Content-Type": "application/vnd.shoptet.v1.0+json",
       "Shoptet-Access-Token": token,
@@ -195,7 +195,7 @@ function getWebhookIdByEvent(webhooks: any, event: any) {
 }
 
 async function createWebhook(token: any) {
-  const resp = await fetch(`https://api.myshoptet.com/api/webhooks`, {
+  const resp = await fetch("https://api.myshoptet.com/api/webhooks", {
     method: "POST",
     headers: {
       "Content-Type": "application/vnd.shoptet.v1.0+json",

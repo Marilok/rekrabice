@@ -1,5 +1,6 @@
 import { AreaChart, LineChart } from "@mantine/charts";
 import { Card, SimpleGrid, Space, Text, Title } from "@mantine/core";
+import React from "react";
 import { data as MonthlyRetailers } from "../../_data/monthly_retailers";
 import { data as MonthlyRetention } from "../../_data/monthly_retailers_retention";
 import { data as MonthlyReturned } from "../../_data/monthly_returned";
@@ -18,7 +19,7 @@ const ChartCard: React.FC<ChartCardProps> = ({
   ChartComponent,
   chartProps,
 }) => (
-  <Card w="500" p={"md"}>
+  <Card w="500" p="md">
     <Title order={2}>{title}</Title>
     <Text c="dimmed" h={60}>
       {description}
@@ -36,7 +37,7 @@ const series = [
 
 export default function Charts() {
   return (
-    <SimpleGrid spacing={"md"} cols={2}>
+    <SimpleGrid spacing="md" cols={2}>
       <ChartCard
         title="Využitých ReKrabic za měsíc 📦"
         description="Primární metrika (north-star metric), kterou sledujeme náš růst a dopad na svět"
