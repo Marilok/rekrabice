@@ -13,21 +13,23 @@ interface ChartCardProps {
   chartProps: any;
 }
 
-const ChartCard: React.FC<ChartCardProps> = ({
+function ChartCard({
   title,
   description,
   ChartComponent,
   chartProps,
-}) => (
-  <Card w="500" p="md">
-    <Title order={2}>{title}</Title>
-    <Text c="dimmed" h={60}>
-      {description}
-    </Text>
-    <Space h="md" />
-    <ChartComponent {...chartProps} />
-  </Card>
-);
+}: ChartCardProps) {
+  return (
+    <Card w="500" p="md">
+      <Title order={2}>{title}</Title>
+      <Text c="dimmed" h={60}>
+        {description}
+      </Text>
+      <Space h="md" />
+      <ChartComponent {...chartProps} />
+    </Card>
+  );
+}
 
 const series = [
   { name: "2023", color: "teal.6" },

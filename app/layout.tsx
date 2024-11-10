@@ -44,7 +44,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="cs" className={lexend.className}>
+    <html lang="cs" className={lexend.className} suppressHydrationWarning>
       <head>
         <meta
           name="viewport"
