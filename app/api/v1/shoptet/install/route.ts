@@ -1,5 +1,6 @@
 import { SupabaseClient } from "@/types/index";
 import createClientServerService from "@/utils/supabase/serverService";
+import { ShoptetAcessToken } from "../types";
 import { CONFIG } from "../variables";
 
 const redirectUri = `${CONFIG.baseUrl}/api/v1/shoptet/install`;
@@ -64,7 +65,7 @@ async function insertShoptetDetails(
   shoptet_id: string,
   contactEmail: string,
   eshopUrl: string,
-  access_token: string,
+  access_token: ShoptetAcessToken,
 ): Promise<void> {
   const { error } = await supabase.from("eshops_shoptet").insert({
     eshop_id,
@@ -80,7 +81,7 @@ async function insertShoptetDetails(
   }
 }
 
-async function createCategory(access_token: string): Promise<void> {
+async function createCategory(access_token: ShoptetAcessToken): Promise<void> {
   const response = await fetch(
     `${CONFIG.baseUrl}/api/v1/shoptet/install/createCategory`,
     {
@@ -129,7 +130,7 @@ async function sendEmail(
   }
 }
 
-async function createProduct(access_token: string): Promise<void> {
+async function createProduct(access_token: ShoptetAcessToken): Promise<void> {
   const response = await fetch(
     `${CONFIG.baseUrl}/api/v1/shoptet/install/createProduct`,
     {
@@ -152,7 +153,9 @@ async function createProduct(access_token: string): Promise<void> {
   }
 }
 
-async function getTemporaryAccessToken(accessToken: string): Promise<string> {
+async function getTemporaryAccessToken(
+  accessToken: ShoptetAcessToken,
+): Promise<string> {
   const response = await fetch(CONFIG.getAccessTokenUrl, {
     method: "GET",
     headers: {
@@ -170,7 +173,7 @@ async function getTemporaryAccessToken(accessToken: string): Promise<string> {
   return access_token;
 }
 
-async function getWebhooks(token: any) {
+async function getWebhooks(token: ShoptetAcessToken) {
   const resp = await fetch("https://api.myshoptet.com/api/webhooks", {
     headers: {
       "Content-Type": "application/vnd.shoptet.v1.0+json",
@@ -194,7 +197,7 @@ function getWebhookIdByEvent(webhooks: any, event: any) {
   return matchingWebhook ? matchingWebhook.id : null;
 }
 
-async function createWebhook(token: any) {
+async function createWebhook(token: ShoptetAcessToken) {
   const resp = await fetch("https://api.myshoptet.com/api/webhooks", {
     method: "POST",
     headers: {
@@ -216,7 +219,7 @@ async function createWebhook(token: any) {
   }
 }
 
-async function insertTemplates(accessToken: string): Promise<void> {
+async function insertTemplates(accessToken: ShoptetAcessToken): Promise<void> {
   const response = await fetch(
     `${CONFIG.baseUrl}/api/v1/shoptet/install/insertTemplate`,
     {
@@ -242,7 +245,7 @@ async function insertTemplates(accessToken: string): Promise<void> {
 export async function GET(request: Request): Promise<Response> {
   const { searchParams } = new URL(request.url);
   const code = searchParams.get("code");
-  const supabase = createClientServerService();
+  const supabase = await createClientServerService();
 
   if (!code) {
     return new Response("Missing code parameter", { status: 400 });

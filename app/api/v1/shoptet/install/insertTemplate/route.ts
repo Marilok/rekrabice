@@ -1,8 +1,9 @@
 import { NextRequest } from "next/server";
+import { ShoptetAcessToken } from "../../types";
 import { CONFIG } from "../../variables";
 
 async function insertTemplate(
-  accessToken: string,
+  accessToken: ShoptetAcessToken,
   html: string,
   location: "common-header" | "common-footer",
 ) {
@@ -36,6 +37,11 @@ async function insertTemplate(
   return JSON.parse(rawResponseText);
 }
 
+async function getHtmlText(url: string) {
+  const response = await fetch(url);
+  return response.text();
+}
+
 export async function POST(req: NextRequest) {
   const { accessToken }: { accessToken: string } = await req.json();
 
@@ -44,11 +50,13 @@ export async function POST(req: NextRequest) {
       status: 400,
     });
   }
-  const head = await fetch(`${CONFIG.baseUrl}/plugins/shoptet/html/head.html`);
-  const headText = await head.text();
 
-  const body = await fetch(`${CONFIG.baseUrl}/plugins/shoptet/html/body.html`);
-  const bodyText = await body.text();
+  const headText = await getHtmlText(
+    `${CONFIG.baseUrl}/plugins/shoptet/html/head.html`,
+  );
+  const bodyText = await getHtmlText(
+    `${CONFIG.baseUrl}/plugins/shoptet/html/body.html`,
+  );
 
   try {
     await insertTemplate(accessToken, headText, "common-header");

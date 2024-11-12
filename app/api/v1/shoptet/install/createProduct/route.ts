@@ -1,7 +1,8 @@
 import { NextRequest } from "next/server";
+import { ShoptetAcessToken } from "../../types";
 import { SHOPTET_CATEGORY_GUID, SHOPTET_PRODUCT_GUID } from "../../variables";
 
-async function updateImage(accessToken: any) {
+async function updateImage(accessToken: ShoptetAcessToken) {
   const response = await fetch(
     `https://api.myshoptet.com/api/products/${SHOPTET_PRODUCT_GUID}/images/shop`,
     {
@@ -40,7 +41,7 @@ async function updateImage(accessToken: any) {
 }
 
 export async function POST(req: NextRequest) {
-  const { accessToken }: { accessToken: string } = await req.json();
+  const { accessToken }: { accessToken: ShoptetAcessToken } = await req.json();
 
   if (!accessToken) {
     return new Response("Missing required fields", {
