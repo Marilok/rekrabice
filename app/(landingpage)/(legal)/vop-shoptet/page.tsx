@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
 
 export default function Page() {
-  redirect("/VOP.pdf");
+  redirect("/VOP_Shoptet_Doplňku.pdf");
 }
