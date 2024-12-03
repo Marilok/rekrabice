@@ -1,6 +1,4 @@
 {
   "buildCommand": "npm run build",
   "installCommand": "npm install --force",
-  "outputDirectory": "apps/web",
-  "rootDirectory": "apps/web"
-}
+  "outputDirectory": "apps/web"}
