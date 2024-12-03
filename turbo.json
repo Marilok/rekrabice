@@ -10,6 +10,28 @@
     "lint": {
       "dependsOn": ["^lint"]
     },
+      "web#build": {
+      "dependsOn": ["^build"],
+      "env": [
+        "NEXT_PUBLIC_SUPABASE_URL",
+        "SUPABASE_SERVICE_ROLE_KEY",
+        "NEXT_PUBLIC_SUPABASE_ANON_KEY",
+        "NEXT_PUBLIC_MAPY_API_KEY",
+        "NEXT_PUBLIC_URL",
+        "BANK_ACCOUNT_ID",
+        "BANK_ACCOUNT_KEY",
+        "RESEND_API_KEY",
+        "SUPABASE_ACCESS_TOKEN",
+        "ECOMAIL_API_KEY",
+        "POSTGRES_PASSWORD",
+        "SHOPTET_CLIENT_ID",
+        "SHOPTET_CLIENT_SECRET",
+        "SHOPTET_OAUTH_SERVER_TOKEN_URL",
+        "SHOPTET_ACCESS_TOKEN_URL",
+        "EMAIL_DKIM_PRIVATE_KEY"
+      ],
+      "outputs": [".next/**", "!.next/cache/**"]
+    },
     "check-types": {
       "dependsOn": ["^check-types"]
     },
