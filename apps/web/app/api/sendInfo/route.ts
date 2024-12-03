@@ -10,14 +10,12 @@ export async function POST(req: NextRequest) {
 
   const html = await render(React.createElement(InfoEmail));
 
-  console.log(html);
-
   const mailData = {
     from: "Robot z ReKrabice <robot@notifications.rekrabice.cz>",
     to: customerMail,
     replyTo: "ahoj@rekrabice.cz",
     subject: "Info o ReKrabici",
-    html: html,
+    html,
   };
 
   try {
