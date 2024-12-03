@@ -1,8 +1,8 @@
 import { render } from "@react-email/render";
 import { NextRequest, NextResponse } from "next/server";
 import React from "react";
+import InfoEmail from "transactional/emails/InfoEmail";
 import transporter from "utils/nodemailer/transporterResend";
-import InfoEmail from "../../../../../packages/transactional/emails/InfoEmail";
 
 // eslint-disable-next-line import/prefer-default-export
 export async function POST(req: NextRequest) {
