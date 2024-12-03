@@ -8,3 +8,5 @@ export interface Eshop {
 }
 
 export type SupabaseClient = any;
+
+export type Email = `${string}@${string}.${string}`;

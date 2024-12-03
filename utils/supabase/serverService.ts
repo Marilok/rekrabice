@@ -1,12 +1,12 @@
 import { Database } from "@/types/supabase";
 import { createServerClient } from "@supabase/ssr";
-import { cookies, UnsafeUnwrappedCookies } from "next/headers";
+import { cookies } from "next/headers";
 
 // ! This is different from server client, because it uses the service role key, that bypasses any RLS policies
 // To be used only in server actions
 
-export default function createClientServerService() {
-  const cookieStore = cookies() as unknown as UnsafeUnwrappedCookies;
+export default async function createClientServerService() {
+  const cookieStore = await cookies();
 
   return createServerClient<Database>(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,

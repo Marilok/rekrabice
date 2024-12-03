@@ -36,7 +36,7 @@ export async function POST(request: Request) {
       });
     }
 
-    const supabase = createClientServerService();
+    const supabase = await createClientServerService();
     const boxIdResponse = await getBoxFromTrackingName(supabase, alias);
 
     if (boxIdResponse instanceof Response) {
