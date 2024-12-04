@@ -1,4 +1,4 @@
 {
-  "buildCommand": "cd apps/web && npm run build",
-  "installCommand": "npm install --force",
-  "outputDirectory": "apps/web"}
+  "buildCommand": "npm run build",
+  "installCommand": "npm install --force"
+  }
