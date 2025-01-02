@@ -4,6 +4,7 @@ import BottomCta from "./_components/BottomCta";
 import Faq from "./_components/Faq/Faq";
 import Hero from "./_components/Hero/Hero";
 import Partners from "./_components/Partners";
+import ShoptetLogo from "./_components/ShoptetLogo";
 import StepperComponent from "./_components/StepperComponent";
 
 export const metadata: Metadata = {
@@ -19,6 +20,7 @@ export default function Page() {
       <StepperComponent />
       <Space h={80} />
       <Partners />
+      <ShoptetLogo />
       <Space h={80} />
       <Faq />
       <BottomCta />
