@@ -13,7 +13,7 @@ export default function ShoptetLogo() {
         my="xl"
       >
         <div className="w-60 h-14 relative rounded-sm">
-          <Link href="https://doplnky.shoptet.cz/rekrabice" target="_blank">
+          <Link href="https://shoptet.cz" target="_blank">
             <Image
               src="/images/logos/shoptet.svg"
               fill
