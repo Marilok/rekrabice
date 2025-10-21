@@ -11,7 +11,7 @@ export const config = {
     "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
     "/login/:path*",
     "/auth/:path*",
-    "/boxflow/((?!login$)):path*", // matches every route except /boxflow/login
-    "/eshop/((?!login$)):path*", // matches every route except /eshop/login
+    "/boxflow/(?!login).*",
+    "/eshop/(?!login).*",
   ],
 };
