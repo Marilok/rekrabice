@@ -1,6 +1,7 @@
 import { Space } from "@mantine/core";
 import { Metadata } from "next";
 import BottomCta from "./_components/BottomCta";
+import EndProjectModal from "./_components/EndProjectModal";
 import Faq from "./_components/Faq/Faq";
 import Hero from "./_components/Hero/Hero";
 import Partners from "./_components/Partners";
@@ -15,6 +16,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
+      <EndProjectModal />
       <Hero />
       <Space h="xl" />
       <StepperComponent />
